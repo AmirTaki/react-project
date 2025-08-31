@@ -34,7 +34,7 @@ function App() {
           </div>
           <div className="">
             <div className="">
-              <input type="search" className={search ? 'w-[90px] duration-300 ease-in bg-white ' : 'w-[0px] duration-300 ease-out'}    />
+              <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-white px-3' : 'w-[0px] duration-900 ease-out'}    />
               <i class="bi bi-search" onClick={handlerSerch}></i>
             </div>
           </div>
