@@ -31,13 +31,18 @@ function App() {
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className=" gap-7  max-md:hidden  md:flex ">
+          <div className=" gap-7  max-md:bg-yellow-500   md:flex ">
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
           </div>
+
+
+
+
+
           <div className="flex items-center justify-center">
             <div className="relative flex gap-4">
               <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
@@ -58,3 +63,5 @@ function App() {
 
 export default App
 
+// https://www.youtube.com/watch?v=dOkkHHuFxjM
+//https://www.youtube.com/watch?v=NqzdVN2tyvQ
