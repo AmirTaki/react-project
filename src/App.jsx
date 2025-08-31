@@ -7,9 +7,15 @@ function App() {
 
  const [search, setSecarch] =  useState(false);
  const [navbar, setNavbar] = useState(false);
- useEffect(()=>{
+ 
+
+
+const handerResize = () =>{
     setNavbar(window.innerWidth <= 768 ? true : false)
- })
+
+  }
+window.addEventListener('resize',handerResize )
+
  const handlerSerch = () => {
   setSecarch(!search);
  }
@@ -35,7 +41,7 @@ function App() {
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className=" gap-7  max-md:bg-yellow-500   md:flex ">
+          <div className= {navbar ? "hidden" : "flex gap-7"} >
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
