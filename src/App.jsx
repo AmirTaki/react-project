@@ -22,7 +22,7 @@ function App() {
             </div>
         </div>
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
-          <i class="bi bi-heart heartLeft" ></i>
+          <i class="bi bi-heart max-md:block  md:hidden " ></i>
 
           <div className="" >
             <img src={logo} alt="" className='w-20' />
@@ -40,7 +40,7 @@ function App() {
               <i class="bi bi-search"   onClick={handlerSerch}></i>
               <i class="bi bi-person"></i>
               <i class="bi bi-handbag"></i>
-              <i class="bi bi-heart heartRight" ></i>
+              <i class="bi bi-heart max-md:hidden  md:block" ></i>
             </div>
             <div className="">
              
