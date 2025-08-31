@@ -9,11 +9,11 @@ function App() {
       <header>
         <div className="bg-gray-100 flex items-center justify-end h-[50px] border-b-[2px] border-amber-300">
             <div className="flex gap-3 p-5">
-              <a>help</a>
-              <a>orders and returns</a>
-              <a>gift cards</a>
-              <a>join</a>
-              <a>adClud</a>
+              <a className='cursor-pointer'>help</a>
+              <a className='cursor-pointer'>orders and returns</a>
+              <a className='cursor-pointer'>gift cards</a>
+              <a className='cursor-pointer'>join</a>
+              <a className='cursor-pointer'>adClud</a>
             </div>
            
         </div>
