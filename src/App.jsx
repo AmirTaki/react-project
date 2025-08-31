@@ -17,11 +17,19 @@ function App() {
             </div>
         </div>
         <div className="h-[60px] bg-gray-300 flex items-center justify-between">
-          <div className="w-full  " >
+          <div className="  " >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className=""></div>
-          <div className=""></div>
+          <div className="">
+            <div className="">item</div>
+            <div className="">item</div>
+            <div className="">item</div>
+            <div className="">item</div>
+            <div className="">item</div>
+          </div>
+          <div className="">
+            <div className="div">clear</div>
+          </div>
         </div>
       </header>
     </>
