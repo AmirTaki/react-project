@@ -15,9 +15,12 @@ function App() {
               <a className='cursor-pointer text-gray-500 hover:text-gray-950 hover:underline'>join</a>
               <a className='cursor-pointer text-gray-500 hover:text-gray-950 hover:underline'>adClud</a>
             </div>
-           
         </div>
-        <div className=""></div>
+        <div className="h-[60px] bg-gray-300">
+          <div className=""></div>
+          <div className=""></div>
+          <div className=""></div>
+        </div>
       </header>
     </>
   )
