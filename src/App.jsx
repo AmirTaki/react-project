@@ -17,7 +17,9 @@ function App() {
             </div>
         </div>
         <div className="h-[60px] bg-gray-300">
-          <div className=""></div>
+          <div className="">
+            <img src="" alt="" />
+          </div>
           <div className=""></div>
           <div className=""></div>
         </div>
