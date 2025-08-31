@@ -21,11 +21,11 @@ function App() {
             <img src={logo} alt="" className='w-20' />
           </div>
           <div className="flex gap-5  ">
-            <div className="bg-red-200 flex items-center justify-center border-b-sky-100 border-b-1 hover:border-b-1 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-red-200 flex items-center justify-center border-b-sky-100 border-b-1 hover:border-b-1 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-red-200 flex items-center justify-center border-b-sky-100 border-b-1 hover:border-b-1 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-red-200 flex items-center justify-center border-b-sky-100 border-b-1 hover:border-b-1 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-red-200 flex items-center justify-center border-b-sky-100 border-b-1 hover:border-b-1 hover:border-b-gray-900 cursor-pointer">item</div>
+            <div className="bg-red-200 flex items-center justify-center h-[60px] border-b-sky-100 border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
+            <div className="bg-red-200 flex items-center justify-center h-[60px] border-b-sky-100 border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
+            <div className="bg-red-200 flex items-center justify-center h-[60px] border-b-sky-100 border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
+            <div className="bg-red-200 flex items-center justify-center h-[60px] border-b-sky-100 border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
+            <div className="bg-red-200 flex items-center justify-center h-[60px] border-b-sky-100 border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
           </div>
           <div className="">
             <div className="div">clear</div>
