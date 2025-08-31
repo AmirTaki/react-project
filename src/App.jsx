@@ -20,12 +20,12 @@ function App() {
           <div className="  " >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className="flex gap-5">
-            <div className="">item</div>
-            <div className="">item</div>
-            <div className="">item</div>
-            <div className="">item</div>
-            <div className="">item</div>
+          <div className="flex gap-5  ">
+            <div className="bg-red-200 flex items-center justify-center ">item</div>
+            <div className="bg-red-200 flex items-center justify-center ">item</div>
+            <div className="bg-red-200 flex items-center justify-center ">item</div>
+            <div className="bg-red-200 flex items-center justify-center ">item</div>
+            <div className="bg-red-200 flex items-center justify-center ">item</div>
           </div>
           <div className="">
             <div className="div">clear</div>
