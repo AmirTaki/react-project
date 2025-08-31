@@ -14,9 +14,10 @@
 .bi-search{
     color: gray;
     cursor: pointer;
-    /* position: absolute; */
-    right: 0;
-    top: 2px;
+    position: absolute;
+    right: 70px;
+     top: 2px;
+   
 }
 
 .bi-search:hover {

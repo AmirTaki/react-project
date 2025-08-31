@@ -21,7 +21,7 @@ function App() {
               <a className='cursor-pointer text-gray-500 hover:text-gray-950 hover:underline'>adClud</a>
             </div>
         </div>
-        <div className="h-[60px] bg-white- flex items-center justify-around">
+        <div className="h-[70px] bg-white- flex items-center justify-around">
           <div className="  " >
             <img src={logo} alt="" className='w-20' />
           </div>
@@ -32,8 +32,8 @@ function App() {
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
           </div>
-          <div className="">
-            <div className="relative">
+          <div className="flex items-center justify-center">
+            <div className="relative flex gap-4">
               <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
               <i class="bi bi-search"   onClick={handlerSerch}></i>
               <i class="bi bi-person"></i>
