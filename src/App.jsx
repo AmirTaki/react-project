@@ -20,7 +20,7 @@ function App() {
           <div className="  " >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className="flex gap-5  ">
+          <div className="flex gap-7  ">
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
