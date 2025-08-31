@@ -27,3 +27,12 @@
 .bi-search:hover , .bi:hover {
     color:black
 }
+
+@media screen and (max-width : 768px){
+    .bi-search{
+        right: 65px;   
+    }
+    .heartRight{
+        display: none;
+    }   
+}
