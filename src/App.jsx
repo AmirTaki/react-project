@@ -1,11 +1,15 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import logo from "./assets/logo.webp"
 
 function App() {
 
- const [search, setSecarch] =  useState(false)
+ const [search, setSecarch] =  useState(false);
+ const [navbar, setNavbar] = useState(false);
+ useEffect(()=>{
+    setNavbar(window.innerWidth <= 768 ? true : false)
+ })
  const handlerSerch = () => {
   setSecarch(!search);
  }
