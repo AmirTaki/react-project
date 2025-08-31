@@ -13,15 +13,15 @@
 
 .bi-search{
 
-    position: absolute;
-    right: 100px;
+    /* position: absolute;
+    right: 100px; */
    
 }
 
 .bi {
-    color: gray;
+    /* color: gray;
     cursor: pointer;
-    font-size: large;
+    font-size: large; */
 }
 
 .bi-search:hover , .bi:hover {
