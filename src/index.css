@@ -10,29 +10,3 @@
     font-family: var(--font-display);
 
 }
-
-.bi-search{
-
-    /* position: absolute;
-    right: 100px; */
-   
-}
-
-.bi {
-    /* color: gray;
-    cursor: pointer;
-    font-size: large; */
-}
-
-/* .bi-search:hover , .bi:hover {
-    color:black
-}
-
-@media screen and (max-width : 768px){
-    .bi-search{
-        right: 65px;   
-    }
-    .heartRight{
-        display: none;
-    }   
-} */
