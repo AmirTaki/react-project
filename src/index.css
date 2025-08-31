@@ -3,5 +3,10 @@
 
 
 @theme {
+    --font-display :  "Dancing Script", cursive;
+}
+
+*{
+    font-family: var(--font-display);
     
 }
