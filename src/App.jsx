@@ -21,21 +21,21 @@ function App() {
               <a className='cursor-pointer text-gray-500 hover:text-gray-950 hover:underline'>adClud</a>
             </div>
         </div>
-        <div className="h-[60px] bg-gray-300 flex items-center justify-around">
+        <div className="h-[60px] bg-white- flex items-center justify-around">
           <div className="  " >
             <img src={logo} alt="" className='w-20' />
           </div>
           <div className="flex gap-7  ">
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
+            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
+            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
+            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
+            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
+            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
           </div>
           <div className="">
             <div className="">
-              <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-white px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
-              <i class="bi bi-search" onClick={handlerSerch}></i>
+              <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
+              <i class="bi bi-search"  onClick={handlerSerch}></i>
             </div>
           </div>
         </div>
