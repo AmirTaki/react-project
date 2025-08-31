@@ -1,6 +1,6 @@
 
 import './App.css'
-
+import logo from "./assets/logo.webp"
 function App() {
 
 
@@ -18,7 +18,7 @@ function App() {
         </div>
         <div className="h-[60px] bg-gray-300">
           <div className="">
-            <img src="" alt="" />
+            <img src={logo} alt="" />
           </div>
           <div className=""></div>
           <div className=""></div>
