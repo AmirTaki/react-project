@@ -22,7 +22,7 @@ function App() {
             </div>
         </div>
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
-          <i class="bi bi-heart max-md:block  md:hidden " ></i>
+          <i class="bi bi-heart max-md:block  md:hidden text-gray-400 hover:text-gray-900 duration-300 cursor-pointer" ></i>
 
           <div className="" >
             <img src={logo} alt="" className='w-20' />
