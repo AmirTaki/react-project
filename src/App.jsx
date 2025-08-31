@@ -6,6 +6,9 @@ import logo from "./assets/logo.webp"
 function App() {
 
  const [search, setSecarch] =  useState(false)
+ const handlerSerch = () => {
+  setSecarch(!search);
+ }
   return (
     <>
       <header>
@@ -32,8 +35,8 @@ function App() {
           <div className="">
             <div className="bg-amber-300">
               {search ? "1" : "0"}
-              <input type="search" />
-              <i class="bi bi-search" onClick={()=> {setSecarch(!search)}}></i>
+              <input type="search" className={search ? 'w-[50px]' : 'w-[0px]'}   />
+              <i class="bi bi-search" onClick={handlerSerch}></i>
             </div>
           </div>
         </div>
