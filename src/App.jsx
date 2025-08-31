@@ -8,11 +8,12 @@ function App() {
     <>
       <header>
         <div className="">
-            <Link>help</Link>
-            <Link>orders and returns</Link>
-            <Link>gift cards</Link>
-            <Link>join</Link>
-            <Link>adClud</Link>
+          
+            <a>help</a>
+            <a>orders and returns</a>
+            <a>gift cards</a>
+            <a>join</a>
+            <a>adClud</a>
         </div>
         <div className=""></div>
       </header>
