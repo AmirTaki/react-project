@@ -33,9 +33,8 @@ function App() {
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
           </div>
           <div className="">
-            <div className="bg-amber-300">
-              {search ? "1" : "0"}
-              <input type="search" className={search ? 'w-[50px] duration-300 ease-in ' : 'w-[0px] duration-300 ease-out'}    />
+            <div className="">
+              <input type="search" className={search ? 'w-[90px] duration-300 ease-in bg-white ' : 'w-[0px] duration-300 ease-out'}    />
               <i class="bi bi-search" onClick={handlerSerch}></i>
             </div>
           </div>
