@@ -8,5 +8,14 @@
 
 *{
     font-family: var(--font-display);
-    
+
+}
+
+.bi-search{
+    color: gray;
+    cursor: pointer;
+}
+
+.bi-search:hover {
+    color:black
 }
