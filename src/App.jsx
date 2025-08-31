@@ -6,6 +6,7 @@ import logo from "./assets/logo.webp"
 function App() {
 
  const [search, setSecarch] =  useState(false)
+ const handlerSearch = () =>{}
   return (
     <>
       <header>
@@ -31,8 +32,9 @@ function App() {
           </div>
           <div className="">
             <div className="bg-amber-300">
+              {search ? "1" : "0"}
               <input type="search" />
-              <i class="bi bi-search"></i>
+              <i class="bi bi-search" onClick={handlerSearch}></i>
             </div>
           </div>
         </div>
