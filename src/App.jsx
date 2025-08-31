@@ -33,9 +33,14 @@ function App() {
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
           </div>
           <div className="">
-            <div className="">
+            <div className="relative">
               <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
               <i class="bi bi-search"   onClick={handlerSerch}></i>
+              <i class="bi bi-person"></i>
+              <i class="bi bi-handbag"></i>
+            </div>
+            <div className="">
+             
             </div>
           </div>
         </div>
