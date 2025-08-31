@@ -21,6 +21,7 @@
 .bi {
     color: gray;
     cursor: pointer;
+    font-size: large;
 }
 
 .bi-search:hover , .bi:hover {
