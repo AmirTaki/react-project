@@ -16,7 +16,7 @@ function App() {
               <a className='cursor-pointer text-gray-500 hover:text-gray-950 hover:underline'>adClud</a>
             </div>
         </div>
-        <div className="h-[60px] bg-gray-300 flex items-center justify-between">
+        <div className="h-[60px] bg-gray-300 flex items-center justify-around">
           <div className="  " >
             <img src={logo} alt="" className='w-20' />
           </div>
@@ -28,7 +28,9 @@ function App() {
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-transparent border-b-2 hover:border-b-2 hover:border-b-gray-900 cursor-pointer">item</div>
           </div>
           <div className="">
-            <div className="div">clear</div>
+            <div className="bg-amber-300">
+             
+            </div>
           </div>
         </div>
       </header>
