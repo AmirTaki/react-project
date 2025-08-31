@@ -21,7 +21,7 @@ function App() {
               <a className='cursor-pointer text-gray-500 hover:text-gray-950 hover:underline'>adClud</a>
             </div>
         </div>
-        <div className="h-[70px] bg-white- flex items-center justify-around">
+        <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600">
           <div className="  " >
             <img src={logo} alt="" className='w-20' />
           </div>
@@ -38,6 +38,7 @@ function App() {
               <i class="bi bi-search"   onClick={handlerSerch}></i>
               <i class="bi bi-person"></i>
               <i class="bi bi-handbag"></i>
+              <i class="bi bi-heart"></i>
             </div>
             <div className="">
              
