@@ -29,7 +29,8 @@ function App() {
           </div>
           <div className="">
             <div className="bg-amber-300">
-             
+              <input type="search" />
+              <i class="bi bi-search"></i>
             </div>
           </div>
         </div>
