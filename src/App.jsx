@@ -71,7 +71,7 @@ function App() {
               </div>
               
               {/* MegaMenu */}
-              <div className={`${navbar ? "" : "fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50  flex justify-center "   }`} >
+              <div className={`${navbar ? "" : "hidden fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50  flex justify-center "   }`} >
                   {/* column1 */}
                   <div className={`${navbar ? "" :"bg-yellow-200 w-[300px]"}`}>
                     <div>item</div>
