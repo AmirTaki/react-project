@@ -82,14 +82,14 @@ const  HeaderBottom = () => {
                             {/* column1 */}
                             <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] h-0  group-hover:h-[200px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
                                 <div className="bg-white text-gray-300 h-[50px] flex items-center p-3"> LIST ITEM</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(2)}}>item</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(3)}}>item</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(4)}}>item</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(5)}}>item</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(6)}}>item</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(7)}}>item</div>
-                                <div className="list" onClick={()=> {HandlerOpenSlider(8)}}>item</div>
+                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                               
                             </div>
                             <div className={`${navbar ? "hidden" : "flex "} ${activeSlideBar === 1 && navbar ?"flex! fixed bg-green-900 w-full left-0 top-0" : ""}` }>
                                 {/* column2 */}
