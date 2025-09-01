@@ -19,14 +19,14 @@ const handerResize = () =>{
 window.addEventListener('resize',handerResize )
 useEffect(() => {
   handerResize()
-})
+}, [])
 
  const handlerSerch = () => {
   setSecarch(!search);
  }
 
  const menuHandler = () => {
-  setMoveNavbar(true)
+  setMoveNavbar(!moveNavbar)
   console.log(moveNavbar)
  }
   return (
@@ -43,7 +43,7 @@ useEffect(() => {
         </div>
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
           <div className="flex gap-3 max-md:block  md:hidden ">
-              <i onClick={menuHandler} class="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
+              <i onClick={menuHandler} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
             <i className="bi bi-heart  text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg" ></i>
           </div>
       
@@ -51,7 +51,7 @@ useEffect(() => {
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0 -left-full z-30!": "flex gap-7"} ${moveNavbar ? "left-0" : "-left-full"}` }>
+          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0 -left-full z-30!": "flex gap-7"}`}>
             {/* row 1 */}
             <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300 border border-b-1 border-b-gray-300 h-[50px] " : "hidden"}>
               
