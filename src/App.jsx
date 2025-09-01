@@ -13,9 +13,13 @@ function App() {
 const handerResize = () =>{
     setNavbar(window.innerWidth <= 768 ? true : false);
     setSecarch(false)
+    setMoveNavbar(false)
 
   }
 window.addEventListener('resize',handerResize )
+useEffect(() => {
+  handerResize()
+})
 
  const handlerSerch = () => {
   setSecarch(!search);
@@ -23,6 +27,7 @@ window.addEventListener('resize',handerResize )
 
  const menuHandler = () => {
   setMoveNavbar(true)
+  console.log(moveNavbar)
  }
   return (
     <>
@@ -46,7 +51,7 @@ window.addEventListener('resize',handerResize )
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className= {(navbar ? "bg-red-100 fixed w-full top-0   z-3"  : "flex gap-7") + (moveNavbar ? "left-0" : "-left-full") } >
+          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0 -left-full z-30!": "flex gap-7"} ${moveNavbar ? "left-0" : "-left-full"}` }>
             {/* row 1 */}
             <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300 border border-b-1 border-b-gray-300 h-[50px] " : "hidden"}>
               
@@ -71,7 +76,7 @@ window.addEventListener('resize',handerResize )
 
 
           <div className="flex items-center justify-center">
-            <div className="relative flex gap-4">
+            <div className="relative flex gap-4 z-1">
               <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
               <i class="bi bi-search hover:scale-130  text-gray-400 cursor-pointer text-lg  md:right-[115px] max-md:right-[80px] absolute hover:text-gray-900 duration-300"   onClick={handlerSerch}></i>
               <i class="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
