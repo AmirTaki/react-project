@@ -83,7 +83,7 @@ function App() {
                     <div>item</div>
                     <div>item</div>
                   </div>
-                  <div className="">
+                  <div className={`${navbar ? "" : "flex "}`}>
                      {/* column2 */}
                     <div className="bg-red-200">
                       <div>item</div>
