@@ -43,6 +43,8 @@ window.addEventListener('resize',handerResize )
           </div>
           <div className= {navbar ? "bg-green-500 fixed w-full top-0 left-0" : "flex gap-7"} >
             <div className={navbar ? "flex bg-pink-500" : "hidden"}>
+              <i class="bi bi-x-lg"></i>
+              <img src={logo} alt="" className='w-20' />
 
             </div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
