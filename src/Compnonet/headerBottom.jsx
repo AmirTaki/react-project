@@ -10,8 +10,14 @@ const  HeaderBottom = () => {
     const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
-
-
+    const [activeSlideBar, setActiveSlideBar] =  useState(null)
+    
+    const n = document.querySelectorAll('.list').length
+    const list = []
+    for (let i = 1 ; i < n + 1 ; i++)    list.push('item'+i)
+    
+    console.log(list)
+    
     
 
     const handerResize = () =>{
@@ -34,9 +40,9 @@ const  HeaderBottom = () => {
         setMoveNavbar(!moveNavbar)
 
     }
-
   
-    const alpha = ( ) => {
+
+    const openSlider = ( ) => {
         console.log('ok')
     }
     return(
@@ -74,14 +80,14 @@ const  HeaderBottom = () => {
                         <div className={` ${navbar ? " fixed" : " group-hover:flex! hidden  fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50   justify-center  "   } `   } >
                             {/* column1 */}
                             <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] h-0  group-hover:h-[200px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
-                                <div className="jack" onClick={alpha}>item</div>
-                                <div className="jack" onClick={alpha}>item</div>
-                                <div className="jack" onClick={alpha}>item</div>
-                                <div className="jack" onClick={alpha}>item</div>
-                                <div className="jack" onClick={alpha}>item</div>
-                                <div className="jack" onClick={alpha}>item</div>
-                                <div className="jack" onClick={alpha}>item</div>
-                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
+                                <div className="list" onClick={openSlider}>item</div>
                             </div>
                             <div className={`${navbar ? "hidden" : "flex "}`}>
                                 {/* column2 */}
