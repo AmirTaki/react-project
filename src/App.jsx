@@ -42,14 +42,14 @@ window.addEventListener('resize',handerResize )
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className= {navbar ? "bg-green-500 fixed w-full top-0 left-0 z-3" : "flex gap-7"} >
+          <div className= {navbar ? "bg-white fixed w-full top-0 left-0 z-3" : "flex gap-7"} >
         
             <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300  bg-transparent h-[50px]" : "hidden"}>
               
               <i class="bi bi-x-lg"></i>
               <img src={logo} alt="" className='w-10' />
               <div className="relative">
-                <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-400 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
+                <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
                 <i class="bi bi-search text-gray-400 cursor-pointer text-lg   max-md:right-[10px] absolute hover:text-gray-900 duration-300"   onClick={handlerSerch}></i>
               </div>
             
