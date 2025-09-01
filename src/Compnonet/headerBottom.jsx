@@ -67,7 +67,7 @@ const  HeaderBottom = () => {
                     </div>
                 </div>
 
-                <userContext.Provider   value = {{}}>
+                <userContext.Provider   value = {{search, setSecarch, navbar, setNavbar,moveNavbar, setMoveNavbar, megeMenu , setMegMenu}}>
                     <MegaMenu />
                 </userContext.Provider>
                 {/* container mega menu */}
