@@ -39,7 +39,7 @@ const Header = () => {
         setMegMenu(false)
   }
     return(
-             <header>
+        <header>
         <div className="bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-amber-300">
             <div className="flex gap-4 p-5 justify-between items-center">
               <a className='cursor-pointer text-gray-500 hover:text-gray-950! hover:underline  '>help</a>
@@ -165,7 +165,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </header>
+        </header>
     )
 }
 

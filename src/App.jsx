@@ -1,7 +1,8 @@
 
 
 import './App.css'
-import Header from './header'
+import Header from './Compnonet/header'
+
 
 function App() {
 
