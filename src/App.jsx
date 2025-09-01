@@ -1,14 +1,14 @@
 
-import { useEffect, useState } from 'react'
+
 import './App.css'
-import logo from "./assets/logo.webp"
+import Header from './header'
 
 function App() {
 
 
   return (
     <>
-
+      <Header />
     </>
   )
 }

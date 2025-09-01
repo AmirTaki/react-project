@@ -1,5 +1,6 @@
 
-
+import { useEffect, useState } from 'react';
+import logo from "./assets/logo.webp";
 const Header = () => {
     const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
