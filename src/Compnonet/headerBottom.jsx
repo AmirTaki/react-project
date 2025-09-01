@@ -35,7 +35,10 @@ const  HeaderBottom = () => {
 
     }
 
-
+  
+    const alpha = ( ) => {
+        console.log('ok')
+    }
     return(
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
             <div className="flex gap-3 max-md:block  md:hidden ">
@@ -70,15 +73,15 @@ const  HeaderBottom = () => {
                         {/* MegaMenu */}
                         <div className={` ${navbar ? " fixed" : " group-hover:flex! hidden  fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50   justify-center  "   } `   } >
                             {/* column1 */}
-                            <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] h-0 group-hover:h-[200px]!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
-                                <div>item</div>
-                                <div>item</div>
-                                <div>item</div>
-                                <div>item</div>
-                                <div>item</div>
-                                <div>item</div>
-                                <div>item</div>
-                                <div>item</div>
+                            <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] h-0  group-hover:h-[200px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
+                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="jack" onClick={alpha}>item</div>
+                                <div className="jack" onClick={alpha}>item</div>
                             </div>
                             <div className={`${navbar ? "hidden" : "flex "}`}>
                                 {/* column2 */}
