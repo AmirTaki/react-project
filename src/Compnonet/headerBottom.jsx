@@ -88,15 +88,40 @@ const  HeaderBottom = () => {
                                     <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
+                              
+                                <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(2)}}>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
+                                </div>
+                                
+                                <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(3)}}>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
+                                </div>
+                                
+                                <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(4)}}>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
+                                </div>
+                                
+                                <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(5)}}>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
+                                </div>
+                                
+                                <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(6)}}>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
+                                </div>
+                                
+                                <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(7)}}>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
+                                </div>
                                 
                                 
                                 
-                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
-                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
-                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
-                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
-                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
-                                <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+
                                
                             </div>
                             <div className={`${navbar ? "hidden" : "flex "} ${activeSlideBar === 1 && navbar ?"flex! fixed bg-green-900 w-full left-0 top-0" : ""}` }>
