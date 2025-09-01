@@ -83,39 +83,42 @@ function App() {
                     <div>item</div>
                     <div>item</div>
                   </div>
-                  {/* column2 */}
-                  <div className="bg-red-200">
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
+                  <div className="">
+                     {/* column2 */}
+                    <div className="bg-red-200">
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                    </div>
+                    {/* column3 */}
+                    <div className="bg-blue-200">
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                    </div>
+                    {/* column4 */}
+                    <div className="bg-fuchsia-200">
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                      <div>item</div>
+                    </div>
                   </div>
-                  {/* column3 */}
-                  <div className="bg-blue-200">
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                  </div>
-                  {/* column4 */}
-                  <div className="bg-fuchsia-200">
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                    <div>item</div>
-                  </div>
+                 
               </div>
             
             </div>
