@@ -1,6 +1,8 @@
 
 import { useEffect, useState } from 'react';
-import logo from "./assets/logo.webp";
+import logo from "../assets/logo.webp";
+import HeaderTop from './headerTop';
+
 const Header = () => {
     const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
@@ -38,17 +40,14 @@ const Header = () => {
     const HandlerMouseLeaveMegaMenu = () => {
         setMegMenu(false)
   }
+
+
     return(
         <header>
-        <div className="bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-amber-300">
-            <div className="flex gap-4 p-5 justify-between items-center">
-              <a className='cursor-pointer text-gray-500 hover:text-gray-950! hover:underline  '>help</a>
-              <a className='cursor-pointer text-gray-500 hover:text-gray-950! hover:underline'>orders and returns</a>
-              <a className='cursor-pointer text-gray-500 hover:text-gray-950! hover:underline'>gift cards</a>
-              <a className='cursor-pointer text-gray-500 hover:text-gray-950! hover:underline'>join</a>
-              <a className='cursor-pointer text-gray-500 hover:text-gray-950! hover:underline'>adClud</a>
-            </div>
-        </div>
+        
+        <HeaderTop />
+
+
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
           <div className="flex gap-3 max-md:block  md:hidden ">
               <i onClick={menuHandler} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
