@@ -85,7 +85,7 @@ function App() {
                   </div>
                   <div className={`${navbar ? "" : "flex "}`}>
                      {/* column2 */}
-                    <div className="bg-red-200">
+                    <div className={`${navbar ? "" : "bg-red-200 w-[300px]"}`}>
                       <div>item</div>
                       <div>item</div>
                       <div>item</div>
@@ -96,7 +96,7 @@ function App() {
                       <div>item</div>
                     </div>
                     {/* column3 */}
-                    <div className="bg-blue-200">
+                     <div className={`${navbar ? "" : "bg-blue-200 w-[300px]"}`}>
                       <div>item</div>
                       <div>item</div>
                       <div>item</div>
@@ -107,7 +107,7 @@ function App() {
                       <div>item</div>
                     </div>
                     {/* column4 */}
-                    <div className="bg-fuchsia-200">
+                      <div className={`${navbar ? "" : "bg-green-200 w-[300px]"}`}>
                       <div>item</div>
                       <div>item</div>
                       <div>item</div>
