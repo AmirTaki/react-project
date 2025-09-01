@@ -43,8 +43,8 @@ window.addEventListener('resize',handerResize )
             <img src={logo} alt="" className='w-20' />
           </div>
           <div className= {navbar ? "bg-white fixed w-full top-0 left-0 z-3" : "flex gap-7"} >
-        
-            <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300  bg-transparent h-[50px]" : "hidden"}>
+            {/* row 1 */}
+            <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300 border border-b-1 border-b-gray-300 h-[50px] " : "hidden"}>
               
               <i class="bi bi-x-lg"></i>
               <img src={logo} alt="" className='w-10' />
