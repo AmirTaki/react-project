@@ -1,4 +1,44 @@
+import logo from "../assets/logo.webp";
+import { useEffect, useState } from 'react';
+
 const  HeaderBottom = () => {
+    const [search, setSecarch] =  useState(false);
+    const [navbar, setNavbar] = useState(false);
+    const [moveNavbar, setMoveNavbar] =  useState(false)
+    const [megeMenu , setMegMenu] = useState(false);
+
+
+    
+
+    const handerResize = () =>{
+        setNavbar(window.innerWidth <= 768 ? true : false);
+        setSecarch(false)
+        setMoveNavbar(false)
+
+    }
+    window.addEventListener('resize',handerResize )
+    useEffect(() => {
+        handerResize()
+    }, [])
+
+    const handlerSerch = () => {
+        setSecarch(!search);
+    }
+
+    const menuHandler = () => {
+        setMoveNavbar(!moveNavbar)
+
+    }
+
+
+    const handlerMegaMenu = () => {
+        setMegMenu(false)
+        setMegMenu(true)
+    }
+    const HandlerMouseLeaveMegaMenu = () => {
+        setMegMenu(false)
+    }
+
     return(
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
             <div className="flex gap-3 max-md:block  md:hidden ">
