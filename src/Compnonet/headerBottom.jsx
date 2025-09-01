@@ -11,6 +11,7 @@ const  HeaderBottom = () => {
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
     const [activeSlideBar, setActiveSlideBar] =  useState(null)
+    const [listItems, setListItems] =  useState([])
     
     const n = document.querySelectorAll('.list').length
     const list = []
@@ -42,8 +43,8 @@ const  HeaderBottom = () => {
     }
   
 
-    const openSlider = ( ) => {
-        console.log('ok')
+    const HandlerOpenSlider = (index) => {
+        setActiveSlideBar(index)
     }
     return(
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
