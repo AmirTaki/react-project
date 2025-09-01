@@ -11,7 +11,8 @@ function App() {
 
 
 const handerResize = () =>{
-    setNavbar(window.innerWidth <= 768 ? true : false)
+    setNavbar(window.innerWidth <= 768 ? true : false);
+    setSecarch(false)
 
   }
 window.addEventListener('resize',handerResize )
