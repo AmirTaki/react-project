@@ -1,5 +1,6 @@
 import logo from "../assets/logo.webp";
 import { createContext, useEffect, useState } from 'react';
+import MegaMenu from "./megaMenu";
 
 
 
@@ -66,7 +67,9 @@ const  HeaderBottom = () => {
                     </div>
                 </div>
 
-
+                <userContext.Provider   value = {{}}>
+                    <MegaMenu />
+                </userContext.Provider>
                 {/* container mega menu */}
                 <div className="flex" >
               
