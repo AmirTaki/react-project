@@ -1,7 +1,11 @@
 import logo from "../assets/logo.webp";
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
+
+
+export const MegaMenuContext =  createContext("")
 const  HeaderBottom = () => {
+    
     const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
