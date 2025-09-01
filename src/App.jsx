@@ -33,9 +33,7 @@ function App() {
 
   }
 
-  const mg = (document.querySelectorAll(".mg").length)
 
- 
   const handlerMegaMenu = () => {
     setMegMenu(false)
     setMegMenu(true)
