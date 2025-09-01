@@ -84,9 +84,9 @@ const  HeaderBottom = () => {
                               
                                 <div className={`${navbar ? "hidden" :"bg-white text-gray-300 h-[50px] flex items-center p-3"}`}> LIST ITEM</div>
                               
-                                <div className={`list ${navbar ? "cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(1)}}>
-                                    <div className={` ${navbar ? "text-gray-400" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
-                                    <i className={`bi bi-chevron-right ${navbar ? "block" : "hidden"  } `}></i>
+                                <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(1)}}>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
                                 
                                 
