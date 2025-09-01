@@ -90,7 +90,7 @@ const  HeaderBottom = () => {
                                 <div className="list" onClick={()=> {HandlerOpenSlider(7)}}>item</div>
                                 <div className="list" onClick={()=> {HandlerOpenSlider(8)}}>item</div>
                             </div>
-                            <div className={`${navbar ? "hidden" : "flex "}`}>
+                            <div className={`${navbar ? "hidden" : "flex "} ${activeSlideBar === 1 && navbar ?"flex! fixed bg-green-900 w-full left-0 top-0" : ""}` }>
                                 {/* column2 */}
                                 <div className={`${navbar ? "" : "bg-red-200 w-[300px]"}`}>
                                     <div>item</div>
