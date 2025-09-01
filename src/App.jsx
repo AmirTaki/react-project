@@ -55,7 +55,7 @@ useEffect(() => {
             {/* row 1 */}
             <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300 border border-b-1 border-b-gray-300 h-[50px] " : "hidden"}>
               
-              <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130"></i>
+              <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
               <img src={logo} alt="" className='w-10' />
               <div className="relative">
                 <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
