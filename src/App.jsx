@@ -32,7 +32,11 @@ function App() {
   }
 
   const handlerMegaMenu = () => {
+    setMegMenu(false)
     setMegMenu(true)
+  }
+  const HandlerMouseLeaveMegaMenu = () => {
+    setMegMenu(false)
   }
   return (
     <>
@@ -69,8 +73,8 @@ function App() {
             
             </div>
             {/* row 2 */}
-            <div className="">
-              <div onMouseOver={handlerMegaMenu} className={`${navbar ? " group border-b-1!  border-b-gray-100! hover:bg-sky-100 flex items-center justify-between px-3 cursor-pointer hover:text-gray-950!" : ""}`}>
+            <div className="" onMouseLeave={HandlerMouseLeaveMegaMenu}>
+              <div  onMouseOver={handlerMegaMenu} className={`${navbar ? " group border-b-1!  border-b-gray-100! hover:bg-sky-100 flex items-center justify-between px-3 cursor-pointer hover:text-gray-950!" : ""}`}>
                 <div className=" group-hover:text-black bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0! max-md:text-gray-500 ">item</div>
                 <i className="bi bi-chevron-down text-gray-300 hover:text-red-500 md:hidden group-hover:rotate-180 duration-300 group-hover:text-red-500"></i>
               </div>
