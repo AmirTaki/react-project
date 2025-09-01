@@ -84,6 +84,7 @@ const  HeaderBottom = () => {
                                 <div className={`${navbar ? "hidden" :"bg-white text-gray-300 h-[50px] flex items-center p-3"}`}> LIST ITEM</div>
                                 <div className="">
                                     <div className={`list ${navbar ? "" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
+                                    <i className={`bi bi-chevron-right ${navbar ? "block" : "hidden"  } `}></i>
                                 </div>
                                 
                                 
