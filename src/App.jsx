@@ -51,7 +51,7 @@ useEffect(() => {
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0 -left-full z-30!": "flex gap-7"} ${moveNavbar ? "-left-0!": "-left-full!"}` }>
+          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0 -left-full z-30!": "flex gap-7"} ${moveNavbar ? "-left-0! duration-800": "-left-full! duration-800"}` }>
             {/* row 1 */}
             <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300 border border-b-1 border-b-gray-300 h-[50px] " : "hidden"}>
               
