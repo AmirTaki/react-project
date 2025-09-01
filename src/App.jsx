@@ -51,7 +51,7 @@ function App() {
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0  -left-full z-30! ": "flex gap-7"} ${moveNavbar ? "-left-0! duration-800": "-left-full! duration-800"}` }>
+          <div className= {`${navbar ? "bg-white fixed w-full top-0  -left-full z-30! ": "flex gap-7"} ${moveNavbar ? "-left-0! duration-800": "-left-full! duration-800"}` }>
             {/* row 1 */}
             <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300 border border-b-1 border-b-gray-300 h-[50px] " : "hidden"}>
               
@@ -64,9 +64,29 @@ function App() {
             
             </div>
             {/* row 2 */}
-            <div className="bg-transparent flex items-center justify-between px-3 max-md:cursor-pointer max-md:hover:bg-blue-100!">
-              <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0!">item</div>
-              <i className="bi bi-chevron-right text-gray-300 hover:text-red-400 md:hidden "></i>
+            <div className="bg-transparent flex items-center justify-between px-3 max-md:cursor-pointer  max-md:hover:text-gray-950!">
+              <div className=" bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0! max-md:text-gray-500 ">item</div>
+              <i className="bi bi-chevron-right text-gray-300 hover:text-red-500 md:hidden "></i>
+            </div>
+   
+            <div className="bg-transparent flex items-center justify-between px-3 max-md:cursor-pointer  max-md:hover:text-gray-950!">
+              <div className=" bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0! max-md:text-gray-500 ">item</div>
+              <i className="bi bi-chevron-right text-gray-300 hover:text-red-500 md:hidden "></i>
+            </div>
+   
+            <div className="bg-transparent flex items-center justify-between px-3 max-md:cursor-pointer  max-md:hover:text-gray-950!">
+              <div className=" bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0! max-md:text-gray-500 ">item</div>
+              <i className="bi bi-chevron-right text-gray-300 hover:text-red-500 md:hidden "></i>
+            </div>
+   
+            <div className="bg-transparent flex items-center justify-between px-3 max-md:cursor-pointer  max-md:hover:text-gray-950!">
+              <div className=" bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0! max-md:text-gray-500 ">item</div>
+              <i className="bi bi-chevron-right text-gray-300 hover:text-red-500 md:hidden "></i>
+            </div>
+   
+            <div className="bg-transparent flex items-center justify-between px-3 max-md:cursor-pointer  max-md:hover:text-gray-950!">
+              <div className=" bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0! max-md:text-gray-500 ">item</div>
+              <i className="bi bi-chevron-right text-gray-300 hover:text-red-500 md:hidden "></i>
             </div>
    
           </div>
