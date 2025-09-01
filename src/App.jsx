@@ -81,7 +81,7 @@ function App() {
 
 
             {/* container mega menu */}
-            <div className="" >
+            <div className="flex" >
               
               {/* row 2 */}
               <div  onMouseOver={handlerMegaMenu} onMouseLeave={HandlerMouseLeaveMegaMenu} className={` ${navbar ? "  group border-b-1!  border-b-gray-100! hover:bg-sky-100 flex items-center justify-between px-3 cursor-pointer hover:text-gray-950!" : "item bg-amber-500 "}`}>
@@ -142,11 +142,14 @@ function App() {
                 </div>
               </div>
               
+          
+              
                 
             </div>
             {/* end container mega menu */}
 
             {/* ------------- */}
+  
             
 
       
