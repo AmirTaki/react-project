@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import logo from "../assets/logo.webp";
 import HeaderTop from './headerTop';
+import HeaderBottom from './headerBottom';
+
 
 const Header = () => {
     const [search, setSecarch] =  useState(false);
@@ -46,7 +48,7 @@ const Header = () => {
         <header>
         
         <HeaderTop />
-
+        <HeaderBottom />
 
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
           <div className="flex gap-3 max-md:block  md:hidden ">
