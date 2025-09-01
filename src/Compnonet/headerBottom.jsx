@@ -81,6 +81,7 @@ const  HeaderBottom = () => {
                         <div className={` ${navbar ? " fixed" : " flex!  hidden fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50   justify-center  "   } `   } >
                             {/* column1 */}
                             <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] h-0  group-hover:h-[200px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
+                                <div className="bg-white text-gray-400 h-[40px] flex items-center"> LIST ITEM</div>
                                 <div className="list" onClick={()=> {HandlerOpenSlider(1)}}>item</div>
                                 <div className="list" onClick={()=> {HandlerOpenSlider(2)}}>item</div>
                                 <div className="list" onClick={()=> {HandlerOpenSlider(3)}}>item</div>
