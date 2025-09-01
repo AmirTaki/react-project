@@ -64,14 +64,11 @@ function App() {
             
             </div>
             {/* row 2 */}
-            <div className="bg-green-400 flex items-center justify-between px-3">
+            <div className="bg-transparent flex items-center justify-between px-3 max-md:cursor-pointer max-md:hover:bg-blue-100!">
               <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0!">item</div>
-              <i className="bi bi-chevron-right md:hidden "></i>
+              <i className="bi bi-chevron-right text-gray-300 hover:text-red-400 md:hidden "></i>
             </div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0!">item</div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0!">item</div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0!">item</div>
-            <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer max-md:border-0!">item</div>
+   
           </div>
 
 
