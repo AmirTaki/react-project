@@ -5,30 +5,30 @@ import logo from "./assets/logo.webp"
 
 function App() {
 
- const [search, setSecarch] =  useState(false);
- const [navbar, setNavbar] = useState(false);
- const [moveNavbar, setMoveNavbar] =  useState(false)
+  const [search, setSecarch] =  useState(false);
+  const [navbar, setNavbar] = useState(false);
+  const [moveNavbar, setMoveNavbar] =  useState(false)
 
 
-const handerResize = () =>{
-    setNavbar(window.innerWidth <= 768 ? true : false);
-    setSecarch(false)
-    setMoveNavbar(false)
+  const handerResize = () =>{
+      setNavbar(window.innerWidth <= 768 ? true : false);
+      setSecarch(false)
+      setMoveNavbar(false)
 
   }
-window.addEventListener('resize',handerResize )
-useEffect(() => {
-  handerResize()
-}, [])
+  window.addEventListener('resize',handerResize )
+  useEffect(() => {
+    handerResize()
+  }, [])
 
- const handlerSerch = () => {
-  setSecarch(!search);
- }
+  const handlerSerch = () => {
+    setSecarch(!search);
+  }
 
- const menuHandler = () => {
-  setMoveNavbar(!moveNavbar)
-  console.log(moveNavbar)
- }
+  const menuHandler = () => {
+    setMoveNavbar(!moveNavbar)
+
+  }
   return (
     <>
       <header>
@@ -51,7 +51,7 @@ useEffect(() => {
           <div className="" >
             <img src={logo} alt="" className='w-20' />
           </div>
-          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0 -left-full z-30!": "flex gap-7"} ${moveNavbar ? "-left-0! duration-800": "-left-full! duration-800"}` }>
+          <div className= {`${navbar ? "bg-red-100 fixed w-full top-0  -left-full z-30! ": "flex gap-7"} ${moveNavbar ? "-left-0! duration-800": "-left-full! duration-800"}` }>
             {/* row 1 */}
             <div className={navbar ? "flex justify-between items-center p-3 shadow-gray-300 border border-b-1 border-b-gray-300 h-[50px] " : "hidden"}>
               
@@ -63,7 +63,7 @@ useEffect(() => {
               </div>
             
             </div>
-
+            {/* row 2 */}
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
             <div className="bg-transparent flex items-center justify-center h-[60px] border-b-white! border-b-2 hover:border-b-2 hover:border-b-gray-900! cursor-pointer">item</div>
