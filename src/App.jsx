@@ -71,7 +71,52 @@ function App() {
               </div>
               
               {/* MegaMenu */}
-              <div className={`${navbar ? "" : "fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50"   }`} ></div>
+              <div className={`${navbar ? "" : "fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50  flex "   }`} >
+                  {/* column1 */}
+                  <div className="bg-yellow-200">
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                  </div>
+                  {/* column2 */}
+                  <div className="bg-red-200">
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                  </div>
+                  {/* column3 */}
+                  <div className="bg-blue-200">
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                  </div>
+                  {/* column4 */}
+                  <div className="bg-fuchsia-200">
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                    <div>item</div>
+                  </div>
+              </div>
             
             </div>
             
