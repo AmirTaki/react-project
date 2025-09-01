@@ -80,7 +80,7 @@ const  HeaderBottom = () => {
                         {/* MegaMenu  => group-hover:flex!*/}
                         <div className={` ${navbar ? " fixed" : " flex!  hidden fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50   justify-center  "   } `   } >
                             {/* column1 */}
-                            <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] h-0  group-hover:h-[200px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
+                            <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] h-0  group-hover:h-[200px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px] border-r-1 border-gray-200"}`}>
                                 <div className="bg-white text-gray-300 h-[50px] flex items-center p-3"> LIST ITEM</div>
                                 <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
                                 <div className="list bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 " onClick={()=> {HandlerOpenSlider(1)}}>For HOME</div>
