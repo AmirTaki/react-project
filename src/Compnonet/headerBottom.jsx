@@ -68,9 +68,9 @@ const  HeaderBottom = () => {
                         <i className="bi bi-chevron-down text-gray-300 hover:text-red-500 md:hidden group-hover:rotate-180 duration-300 group-hover:text-red-500"></i>
 
                         {/* MegaMenu */}
-                        <div className={` ${navbar ? " " : " group-hover:flex! hidden  fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50   justify-center  "   } `   } >
+                        <div className={` ${navbar ? " fixed" : " group-hover:flex! hidden  fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50   justify-center  "   } `   } >
                             {/* column1 */}
-                            <div className={`${navbar ? "fixed bg-red-500 left-0 top-[100px] overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
+                            <div className={`${navbar ? "fixed bg-red-500 left-0 top-[110px] overflow-hidden w-full" :"bg-yellow-200 w-[300px]"}`}>
                                 <div>item</div>
                                 <div>item</div>
                                 <div>item</div>
