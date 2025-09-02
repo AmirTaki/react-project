@@ -80,50 +80,46 @@ const  HeaderBottom = () => {
                         {/* MegaMenu  => group-hover:flex!*/}
                         <div className={` ${navbar ? " fixed" : " flex!  hidden fixed top-[101px] left-0 w-[100%] h-[500px] bg-gray-100 z-50   justify-center  "   } `   } >
                             {/* column1 */}
-                            <div className={`${navbar ? "fixed bg-white left-0 top-[110px] h-0  group-hover:h-[200px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px] border-r-1 border-gray-200"}`}>
+                            <div className={`${navbar ? " bg-white fixed  left-0 top-[110px] h-0  group-hover:h-[400px]! group-active:bg-gray-100!  duration-300  overflow-hidden w-full" :"bg-yellow-200 w-[300px] border-r-1 border-gray-200"}`}>
                               
                                 <div className={`${navbar ? "hidden" :"bg-white text-gray-300 h-[50px] flex items-center p-3"}`}> LIST ITEM</div>
                               
                                 <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(1)}}>
-                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For Home</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
                               
                                 <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(2)}}>
-                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For Work</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
                                 
                                 <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(3)}}>
-                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For Creators</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
                                 
                                 <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(4)}}>
-                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For Student</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
                                 
                                 <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(5)}}>
-                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For Gaming</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
                                 
                                 <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(6)}}>
-                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >Software</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
                                 </div>
                                 
                                 <div className={`list ${navbar ? "hover:bg-sky-100! bg-gray-100 cursor-pointer flex justify-between items-center  h-[50px] p-4" : "cursor-context-menu"}`} onClick={()=> {HandlerOpenSlider(7)}}>
-                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >For HOME</div>
+                                    <div className={` ${navbar ? "text-gray-600" :"  bg-white h-[40px] flex items-center p-3 text-gray-400 hover:bg-gray-100 duration-75 hover:text-blue-600 "}`} >Technology / Inovations</div>
                                     <i className={`bi bi-chevron-right ${navbar ? "block text-gray-600" : "hidden"  } `}></i>
-                                </div>
-                                
-                                
-                                
-
-                               
+                                </div>    
                             </div>
+
                             <div className={`${navbar ? "hidden" : "flex "} ${activeSlideBar === 1 && navbar ?"flex! fixed bg-green-900 w-full left-0 top-0" : ""}` }>
                                 {/* column2 */}
                                 <div className={`${navbar ? "" : "bg-red-200 w-[300px]"}`}>
@@ -163,8 +159,7 @@ const  HeaderBottom = () => {
                         </div>
                     </div>         
                 {/* end container mega menu */}
-
-            {/* ------------- */}
+                {/* ------------- */}
                 {/* container mega menu */}
                  {/* row 2 */}
                     <div   className={` ${navbar ? "  group border-b-1!  border-b-gray-100! hover:bg-sky-100 flex items-center justify-between px-3 cursor-pointer hover:text-gray-950!" : "group bg-amber-500 "}`}>
