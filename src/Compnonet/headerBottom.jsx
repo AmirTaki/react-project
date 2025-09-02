@@ -48,23 +48,23 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className=" fixed w-full left-0 top-0">
+            <div className={`${navbar ?"bg-orange-900 w-full left-0 top-0 fixed" :  "static bg-blue-800 flex" }`}>
               {/* Menu */}
-              <div className="bg-red-500 group">
+              <div className=" ">
                 {/* title menu */}
                 <div className="">
                   menu 1
                 </div>
 
                 {/* container List */}
-                <div className="bg-blue-500 h-0 overflow-hidden group-hover:h-[500px]!">
+                <div className="bg-blue-500 h-0 overflow-hidden containerList">
                   {/* List */}
-                  <div className="group/m">
+                  <div className="list">
                     {/* title List */}
                     <div className="">list 1</div>
 
                     {/* container product */}
-                    <div className="bg-yellow-500 h-0 overflow-hidden group-hover/m:h-[300px]! duration-300">
+                    <div className="bg-yellow-500 h-0 overflow-hidden  duration-300 containerProduct">
                       {/* product */}
                       <div className="">product</div>
                       <div className="">product</div>
@@ -75,12 +75,12 @@ const  HeaderBottom = () => {
                     
                   </div>
                   {/* List */}
-                  <div className="">
+                  <div className="list">
                     {/* title List */}
                     <div className="">list 2</div>
 
                     {/* container product */}
-                    <div className="bg-yellow-500 h-0 overflow-hidden duration-300">
+                    <div className="bg-yellow-500 h-0 overflow-hidden duration-300 containerProduct">
                       {/* product */}
                       <div className="">product</div>
                       <div className="">product</div>
@@ -92,6 +92,50 @@ const  HeaderBottom = () => {
                   </div>
                 </div>
               </div>
+              {/* Menu */}
+              <div className="bg-red-500 menu ">
+                {/* title menu */}
+                <div className="">
+                  menu 1
+                </div>
+
+                {/* container List */}
+                <div className="bg-blue-500 h-0 overflow-hidden containerList">
+                  {/* List */}
+                  <div className="list">
+                    {/* title List */}
+                    <div className="">list 1</div>
+
+                    {/* container product */}
+                    <div className="bg-yellow-500 h-0 overflow-hidden  duration-300 containerProduct">
+                      {/* product */}
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                    </div>
+
+                    
+                  </div>
+                  {/* List */}
+                  <div className="list">
+                    {/* title List */}
+                    <div className="">list 2</div>
+
+                    {/* container product */}
+                    <div className="bg-yellow-500 h-0 overflow-hidden duration-300 containerProduct">
+                      {/* product */}
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                    </div>
+
+                    
+                  </div>
+                </div>
+              </div>
+             
             </div>
 
             {/* RIGHT  */}

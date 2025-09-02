@@ -11,3 +11,20 @@
 
 }
 
+
+.menu,.list {
+    transition: .5s !important;
+}
+
+.containerList{
+    transition:  .5s !important;
+}
+.menu:hover .containerList{
+    height: 300px;
+    transition: .5s;
+}
+
+.list:hover .containerProduct{
+    height: 200px;
+    transition: .5s;
+}
