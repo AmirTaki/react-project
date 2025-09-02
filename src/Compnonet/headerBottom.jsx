@@ -50,8 +50,13 @@ const  HeaderBottom = () => {
             {/* container Menu */}
             <div className={` ${navbar ?"bg-orange-900 w-full duration-500 -left-200! top-0 fixed" :  "static bg-blue-800 flex items-center " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
               {/* exit menu  */}
-              <div className={`${navbar ? "h-[50px] bg-amber-400" : "hidden"}`}>
-
+              <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-amber-400" : "hidden"}`}>
+                <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
+                <img src={logo} alt="" className='w-10' />
+                <div className="relative">
+                  <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
+                  <i className="bi bi-search text-gray-400 cursor-pointer text-lg hover:scale-130    max-md:right-[10px] absolute hover:text-gray-900 duration-300"   onClick={handlerSerch}></i>
+                </div>
               </div>
               {/* Menu */}
               <div className={` ${navbar ? "menu" : "menu"}`}>
