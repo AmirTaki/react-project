@@ -48,11 +48,11 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className={`${navbar ?"bg-orange-900 w-full left-0 top-0 fixed" :  "static bg-blue-800 flex items-center h-[60px]" }`}>
+            <div className={`${navbar ?"bg-orange-900 w-full left-0 top-0 fixed" :  "static bg-blue-800 flex items-center " }`}>
               {/* Menu */}
-              <div className=>
+              <div className={`${navbar ? "" : ""}`}>
                 {/* title menu */}
-                <div className="">
+                <div className= {`${navbar? "" : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
                   menu 1
                 </div>
 
