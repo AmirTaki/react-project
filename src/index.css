@@ -25,11 +25,11 @@
     height: 60px;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid white;
+    /* border-bottom: 2px solid white; */
 }
 
 .menu:hover {
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
 
 }
 
@@ -65,8 +65,14 @@
         display: flex;
         justify-content: space-between;
     }
+    .menu:hover  .listContainer {
+        height: auto !important;
+    }
     .listContainer{
         /* position: fixed; */
-        
+        position: static;
+        z-index: 3000!important;
+        height: 0;
+        overflow: hidden;
     }
 }
