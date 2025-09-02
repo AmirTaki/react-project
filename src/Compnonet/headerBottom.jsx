@@ -48,23 +48,23 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className={`${navbar ?"bg-orange-900 w-full left-0 top-0 fixed" :  "static bg-blue-800 flex items-center " }`}>
+            <div className={` ${navbar ?"bg-orange-900 w-full left-0 top-0 fixed" :  "static bg-blue-800 flex items-center " }`}>
               {/* Menu */}
-              <div className={`${navbar ? "" : ""}`}>
+              <div className={` ${navbar ? "menu" : ""}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "" : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
                   menu 1
                 </div>
 
                 {/* container List */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-blue-800 left-0 w-full flex flex-col  items-center justify-center"}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-blue-800 left-0 w-full "}`}>
                   {/* List */}
-                  <div className={}>
+                  <div className={` ${navbar ? "list": "list bg-red-500"}`}>
                     {/* title List */}
                     <div className="">list 1</div>
 
                     {/* container product */}
-                    <div className="bg-yellow-500 h-0 overflow-hidden  duration-300 containerProduct">
+                    <div className={`${navbar ? "bg-yellow-500 h-0 overflow-hidden  duration-300 containerProduct" : "fixed"}`}>
                       {/* product */}
                       <div className="">product</div>
                       <div className="">product</div>
@@ -75,7 +75,7 @@ const  HeaderBottom = () => {
                     
                   </div>
                   {/* List */}
-                  <div className="list">
+                  <div className="list hidden">
                     {/* title List */}
                     <div className="">list 2</div>
 
