@@ -22,20 +22,23 @@
 }
 
 
+ @media screen and (max-width : 768px) {
+    .menu,.list {
+    transition: .5s !important; 
+    }
 
-.menu,.list {
-    transition: .5s !important;
-}
+    .containerList{
+        transition:  .5s !important;
+    }
+    .menu:hover .containerList{
+        display: block;
+        height: 300px;
+        transition: .5s;
+    }
 
-.containerList{
-    transition:  .5s !important;
-}
-.menu:hover .containerList{
-    height: 300px;
-    transition: .5s;
-}
+    .list:hover .containerProduct{
+        height: 200px;
+        transition: .5s;
+    }
+ }
 
-.list:hover .containerProduct{
-    height: 200px;
-    transition: .5s;
-}
