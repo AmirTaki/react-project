@@ -57,7 +57,9 @@ const  HeaderBottom = () => {
                 </div>
 
                 {/* container List */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-white left-0  flex flex-col border-r-1! w-[25%] border-r-gray-200!   pl-20 h-[500px] shadow-2xl"}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-white left-0  flex flex-col border-r-1! w-[25%] border-r-gray-300!   pl-30 h-[500px] shadow-2xl"}`}>
+                  {/* category */}
+                  <div className="">Category Tilte </div>
                   {/* List */}
                   <div className={` ${navbar ? "list": "list w-full bg--500 "}`}>
                     {/* title List */}
@@ -65,9 +67,9 @@ const  HeaderBottom = () => {
 
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%] w-[75%] top-[100px] h-[500px] pr-20!"}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%] w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
                       {/* product */}
-                      <div className="">product</div>
+                      <div className="bg-green-700">product</div>
                       <div className="">product</div>
                       <div className="">product</div>
                       <div className="">product</div>
