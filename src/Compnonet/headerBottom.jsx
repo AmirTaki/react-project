@@ -48,29 +48,47 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className="group fixed w-full left-0 top-0">
+            <div className=" fixed w-full left-0 top-0">
               {/* Menu */}
-              <div className="bg-red-500">
+              <div className="bg-red-500 group">
                 {/* title menu */}
                 <div className="">
                   menu 1
                 </div>
 
                 {/* container List */}
-                <div className="bg-blue-500">
+                <div className="bg-blue-500 h-0 overflow-hidden group-hover:h-[500px]!">
                   {/* List */}
-                  <div className="group">
+                  <div className="group/m">
                     {/* title List */}
                     <div className="">list 1</div>
 
                     {/* container product */}
-                    <div className="bg-yellow-500 h-0 overflow-hidden group-hover:h-[40px]:">
+                    <div className="bg-yellow-500 h-0 overflow-hidden group-hover/m:h-[300px]! duration-300">
                       {/* product */}
                       <div className="">product</div>
                       <div className="">product</div>
                       <div className="">product</div>
                       <div className="">product</div>
                     </div>
+
+                    
+                  </div>
+                  {/* List */}
+                  <div className="">
+                    {/* title List */}
+                    <div className="">list 2</div>
+
+                    {/* container product */}
+                    <div className="bg-yellow-500 h-0 overflow-hidden duration-300">
+                      {/* product */}
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                    </div>
+
+                    
                   </div>
                 </div>
               </div>
