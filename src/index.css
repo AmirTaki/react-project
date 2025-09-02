@@ -32,3 +32,26 @@
     /* border-bottom: 2px solid black; */
 
 }
+
+.titleMenu{
+    display: flex;
+}
+
+@media screen and (max-width : 768px) {
+    .menuContainer{
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .menu{
+        width: 100%;
+        
+    }
+    .titleMenu{
+        display: flex;
+        justify-content: space-between;
+    }
+}

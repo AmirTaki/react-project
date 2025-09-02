@@ -48,7 +48,15 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             <div className="menuContainer">
-                <div className="menu">menu 1</div>
+                <div className="menu">
+                  <div className="titleMenu">
+                    <div className="">menu</div>
+                    <i>></i>
+                  </div>
+                </div>
+                
+                
+                {/* anotehr menu */}
                 <div className="menu">menu 2</div>
                 <div className="menu">menu 3</div>
                 <div className="menu">menu 4</div>
