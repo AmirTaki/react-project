@@ -59,7 +59,7 @@ const  HeaderBottom = () => {
                 {/* container List */}
                 <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-white left-0  flex flex-col border-r-1! w-[25%] border-r-gray-300!   pl-30 h-[500px] shadow-2xl"}`}>
                   {/* category */}
-                  <div className="">Category Tilte </div>
+                  <div className="h-[30px] flex items-center text-gray-900/30 ">Category Tilte </div>
                   {/* List */}
                   <div className={` ${navbar ? "list": "list w-full bg--500 "}`}>
                     {/* title List */}
