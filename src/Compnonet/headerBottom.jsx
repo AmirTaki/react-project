@@ -48,9 +48,9 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className={` ${navbar ?"bg-orange-900 w-full duration-500 -left-200! top-0 fixed" :  "static bg-blue-800 flex items-center " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
+            <div className={` ${navbar ?"bg-orange-900 w-full duration-500 -left-200! top-0 fixed z-40" :  "static bg-blue-800 flex items-center " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
               {/* exit menu  */}
-              <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-amber-400" : "hidden"}`}>
+              <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-amber-400 px-3" : "hidden"}`}>
                 <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
                 <img src={logo} alt="" className='w-10' />
                 <div className="relative">
