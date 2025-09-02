@@ -11,6 +11,17 @@
 
 }
 
+.menu {
+    transition: display .5s !important;
+
+}
+
+.menu:hover .containerList{
+    display: flex;
+    transition: display .5s !important;
+}
+
+
 
 .menu,.list {
     transition: .5s !important;
