@@ -57,9 +57,9 @@ const  HeaderBottom = () => {
                 </div>
 
                 {/* container List */}
-                <div className="bg-blue-500 h-0 overflow-hidden containerList">
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-blue-800 left-0 w-full flex flex-col  items-center justify-center"}`}>
                   {/* List */}
-                  <div className="list">
+                  <div className={}>
                     {/* title List */}
                     <div className="">list 1</div>
 
