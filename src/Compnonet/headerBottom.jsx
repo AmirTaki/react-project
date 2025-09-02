@@ -57,7 +57,7 @@ const  HeaderBottom = () => {
                 </div>
 
                 {/* container List */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-blue-800 left-0 w-full flex flex-col   justify-center "}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : "fixed bg-blue-800 left-0 w-full flex flex-col   justify-center ml-20"}`}>
                   {/* List */}
                   <div className={` ${navbar ? "list": "list w-full bg-red-500 "}`}>
                     {/* title List */}
@@ -65,7 +65,7 @@ const  HeaderBottom = () => {
 
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%]"}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%] w-[75%] top-[100px] pr-20!"}`}>
                       {/* product */}
                       <div className="">product</div>
                       <div className="">product</div>
