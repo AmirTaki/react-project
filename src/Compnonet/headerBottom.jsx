@@ -67,7 +67,7 @@ const  HeaderBottom = () => {
 
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%] w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%] shadow-2xl w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
                       {/* product */}
                       <div className="bg-green-700">product</div>
                       <div className="">product</div>
@@ -76,58 +76,6 @@ const  HeaderBottom = () => {
                     </div>
                     
                   </div>
-                  {/* List */}
-                  <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
-                    {/* title List */}
-                    <div className="">list 1</div>
-
-
-                    {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%] w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
-                      {/* product */}
-                      <div className="bg-green-700">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                    </div>
-                    
-                  </div>
-                  {/* List */}
-                  <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
-                    {/* title List */}
-                    <div className="">list 1</div>
-
-
-                    {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%] w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
-                      {/* product */}
-                      <div className="bg-green-700">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                    </div>
-                    
-                  </div>
-                  {/* List */}
-                  <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
-                    {/* title List */}
-                    <div className="">list 1</div>
-
-
-                    {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-amber-300 fixed left-[25%] w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
-                      {/* product */}
-                      <div className="bg-green-700">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                    </div>
-                    
-                  </div>
-              
-
-               
-
                 </div>
               </div>
               {/* Menu */}
