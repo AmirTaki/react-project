@@ -47,26 +47,33 @@ const  HeaderBottom = () => {
             </div>
 
             {/* MEDDLE */}
-            <div className="menuContainer">
-                <div className="menu">
-                  {/* title Menu */}
-                  <div className="titleMenu">
-                    <div className="">menu</div>
-                    <i>></i>
-                  </div>
-                  
+            {/* container Menu */}
+            <div className="group fixed w-full left-0 top-0">
+              {/* Menu */}
+              <div className="bg-red-500">
+                {/* title menu */}
+                <div className="">
+                  menu 1
                 </div>
-                <div className="listContainer">list</div>
-                <div className="listContainer">list</div>
-                <div className="listContainer">list</div>
-                <div className="listContainer">list</div>
 
-                
-                
-                {/* anotehr menu */}
-                <div className="menu">menu 2</div>
-                <div className="menu">menu 3</div>
-                <div className="menu">menu 4</div>
+                {/* container List */}
+                <div className="bg-blue-500">
+                  {/* List */}
+                  <div className="group">
+                    {/* title List */}
+                    <div className="">list 1</div>
+
+                    {/* container product */}
+                    <div className="bg-yellow-500 h-0 overflow-hidden group-hover:h-[40px]:">
+                      {/* product */}
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                      <div className="">product</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* RIGHT  */}
