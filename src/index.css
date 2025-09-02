@@ -10,3 +10,13 @@
     font-family: var(--font-display);
 
 }
+
+.menuContainer{
+    background-color: red;
+    display: flex;
+}
+
+.menu {
+    background-color: blue;
+
+}
