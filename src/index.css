@@ -45,12 +45,14 @@
         width: 100%;
         display: flex;
         flex-flow: column nowrap;
+        gap:0
     }
     .menu{
         width: 100%;
         
     }
     .titleMenu{
+        width: 100%;
         display: flex;
         justify-content: space-between;
     }
