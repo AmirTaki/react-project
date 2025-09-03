@@ -60,7 +60,7 @@ const  HeaderBottom = () => {
               </div>
              
               {/* Menu */}
-              <div className={` ${navbar ? "menu group/menu duration-500! " : "menu"}`}>
+              <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu"}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950!  "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
@@ -68,19 +68,23 @@ const  HeaderBottom = () => {
                 </div>
 
                                                                                                                                         {/* hiiden */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList   fixed bg-green-500 left-0   top-[100px] flex-col border-r-1!  border-r-gray-300! border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex! hidden   fixed bg-green-500 left-0   top-[100px] flex-col border-r-1!  border-r-gray-300! border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
                   <div className={` ${navbar ? "list": "list flex "}`}>
-                   
-                    {/* category */}
-                    <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 "}`}>Category Tilte </div>
-                    
-                    {/* title List */}
-                    <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : " h-[40px] text-xl flex flex-col  pl-[2px] text-gray-600   hover:text-blue-600 bg-white hover:bg-gray-100 duration-300 "}`}>
-                        <div className={`${navbar ? "" : ""}`}>list 1</div>
-                        <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
+
+                    {/* container List */}
+                    <div className="">
+                      {/* category */}
+                      <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 "}`}>Category Tilte </div>
+                      
+                      {/* title List */}
+                      <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : " h-[40px] text-xl flex flex-col  pl-[2px] text-gray-600   hover:text-blue-600 bg-white hover:bg-gray-100 duration-300 "}`}>
+                          <div className={`${navbar ? "" : ""}`}>list 1</div>
+                          <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
+                      </div>
                     </div>
+
 
 
                     {/* container product */}
@@ -98,8 +102,8 @@ const  HeaderBottom = () => {
                   </div>
                 </div>
               </div>
-         
-             
+ 
+
             </div>
 
             {/* RIGHT  */}
