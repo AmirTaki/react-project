@@ -84,7 +84,7 @@ const  HeaderBottom = () => {
                       {/* container product */}
                       <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[97px] bg-white border-l-1! border-l-gray-100 border-r-1! h-[500px] mt-1 border-b-1! border-gray-300!  flex "}`}>
                         {/* category */}
-                        <div className=" flex flex-col  w-[300px] ">
+                        <div className=" flex flex-col  w-[250px]  overflow-hidden">
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
                             {/* category item */}
                             <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
