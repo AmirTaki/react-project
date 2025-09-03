@@ -59,11 +59,11 @@ const  HeaderBottom = () => {
                 </div>
               </div>
               {/* Menu */}
-              <div className={` ${navbar ? "menu" : "menu"}`}>
+              <div className={` ${navbar ? "menu group/menu" : "menu"}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-blue-300 h-[40px] items-center" : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
-                  <div className="">menu 1</div>
-                  <div className={`${navbar ?  "" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
+                  <div className={`${navbar ? "text-gray-600 " : ""}`}>menu 1</div>
+                  <div className={`${navbar ?  "text-gray-600 group-hover/menu:rotate-180 duration-300" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
 
                 {/* container List */}
