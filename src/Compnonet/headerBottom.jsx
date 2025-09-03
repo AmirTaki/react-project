@@ -71,7 +71,7 @@ const  HeaderBottom = () => {
                 <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[105px] flex-col  border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
-                  <div className={` ${navbar ? "list": "list flex justify-center  "}`}>
+                  <div className={` ${navbar ? "list": "list flex justify-center bg-amber-300 h-[500px]  "}`}>
 
                     
                       {/* category */}
@@ -86,7 +86,7 @@ const  HeaderBottom = () => {
                  
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed  bg-red-600 border-r-1!  mt-1 border-b-1! border-gray-300!  flex "}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed top-[500px] bg-red-600 border-r-1!  mt-1 border-b-1! border-gray-300!  flex "}`}>
                       {/* category */}
                       <div className=" flex flex-col  w-[300px] ">
                           <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
