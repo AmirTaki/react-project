@@ -83,9 +83,9 @@ const  HeaderBottom = () => {
                       </div>
                       
                       {/* container product ============================================================> Hidden*/}
-                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[97px] bg-white border-l-1! border-l-gray-100 border-r-1! h-[499px] mt-1 border-b-1! border-gray-300!   group-hover/list:flex! "}`}>
+                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[97px] bg-white border-l-1!  h-[499px] mt-1 border-b-1! border-gray-300! flex-row! flex   group-hover/list:flex! "}`}>
                         {/* category */}
-                        <div className=" flex flex-col  w-[250px]  overflow-hidden">
+                        <div className=" flex flex-col  w-[250px]  overflow-hidden border-l-gray-100 border-r-1!" >
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
                             {/* category item */}
                             <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
@@ -94,7 +94,13 @@ const  HeaderBottom = () => {
                             </div>
                         </div>
                         {/* serics */}
-                        <div className=""></div>
+                        <div className=" flex flex-col  w-[250px]  overflow-hidden border-l-gray-100 border-r-1!">
+                          <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY SERYS</div>
+                          {/* serics item */}
+                          <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                            <div className="">serics</div>
+                          </div>
+                        </div>
                         {/* image */}
                         <div className=""></div>
                       </div>
