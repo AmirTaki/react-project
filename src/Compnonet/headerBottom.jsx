@@ -73,7 +73,10 @@ const  HeaderBottom = () => {
                   {/* List */}
                   <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
                     {/* title List */}
-                    <div className="">list 1</div>
+                    <div className={`${navbar ? "" : ""}`}>
+                        <div className={`${navbar ? "" : ""}`}>list 1</div>
+                        <div className={`${navbar ? "" : ""}`}></div>
+                    </div>
 
 
                     {/* container product */}
