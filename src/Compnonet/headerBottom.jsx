@@ -102,16 +102,19 @@ const  HeaderBottom = () => {
                           </div>
                         </div>
                         {/* image */}
-                        <div className="flex flex-col w-[300px] overflow-hidden bg-amber-500 justify-center items-center gap-2">
+                        <div className="flex flex-col w-[300px] overflow-hidden  justify-center items-center gap-2">
                           {/* itemImages */}
-                          <div className="w-[230px] h-[230px] bg-gray-200 flex flex-col justify-center items-center">
+                          <div className="w-[230px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
                             <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
                             <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
+                     
                           {/* itemImages */}
-                          <div className="w-[200px] h-[200px] bg-red-500">
-
+                          <div className="w-[230px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
+                            <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
+                            <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
+                     
                         </div>
                       </div>
                     </div>                    
