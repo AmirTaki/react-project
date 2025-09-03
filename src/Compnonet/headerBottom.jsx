@@ -71,10 +71,10 @@ const  HeaderBottom = () => {
                 <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[105px] flex-col  border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
-                  <div className={` ${navbar ? "list": "list flex justify-center "}`}>
+                  <div className={` ${navbar ? "list": "list flex justify-center  "}`}>
 
                     {/* container List */}
-                    <div className=" border-r-1!  border-r-gray-300! h-[500px]">
+                    <div className=" border-r-1!  border-r-gray-300! h-[500px] ">
                       {/* category */}
                       <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]"}`}>Category Tilte </div>
                       
@@ -83,36 +83,38 @@ const  HeaderBottom = () => {
                           <div className={`${navbar ? "" : ""}`}>list 1</div>
                           <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
                       </div>
+
+                 
                     </div>
-
-
-
                     {/* container product */}
                     <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  bg-white border-r-1!  mt-1 border-b-1! border-gray-300!  flex "}`}>
                       {/* category */}
-                     <div className=" flex flex-col  w-[300px] ">
-                        <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
-                        {/* category item */}
-                        <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                          <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
-                          <div className="">category</div>
-                        </div>
-                        {/* category item */}
-                        <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                          <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
-                          <div className="">category</div>
-                        </div>
-                        {/* category item */}
-                        <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                          <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
-                          <div className="">category</div>
-                        </div>
-                     </div>
-                     {/* serics */}
-                     <div className=""></div>
-                     {/* image */}
-                     <div className=""></div>
+                      <div className=" flex flex-col  w-[300px] ">
+                          <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
+                          {/* category item */}
+                          <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                            <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
+                            <div className="">category</div>
+                          </div>
+                          {/* category item */}
+                          <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                            <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
+                            <div className="">category</div>
+                          </div>
+                          {/* category item */}
+                          <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                            <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
+                            <div className="">category</div>
+                          </div>
+                      </div>
+                      {/* serics */}
+                      <div className=""></div>
+                      {/* image */}
+                      <div className=""></div>
                     </div>
+
+
+
                     
                   </div>
                 </div>
