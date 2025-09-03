@@ -61,13 +61,13 @@ const  HeaderBottom = () => {
               {/* Menu */}
               <div className={` ${navbar ? "menu group/menu duration-500! " : "menu"}`}>
                 {/* title menu */}
-                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
+                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950!  "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
 
                 {/* container List */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList  hidden fixed bg-white left-0   flex-col border-r-1! w-[25%] border-r-gray-300!   pl-30 h-[500px] shadow-2xl"}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList  hidden fixed bg-white left-0   flex-col border-r-1! w-[25%] border-r-gray-300! border-b-1! border-b-gray-300!  pl-30 h-[500px] "}`}>
                   {/* category */}
                   <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30"}`}>Category Tilte </div>
                   {/* List */}
@@ -80,64 +80,7 @@ const  HeaderBottom = () => {
 
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%] shadow-2xl w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
-                      {/* product */}
-                      <div className="bg-green-700">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                    </div>
-                    
-                  </div>
-                  {/* List */}
-                  <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
-                    {/* title List */}
-                    <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : ""}`}>
-                        <div className={`${navbar ? "" : ""}`}>list 1</div>
-                        <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
-                    </div>
-
-
-                    {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%] shadow-2xl w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
-                      {/* product */}
-                      <div className="bg-green-700">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                    </div>
-                    
-                  </div>
-                  {/* List */}
-                  <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
-                    {/* title List */}
-                    <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : ""}`}>
-                        <div className={`${navbar ? "" : ""}`}>list 1</div>
-                        <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
-                    </div>
-
-
-                    {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%] shadow-2xl w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
-                      {/* product */}
-                      <div className="bg-green-700">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                    </div>
-                    
-                  </div>
-                  {/* List */}
-                  <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
-                    {/* title List */}
-                    <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : ""}`}>
-                        <div className={`${navbar ? "" : ""}`}>list 1</div>
-                        <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
-                    </div>
-
-
-                    {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%] shadow-2xl w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%]  w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
                       {/* product */}
                       <div className="bg-green-700">product</div>
                       <div className="">product</div>
