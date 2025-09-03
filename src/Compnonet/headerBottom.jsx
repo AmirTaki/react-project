@@ -106,7 +106,7 @@ const  HeaderBottom = () => {
                           {/* itemImages */}
                           <div className="w-[230px] h-[230px] bg-gray-200 flex flex-col justify-center items-center">
                             <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
-                            <div className=" w-[150px] h-[150px] text-center flex items-center">ASUS Zenbook Duo (2024) UX8406</div>
+                            <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
                           {/* itemImages */}
                           <div className="w-[200px] h-[200px] bg-red-500">
