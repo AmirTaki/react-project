@@ -68,7 +68,7 @@ const  HeaderBottom = () => {
                 </div>
 
                                                                                                                                         {/* hiiden */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!    fixed bg-green-500 left-0   top-[100px] flex-col border-r-1!  border-r-gray-300! border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!    fixed white left-0   top-[100px] flex-col border-r-1!  border-r-gray-300! border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
                   <div className={` ${navbar ? "list": "list flex justify-center "}`}>
@@ -92,8 +92,8 @@ const  HeaderBottom = () => {
                       {/* category */}
                      <div className="bg-yellow-500 flex flex-col  w-[300px] ">
                         <div className = "h-[50px] flex items-center text-gray-900/30">Category Tilte </div>
-                        <div className="">
-                          <div className=""></div>
+                        <div className=" flex bg-red-500 h-[50px] items-center ">
+                          <div className=""><i class="bi bi-anthropic"></i></div>
                           <div className="">category</div>
                         </div>
                      </div>
