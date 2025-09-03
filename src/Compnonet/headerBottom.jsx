@@ -68,10 +68,10 @@ const  HeaderBottom = () => {
                 </div>
                 {/* megaMenu */}
                                                                                                                                         {/* hiiden */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[100.5px] flex-col  border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[100.5px] flex-col   w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
-                  <div className={` ${navbar ? "list": "list flex  bg-white h-[500px] flex-col px-[100px]  "}`}>
+                  <div className={` ${navbar ? "list": "list flex  bg-white h-[500px] flex-col px-[100px] my-[40px] "}`}>
                     {/* category */}
                     <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]!  "}`}>Category Tilte </div> 
                     {/* container List  */}
@@ -83,7 +83,7 @@ const  HeaderBottom = () => {
                       </div>
                       
                       {/* container product ============================================================> Hidden*/}
-                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[97px] bg-white border-l-1!  h-[499px] mt-1 border-b-1! border-gray-300! flex-row! flex   group-hover/list:flex! "}`}>
+                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[97px] bg-white border-l-1! my-[40px]! h-[499px] mt-1  border-gray-300! flex-row! flex   group-hover/list:flex! "}`}>
                         {/* category */}
                         <div className=" flex flex-col  w-[250px]  overflow-hidden border-l-gray-100 border-r-1!" >
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
