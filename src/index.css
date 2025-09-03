@@ -31,9 +31,9 @@
         transition:  .5s !important;
     }
     .menu:hover .containerList{
-        display: block;
+        /* display: block;
         height: 300px;
-        transition: .5s;
+        transition: .5s !important; */
     }
 
     .list:hover .containerProduct{
