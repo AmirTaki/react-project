@@ -92,7 +92,8 @@ const  HeaderBottom = () => {
                       {/* category */}
                      <div className="bg-yellow-500 flex flex-col  w-[300px] ">
                         <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
-                        <div className=" flex bg-red-500 h-[50px] items-center pl-[10px] ">
+                        {/* category item */}
+                        <div className=" flex bg-white h-[50px] items-center pl-[10px] text-gray-500 cursor-pointer ">
                           <div className=""><i class="bi bi-anthropic"></i></div>
                           <div className="">category</div>
                         </div>
