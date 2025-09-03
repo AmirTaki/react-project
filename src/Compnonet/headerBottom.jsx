@@ -68,7 +68,7 @@ const  HeaderBottom = () => {
                 </div>
 
                                                                                                                                         {/* hiiden */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[105px] flex-col  border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[100.5px] flex-col  border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
                   <div className={` ${navbar ? "list": "list flex  bg-white h-[500px] flex-col mx-[100px] "}`}>
