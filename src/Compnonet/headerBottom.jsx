@@ -76,7 +76,7 @@ const  HeaderBottom = () => {
                     {/* container List */}
                     <div className="">
                       {/* category */}
-                      <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 "}`}>Category Tilte </div>
+                      <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]"}`}>Category Tilte </div>
                       
                       {/* title List */}
                       <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : " h-[40px] text-xl flex flex-col  pl-[2px] text-gray-600   hover:text-blue-600 bg-white hover:bg-gray-100 duration-300 "}`}>
@@ -91,7 +91,11 @@ const  HeaderBottom = () => {
                     <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  bg-red-400   flex"}`}>
                       {/* category */}
                      <div className="bg-yellow-500 flex flex-col  w-[300px] ">
-                        <div className = "h-[30px] flex items-center text-gray-900/30">Category Tilte </div>
+                        <div className = "h-[50px] flex items-center text-gray-900/30">Category Tilte </div>
+                        <div className="">
+                          <div className=""></div>
+                          <div className="">category</div>
+                        </div>
                      </div>
                      {/* serics */}
                      <div className=""></div>
