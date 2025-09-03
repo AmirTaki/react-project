@@ -1,6 +1,6 @@
 import logo from "../assets/logo.webp";
 import { createContext, useEffect, useState } from 'react';
-
+import labtop from "../assets/fwebp.webp"
 
 
 
@@ -85,7 +85,7 @@ const  HeaderBottom = () => {
                       {/* container product ============================================================> Hidden*/}
                       <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[97px] bg-white border-l-1! my-[40px]! h-[499px] mt-1  border-gray-300! flex-row! flex   group-hover/list:flex! "}`}>
                         {/* category */}
-                        <div className=" flex flex-col  w-[250px]  overflow-hidden border-l-gray-100 border-r-1!" >
+                        <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
                             {/* category item */}
                             <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
@@ -94,7 +94,7 @@ const  HeaderBottom = () => {
                             </div>
                         </div>
                         {/* serics */}
-                        <div className=" flex flex-col  w-[250px]  overflow-hidden border-l-gray-100 border-r-1!">
+                        <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!">
                           <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY SERYS</div>
                           {/* serics item */}
                           <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
@@ -102,7 +102,16 @@ const  HeaderBottom = () => {
                           </div>
                         </div>
                         {/* image */}
-                        <div className=""></div>
+                        <div className="flex flex-col w-[300px] overflow-hidden bg-amber-500 justify-center items-center gap-2">
+                          {/* itemImages */}
+                          <div className="w-[200px] h-[200px] bg-red-500">
+                      
+                            </div>
+                          {/* itemImages */}
+                          <div className="w-[200px] h-[200px] bg-red-500">
+
+                          </div>
+                        </div>
                       </div>
                     </div>                    
                               
