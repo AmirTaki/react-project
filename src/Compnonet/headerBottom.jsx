@@ -93,8 +93,8 @@ const  HeaderBottom = () => {
                      <div className="bg-yellow-500 flex flex-col  w-[300px] ">
                         <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
                         {/* category item */}
-                        <div className=" flex bg-white h-[50px] items-center pl-[10px] text-gray-500 cursor-pointer ">
-                          <div className=""><i class="bi bi-anthropic"></i></div>
+                        <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                          <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
                           <div className="">category</div>
                         </div>
                      </div>
