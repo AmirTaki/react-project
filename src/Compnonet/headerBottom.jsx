@@ -73,9 +73,9 @@ const  HeaderBottom = () => {
                   {/* List */}
                   <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
                     {/* title List */}
-                    <div className={`${navbar ? "" : ""}`}>
+                    <div className={`${navbar ? "flex justify-between px-4 bg-amber-400 h-[30px] items-center" : ""}`}>
                         <div className={`${navbar ? "" : ""}`}>list 1</div>
-                        <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-compact-right"></i></div>
+                        <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
                     </div>
 
 
