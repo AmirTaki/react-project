@@ -58,6 +58,7 @@ const  HeaderBottom = () => {
                   <i className="bi bi-search text-gray-400 cursor-pointer text-lg hover:scale-130    max-md:right-[10px] absolute hover:text-gray-900 duration-300"   onClick={handlerSerch}></i>
                 </div>
               </div>
+             
               {/* Menu */}
               <div className={` ${navbar ? "menu group/menu duration-500! " : "menu"}`}>
                 {/* title menu */}
@@ -67,23 +68,23 @@ const  HeaderBottom = () => {
                 </div>
 
                                                                                                                                         {/* hiiden */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList   fixed bg-green-500 left-0   top-[100px] flex-col border-r-1! w-[25%] border-r-gray-300! border-b-1! border-b-gray-300!  pl-30 h-[500px] "}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList   fixed bg-green-500 left-0   top-[100px] flex-col border-r-1!  border-r-gray-300! border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
-                  <div className={` ${navbar ? "list": "list  "}`}>
+                  <div className={` ${navbar ? "list": "list flex "}`}>
                    
                     {/* category */}
                     <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 "}`}>Category Tilte </div>
                     
                     {/* title List */}
-                    <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : " h-[40px] text-xl flex flex-col  pl-[2px] text-gray-600  w-[300px]! hover:text-blue-600 bg-white hover:bg-gray-100 duration-300 "}`}>
+                    <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : " h-[40px] text-xl flex flex-col  pl-[2px] text-gray-600   hover:text-blue-600 bg-white hover:bg-gray-100 duration-300 "}`}>
                         <div className={`${navbar ? "" : ""}`}>list 1</div>
                         <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
                     </div>
 
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-red-400 fixed left-[25%]  w-[75%] z-10! top-[100px] h-[500px] pr-30! border-b-1! border-b-gray-300!  flex"}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " hidden bg-red-400  left-[25%]  w-[75%] z-10! top-[100px] h-[500px] pr-30! border-b-1! border-b-gray-300!  flex"}`}>
                       {/* category */}
                      <div className="bg-yellow-500 flex flex-col  w-[300px] ">
                         <div className = "h-[30px] flex items-center text-gray-900/30">Category Tilte </div>
