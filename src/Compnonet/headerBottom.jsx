@@ -71,16 +71,16 @@ const  HeaderBottom = () => {
                 <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[105px] flex-col  border-b-1! border-b-gray-300! w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
-                  <div className={` ${navbar ? "list": "list flex  bg-amber-300 h-[500px] flex-col mx-[100px] "}`}>
-
-                    <div className={`${navbar ? "" : "border-r-1! border-r-gray-100! w-[300px] h-[500px]"}`}>
+                  <div className={` ${navbar ? "list": "list flex  bg-white h-[500px] flex-col mx-[100px] "}`}>
                     {/* category */}
-                      <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]! bg-red-300 "}`}>Category Tilte </div>          
+                    <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]!  "}`}>Category Tilte </div>    
+                    <div className={`${navbar ? "" : "border-r-1! border-r-gray-100! w-[300px] "}`}>    
                       {/* title List */}
-                      <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 bg-green-500 w-[300px] hover:bg-gray-100 duration-300 "}`}>
+                      <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600  w-[300px] hover:bg-gray-100 duration-300 "}`}>
                           <div className={`${navbar ? "" : ""}`}>list 1</div>
                           <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
                       </div>
+                      
                       {/* container product */}
                       <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[102px] bg-red-600 border-r-1! h-[500px] mt-1 border-b-1! border-gray-300!  flex "}`}>
                         {/* category */}
