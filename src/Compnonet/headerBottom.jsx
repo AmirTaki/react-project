@@ -80,7 +80,7 @@ const  HeaderBottom = () => {
 
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%]  w-[75%] z-10! top-[100px] h-[500px] pr-30!"}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%]  w-[75%] z-10! top-[100px] h-[500px] pr-30! border-b-1! border-b-gray-300! "}`}>
                       {/* product */}
                       <div className="bg-green-700">product</div>
                       <div className="">product</div>
