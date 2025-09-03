@@ -61,7 +61,7 @@ const  HeaderBottom = () => {
               {/* Menu */}
               <div className={` ${navbar ? "menu group/menu duration-500! " : "menu"}`}>
                 {/* title menu */}
-                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[40px] items-center cursor-pointer  " : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
+                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
@@ -73,7 +73,7 @@ const  HeaderBottom = () => {
                   {/* List */}
                   <div className={` ${navbar ? "list": "list w-full bg-white h-[40px] text-xl flex items-center pl-[2px] text-gray-600  hover:text-blue-600 hover:bg-gray-100 duration-300"}`}>
                     {/* title List */}
-                    <div className={`${navbar ? "flex justify-between px-4 bg-amber-400 h-[30px] items-center" : ""}`}>
+                    <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 h-[50px] items-center" : ""}`}>
                         <div className={`${navbar ? "" : ""}`}>list 1</div>
                         <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
                     </div>
