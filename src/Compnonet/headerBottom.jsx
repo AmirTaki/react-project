@@ -62,7 +62,8 @@ const  HeaderBottom = () => {
               <div className={` ${navbar ? "menu" : "menu"}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "" : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
-                  menu 1
+                  <div className="">menu 1</div>
+                  <div className={`${navbar ?  "" : "hidden"}`}>></div>
                 </div>
 
                 {/* container List */}
