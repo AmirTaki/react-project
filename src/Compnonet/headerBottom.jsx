@@ -75,7 +75,7 @@ const  HeaderBottom = () => {
                     {/* title List */}
                     <div className={`${navbar ? "" : ""}`}>
                         <div className={`${navbar ? "" : ""}`}>list 1</div>
-                        <div className={`${navbar ? "" : ""}`}></div>
+                        <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-compact-right"></i></div>
                     </div>
 
 
