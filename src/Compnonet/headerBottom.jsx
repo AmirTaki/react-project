@@ -75,50 +75,42 @@ const  HeaderBottom = () => {
 
                     <div className={`${navbar ? "" : "border-r-1! border-r-gray-100! w-[300px] h-[500px]"}`}>
                     {/* category */}
-                      <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]! bg-red-300 "}`}>Category Tilte </div>
-                      
+                      <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]! bg-red-300 "}`}>Category Tilte </div>          
                       {/* title List */}
                       <div className={`${navbar ? "flex justify-between px-4 bg-white text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 bg-green-500 w-[300px] hover:bg-gray-100 duration-300 "}`}>
                           <div className={`${navbar ? "" : ""}`}>list 1</div>
                           <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
                       </div>
-
-                 
-
-                    {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed top-[500px] bg-red-600 border-r-1!  mt-1 border-b-1! border-gray-300!  flex "}`}>
-                      {/* category */}
-                      <div className=" flex flex-col  w-[300px] ">
-                          <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
-                          {/* category item */}
-                          <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                            <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
-                            <div className="">category</div>
-                          </div>
-                          {/* category item */}
-                          <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                            <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
-                            <div className="">category</div>
-                          </div>
-                          {/* category item */}
-                          <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                            <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
-                            <div className="">category</div>
-                          </div>
+                      {/* container product */}
+                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed left-[400px] top-[102px] bg-red-600 border-r-1! h-[500px] mt-1 border-b-1! border-gray-300!  flex "}`}>
+                        {/* category */}
+                        <div className=" flex flex-col  w-[300px] ">
+                            <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
+                            {/* category item */}
+                            <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                              <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
+                              <div className="">category</div>
+                            </div>
+                            {/* category item */}
+                            <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                              <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
+                              <div className="">category</div>
+                            </div>
+                            {/* category item */}
+                            <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                              <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
+                              <div className="">category</div>
+                            </div>
+                        </div>
+                        {/* serics */}
+                        <div className=""></div>
+                        {/* image */}
+                        <div className=""></div>
                       </div>
-                      {/* serics */}
-                      <div className=""></div>
-                      {/* image */}
-                      <div className=""></div>
-                    </div>
-                    </div>
-              
-
-
-
-                    
+                    </div>                    
                   </div>
                 </div>
+
               </div>
  
 
