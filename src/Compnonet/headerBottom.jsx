@@ -66,8 +66,8 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
 
-                {/* container List */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList  hidden fixed bg-white left-0   flex-col border-r-1! w-[25%] border-r-gray-300! border-b-1! border-b-gray-300!  pl-30 h-[500px] "}`}>
+                                                                                                                                        {/* hiiden */}
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList   fixed bg-white left-0   flex-col border-r-1! w-[25%] border-r-gray-300! border-b-1! border-b-gray-300!  pl-30 h-[500px] "}`}>
                   {/* category */}
                   <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30"}`}>Category Tilte </div>
                   {/* List */}
@@ -80,12 +80,13 @@ const  HeaderBottom = () => {
 
 
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-white fixed left-[25%]  w-[75%] z-10! top-[100px] h-[500px] pr-30! border-b-1! border-b-gray-300! "}`}>
-                      {/* product */}
-                      <div className="bg-green-700">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
-                      <div className="">product</div>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : " bg-red-400 fixed left-[25%]  w-[75%] z-10! top-[100px] h-[500px] pr-30! border-b-1! border-b-gray-300!  flex"}`}>
+                      {/* category */}
+                     <div className=""></div>
+                     {/* serics */}
+                     <div className=""></div>
+                     {/* image */}
+                     <div className=""></div>
                     </div>
                     
                   </div>
