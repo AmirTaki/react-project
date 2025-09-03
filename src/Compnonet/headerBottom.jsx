@@ -71,7 +71,7 @@ const  HeaderBottom = () => {
                 <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " group-hover/menu:flex!     fixed white left-0   top-[100.5px] flex-col   w-[100%]  h-[500px] "}`}>
                   
                   {/* List */}
-                  <div className={` ${navbar ? "list": "list flex  bg-white h-[500px] flex-col px-[100px] my-[40px] "}`}>
+                  <div className={` ${navbar ? "list": "list flex  bg-white h-[500px] flex-col px-[10%] my-[40px] "}`}>
                     {/* category */}
                     <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]!  "}`}>Category Tilte </div> 
                     {/* container List  */}
