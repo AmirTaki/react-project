@@ -63,7 +63,7 @@ const  HeaderBottom = () => {
                 {/* title menu */}
                 <div className= {`${navbar? "" : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
                   <div className="">menu 1</div>
-                  <div className={`${navbar ?  "" : "hidden"}`}>></div>
+                  <div className={`${navbar ?  "" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
 
                 {/* container List */}
