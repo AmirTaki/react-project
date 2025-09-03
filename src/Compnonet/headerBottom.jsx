@@ -89,15 +89,15 @@ const  HeaderBottom = () => {
                 </div>
               </div>
               {/* Menu */}
-              <div className={` ${navbar ? "menu group/menu" : "menu"}`}>
+              <div className={` ${navbar ? "menu group/menu duration-500! " : "menu "}`}>
                 {/* title menu */}
-                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[40px] items-center cursor-pointer" : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
-                  <div className={`${navbar ? "text-gray-600 " : ""}`}>menu 1</div>
-                  <div className={`${navbar ?  "text-gray-600 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
+                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[40px] items-center cursor-pointer  " : "bg-amber-400 h-[60px] flex items-center justify-center cursor-pointer hover:border-b-2! hover:border-b-gray-950! "}`}>
+                  <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
+                  <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
 
                 {/* container List */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden containerList" : " containerList  hidden fixed bg-white left-0   flex-col border-r-1! w-[25%] border-r-gray-300!   pl-30 h-[500px] shadow-2xl"}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " containerList  hidden fixed bg-yellow-400 left-0   flex-col border-r-1! w-[25%] border-r-gray-300!   pl-30 h-[500px] shadow-2xl"}`}>
                   {/* category */}
                   <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30"}`}>Category Tilte </div>
                   {/* List */}
