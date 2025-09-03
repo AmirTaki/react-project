@@ -30,15 +30,15 @@
     .containerList{
         transition:  .5s !important;
     } */
-    .menu:hover .containerList{
+    /* .menu:hover .containerList{ */
         /* display: block;
         height: 300px;
         transition: .5s !important; */
-    }
+    /* } */
 
     /* .list:hover .containerProduct{
         height: 200px;
         transition: .5s;
     } */
- }
+ /* } */
 

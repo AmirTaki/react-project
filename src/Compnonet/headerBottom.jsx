@@ -73,8 +73,7 @@ const  HeaderBottom = () => {
                   {/* List */}
                   <div className={` ${navbar ? "list": "list flex justify-center  "}`}>
 
-                    {/* container List */}
-                    <div className=" border-r-1!  border-r-gray-300! h-[500px] ">
+                    
                       {/* category */}
                       <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30 w-[300px]"}`}>Category Tilte </div>
                       
@@ -85,9 +84,9 @@ const  HeaderBottom = () => {
                       </div>
 
                  
-                    </div>
+
                     {/* container product */}
-                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  bg-white border-r-1!  mt-1 border-b-1! border-gray-300!  flex "}`}>
+                    <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "fixed  bg-red-600 border-r-1!  mt-1 border-b-1! border-gray-300!  flex "}`}>
                       {/* category */}
                       <div className=" flex flex-col  w-[300px] ">
                           <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">Category Tilte </div>
