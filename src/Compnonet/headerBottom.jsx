@@ -105,8 +105,9 @@ const  HeaderBottom = () => {
                         <div className="flex flex-col w-[300px] overflow-hidden bg-amber-500 justify-center items-center gap-2">
                           {/* itemImages */}
                           <div className="w-[200px] h-[200px] bg-red-500">
-                      
-                            </div>
+                            <img src={labtop} alt="" />
+                            <div className="">ASUS Zenbook Duo (2024) UX8406</div>
+                          </div>
                           {/* itemImages */}
                           <div className="w-[200px] h-[200px] bg-red-500">
 
