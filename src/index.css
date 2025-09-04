@@ -8,37 +8,14 @@
 
 *{
     font-family: var(--font-display);
+    --aniamtion-megaMenu : megeMenu 1s linear forwards;
 
 }
-/* 
-.menu {
-    transition: display .5s !important;
+@keyframes megeMenu {
+    0%{
 
-}
-
-.menu:hover .containerList{
-    display: flex;
-    transition: display .5s !important;
-}
-
-
- @media screen and (max-width : 768px) {
-    .menu,.list {
-    transition: .5s !important; 
     }
+    100%{
 
-    .containerList{
-        transition:  .5s !important;
-    } */
-    /* .menu:hover .containerList{ */
-        /* display: block;
-        height: 300px;
-        transition: .5s !important; */
-    /* } */
-
-    /* .list:hover .containerProduct{
-        height: 200px;
-        transition: .5s;
-    } */
- /* } */
-
+    }
+}
