@@ -73,8 +73,10 @@ const  HeaderBottom = () => {
              
                   </div>
                   {/* container product */}
-                  <div className={`${navbar ? "" : "bg-orange-500 w-[50%] h-[500px]  "}`}>
-                    
+                  <div className={`${navbar ? "" : "bg-orange-500 w-[50%] h-[500px]  flex "}`}>
+                      <div className={`${navbar ? "" : "bg-blue-600"}`}></div>
+                      <div className={`${navbar ? "" : "bg-yellow-600"}`}></div>
+                      <div className={`${navbar ? "" : "bg-white"}`}></div>
                   </div>     
                 </div>
               </div>
