@@ -71,9 +71,9 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   =>    */}
-                <div className={`${navbar ? "" : "bg-green-500 h-[0]  absolute top-[62px] -right-31 group-hover/menu:h-[500px]! flex duration-500!    animate-mege!  overflow-hidden"}`}>
+                <div className={`${navbar ? "" : "bg-white h-[0]  rounded-2xl shadow-2xl absolute top-[62px] -right-31 group-hover/menu:h-[500px]! flex duration-500!    animate-mege!  overflow-hidden"}`}>
                   {/* container list */}
-                 <div className={` ${navbar ? "list": "list flex  items-center bg-transparent rounded-2xl shadow-2xl h-[500px] flex-col w-[300px]   "}`}>
+                 <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[300px]   "}`}>
                       {/* category */}
                       <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                       {/* container List  */}
