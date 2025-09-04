@@ -71,19 +71,19 @@ const  HeaderBottom = () => {
                 <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : "  hidden fixed group-hover/menu:flex!   bg-white w-[20%]  left-0 top-[101px]   p-5  ml-[10%] h-[500px]   "}`}>
                   
                   {/* List */}
-                  <div className={` ${navbar ? "list": "list flex  bg-transparent h-[600px] flex-col w-[100%]   "}`}>
+                  <div className={` ${navbar ? "list": "list flex  bg-transparent h-[500px] flex-col w-[100%]   "}`}>
                     {/* category */}
                     <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                     {/* container List  */}
                     <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list"}`}>    
                       {/* title List */}
-                      <div className={`${navbar ? "flex justify-between px-4 bg-transparent text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600  w-[300px] hover:bg-gray-100 duration-300 "}`}>
+                      <div className={`${navbar ? "flex justify-between px-4 bg-transparent text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600  hover:bg-gray-100 duration-300 "}`}>
                           <div className={`${navbar ? "" : ""}`}>list 1</div>
                           <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
                       </div>
                       
                       {/* container product ============================================================> Hidden  =>   */}
-                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "   fixed flex w-[60%] left-[30%] mr-[10%] top-[101px] bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!    group-hover/list:flex! "}`}>
+                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  group-hover/menu:flex! hidden  fixed  w-[60%] left-[30%] mr-[10%] top-[101px] bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!    group-hover/list:flex! "}`}>
                         {/* category */}
                         <div className=" flex flex-col  w-[33.3%]  overflow-hidden border-l-gray-100 border-r-1!" >
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
@@ -118,9 +118,7 @@ const  HeaderBottom = () => {
                      
                         </div>
                       </div>
-                    </div>                    
-                              
-                                
+                    </div>                                            
                   </div>
                 </div>
 
