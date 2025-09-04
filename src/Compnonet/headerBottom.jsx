@@ -10,7 +10,7 @@ const  HeaderBottom = () => {
     const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
-   
+    const [productMenu, setProductMenu] = useState(false)
     
     
 
@@ -35,8 +35,8 @@ const  HeaderBottom = () => {
 
     }
 
-    const listHandler = () => {
-
+    const listHandler = ()  => {
+      setProductMenu(true)
     }
   
     return(
@@ -86,7 +86,7 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  hidden  fixed  w-[900px] top-0 left-[300px]   bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!    group-hover/list:flex! "}`}>
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed  w-[900px] top-0 left-[300px]   bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!  "}`}>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                               <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
