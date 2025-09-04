@@ -4,18 +4,23 @@
 
 @theme {
     --font-display :  "Dancing Script", cursive;
+    --animate-mege: megeMenu .5s ease-in-out forwards;
+    @keyframes megeMenu {
+        0%
+        
+        {
+               transform: translateY(30px)
+   
+        }
+        100% {
+            transform: translateY(0px)
+        }
+    }
+
 }
 
 *{
     font-family: var(--font-display);
-    --aniamtion-megaMenu : megeMenu 1s linear forwards;
+    
 
-}
-@keyframes megeMenu {
-    0%{
-
-    }
-    100%{
-
-    }
 }
