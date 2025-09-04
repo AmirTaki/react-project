@@ -38,6 +38,9 @@ const  HeaderBottom = () => {
     const listHandler = ()  => {
       setProductMenu(!productMenu)
     }
+    const handlerProductMenu = () => {
+      setProductMenu(productMenu ? false : false)
+    }
   
     return(
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
@@ -66,7 +69,7 @@ const  HeaderBottom = () => {
               {/* Menu */}
               <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
-                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
+                <div onClick={handlerProductMenu} className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
@@ -86,7 +89,7 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-red-500 border-l-1!  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${productMenu? "hidden!":" flex! animate-productMenu!"}`}>
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-red-500 border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"hidden" }`}>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                               <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
