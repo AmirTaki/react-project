@@ -69,7 +69,7 @@ const  HeaderBottom = () => {
               {/* Menu */}
               <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
-                <div onClick={handlerProductMenu} className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
+                <div onMouseMove={()=>{setProductMenu(false)}} className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
