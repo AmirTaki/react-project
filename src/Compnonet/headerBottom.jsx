@@ -68,7 +68,7 @@ const  HeaderBottom = () => {
                 </div>
                 {/* megaMenu */}
                                                                                                                                         {/* hiiden */}
-                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : " fixed group-hover/menu:flex!  bg-amber-400 w-[20%]  left-0 top-[101px]   my-5  ml-[10%] h-[500px]   "}`}>
+                <div className = {`${navbar ? "bg-blue-500 h-0 overflow-hidden group-hover/menu:h-[400px]! duration-500! " : "  hidden fixed group-hover/menu:flex!   bg-white w-[20%]  left-0 top-[101px]   p-5  ml-[10%] h-[500px]   "}`}>
                   
                   {/* List */}
                   <div className={` ${navbar ? "list": "list flex  bg-transparent h-[600px] flex-col w-[100%]   "}`}>
@@ -83,7 +83,7 @@ const  HeaderBottom = () => {
                       </div>
                       
                       {/* container product ============================================================> Hidden  =>   */}
-                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  fixed flex w-[60%] left-[30%] mr-[10%] top-[101px] bg-red-500 border-l-1!  h-[500px] ml-0 m-5  border-gray-300! flex-row!    group-hover/list:flex! "}`}>
+                      <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "   fixed flex w-[60%] left-[30%] mr-[10%] top-[101px] bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!    group-hover/list:flex! "}`}>
                         {/* category */}
                         <div className=" flex flex-col  w-[33.3%]  overflow-hidden border-l-gray-100 border-r-1!" >
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
@@ -104,12 +104,12 @@ const  HeaderBottom = () => {
                         {/* image */}
                         <div className="flex flex-col  w-[33.3%] overflow-hidden  justify-center items-center gap-2">
                           {/* itemImages */}
-                          <div className="w-[200px] h-[200px] bg-gray-100 flex flex-col justify-center items-center">
+                          <div className="w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
                             <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
                             <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
                           {/* itemImages */}
-                          <div className="w-[200px] h-[200px] bg-gray-100 flex flex-col justify-center items-center">
+                          <div className="w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
                             <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
                             <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
