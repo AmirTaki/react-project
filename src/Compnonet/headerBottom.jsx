@@ -71,7 +71,7 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   =>    */}
-                <div className={`${navbar ? "" : "bg-white h-[0]  rounded-2xl shadow-2xl absolute top-[62px] -right-31 group-hover/menu:h-[500px]! flex duration-500!    animate-mege!  overflow-hidden"}`}>
+                <div className={`${navbar ? "" : "bg-white h-[0]  rounded-2xl shadow-2xl absolute top-[62px] -right-31 group-hover/menu:h-[500px]! flex duration-500!    animate-mege!  "}`}>
                   {/* container list */}
                  <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[300px]   "}`}>
                       {/* category */}
@@ -86,7 +86,7 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed  w-[900px] top-0 left-[300px]   bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!  "}`}>
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px]  top-0 -left-[250px]! bg-red-500 border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex flex-row!  "}`}>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                               <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
