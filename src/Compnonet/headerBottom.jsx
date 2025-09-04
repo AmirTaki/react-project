@@ -67,7 +67,7 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu */}
-                <div className={`${navbar ? "" : "bg-green-500 h-[0] w-[300px] absolute top-[62px] -left-[130px] group-hover/menu:h-[500px]! group-hover/menu:flex! duration-500!  animate-mege! flex justify-center overflow-hidden"}`}>
+                <div className={`${navbar ? "" : "bg-green-500 h-[0]  absolute top-[62px] -left-[130px] group-hover/menu:h-[500px]! group-hover/menu:flex! duration-500!  animate-mege! flex justify-center overflow-hidden"}`}>
                   {/* container list */}
                  <div className={` ${navbar ? "list": "list flex  items-center bg-transparent h-[500px] flex-col w-[300px]   "}`}>
                       {/* category */}
