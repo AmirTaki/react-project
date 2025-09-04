@@ -67,23 +67,9 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu */}
-                <div className={`${navbar ? "" : "bg-green-500 h-[500px] w-[100%] fixed left-0  top-25.5  group-hover/menu:flex! duration-500!  animate-mege! flex justify-center"}`}>
+                <div className={`${navbar ? "" : "bg-green-500 h-[0] w-[30%] left-80 fixed   group-hover/menu:h-[500px]! group-hover/menu:flex! duration-500!  animate-mege! flex justify-center"}`}>
                   {/* container list */}
-                  <div className={`${navbar ? "" : "h-500px bg-red-500 w-[15%] w relative"}`}>
-                    
-                    {/*  */}
-                    <div className={`${navbar ? "" : "bg-orange-500 w-[33.3%] h-[500px] absolute right-0  flex "}`}>
-                        <div className={`${navbar ? "" : "w-[300px] h-[500px] bg-blue-600"}`}></div>
-                        <div className={`${navbar ? "" : "w-[300px] h-[500px] bg-yellow-600"}`}></div>
-                        <div className={`${navbar ? "" : "w-[300px] h-[500px] bg-pink-400"}`}></div>
-                    </div>     
-                  </div>
-                  {/* container product */}
-                  {/* <div className={`${navbar ? "" : "bg-orange-500 w-[50%] h-[500px]  flex "}`}>
-                      <div className={`${navbar ? "" : "w-[33.3%] h-[500px] bg-blue-600"}`}></div>
-                      <div className={`${navbar ? "" : "w-[33.3%] h-[500px] bg-yellow-600"}`}></div>
-                      <div className={`${navbar ? "" : "w-[33.3%] h-[500px] bg-pink-400"}`}></div>
-                  </div>      */}
+               
                 </div>
               </div>
  
