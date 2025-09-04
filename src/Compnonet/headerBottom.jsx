@@ -60,14 +60,14 @@ const  HeaderBottom = () => {
               </div>
              
               {/* Menu */}
-              <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2! hover:border-b-gray-950!  "}`}>
+              <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2! hover:border-b-gray-950! relative  "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu */}
-                <div className={`${navbar ? "" : "bg-green-500 h-[0] w-[30%] left-80 fixed   group-hover/menu:h-[500px]! group-hover/menu:flex! duration-500!  animate-mege! flex justify-center"}`}>
+                <div className={`${navbar ? "" : "bg-green-500 h-[0] w-[300px] absolute top-[62px] -left-[130px] group-hover/menu:h-[500px]! group-hover/menu:flex! duration-500!  animate-mege! flex justify-center"}`}>
                   {/* container list */}
                
                 </div>
