@@ -67,9 +67,20 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu */}
-                <div className={`${navbar ? "" : "bg-green-500 h-[0] w-[300px] absolute top-[62px] -left-[130px] group-hover/menu:h-[500px]! group-hover/menu:flex! duration-500!  animate-mege! flex justify-center"}`}>
+                <div className={`${navbar ? "" : "bg-green-500 h-[0] w-[300px] absolute top-[62px] -left-[130px] group-hover/menu:h-[500px]! group-hover/menu:flex! duration-500!  animate-mege! flex justify-center overflow-hidden"}`}>
                   {/* container list */}
-               
+                 <div className={` ${navbar ? "list": "list flex  items-center bg-transparent h-[500px] flex-col w-[300px]   "}`}>
+                      {/* category */}
+                      <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
+                      {/* container List  */}
+                      <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[300px]"}`}>    
+                        {/* title List */}
+                        <div className={`${navbar ? "flex justify-between px-4 bg-transparent text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600  hover:bg-gray-100 duration-300 "}`}>
+                            <div className={`${navbar ? "" : ""}`}>list 1</div>
+                            <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
+                        </div>
+                      </div>
+                  </div>
                 </div>
               </div>
             
