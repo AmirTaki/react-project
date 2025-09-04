@@ -60,16 +60,16 @@ const  HeaderBottom = () => {
               </div>
              
               {/* Menu */}
-              <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2! hover:border-b-gray-950! relative  "}`}>
+              <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2! hover:border-b-gray-950!   "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   => h-[0]  absolute top-[62px] -left-[130px] group-hover/menu:h-[500px]!   */}
-                <div className={`${navbar ? "" : "bg-green-500 fixed w-full left-0 hidden  group-hover/menu:flex! duration-500!  animate-mege! justify-center overflow-hidden"}`}>
+                <div className={`${navbar ? "" : "bg-green-500 fixed w-full left-0   group-hover/menu:flex! duration-500! mx-auto   animate-mege!  overflow-hidden"}`}>
                   {/* container list */}
-                 <div className={` ${navbar ? "list": "list flex  items-center bg-transparent h-[500px] flex-col w-[300px]   "}`}>
+                 <div className={` ${navbar ? "list": "list flex  items-center bg-blue-600  h-[500px] flex-col w-[300px]  mx-auto z-3! "}`}>
                       {/* category */}
                       <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                       {/* container List  */}
@@ -81,10 +81,10 @@ const  HeaderBottom = () => {
                         </div>
 
 
-                            {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "   hidden  fixed  w-[60%] left-[30%] mr-[10%] top-[101px] bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!    group-hover/list:flex! "}`}>
+                        {/* container product ============================================================> Hidden  =>   */}
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  hidden  fixed  w-[900px] top-0 left-[300px]   bg-white border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex-row!    group-hover/list:flex! "}`}>
                           {/* category */}
-                          <div className=" flex flex-col  w-[33.3%]  overflow-hidden border-l-gray-100 border-r-1!" >
+                          <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                               <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
                               {/* category item */}
                               <div className=" flex bg-white h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
@@ -93,7 +93,7 @@ const  HeaderBottom = () => {
                               </div>
                           </div>
                           {/* serics */}
-                          <div className=" flex flex-col  w-[33.3%] overflow-hidden border-l-gray-100 border-r-1!">
+                          <div className=" flex flex-col  w-[300px] overflow-hidden border-l-gray-100 border-r-1!">
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY SERYS</div>
                             {/* serics item */}
                             <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
@@ -101,7 +101,7 @@ const  HeaderBottom = () => {
                             </div>
                           </div>
                           {/* image */}
-                          <div className="flex flex-col  w-[33.3%] overflow-hidden  justify-center items-center gap-2">
+                          <div className="flex flex-col w-[300px] overflow-hidden  justify-center items-center gap-2">
                             {/* itemImages */}
                             <div className="w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
                               <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
@@ -118,6 +118,7 @@ const  HeaderBottom = () => {
                           </div>
                         </div>
                       </div>
+                   
                   </div>
                 </div>
               </div>
