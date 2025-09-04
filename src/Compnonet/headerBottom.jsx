@@ -68,9 +68,10 @@ const  HeaderBottom = () => {
                 </div>
                 {/* megaMenu */}
                 <div className={`${navbar ? "" : "bg-green-500 h-[500px] w-[100%] fixed left-0  top-25.5  group-hover/menu:flex! duration-500!  animate-mege! flex justify-center"}`}>
-                  {/* container slider */}
+                  {/* container list */}
                   <div className={`${navbar ? "" : "h-500px bg-red-500 w-[300px] "}`}>
-                    <div className=""></div>
+                    {/* container product */}
+                    <div className={`${navbar ? "" : ""}`}></div>
                   </div>
                   
                 </div>
