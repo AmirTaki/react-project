@@ -5,11 +5,23 @@
 @theme {
     --font-display :  "Dancing Script", cursive;
     --animate-mege: megeMenu .5s ease-in-out forwards;
+    --animate-productMenu: productMenu .5s ease-in-out forwards;
     @keyframes megeMenu {
         0%
         
         {
                transform: translateY(30px)
+   
+        }
+        100% {
+            transform: translateY(0px)
+        }
+    }
+    @keyframes productMenu {
+        0%
+        
+        {
+               transform: translateY(-70px)
    
         }
         100% {
