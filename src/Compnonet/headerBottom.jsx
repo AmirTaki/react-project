@@ -60,16 +60,16 @@ const  HeaderBottom = () => {
               </div>
              
               {/* Menu */}
-              <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2! hover:border-b-gray-950!   "}`}>
+              <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2! hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
                 </div>
-                {/* megaMenu   => h-[0]  absolute top-[62px] -left-[130px] group-hover/menu:h-[500px]!   */}
-                <div className={`${navbar ? "" : "bg-green-500 fixed w-full left-0   group-hover/menu:flex! duration-500! mx-auto   animate-mege!  overflow-hidden"}`}>
+                {/* megaMenu   =>    */}
+                <div className={`${navbar ? "" : "bg-green-500 h-[0]  absolute top-[62px] -right-31 group-hover/menu:h-[500px]!  group-hover/menu:flex! duration-500!    animate-mege!  overflow-hidden"}`}>
                   {/* container list */}
-                 <div className={` ${navbar ? "list": "list flex  items-center bg-blue-600  h-[500px] flex-col w-[300px]  mx-auto z-3! "}`}>
+                 <div className={` ${navbar ? "list": "list flex  items-center bg-blue-600  h-[500px] flex-col w-[300px]   z-3! "}`}>
                       {/* category */}
                       <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                       {/* container List  */}
@@ -122,7 +122,9 @@ const  HeaderBottom = () => {
                   </div>
                 </div>
               </div>
+
             
+           
  
 
             </div>
