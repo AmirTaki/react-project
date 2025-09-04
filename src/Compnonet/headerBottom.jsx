@@ -36,7 +36,7 @@ const  HeaderBottom = () => {
     }
 
     const listHandler = ()  => {
-      setProductMenu(true)
+      setProductMenu(!productMenu)
     }
   
     return(
@@ -86,7 +86,7 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  hidden  fixed!  w-[900px] top-0 -left-[250px]! bg-red-500 border-l-1!  h-[500px] ml-0 p-5  border-gray-300! flex flex-row!  "}`}>
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-red-500 border-l-1!  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${productMenu? "hidden!":" flex!"}`}>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                               <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
