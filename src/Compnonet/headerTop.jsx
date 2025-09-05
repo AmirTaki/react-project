@@ -1,4 +1,10 @@
+import { useState } from "react";
+
+
 const HeaderTop = () => {
+
+    const [scrollTop, setScrollTop]  =  useState(0)
+
     return(
         <div className="bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-amber-300">
             <div className="flex gap-4 p-5 justify-between items-center">
