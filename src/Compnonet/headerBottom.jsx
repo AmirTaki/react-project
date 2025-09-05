@@ -51,7 +51,7 @@ const  HeaderBottom = () => {
      
   
     return(
-        <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
+        <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6 z-50!">
             {/* LEFT */}
             <div className="flex gap-3 max-md:block  md:hidden ">
               <i onClick={menuHandler} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
@@ -63,7 +63,7 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className={` ${navbar ?"bg-white w-full duration-500 -left-200! top-0 fixed z-40" :  "static  flex items-center " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
+            <div className={` ${navbar ?"bg-white w-full duration-500 -left-200! top-0 fixed " :  "static  flex items-center " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
               {/* exit menu  */}
               <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-white px-3 border-b-gray-200! border-b-1! " : "hidden"}`}>
                 <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
@@ -97,7 +97,7 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"hidden" } ${animationProductMenu ? "animate-productMenuReverse!" : ""}` }>
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"hidden" } ${animationProductMenu ? "animate-productMenuReverse!" : ""}` }>
                           <i onClick = {(e)=>{handlerProductMenu()}} className="text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"></i>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
