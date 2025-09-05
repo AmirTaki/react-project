@@ -11,6 +11,7 @@ const  HeaderBottom = () => {
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
     const [productMenu, setProductMenu] = useState(false)
+    const [productMenuNavbar, setProductMenuNavbar] = useState(false)
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
     
@@ -38,7 +39,7 @@ const  HeaderBottom = () => {
 
     const listHandler = ()  => {
       
-      window.innerWidth <= 768 ?  "" : setProductMenu(!productMenu)
+      window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : setProductMenu(!productMenu)
     }
     const handlerProductMenu = (e) => {
       setAnimationProductMenu(true)
