@@ -102,8 +102,10 @@ const  HeaderBottom = () => {
                         {/* container product ============================================================> Hidden  =>   */}
                         <div className={`${navbar ? "bg-white top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  ${productMenuNavbar ? "left-0! duration-300!" : ""} ${ productMenu  ? "flex! animate-productMenu!":"" } ${animationProductMenu & navbar === false? "animate-productMenuReverse!" : ""}` }>
                           <i onClick = {(e)=>{handlerProductMenu()}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
-                          <div className={`${navbar ? "bg-blue-500 h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
+                        
+                          <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
                             <div className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
+                            <div className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
                           </div>
                           {/* category */}
                           <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
