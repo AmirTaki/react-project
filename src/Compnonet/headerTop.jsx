@@ -5,8 +5,12 @@ const HeaderTop = () => {
 
     const [scrollTop, setScrollTop]  =  useState(0);
 
-    useEffect(() => {
+    const handleScroll = () => {
         setScrollTop(window.screenY);
+    }
+    useEffect(() => {
+        
+        window.addEventListener('scroll', handleScroll)
     })
 
     return(
