@@ -6,6 +6,7 @@
     --font-display :  "Dancing Script", cursive;
     --animate-mege: megeMenu .5s ease-in-out forwards;
     --animate-productMenu: productMenu .5s ease-in-out forwards;
+    --animate-productMenuReverse: productMenuReverse .5s ease-in-out forwards ;
     @keyframes megeMenu {
         0%
         
@@ -28,6 +29,17 @@
             transform: translateY(0px)
         }
     }
+    @keyframes productMenuReverse {
+        0%
+        
+        {
+               transform: translateY(0px)
+   
+        }
+        100% {
+            transform: translateY(-120px)
+        }
+    }
 
 }
 
@@ -36,3 +48,14 @@
     
 
 }
+@keyframes productMenuReverse {
+        0%
+        
+        {
+               transform: translateY(0px)
+   
+        }
+        100% {
+            transform: translateY(-120px)
+        }
+    }

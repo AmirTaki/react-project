@@ -31,16 +31,23 @@ const  HeaderBottom = () => {
 
 
     const menuHandler = () => {
-        setMoveNavbar(!moveNavbar)
+      setMoveNavbar(!moveNavbar)
 
     }
 
     const listHandler = ()  => {
       setProductMenu(!productMenu)
     }
-    const handlerProductMenu = () => {
-      setProductMenu(productMenu ? false : false)
-    }
+    const handlerProductMenu = (e) => {
+      console.log(e)
+      setTimeout(() => {
+          e.target.parent.style.animation = " productMenuReverse .5s ease-in-out forwards "
+
+      }, 1000);
+      //  setProductMenu(false)
+      }
+     
+     
   
     return(
         <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6">
@@ -69,9 +76,9 @@ const  HeaderBottom = () => {
               {/* Menu */}
               <div className={` ${navbar ? "menu group/menu duration-500! " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
-                <div onMouseMove={()=>{setProductMenu(false)}} className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
+                <div className= {`${navbar? "flex justify-between px-3 bg-white h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
-                  <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i class="bi bi-chevron-down"></i></div>
+                  <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   =>    */}
                 <div className={`${navbar ? "" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-31 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
@@ -84,19 +91,19 @@ const  HeaderBottom = () => {
                         {/* title List */}
                         <div onClick = {listHandler} className={`${navbar ? "flex justify-between px-4 bg-transparent text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600  hover:bg-gray-100 duration-300 "}`}>
                             <div className={`${navbar ? "" : ""}`}>list 1</div>
-                            <div className={`${navbar ? "" : "hidden"}`}><i class="bi bi-chevron-right"></i></div>
+                            <div className={`${navbar ? "" : "hidden"}`}><i className="bi bi-chevron-right"></i></div>
                         </div>
 
 
                         {/* container product ============================================================> Hidden  =>   */}
                         <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"hidden" }`}>
-                          <i className="text-red-400 font-bold right-1 text-2xl absolute bi bi-x-circle"></i>
+                          <i onClick = {()=>{handlerProductMenu()}} className="text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"></i>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                               <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
                               {/* category item */}
                               <div className=" flex bg-white h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
-                                <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i class="bi bi-anthropic"></i></div>
+                                <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i className="bi bi-anthropic"></i></div>
                                 <div className="">category</div>
                               </div>
                           </div>
