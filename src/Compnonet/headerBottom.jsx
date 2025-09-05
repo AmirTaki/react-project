@@ -88,9 +88,9 @@ const  HeaderBottom = () => {
                       {/* category */}
                       <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                       {/* container List  */}
-                      <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[300px]"}`}>    
+                      <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[800px]  m-2"}`}>    
                         {/* title List */}
-                        <div onClick = {listHandler} className={`${navbar ? "flex justify-between px-4 bg-transparent text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100! duration-150 h-[50px] items-center" : "   h-[40px]  justify-center text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600  hover:bg-gray-100 duration-300 "}`}>
+                        <div onClick = {listHandler} className={`${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
                             <div className={`${navbar ? "" : ""}`}>list 1</div>
                             <div className={`${navbar ? "" : "hidden"}`}><i className="bi bi-chevron-right"></i></div>
                         </div>
@@ -127,10 +127,7 @@ const  HeaderBottom = () => {
                             <div className="w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
                               <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
                               <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
-                            </div>
-                      
-                            
-                      
+                            </div>                      
                           </div>
                         </div>
                       </div>

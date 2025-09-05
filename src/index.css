@@ -22,7 +22,7 @@
         0%
         
         {
-               transform: translateY(-120px)
+               transform: translateY(-820px)
    
         }
         100% {
@@ -37,21 +37,11 @@
    
         }
         100% {
-            transform: translateY(-120px)
+            transform: translateY(-820px)
         }
     }
 
-    @keyframes productMenuReverse {
-        0%
-        
-        {
-            transform: translateY(0px)
-   
-        }
-        100% {
-            transform: translateY(-220px)
-        }
-    }
+    
 
 }
 
