@@ -37,7 +37,8 @@ const  HeaderBottom = () => {
     }
 
     const listHandler = ()  => {
-      setProductMenu(!productMenu)
+      
+      window.innerWidth <= 768 ?  "" : setProductMenu(!productMenu)
     }
     const handlerProductMenu = (e) => {
       setAnimationProductMenu(true)
@@ -97,7 +98,7 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500   overflow-hidden containerProduct fixed! " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu && navbar === false ? "flex! animate-productMenu!":"flex" } ${animationProductMenu && navbar === false? "animate-productMenuReverse!" : ""}` }>
+                        <div className={`${navbar ? "bg-yellow-500   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu && navbar === false ? "flex! animate-productMenu!":"flex left-0" } ${animationProductMenu && navbar === false? "animate-productMenuReverse!" : ""}` }>
                           <i onClick = {(e)=>{handlerProductMenu()}} className="text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"></i>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
