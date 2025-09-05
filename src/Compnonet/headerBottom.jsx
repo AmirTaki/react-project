@@ -20,10 +20,12 @@ const  HeaderBottom = () => {
         setMoveNavbar(false)
 
     }
-    window.addEventListener('resize',handerResize )
     useEffect(() => {
-        handerResize()
-    }, [])
+      handerResize();
+      window.removeEventListener('resize', handerResize);
+
+    }, []);
+
 
     const handlerSerch = () => {
         setSecarch(!search);
@@ -39,14 +41,13 @@ const  HeaderBottom = () => {
       setProductMenu(!productMenu)
     }
     const handlerProductMenu = (e) => {
-      console.log(e)
-      setTimeout(() => {
-          e.target.parent.style.animation = " productMenuReverse .5s ease-in-out forwards "
+      var parent = e?.target?.parentElement;
+      
+      setProductMenu(false)
+      setimeout(()=>{
+      },1000)
+    }
 
-      }, 1000);
-      //  setProductMenu(false)
-      }
-     
      
   
     return(
@@ -96,8 +97,8 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"hidden" }`}>
-                          <i onClick = {()=>{handlerProductMenu()}} className="text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"></i>
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"animate-productMenuReverse!" }`}>
+                          <i onClick={(e) => handlerProductMenu(e)} className="text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"></i>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
                               <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
