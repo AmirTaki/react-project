@@ -11,7 +11,11 @@ const HeaderTop = () => {
     useEffect(() => {
         
         window.addEventListener('scroll', handleScroll)
-    })
+        
+        return() => {
+            window.addEventListener("scroll", handleScroll);
+        }
+    },[])
 
     return(
         <div className="bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-amber-300">
