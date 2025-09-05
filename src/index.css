@@ -4,9 +4,9 @@
 
 @theme {
     --font-display :  "Dancing Script", cursive;
-    --animate-mege: megeMenu .5s ease-in-out forwards;
+    --animate-mege: megeMenu .3s ease-in-out forwards;
     --animate-productMenu: productMenu .5s ease-in-out forwards;
-    --animate-productMenuReverse: productMenuReverse .5s ease-in-out forwards ;
+    --animate-productMenuReverse: productMenuReverse .5s ease-in-out forwards  ;
     @keyframes megeMenu {
         0%
         

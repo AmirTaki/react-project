@@ -11,6 +11,7 @@ const  HeaderBottom = () => {
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
     const [productMenu, setProductMenu] = useState(false)
+    const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
     
 
@@ -39,12 +40,12 @@ const  HeaderBottom = () => {
       setProductMenu(!productMenu)
     }
     const handlerProductMenu = (e) => {
-      console.log(e)
+      setAnimationProductMenu(true)
       setTimeout(() => {
         setProductMenu(false)
+        setAnimationProductMenu(false)
 
-      }, 1000);
-      //  setProductMenu(false)
+      }, 500);
       }
      
      
@@ -96,7 +97,7 @@ const  HeaderBottom = () => {
 
 
                         {/* container product ============================================================> Hidden  =>   */}
-                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"hidden" }`}>
+                        <div className={`${navbar ? "bg-yellow-500 fixed h-0 overflow-hidden containerProduct" : "    fixed!  w-[900px] top-0 -left-[250px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "} ${ productMenu ? "flex! animate-productMenu!":"hidden" } ${animationProductMenu ? "animate-productMenuReverse!" : ""}` }>
                           <i onClick = {(e)=>{handlerProductMenu()}} className="text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"></i>
                           {/* category */}
                           <div className=" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!" >
