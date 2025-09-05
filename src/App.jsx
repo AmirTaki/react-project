@@ -10,7 +10,7 @@ function App() {
 
 
   return (
-    <div className='h-[2000px] '>
+    <div className='h-[2000px] bg-red-500'>
       <Header />
       <Section />
     </div>

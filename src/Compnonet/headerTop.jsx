@@ -11,7 +11,7 @@ const HeaderTop = () => {
     useEffect(() => {
        
         window.addEventListener('scroll', handleScroll)
-        console.log(scrollTop)
+ 
         return() => {
             window.addEventListener("scroll", handleScroll);
             
