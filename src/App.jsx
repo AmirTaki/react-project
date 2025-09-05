@@ -10,10 +10,10 @@ function App() {
 
 
   return (
-    <>
+    <div className='h-[2000px] '>
       <Header />
       <Section />
-    </>
+    </div>
   )
 }
 
