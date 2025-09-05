@@ -120,20 +120,24 @@ const  HeaderBottom = () => {
                             </div>
                           </div>
                           {/* image */}
-                          <div className={`${navbar ? "flex flex-col justify-center h-[100%] bg-red-500 w-[50%] items-center gap-10 " : "flex flex-col w-[300px]    overflow-hidden  justify-center items-center gap-1"}`}>
+                          <div className={`${navbar ? "flex flex-col justify-center h-[100%] bg-transparent w-[50%] items-center gap-10 " : "flex flex-col w-[300px]    overflow-hidden  justify-center items-center gap-1"}`}>
                             {/* itemImages */} 
                             <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center h-[300px] w-[250px]" :
                               "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
                             }`}>
-                              <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
+                              <img src={labtop} alt=""className={`${navbar? "w-[200px] " : "w-[150px] h-[150px]  "}`}/>
                               <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
                             
                             </div>
-                            {/* itemImages */}
-                            <div className="w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
-                              <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
+                            {/* itemImages */} 
+                            <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center h-[300px] w-[250px]" :
+                              "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
+                            }`}>
+                              <img src={labtop} alt=""className={`${navbar? "w-[200px] " : "w-[150px] h-[150px]  "}`}/>
                               <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
-                            </div>                      
+                            
+                            </div>
+                                               
                           </div>
                         </div>
                       </div>
