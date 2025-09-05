@@ -41,14 +41,7 @@
         }
     }
 
-}
-
-*{
-    font-family: var(--font-display);
-    
-
-}
-@keyframes productMenuReverse {
+    @keyframes productMenuReverse {
         0%
         
         {
@@ -59,3 +52,11 @@
             transform: translateY(-120px)
         }
     }
+
+}
+
+*{
+    font-family: var(--font-display);
+    
+
+}
