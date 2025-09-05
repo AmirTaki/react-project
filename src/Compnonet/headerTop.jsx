@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const HeaderTop = () => {
 
-    const [scrollTop, setScrollTop]  =  useState(0)
+    const [scrollTop, setScrollTop]  =  useState(0);
+
+    useEffect(() => {
+        setScrollTop(window.screenY);
+    })
 
     return(
         <div className="bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-amber-300">
