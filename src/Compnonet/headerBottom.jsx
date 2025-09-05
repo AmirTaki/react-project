@@ -51,7 +51,7 @@ const  HeaderBottom = () => {
      
   
     return(
-        <div className="h-[60px] bg-white- flex items-center justify-between shadow-lg shadow-gray-600 px-6 z-50!">
+        <div className="h-[60px] bg-white flex items-center justify-between shadow-lg shadow-gray-600 px-6 z-100! fixed w-full ">
             {/* LEFT */}
             <div className="flex gap-3 max-md:block  md:hidden ">
               <i onClick={menuHandler} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
@@ -63,7 +63,7 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className={` ${navbar ?"bg-white w-full duration-500 -left-200! top-0 fixed " :  "static  flex items-center " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
+            <div className={` ${navbar ?"bg-white w-full duration-500 -left-200! top-0 fixed " :  "static  flex items-center z-10! " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
               {/* exit menu  */}
               <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-white px-3 border-b-gray-200! border-b-1! " : "hidden"}`}>
                 <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
