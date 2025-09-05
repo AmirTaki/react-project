@@ -63,7 +63,7 @@ const  HeaderBottom = () => {
 
             {/* MEDDLE */}
             {/* container Menu */}
-            <div className={` ${navbar ?"bg-white w-full duration-500 -left-200! top-0 fixed " :  "static  flex items-center z-10! " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
+            <div className={` ${navbar ?"bg-white w-full duration-500 -left-200! top-0 fixed z-40! " :  "static  flex items-center z-10! " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
               {/* exit menu  */}
               <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-white px-3 border-b-gray-200! border-b-1! " : "hidden"}`}>
                 <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
@@ -75,7 +75,7 @@ const  HeaderBottom = () => {
               </div>
              
               {/* Menu */}
-              <div className={` ${navbar ? "menu group/menu duration-500! bg-green-500 z-40!" : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
+              <div className={` ${navbar ? "menu group/menu duration-500! bg-white " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
@@ -144,7 +144,7 @@ const  HeaderBottom = () => {
 
             {/* RIGHT  */}
           <div className="flex items-center justify-center">
-            <div className="relative flex gap-4 z-1">
+            <div className="relative flex gap-4 z-1!">
               <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
               <i className="bi bi-search hover:scale-130  text-gray-400 cursor-pointer text-lg  md:right-[115px] max-md:right-[80px] absolute hover:text-gray-900 duration-300"   onClick={handlerSerch}></i>
               <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
