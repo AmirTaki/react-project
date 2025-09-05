@@ -120,7 +120,7 @@ const  HeaderBottom = () => {
                             </div>
                           </div>
                           {/* image */}
-                          <div className={`${navbar ? "" : "flex flex-col w-[300px]    overflow-hidden  justify-center items-center gap-1"}`}>
+                          <div className={`${navbar ? "flex flex-col justify-center h-[100%] bg-red-500 w-[50%] items-center gap-10 " : "flex flex-col w-[300px]    overflow-hidden  justify-center items-center gap-1"}`}>
                             {/* itemImages */} 
                             <div className="w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center">
                               <img src={labtop} alt=""className="w-[150px] h-[150px]  "/>
