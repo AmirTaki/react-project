@@ -113,7 +113,7 @@ const  HeaderBottom = () => {
     // }
 
     const listHandler = ()  => {
-      window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : dispatch({type : ACTIONTYPE.productMenu})
+      window.innerWidth <= 768 ?  dispatch({type : ACTIONTYPE.productMenuNavbar}) : dispatch({type : ACTIONTYPE.productMenu})
     }
     const handlerProductMenu = (e) => {
       setAnimationProductMenu(true)
