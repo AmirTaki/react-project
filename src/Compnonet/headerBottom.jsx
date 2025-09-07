@@ -18,6 +18,7 @@ const ACTIONTYPE = {
   search : "search",
   searchResize : "searchResize",
   navbar : "navbar",
+  navbarResize : "navbarResize",
   moveNavbar : "moveNavbar",
   productMenu : "productMenu",
   productMenuNavbar : "productMenuNavbar",
@@ -39,12 +40,15 @@ const  HeaderBottom = () => {
     const reducer = (state, action) => {
       console.log(state)
       switch(action.type){
-      
+        // search
         case ACTIONTYPE.search :
           return {...state, search : !state.search };
 
         case ACTIONTYPE.searchResize : 
           return {...state, search : false}
+        
+        // navBar 
+
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
