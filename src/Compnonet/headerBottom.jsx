@@ -19,7 +19,7 @@ const ACTIONTYPE = {
 
   moveNavbar : "moveNavbar",
   moveNavbarResize : "moveNavbarResize",
-  
+
   productMenu : "productMenu",
   productMenuNavbar : "productMenuNavbar",
   animationProductMenu : "animationProductMenu"
@@ -50,6 +50,9 @@ const  HeaderBottom = () => {
         // MoveNaveBar 
         case ACTIONTYPE.moveNavbar : 
           return {...state, moveNavbar : !state.moveNavbar};
+
+        case ACTIONTYPE.moveNavbarResize : 
+          return {...state, moveNavbar : false};
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
@@ -59,7 +62,7 @@ const  HeaderBottom = () => {
         setNavbar(window.innerWidth <= 768 ? true : false);
         // setSecarch(false)
         dispatch({type: ACTIONTYPE.searchResize })
-        setMoveNavbar(false)
+        dispatch({type: ACTIONTYPE.moveNavbarResize})
         setProductMenuNavbar(false)
         setProductMenu(false);
      }
