@@ -2,6 +2,7 @@ import logo from "../assets/logo.webp";
 import { createContext, useContext, useEffect, useState } from 'react';
 import labtop from "../assets/fwebp.webp"
 import { GlobalHeaderScroll } from "./header";
+import HeaderTop from "./headerTop";
 
 
 const  HeaderBottom = () => {
@@ -64,8 +65,8 @@ const  HeaderBottom = () => {
      
   
     return(
-      <div className={`h-[60px] bg-yellow-200 flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full`
-        
+      <div className={`h-[60px] bg-yellow-200 flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full
+          ${HeaderTop > 50 ? "":""}`
       }>
         {/* LEFT */}
         <div className="flex gap-3 max-md:block  md:hidden ">
