@@ -109,7 +109,7 @@ const  HeaderBottom = () => {
     const handlerProductMenu = (e) => {
       setAnimationProductMenu(true)
       setTimeout(() => {
-        setProductMenu(false)
+        dispatch({tyep : ACTIONTYPE.productMenuResize , payload : false})
         setAnimationProductMenu(false)
 
       }, 500);
