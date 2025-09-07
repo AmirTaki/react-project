@@ -31,9 +31,11 @@ const  HeaderBottom = () => {
     }
     window.addEventListener('resize',handerResize )
     useEffect(() => {
-        handerResize()
-        console.log("ok")
-    }, [])
+      handerResize()
+    },[] )
+    useEffect(()=> {
+       document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
+    })
 
     const handlerSerch = () => {
         setSecarch(!search);
