@@ -18,6 +18,8 @@ const ACTIONTYPE = {
   searchResize : "searchResize",
 
   moveNavbar : "moveNavbar",
+  moveNavbarResize : "moveNavbarResize",
+  
   productMenu : "productMenu",
   productMenuNavbar : "productMenuNavbar",
   animationProductMenu : "animationProductMenu"
