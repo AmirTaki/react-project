@@ -14,6 +14,10 @@ const initialStateHeader = {
   animationProductMenu : false
 }
 
+const ACTIONTYPE = {
+  search : "search",
+  navbar : "navbar"
+}
 
 const  HeaderBottom = () => {
  
@@ -27,7 +31,7 @@ const  HeaderBottom = () => {
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
-    
+
 
     const handerResize = () =>{
         setNavbar(window.innerWidth <= 768 ? true : false);
