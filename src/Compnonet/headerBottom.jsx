@@ -125,7 +125,7 @@ const  HeaderBottom = () => {
     }
 
     const exitNavbar = () => {
-      setProductMenuNavbar(false)
+      dispatch({type : ACTIONTYPE.productMenuNavbarResize , payload : false})
       setTimeout(() => {
         dispatch({type : ACTIONTYPE.moveNavbarResize})
       },700)
