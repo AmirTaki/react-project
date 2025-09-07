@@ -4,7 +4,7 @@ import { GlobalHeaderScroll } from "./header";
 
 
 const Section = () => {
-    const {scrollTop} = useContext(GlobalHeaderScroll)
+    // const {scrollTop} = useContext(GlobalHeaderScroll)
     return(
         <>
             <div className = {`${scrollTop ? "" : ""} bg-blue-500 mt-15"`}>
