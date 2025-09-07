@@ -6,7 +6,7 @@ import { GlobalHeaderScroll } from "./header";
 
 const  HeaderBottom = () => {
  
-   const {} = useContext(GlobalHeaderScroll);
+    const {scrollTop} = useContext(GlobalHeaderScroll);
 
     const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
@@ -64,7 +64,9 @@ const  HeaderBottom = () => {
      
   
     return(
-      <div className="h-[60px] bg-yellow-200 flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full ">
+      <div className={`h-[60px] bg-yellow-200 flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full`
+        
+      }>
         {/* LEFT */}
         <div className="flex gap-3 max-md:block  md:hidden ">
           <i onClick={menuHandler} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
