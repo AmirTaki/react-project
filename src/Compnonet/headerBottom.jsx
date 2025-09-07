@@ -40,7 +40,7 @@ const  HeaderBottom = () => {
     // const [moveNavbar, setMoveNavbar] =  useState(false)
     // const [productMenu, setProductMenu] = useState(false)
     // const [productMenuNavbar, setProductMenuNavbar] = useState(false)
-    const [animationProductMenu, setAnimationProductMenu] = useState(false)
+    // const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
   
     const reducer = (state, action) => {
@@ -80,6 +80,7 @@ const  HeaderBottom = () => {
 
         case ACTIONTYPE.animationProductMenuResize : 
           return {...state, animationProductMenuResize : action.payload}
+        
         // default 
         default :
           return {...state}
@@ -127,10 +128,10 @@ const  HeaderBottom = () => {
       window.innerWidth <= 768 ?  dispatch({type : ACTIONTYPE.productMenuNavbar}) : dispatch({type : ACTIONTYPE.productMenu})
     }
     const handlerProductMenu = (e) => {
-      setAnimationProductMenu(true)
+      dispatch({type : ACTIONTYPE.animationProductMenuResize , payload : true});
       setTimeout(() => {
         dispatch({type : ACTIONTYPE.productMenuResize , payload : false})
-        setAnimationProductMenu(false)
+        dispatch({type : ACTIONTYPE.animationProductMenuResize , payload : false});
 
       }, 500);
     }
