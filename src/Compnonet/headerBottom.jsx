@@ -16,7 +16,11 @@ const initialStateHeader = {
 
 const ACTIONTYPE = {
   search : "search",
-  navbar : "navbar"
+  navbar : "navbar",
+  moveNavbar : "moveNavbar",
+  productMenu : "productMenu",
+  productMenuNavbar : "productMenuNavbar",
+  animationProductMenu : "animationProductMenu"
 }
 
 const  HeaderBottom = () => {
