@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { GlobalHeaderScroll } from "./header";
+
+
+
 const Section = () => {
+    useContext(GlobalHeaderScroll)
     return(
         <>
             <div className="bg-blue-500 mt-15">
