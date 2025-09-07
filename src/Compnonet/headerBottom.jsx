@@ -7,7 +7,6 @@ import { GlobalHeaderScroll } from "./header";
 
 const initialStateHeader = {
   search : false,
-  navbar : false,
   moveNavbar : false,
   productMenu : false,
   productMenuNavbar : false,
@@ -17,8 +16,7 @@ const initialStateHeader = {
 const ACTIONTYPE = {
   search : "search",
   searchResize : "searchResize",
-  navbar : "navbar",
-  navbarResize : "navbarResize",
+
   moveNavbar : "moveNavbar",
   productMenu : "productMenu",
   productMenuNavbar : "productMenuNavbar",
@@ -28,9 +26,9 @@ const ACTIONTYPE = {
 const  HeaderBottom = () => {
  
     const {scrollTop} = useContext(GlobalHeaderScroll);
+    const [navbar, setNavbar] = useState(false);
 
     // const [search, setSecarch] =  useState(false);
-    const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
     const [productMenu, setProductMenu] = useState(false)
     const [productMenuNavbar, setProductMenuNavbar] = useState(false)
@@ -47,8 +45,9 @@ const  HeaderBottom = () => {
         case ACTIONTYPE.searchResize : 
           return {...state, search : false}
         
-        // navBar 
-
+        // MoveNaveBar 
+        case ACTIONTYPE.moveNavbar : 
+          return {...state, moveNavbar : !state.moveNavbar};
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
