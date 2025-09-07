@@ -27,7 +27,7 @@ const  HeaderBottom = () => {
  
     const {scrollTop} = useContext(GlobalHeaderScroll);
 
-    const [search, setSecarch] =  useState(false);
+    // const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
     const [productMenu, setProductMenu] = useState(false)
@@ -61,9 +61,9 @@ const  HeaderBottom = () => {
     },[] )
 
 
-    const handlerSerch = () => {
-        setSecarch(!search);
-    }
+    // const handlerSerch = () => {
+    //     setSecarch(!search);
+    // }
 
 
     useEffect(() => {
@@ -123,7 +123,7 @@ const  HeaderBottom = () => {
             <img src={logo} alt="" className='w-10' />
             <div className="relative">
               <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
-              <i className="bi bi-search text-gray-400 cursor-pointer text-lg hover:scale-130    max-md:right-[10px] absolute hover:text-gray-900 duration-300"    onClick={handlerSerch}></i>
+              <i className="bi bi-search text-gray-400 cursor-pointer text-lg hover:scale-130    max-md:right-[10px] absolute hover:text-gray-900 duration-300"    onClick={()=>{dispatch({type : ACTIONTYPE.search})}}></i>
             </div>
           </div>
           
