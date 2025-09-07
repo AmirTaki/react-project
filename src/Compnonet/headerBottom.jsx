@@ -36,15 +36,8 @@ const  HeaderBottom = () => {
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
 
-    // const [search, setSecarch] =  useState(false);
-    // const [moveNavbar, setMoveNavbar] =  useState(false)
-    // const [productMenu, setProductMenu] = useState(false)
-    // const [productMenuNavbar, setProductMenuNavbar] = useState(false)
-    // const [animationProductMenu, setAnimationProductMenu] = useState(false)
-    
-  
     const reducer = (state, action) => {
-      console.log(state)
+      // console.log(state)
       switch(action.type){
         // search
         case ACTIONTYPE.search :
@@ -86,6 +79,7 @@ const  HeaderBottom = () => {
           return {...state}
       }
     }
+    
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
 
 
@@ -108,21 +102,12 @@ const  HeaderBottom = () => {
     },[] )
 
 
-    // const handlerSerch = () => {
-    //     setSecarch(!search);
-    // }
-
-
     useEffect(() => {
       document.documentElement.style.overflow  = state.moveNavbar ? "hidden" : 'auto'
       return()=> {
         document.documentElement.style.overflow  = state.moveNavbar ? "hidden" : 'auto'
       }
     })
-
-    // const menuHandler = () => {
-    //   setMoveNavbar(!moveNavbar)
-    // }
 
     const listHandler = ()  => {
       window.innerWidth <= 768 ?  dispatch({type : ACTIONTYPE.productMenuNavbar}) : dispatch({type : ACTIONTYPE.productMenu})
