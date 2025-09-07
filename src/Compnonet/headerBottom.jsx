@@ -33,9 +33,10 @@ const  HeaderBottom = () => {
     useEffect(() => {
       handerResize()
     },[] )
+
     useEffect(()=> {
-       document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
-    })
+      document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
+    },)
 
     const handlerSerch = () => {
         setSecarch(!search);
@@ -43,8 +44,8 @@ const  HeaderBottom = () => {
 
 
     const menuHandler = () => {
+      document.documentElement.style.overflow =  moveNavbar ?  "auto" : "hidden"
       setMoveNavbar(!moveNavbar)
-      document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
       
 
     }
