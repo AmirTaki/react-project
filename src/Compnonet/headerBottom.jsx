@@ -38,7 +38,7 @@ const  HeaderBottom = () => {
     // const [search, setSecarch] =  useState(false);
     // const [moveNavbar, setMoveNavbar] =  useState(false)
     // const [productMenu, setProductMenu] = useState(false)
-    const [productMenuNavbar, setProductMenuNavbar] = useState(false)
+    // const [productMenuNavbar, setProductMenuNavbar] = useState(false)
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
   
@@ -78,12 +78,13 @@ const  HeaderBottom = () => {
 
 
     const handerResize = () =>{
-        setNavbar(window.innerWidth <= 768 ? true : false);
-        dispatch({type: ACTIONTYPE.searchResize })
-        dispatch({type: ACTIONTYPE.moveNavbarResize})
-        dispatch({type : ACTIONTYPE.productMenuResize, paylod : false});
-
-        setProductMenuNavbar(false)
+      
+      setNavbar(window.innerWidth <= 768 ? true : false);
+      
+      dispatch({type: ACTIONTYPE.searchResize })
+      dispatch({type: ACTIONTYPE.moveNavbarResize})
+      dispatch({type : ACTIONTYPE.productMenuResize, paylod : false});
+      dispatch({type : ACTIONTYPE.productMenuNavbarResize, paylod : false});
      }
 
     useEffect(() => {
