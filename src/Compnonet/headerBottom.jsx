@@ -26,7 +26,7 @@ const ACTIONTYPE = {
 
   productMenuNavbar : "productMenuNavbar",
   productMenuNavbarResize : "productMenuNavbarResize",
-  
+
   animationProductMenu : "animationProductMenu"
 }
 
@@ -66,6 +66,12 @@ const  HeaderBottom = () => {
         case ACTIONTYPE.productMenuResize :
           return {...state, productMenu : action.payload}
 
+        // productMenuNavbar 
+        case ACTIONTYPE.productMenuNavbar :
+          return {...state, productMenuNavbar : !state.productMenuNavbar}
+
+        case ACTIONTYPE.productMenuNavbarResize : 
+          return {...state, productMenuNavbarResize : action.payload}
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
