@@ -5,6 +5,10 @@ import { GlobalHeaderScroll } from "./header";
 
 
 
+const initialStateHeader = {
+  
+}
+
 
 const  HeaderBottom = () => {
  
@@ -17,7 +21,7 @@ const  HeaderBottom = () => {
     const [productMenuNavbar, setProductMenuNavbar] = useState(false)
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
-   const [state, dispatch]  =   useReducer(useReducer,{})
+    const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
     
 
     const handerResize = () =>{
