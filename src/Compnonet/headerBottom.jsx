@@ -61,6 +61,9 @@ const  HeaderBottom = () => {
         case ACTIONTYPE.productMenu : 
           return {...state, productMenu : !state.productMenu}
 
+        case ACTIONTYPE.productMenuResize :
+          return {...state, productMenu : action.payload}
+
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
