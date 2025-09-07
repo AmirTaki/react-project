@@ -22,7 +22,7 @@ const Header = () => {
     },[])
 
     return(
-        <GlobalHeaderScroll.Provider >
+        <GlobalHeaderScroll.Provider value = {{scrollTop, setScrollTop}} >
             <header>
                 <HeaderTop />
                 <HeaderBottom />
