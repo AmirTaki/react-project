@@ -37,8 +37,8 @@ const  HeaderBottom = () => {
   
     const reducer = (state, action) => {
       switch(action.type){
-        case "":
-          return ""
+        case ACTIONTYPE.search:
+          return {...state, search : !search};
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
