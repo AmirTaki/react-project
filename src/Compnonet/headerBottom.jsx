@@ -83,9 +83,9 @@ const  HeaderBottom = () => {
       }
     })
 
-    const menuHandler = () => {
-      setMoveNavbar(!moveNavbar)
-    }
+    // const menuHandler = () => {
+    //   setMoveNavbar(!moveNavbar)
+    // }
 
     const listHandler = ()  => {
       window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : setProductMenu(!productMenu)
@@ -117,7 +117,7 @@ const  HeaderBottom = () => {
     
         {/* LEFT */}
         <div className="flex gap-3 max-md:block  md:hidden ">
-          <i onClick={menuHandler} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
+          <i onClick={()=> {dispatch({type : ACTIONTYPE.moveNavbar})}} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
           <i className="bi bi-heart  text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg" ></i>
         </div>
         <div className="" >
@@ -129,7 +129,7 @@ const  HeaderBottom = () => {
         <div className={` ${navbar ?"bg-white h-[100%] shadow-2xl   w-full duration-500 -left-200! top-0 fixed z-40! " :  "static  flex items-center z-10! " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
           {/* exit menu  */}
           <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-transparent px-3 border-b-gray-200! border-b-1! " : "hidden"}`}>
-            <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
+            <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={()=>{dispatch({type : ACTIONTYPE.moveNavbar })}} ></i>
             <img src={logo} alt="" className='w-10' />
             <div className="relative">
               <input type="search" placeholder='search' className={state.search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
