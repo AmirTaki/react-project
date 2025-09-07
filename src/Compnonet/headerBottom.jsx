@@ -25,6 +25,8 @@ const ACTIONTYPE = {
 
 
   productMenuNavbar : "productMenuNavbar",
+  productMenuNavbarResize : "productMenuNavbarResize",
+  
   animationProductMenu : "animationProductMenu"
 }
 
