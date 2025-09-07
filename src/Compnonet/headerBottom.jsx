@@ -27,7 +27,8 @@ const ACTIONTYPE = {
   productMenuNavbar : "productMenuNavbar",
   productMenuNavbarResize : "productMenuNavbarResize",
 
-  animationProductMenu : "animationProductMenu"
+  animationProductMenu : "animationProductMenu",
+  animationProductMenuResize : "animationProductMenuResize"
 }
 
 const  HeaderBottom = () => {
