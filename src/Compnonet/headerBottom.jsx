@@ -56,6 +56,11 @@ const  HeaderBottom = () => {
 
         case ACTIONTYPE.moveNavbarResize : 
           return {...state, moveNavbar : false};
+
+        // productMenu
+        case ACTIONTYPE.productMenu : 
+          return {...state, productMenu : !state.productMenu}
+
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
