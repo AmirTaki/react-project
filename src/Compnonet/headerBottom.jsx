@@ -42,12 +42,15 @@ const  HeaderBottom = () => {
     }
 
 
-    const menuHandler = () => {
-      
-      setMoveNavbar(!moveNavbar)
-   
-      
+    useEffect(() => {
+      document.documentElement.style.overflow  = moveNavbar ? "hidden" : 'auto'
+      return()=> {
+        document.documentElement.style.overflow  = moveNavbar ? "hidden" : 'auto'
+      }
+    })
 
+    const menuHandler = () => {
+      setMoveNavbar(!moveNavbar)
     }
 
     const listHandler = ()  => {
