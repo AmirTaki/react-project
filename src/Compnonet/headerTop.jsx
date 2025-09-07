@@ -1,7 +1,5 @@
 import { useContext } from "react";
-import { GlobalHeaderScroll } from "./header";
-
-
+import { GlobalHeaderScroll } from "../App";
 
 const HeaderTop = () => {
 
