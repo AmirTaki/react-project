@@ -34,6 +34,13 @@ const  HeaderBottom = () => {
     const [productMenuNavbar, setProductMenuNavbar] = useState(false)
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
+  
+    const reducer = (state, action) => {
+      switch(action.type){
+        case "":
+          return ""
+      }
+    }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
 
 
