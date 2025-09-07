@@ -38,7 +38,8 @@ const  HeaderBottom = () => {
     const reducer = (state, action) => {
       switch(action.type){
         case ACTIONTYPE.search:
-          return {...state, search : !search};
+          console.log(state)
+          return {...state, search : !state.search};
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
@@ -46,7 +47,7 @@ const  HeaderBottom = () => {
 
     const handerResize = () =>{
         setNavbar(window.innerWidth <= 768 ? true : false);
-        setSecarch(false)
+        // setSecarch(false)
         setMoveNavbar(false)
         setProductMenuNavbar(false)
         setProductMenu(false);
@@ -122,7 +123,7 @@ const  HeaderBottom = () => {
             <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={menuHandler} ></i>
             <img src={logo} alt="" className='w-10' />
             <div className="relative">
-              <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
+              <input type="search" placeholder='search' className={state.search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
               <i className="bi bi-search text-gray-400 cursor-pointer text-lg hover:scale-130    max-md:right-[10px] absolute hover:text-gray-900 duration-300"    onClick={()=>{dispatch({type : ACTIONTYPE.search})}}></i>
             </div>
           </div>
@@ -210,8 +211,8 @@ const  HeaderBottom = () => {
         {/* RIGHT  */}
         <div className="flex items-center justify-center">
           <div className="relative flex gap-4 z-1!">
-            <input type="search" placeholder='search' className={search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
-            <i className="bi bi-search hover:scale-130  text-gray-400 cursor-pointer text-lg  md:right-[115px] max-md:right-[80px] absolute hover:text-gray-900 duration-300"   onClick={handlerSerch}></i>
+            <input type="search" placeholder='search' className={state.search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
+            <i className="bi bi-search hover:scale-130  text-gray-400 cursor-pointer text-lg  md:right-[115px] max-md:right-[80px] absolute hover:text-gray-900 duration-300"   onClick={()=>{dispatch({type : ACTIONTYPE.search})}}></i>
             <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             <i className="bi bi-handbag text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             <i className="bi bi-heart max-md:hidden  md:block text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300" ></i>
