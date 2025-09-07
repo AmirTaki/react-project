@@ -1,5 +1,5 @@
 import logo from "../assets/logo.webp";
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useReducer, useState } from 'react';
 import labtop from "../assets/fwebp.webp"
 import { GlobalHeaderScroll } from "./header";
 
@@ -17,7 +17,7 @@ const  HeaderBottom = () => {
     const [productMenuNavbar, setProductMenuNavbar] = useState(false)
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
-    
+   const [state, dispatch]  =   useReducer(useReducer,{})
     
 
     const handerResize = () =>{
