@@ -1,6 +1,7 @@
 
 import HeaderTop from './headerTop';
 import HeaderBottom from './headerBottom';
+import { useEffect, useState } from 'react';
 
 
 const Header = () => {
