@@ -71,7 +71,7 @@ const  HeaderBottom = () => {
           return {...state, productMenuNavbar : !state.productMenuNavbar}
 
         case ACTIONTYPE.productMenuNavbarResize : 
-          return {...state, productMenuNavbarResize : action.payload}
+          return {...state, productMenuNavbar : action.payload}
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
@@ -118,7 +118,7 @@ const  HeaderBottom = () => {
     const handlerProductMenu = (e) => {
       setAnimationProductMenu(true)
       setTimeout(() => {
-        dispatch({tyep : ACTIONTYPE.productMenuResize , payload : false})
+        dispatch({type : ACTIONTYPE.productMenuResize , payload : false})
         setAnimationProductMenu(false)
 
       }, 500);
