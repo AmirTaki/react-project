@@ -31,7 +31,7 @@ const  HeaderBottom = () => {
     const [navbar, setNavbar] = useState(false);
 
     // const [search, setSecarch] =  useState(false);
-    const [moveNavbar, setMoveNavbar] =  useState(false)
+    // const [moveNavbar, setMoveNavbar] =  useState(false)
     const [productMenu, setProductMenu] = useState(false)
     const [productMenuNavbar, setProductMenuNavbar] = useState(false)
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
@@ -82,9 +82,9 @@ const  HeaderBottom = () => {
 
 
     useEffect(() => {
-      document.documentElement.style.overflow  = moveNavbar ? "hidden" : 'auto'
+      document.documentElement.style.overflow  = state.moveNavbar ? "hidden" : 'auto'
       return()=> {
-        document.documentElement.style.overflow  = moveNavbar ? "hidden" : 'auto'
+        document.documentElement.style.overflow  = state.moveNavbar ? "hidden" : 'auto'
       }
     })
 
@@ -107,7 +107,7 @@ const  HeaderBottom = () => {
     const exitNavbar = () => {
       setProductMenuNavbar(false)
       setTimeout(() => {
-        setMoveNavbar(false)
+        dispatch({type : ACTIONTYPE.moveNavbarResize})
       },700)
      
     }
@@ -131,10 +131,10 @@ const  HeaderBottom = () => {
 
         {/* MEDDLE */}
         {/* container Menu */}
-        <div className={` ${navbar ?"bg-white h-[100%] shadow-2xl   w-full duration-500 -left-200! top-0 fixed z-40! " :  "static  flex items-center z-10! " } ${moveNavbar ? "left-0! duration-500" : ""} `}>
+        <div className={` ${navbar ?"bg-white h-[100%] shadow-2xl   w-full duration-500 -left-200! top-0 fixed z-40! " :  "static  flex items-center z-10! " } ${state.moveNavbar ? "left-0! duration-500" : ""} `}>
           {/* exit menu  */}
           <div className={`${navbar ? "h-[50px] flex justify-between items-center bg-transparent px-3 border-b-gray-200! border-b-1! " : "hidden"}`}>
-            <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130" onClick={()=>{dispatch({type : ACTIONTYPE.moveNavbar })}} ></i>
+            <i className="bi bi-x-lg text-gray-300  hover:text-gray-700 cursor-pointer  duration-200 hover:scale-130"  onClick={() => {dispatch({type : ACTIONTYPE.moveNavbar})}}></i>
             <img src={logo} alt="" className='w-10' />
             <div className="relative">
               <input type="search" placeholder='search' className={state.search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
