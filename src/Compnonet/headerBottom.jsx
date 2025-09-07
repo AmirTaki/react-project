@@ -21,6 +21,9 @@ const ACTIONTYPE = {
   moveNavbarResize : "moveNavbarResize",
 
   productMenu : "productMenu",
+  productMenuResize : "productMenuResize",
+
+
   productMenuNavbar : "productMenuNavbar",
   animationProductMenu : "animationProductMenu"
 }
@@ -60,7 +63,6 @@ const  HeaderBottom = () => {
 
     const handerResize = () =>{
         setNavbar(window.innerWidth <= 768 ? true : false);
-        // setSecarch(false)
         dispatch({type: ACTIONTYPE.searchResize })
         dispatch({type: ACTIONTYPE.moveNavbarResize})
         setProductMenuNavbar(false)
