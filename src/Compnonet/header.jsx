@@ -1,8 +1,9 @@
 
 import HeaderTop from './headerTop';
 import HeaderBottom from './headerBottom';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
+const GlobalHeaderScroll = createContext();
 
 const Header = () => {
     const [scrollTop, setScrollTop]  =  useState(0);
@@ -21,13 +22,13 @@ const Header = () => {
     },[])
 
     return(
-        <header>
-        
-        <HeaderTop />
-        <HeaderBottom />
-
-     
-        </header>
+        <GlobalHeaderScroll.Provider >
+            <header>
+                <HeaderTop />
+                <HeaderBottom />
+            </header>
+        </GlobalHeaderScroll.Provider>
+    
     )
 }
 
