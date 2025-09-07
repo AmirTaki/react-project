@@ -5,12 +5,11 @@ const Header = () => {
     
 
     return(
-        <GlobalHeaderScroll.Provider value = {{scrollTop, setScrollTop}} >
+
             <header>
                 <HeaderTop />
                 <HeaderBottom />
             </header>
-        </GlobalHeaderScroll.Provider>
     
     )
 }

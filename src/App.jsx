@@ -2,6 +2,8 @@ import './App.css'
 import Header from './Compnonet/header'
 import Section from './Compnonet/section'
 import { createContext, useEffect, useState } from 'react';
+
+
 export const GlobalHeaderScroll = createContext();
 
 
@@ -23,11 +25,13 @@ function App() {
 
 
   return (
-    
-    <div className='h-[2000px] bg-red-500'>
-      <Header />
-      <Section />
-    </div>
+    <GlobalHeaderScroll.Provider value = {{scrollTop, setScrollTop}} >
+      <div className='h-[2000px] bg-red-500'>
+        <Header />
+        <Section />
+      </div>
+    </ GlobalHeaderScroll.Provider>
+
   )
 }
 
