@@ -10,7 +10,7 @@ const HeaderTop = () => {
     return(
         
         <div className={`bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-amber-300 fixed! w-full! top-0 left-0 
-        ${scrollTop > 50 ? "-top-50 duration-300 " : ""}   `}  >
+        ${scrollTop > 50 ? "-top-50 duration-300 " : "top-0 duration-300 "}   `}  >
        
             <div className="flex gap-4 p-5 justify-between items-center">
               <a className='cursor-pointer text-gray-500 hover:text-gray-950! hover:underline  '>help</a>
