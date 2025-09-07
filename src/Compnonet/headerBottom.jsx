@@ -48,6 +48,7 @@ const  HeaderBottom = () => {
     const handerResize = () =>{
         setNavbar(window.innerWidth <= 768 ? true : false);
         // setSecarch(false)
+        dispatch({type: ACTIONTYPE.search, })
         setMoveNavbar(false)
         setProductMenuNavbar(false)
         setProductMenu(false);
