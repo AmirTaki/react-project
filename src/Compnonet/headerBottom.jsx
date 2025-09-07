@@ -73,8 +73,9 @@ const  HeaderBottom = () => {
         setNavbar(window.innerWidth <= 768 ? true : false);
         dispatch({type: ACTIONTYPE.searchResize })
         dispatch({type: ACTIONTYPE.moveNavbarResize})
+        dispatch({type : ACTIONTYPE.productMenuResize, paylod : false});
+
         setProductMenuNavbar(false)
-        setProductMenu({type : ACTIONTYPE.productMenuResize, paylod : false});
      }
 
     useEffect(() => {
@@ -103,7 +104,7 @@ const  HeaderBottom = () => {
     // }
 
     const listHandler = ()  => {
-      window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : setProductMenu(!productMenu)
+      window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : dispatch({type : ACTIONTYPE.productMenu})
     }
     const handlerProductMenu = (e) => {
       setAnimationProductMenu(true)
