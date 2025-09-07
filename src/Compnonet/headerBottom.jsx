@@ -25,11 +25,14 @@ const  HeaderBottom = () => {
         setSecarch(false)
         setMoveNavbar(false)
         setProductMenuNavbar(false)
-        setProductMenu(false)
+        setProductMenu(false);
+        document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
+
     }
     window.addEventListener('resize',handerResize )
     useEffect(() => {
         handerResize()
+        console.log("ok")
     }, [])
 
     const handlerSerch = () => {
@@ -39,6 +42,8 @@ const  HeaderBottom = () => {
 
     const menuHandler = () => {
       setMoveNavbar(!moveNavbar)
+      document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
+      
 
     }
 
