@@ -1,15 +1,8 @@
-import { useEffect } from 'react';
 import './App.css'
 import Header from './Compnonet/header'
 import Section from './Compnonet/section'
 
 function App() {
-  useEffect(() => {
-    document.documentElement.style.overflow = 'hidden';
-    return () => {
-      document.documentElement.style.overflow = 'auto';
-    };
-  }, []);
   return (
     <div className='h-[2000px] bg-red-500'>
       <Header />

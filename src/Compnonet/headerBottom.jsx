@@ -26,19 +26,12 @@ const  HeaderBottom = () => {
         setMoveNavbar(false)
         setProductMenuNavbar(false)
         setProductMenu(false);
-        document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
-
     }
     window.addEventListener('resize',handerResize )
     useEffect(() => {
       handerResize()
     },[] )
 
-    useEffect(()=> {
-      return() => {
-        document.documentElement.style.overflow =  moveNavbar ?  "hidden" : "auto"
-      }
-    },)
 
     const handlerSerch = () => {
         setSecarch(!search);
@@ -48,9 +41,7 @@ const  HeaderBottom = () => {
     const menuHandler = () => {
       
       setMoveNavbar(!moveNavbar)
-      setTimeout(()=> {
-        document.documentElement.style.overflow =  moveNavbar ?  "auto" : "hidden"
-      }, 500)
+   
       
 
     }
