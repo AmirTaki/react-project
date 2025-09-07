@@ -26,10 +26,14 @@ const  HeaderBottom = () => {
         setMoveNavbar(false)
         setProductMenuNavbar(false)
         setProductMenu(false);
-    }
-    window.addEventListener('resize',handerResize )
+     }
+
     useEffect(() => {
       handerResize()
+
+      return() => {
+        window.addEventListener('resize', handerResize)
+      }
     },[] )
 
 
