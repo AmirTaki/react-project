@@ -35,7 +35,7 @@ const  HeaderBottom = () => {
 
     // const [search, setSecarch] =  useState(false);
     // const [moveNavbar, setMoveNavbar] =  useState(false)
-    const [productMenu, setProductMenu] = useState(false)
+    // const [productMenu, setProductMenu] = useState(false)
     const [productMenuNavbar, setProductMenuNavbar] = useState(false)
     const [animationProductMenu, setAnimationProductMenu] = useState(false)
     
@@ -74,7 +74,7 @@ const  HeaderBottom = () => {
         dispatch({type: ACTIONTYPE.searchResize })
         dispatch({type: ACTIONTYPE.moveNavbarResize})
         setProductMenuNavbar(false)
-        setProductMenu(false);
+        setProductMenu({type : ACTIONTYPE.productMenuResize, paylod : false});
      }
 
     useEffect(() => {
