@@ -54,7 +54,6 @@ const  HeaderBottom = () => {
     }
 
     const listHandler = ()  => {
-      
       window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : setProductMenu(!productMenu)
     }
     const handlerProductMenu = (e) => {
