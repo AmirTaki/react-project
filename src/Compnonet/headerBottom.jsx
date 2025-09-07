@@ -1,5 +1,5 @@
 import logo from "../assets/logo.webp";
-import { createContext, useContext, useEffect, useReducer, useState } from 'react';
+import { act, createContext, useContext, useEffect, useReducer, useState } from 'react';
 import labtop from "../assets/fwebp.webp"
 import { GlobalHeaderScroll } from "./header";
 
@@ -16,6 +16,7 @@ const initialStateHeader = {
 
 const ACTIONTYPE = {
   search : "search",
+  searchResize : "searchResize",
   navbar : "navbar",
   moveNavbar : "moveNavbar",
   productMenu : "productMenu",
@@ -36,10 +37,14 @@ const  HeaderBottom = () => {
     
   
     const reducer = (state, action) => {
+      console.log(state)
       switch(action.type){
-        case ACTIONTYPE.search:
-          console.log(state)
-          return {...state, search : !state.search};
+      
+        case ACTIONTYPE.search :
+          return {...state, search : !state.search };
+
+        case ACTIONTYPE.searchResize : 
+          return {...state, search : false}
       }
     }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
@@ -48,7 +53,7 @@ const  HeaderBottom = () => {
     const handerResize = () =>{
         setNavbar(window.innerWidth <= 768 ? true : false);
         // setSecarch(false)
-        dispatch({type: ACTIONTYPE.search, })
+        dispatch({type: ACTIONTYPE.searchResize })
         setMoveNavbar(false)
         setProductMenuNavbar(false)
         setProductMenu(false);
