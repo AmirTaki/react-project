@@ -83,8 +83,8 @@ const  HeaderBottom = () => {
       
       dispatch({type: ACTIONTYPE.searchResize })
       dispatch({type: ACTIONTYPE.moveNavbarResize})
-      dispatch({type : ACTIONTYPE.productMenuResize, paylod : false});
-      dispatch({type : ACTIONTYPE.productMenuNavbarResize, paylod : false});
+      dispatch({type : ACTIONTYPE.productMenuResize, payload : false});
+      dispatch({type : ACTIONTYPE.productMenuNavbarResize, payload : false});
      }
 
     useEffect(() => {
