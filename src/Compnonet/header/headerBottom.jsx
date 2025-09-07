@@ -1,6 +1,6 @@
 import logo from "../assets/logo.webp";
 import { act, createContext, useContext, useEffect, useReducer, useState } from 'react';
-import labtop from "../assets/fwebp.webp"
+import labtop from "../../assets/logo.webp"
 import { GlobalHeaderScroll } from "./header";
 
 

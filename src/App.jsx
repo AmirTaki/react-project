@@ -1,8 +1,13 @@
 import './App.css'
-import Header from './Compnonet/header'
+
 import Section from './Compnonet/section'
+import Header from "./Compnonet/header/header"
+
+
+
 
 function App() {
+  
   return (
     <div className='h-[2000px] bg-red-500'>
       <Header />
