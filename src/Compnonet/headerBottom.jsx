@@ -1,12 +1,13 @@
 import logo from "../assets/logo.webp";
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import labtop from "../assets/fwebp.webp"
-
-
+import { GlobalHeaderScroll } from "./header";
 
 
 const  HeaderBottom = () => {
  
+   const {} = useContext(GlobalHeaderScroll);
+
     const [search, setSecarch] =  useState(false);
     const [navbar, setNavbar] = useState(false);
     const [moveNavbar, setMoveNavbar] =  useState(false)
