@@ -3,7 +3,7 @@ import HeaderTop from './headerTop';
 import HeaderBottom from './headerBottom';
 import { createContext, useEffect, useState } from 'react';
 
-const GlobalHeaderScroll = createContext();
+export const GlobalHeaderScroll = createContext();
 
 const Header = () => {
     const [scrollTop, setScrollTop]  =  useState(0);
