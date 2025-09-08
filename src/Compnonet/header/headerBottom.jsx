@@ -8,7 +8,9 @@ import { GlobalHeaderScroll } from "./header";
 const initialStateHeader = {
   search : false,
   moveNavbar : false,
-  productMenu : {},
+  productMenu : {
+    0:false
+  },
   productMenuNavbar : false,
   animationProductMenu : false
 }
@@ -32,7 +34,6 @@ const ACTIONTYPE = {
 }
 
 const  HeaderBottom = () => {
- 
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
 
@@ -82,7 +83,7 @@ const  HeaderBottom = () => {
     }
     
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
-
+    console.log(state)
 
     const handerResize = () =>{
       
