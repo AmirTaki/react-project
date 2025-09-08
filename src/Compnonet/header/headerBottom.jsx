@@ -71,8 +71,9 @@ const  HeaderBottom = () => {
 
         // productMenuNavbar 
         case ACTIONTYPE.productMenuNavbar :
+          const {index} = action.payload ;
           return {...state, productMenuNavbar : {
-            ...state.productMenuNavbar, 
+            ...state.productMenuNavbar, [index] : !state.productMenuNavbar[index]
           }}
 
         case ACTIONTYPE.productMenuNavbarResize : 
