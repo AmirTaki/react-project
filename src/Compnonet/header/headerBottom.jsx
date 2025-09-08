@@ -180,7 +180,7 @@ const  HeaderBottom = () => {
 
     const exitNavbar = (index) => {
       // setProductMenuNavbar((product) => ({...product, [index]: false}))
-      dispatch({type : productMenuNavbarResize})
+      dispatch({type : ACTIONTYPE.productMenuNavbarResize})
       setTimeout(() => {
         dispatch({type : ACTIONTYPE.moveNavbarResize})
       },700)
@@ -240,7 +240,7 @@ const  HeaderBottom = () => {
 
 
                   {/* container product ============================================================> Hidden  =>   */}
-                  <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  ${state.productMenuNavbar[0] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[0] ? "flex! animate-productMenu!":"" } ${animationProductMenu[0] & navbar === false? "animate-productMenuReverse!" : ""}` }>
+                  <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  ${state.productMenuNavbar[0] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[0] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[0] & navbar === false? "animate-productMenuReverse!" : ""}` }>
                     <i onClick = {()=>{handlerProductMenu(0)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                   
                     <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
@@ -296,7 +296,7 @@ const  HeaderBottom = () => {
 
 
                   {/* container product ============================================================> Hidden  =>   */}
-                  <div className={`${navbar ? "bg-red-500 shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-yellow-500 shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  ${state.productMenuNavbar[1] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${ state.productMenu[1] ? "flex! animate-productMenu!":"" } ${animationProductMenu[1] & navbar === false? "animate-productMenuReverse!" : ""}` }>
+                  <div className={`${navbar ? "bg-red-500 shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-yellow-500 shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  ${state.productMenuNavbar[1] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${ state.productMenu[1] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[1] & navbar === false? "animate-productMenuReverse!" : ""}` }>
                     <i onClick = {(e)=>{handlerProductMenu(1)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                   
                     <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
