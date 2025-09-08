@@ -77,12 +77,15 @@ const  HeaderBottom = () => {
             ...state.productMenuNavbar, [index] : !state.productMenuNavbar[index]
           }}
 
-        // case ACTIONTYPE.productMenuNavbarResize : 
-        //   const newProductMenuNavber = Object.keys(state.productMenuNavbar)
-        //   console.log(newProductMenuNavber)
-        //   return {...state,
-        //     productMenuNavbar : newProductMenuNavber
-        //   }
+        case ACTIONTYPE.productMenuNavbarResize : 
+          const newProductMenuNavber = Object.keys(state.productMenuNavbar).reduce((a, b) => {
+            a[b] = false;
+            return a
+          }, {})
+          console.log(newProductMenuNavber)
+          return {...state,
+            productMenuNavbar : newProductMenuNavber
+          }
 
         //animationProductMenu
         case ACTIONTYPE.animationProductMenu : 
