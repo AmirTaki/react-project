@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useReducer, useState } from "react"
 
 const Test = () => {
 
@@ -10,6 +10,8 @@ const Test = () => {
     const numbers = [0, 1, 2]
     
     const [product, setProduct] = useState({})
+
+    const [state, dispatch] = useReducer(reducer, {})
 /*
     const handlerClick = (index) => {
         setProduct(currentProducts =>

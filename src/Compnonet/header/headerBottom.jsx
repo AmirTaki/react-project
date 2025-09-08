@@ -8,9 +8,7 @@ import { GlobalHeaderScroll } from "./header";
 const initialStateHeader = {
   search : false,
   moveNavbar : false,
-  productMenu : {
-    0:false
-  },
+  productMenu : {},
   productMenuNavbar : false,
   animationProductMenu : false
 }
@@ -56,7 +54,9 @@ const  HeaderBottom = () => {
 
         // productMenu
         case ACTIONTYPE.productMenu : 
-          return {...state.productMenu, [action.id] : !state.productMenu[action.id]}
+          console.log(state)
+          const {id} = action.payload;
+          // return {...state,  : }
 
         // case ACTIONTYPE.productMenuResize :
           // return {...state, productMenu : action.payload}
