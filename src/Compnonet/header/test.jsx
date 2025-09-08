@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react"
+import { act, useReducer, useState } from "react"
 
 const Test = () => {
 
@@ -16,8 +16,15 @@ const Test = () => {
         switch(action.type){
             case "product":
                 const {id} = action.payload
-                console.log(state)
-                return {...state, [id] : !state.product[id] };
+                return {
+                    ...state,
+                    product: {
+                        ...state.product,
+                        [action.payload.id]: !state.product[action.payload.id]
+                    }
+                };
+            default:
+                return state;
         }
     }
     const [state, dispatch] = useReducer(reducer, {
@@ -45,9 +52,9 @@ const Test = () => {
             <div className="flex flex-col ">
                 <button onClick={()=> {handlerClick(index)}}>CLICK 1</button>
               
-                {state.product[index] ? "ok" : "not"}
+                {/* {state.product[index] ? "ok" : "not"} */}
 
-                <div className={`${state.product ? "hidden!" : "hidden!"} w-50  bg-amber-300 fixed `}>
+                <div className={`${state.product[index] ? "" : "hidden"} w-50  bg-amber-300 fixed `}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at?
                 </div>
              
