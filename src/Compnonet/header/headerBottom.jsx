@@ -121,11 +121,10 @@ const  HeaderBottom = () => {
       window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : setProductMenu(!productMenu)
     }
     const handlerProductMenu = (e) => {
-      dispatch({type : ACTIONTYPE.animationProductMenuResize , payload : true});
+      setAnimationProductMenu(true)
       setTimeout(() => {
-        dispatch({type : ACTIONTYPE.productMenuResize , payload : false})
-        dispatch({type : ACTIONTYPE.animationProductMenuResize , payload : false});
-
+        setProductMenu(false)
+        setAnimationProductMenu(false)
       }, 500);
     }
 
