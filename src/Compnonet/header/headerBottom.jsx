@@ -89,7 +89,15 @@ const  HeaderBottom = () => {
 
         //animationProductMenu
         case ACTIONTYPE.animationProductMenu : 
-          return {}
+          const {page}  = action.payload;
+          const {animation} = action.payload
+          return {
+            ...state,
+            animationProductMenu : {
+              ...state.animationProductMenu,
+              [page] : animation
+            }
+          }
 
         case ACTIONTYPE.animationProductMenuResize : 
           return {...state, animationProductMenu : action.payload}
