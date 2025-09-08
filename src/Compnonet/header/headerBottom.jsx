@@ -86,7 +86,7 @@ const  HeaderBottom = () => {
  
 
     const [productMenu, setProductMenu] =  useState({})
-    const [productMenuNavbar, setProductMenuNavbar] =  useState(false)
+    const [productMenuNavbar, setProductMenuNavbar] =  useState({})
     const [animationProductMenu, setAnimationProductMenu] =  useState({})
 
     const handerResize = () =>{
@@ -203,7 +203,7 @@ const  HeaderBottom = () => {
                     <i onClick = {()=>{handlerProductMenu(0)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                   
                     <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
-                      <div onClick={listHandler} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
+                      <div onClick={()=> {listHandler(0)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
                       <div onClick={exitNavbar}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
                     </div>
                     {/* category */}
@@ -259,7 +259,7 @@ const  HeaderBottom = () => {
                     <i onClick = {(e)=>{handlerProductMenu(1)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                   
                     <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
-                      <div onClick={listHandler} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
+                      <div onClick={()=>{listHandler(1)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
                       <div onClick={exitNavbar}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
                     </div>
                     {/* category */}
