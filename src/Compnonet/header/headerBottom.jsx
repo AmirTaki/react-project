@@ -8,8 +8,8 @@ import { GlobalHeaderScroll } from "./header";
 const initialStateHeader = {
   search : false,
   moveNavbar : false,
-  productMenu : false,
-  productMenuNavbar : false,
+  productMenu : {},
+  productMenuNavbar : {},
   animationProductMenu : false
 }
 
