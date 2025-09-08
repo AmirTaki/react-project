@@ -87,7 +87,7 @@ const  HeaderBottom = () => {
 
     const [productMenu, setProductMenu] =  useState({})
     const [productMenuNavbar, setProductMenuNavbar] =  useState(false)
-    const [animationProductMenu, setAnimationProductMenu] =  useState(false)
+    const [animationProductMenu, setAnimationProductMenu] =  useState({})
 
     const handerResize = () =>{
       
@@ -131,10 +131,10 @@ const  HeaderBottom = () => {
       window.innerWidth <= 768 ?  setProductMenuNavbar(!productMenuNavbar) : setProductMenu((product) => ({...product, [id] : !product[id] }))
     }
     const handlerProductMenu = (index) => {
-      setAnimationProductMenu(true)
+      setAnimationProductMenu((product) => ({...product, [index] : true}))
       setTimeout(() => {
         setProductMenu((product) => ({...product, [index] : !product[index]}))
-        setAnimationProductMenu(false)
+      setAnimationProductMenu((product) => ({...product, [index] : false}))
       }, 500);
     }
 
