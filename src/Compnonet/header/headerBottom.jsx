@@ -97,7 +97,14 @@ const  HeaderBottom = () => {
       dispatch({type: ACTIONTYPE.moveNavbarResize})
       // dispatch({type : ACTIONTYPE.productMenuResize, payload : false});
       // dispatch({type : ACTIONTYPE.productMenuNavbarResize, payload : false});
-      setProductMenu(false)
+      setProductMenu((product) => {
+        const newProduct = {};
+        for (const item in product){
+          product[item] = false
+        }
+        return newProduct
+      })
+      
       setProductMenuNavbar(false)
      }
 
