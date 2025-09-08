@@ -134,7 +134,8 @@ const  HeaderBottom = () => {
     })
 
     const listHandler = (id)  => {
-      window.innerWidth <= 768 ?  setProductMenuNavbar((product) => ({...product, [id] : !product[id]})) : setProductMenu((product) => ({...product, [id] : !product[id] }))
+      // window.innerWidth <= 768 ?  setProductMenuNavbar((product) => ({...product, [id] : !product[id]})) : setProductMenu((product) => ({...product, [id] : !product[id] }))
+      window.innerWidth <= 768 ?  setProductMenuNavbar((product) => ({...product, [id] : !product[id]})) : dispatch({type : ACTIONTYPE.productMenu, payload : id}) ;
     }
     const handlerProductMenu = (index) => {
       setAnimationProductMenu((product) => ({...product, [index] : true}))
