@@ -71,17 +71,18 @@ const  HeaderBottom = () => {
 
         // productMenuNavbar 
         case ACTIONTYPE.productMenuNavbar :
+          
           const {index} = action.payload ;
           return {...state, productMenuNavbar : {
             ...state.productMenuNavbar, [index] : !state.productMenuNavbar[index]
           }}
 
-        case ACTIONTYPE.productMenuNavbarResize : 
-          const newProductMenuNavber = Object.keys(state.productMenuNavbar)
-          console.log(newProductMenuNavber)
-          return {...state,
-            productMenuNavbar : newProductMenuNavber
-          }
+        // case ACTIONTYPE.productMenuNavbarResize : 
+        //   const newProductMenuNavber = Object.keys(state.productMenuNavbar)
+        //   console.log(newProductMenuNavber)
+        //   return {...state,
+        //     productMenuNavbar : newProductMenuNavber
+        //   }
 
         //animationProductMenu
         case ACTIONTYPE.animationProductMenu : 
@@ -153,14 +154,14 @@ const  HeaderBottom = () => {
 
     const listHandler = (id)  => {
       // window.innerWidth <= 768 ?  setProductMenuNavbar((product) => ({...product, [id] : !product[id]})) : setProductMenu((product) => ({...product, [id] : !product[id] }))
-      window.innerWidth <= 768 ? dispatch({type : ACTIONTYPE.productMenuNavbar , payload : {id : id}}): dispatch({type : ACTIONTYPE.productMenu, payload : {id : id}}) ;
+      window.innerWidth <= 768 ? dispatch({type : ACTIONTYPE.productMenuNavbar , payload : {index : id}}): dispatch({type : ACTIONTYPE.productMenu, payload : {id : id}}) ;
     }
     const handlerProductMenu = (index) => {
       setAnimationProductMenu((product) => ({...product, [index] : true}))
       setTimeout(() => {
         // setProductMenu((product) => ({...product, [index] : !product[index]}))
         dispatch({type : ACTIONTYPE.productMenu, payload : {id : index}})
-      setAnimationProductMenu((product) => ({...product, [index] : false}))
+        setAnimationProductMenu((product) => ({...product, [index] : false}))
       }, 500);
     }
 
