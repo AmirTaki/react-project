@@ -9,14 +9,18 @@ const Test = () => {
 
     const numbers = [0, 1, 2]
     
-    const [product, setProduct] = useState(array)
-   
+    const [product, setProduct] = useState({})
+/*
+    const handlerClick = (index) => {
+        setProduct(currentProducts =>
+        currentProducts.map((item, i) => (i === index ? !item : item))
+        );
+    }
+*/
     const handlerClick = (index) => {
         
-        setProduct(prev => (prev.map((item, i)=> (
-            i === index ? !item : item
-        ))))
-    
+        // setProduct({...product, [index] : !product[index]})
+        setProduct((prev) => ({...prev, [index] : !prev[index]}))
      
     }
 
@@ -34,7 +38,6 @@ const Test = () => {
              
             </div>
         ))}
-          
         </>
       
     )

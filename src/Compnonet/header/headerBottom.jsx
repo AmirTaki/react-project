@@ -8,10 +8,8 @@ import { GlobalHeaderScroll } from "./header";
 const initialStateHeader = {
   search : false,
   moveNavbar : false,
-  productMenu : {
-  
-  },
-  productMenuNavbar : {},
+  productMenu : false,
+  productMenuNavbar : false,
   animationProductMenu : false
 }
 
@@ -57,7 +55,7 @@ const  HeaderBottom = () => {
 
         // productMenu
         case ACTIONTYPE.productMenu : 
-          return {...state, id  : !state.productMenu}
+          return {...state, productMenu : !state.productMenu}
 
         case ACTIONTYPE.productMenuResize :
           return {...state, productMenu : action.payload}
@@ -111,8 +109,8 @@ const  HeaderBottom = () => {
       }
     })
 
-    const listHandler = (id)  => {
-      window.innerWidth <= 768 ?  dispatch({type : ACTIONTYPE.productMenuNavbar}) : dispatch({type : ACTIONTYPE.productMenu, id : id})
+    const listHandler = ()  => {
+      window.innerWidth <= 768 ?  dispatch({type : ACTIONTYPE.productMenuNavbar}) : dispatch({type : ACTIONTYPE.productMenu})
     }
     const handlerProductMenu = (e) => {
       dispatch({type : ACTIONTYPE.animationProductMenuResize , payload : true});
@@ -177,7 +175,7 @@ const  HeaderBottom = () => {
                 {/* container List  */}
                 <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[800px]  m-2"}`}>    
                   {/* title List */}
-                  <div onClick = {()=> {listHandler(0)}} className={`${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
+                  <div onClick = {listHandler} className={`${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
                       <div className={`${navbar ? "" : ""}`}>list 1</div>
                       <div className={`${navbar ? "" : "hidden"}`}><i className="bi bi-chevron-right"></i></div>
                   </div>
