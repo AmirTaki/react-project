@@ -16,11 +16,12 @@ const Test = () => {
         switch(action.type){
             case "product":
                 const {id} = action.payload
-                return {...state.product, [id] : !state.product[id] };
+                console.log(state)
+                return {...state, [id] : !state.product[id] };
         }
     }
     const [state, dispatch] = useReducer(reducer, {
-        product:{}
+      product:{}
     })
 
 /*
@@ -34,7 +35,7 @@ const Test = () => {
         
         // setProduct({...product, [index] : !product[index]})
         // setProduct((prev) => ({...prev, [index] : !prev[index]}))
-        dispatch({type : "product", payload : index})
+        dispatch({type : "product", payload : {id : index}})
      
     }
 
@@ -44,9 +45,9 @@ const Test = () => {
             <div className="flex flex-col ">
                 <button onClick={()=> {handlerClick(index)}}>CLICK 1</button>
               
+                {state.product[index] ? "ok" : "not"}
 
-
-                <div className={`${state.product[index] ? "flex!" : "hidden!"} w-50  bg-amber-300 fixed `}>
+                <div className={`${state.product ? "hidden!" : "hidden!"} w-50  bg-amber-300 fixed `}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at?
                 </div>
              
