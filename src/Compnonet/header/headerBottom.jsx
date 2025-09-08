@@ -63,18 +63,18 @@ const  HeaderBottom = () => {
           // return {...state, productMenu : action.payload}
 
         // productMenuNavbar 
-        // case ACTIONTYPE.productMenuNavbar :
-        //   return {...state, productMenuNavbar : !state.productMenuNavbar}
+        case ACTIONTYPE.productMenuNavbar :
+          return {...state, productMenuNavbar : !state.productMenuNavbar}
 
-        // case ACTIONTYPE.productMenuNavbarResize : 
-        //   return {...state, productMenuNavbar : action.payload}
+        case ACTIONTYPE.productMenuNavbarResize : 
+          return {...state, productMenuNavbar : action.payload}
 
-        // //animationProductMenu
-        // case ACTIONTYPE.animationProductMenu : 
-        //   return {...state, animationProductMenu : !state.animationProductMenu }
+        //animationProductMenu
+        case ACTIONTYPE.animationProductMenu : 
+          return {...state, animationProductMenu : !state.animationProductMenu }
 
-        // case ACTIONTYPE.animationProductMenuResize : 
-        //   return {...state, animationProductMenu : action.payload}
+        case ACTIONTYPE.animationProductMenuResize : 
+          return {...state, animationProductMenu : action.payload}
         
         // default 
         default :
@@ -95,8 +95,10 @@ const  HeaderBottom = () => {
       
       dispatch({type: ACTIONTYPE.searchResize })
       dispatch({type: ACTIONTYPE.moveNavbarResize})
-      dispatch({type : ACTIONTYPE.productMenuResize, payload : false});
-      dispatch({type : ACTIONTYPE.productMenuNavbarResize, payload : false});
+      // dispatch({type : ACTIONTYPE.productMenuResize, payload : false});
+      // dispatch({type : ACTIONTYPE.productMenuNavbarResize, payload : false});
+      setProductMenu(false)
+      setProductMenuNavbar(false)
      }
 
     useEffect(() => {
