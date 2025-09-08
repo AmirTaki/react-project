@@ -55,9 +55,8 @@ const  HeaderBottom = () => {
           return {...state, moveNavbar : false};
 
         // productMenu
-        // case ACTIONTYPE.productMenu : 
-        //   console.log(state.productMenu[0])
-        //   return {...state.productMenu, [action.id] : !state.productMenu[action.id]}
+        case ACTIONTYPE.productMenu : 
+          return {...state.productMenu, [action.id] : !state.productMenu[action.id]}
 
         // case ACTIONTYPE.productMenuResize :
           // return {...state, productMenu : action.payload}
@@ -97,6 +96,7 @@ const  HeaderBottom = () => {
       dispatch({type: ACTIONTYPE.moveNavbarResize})
       // dispatch({type : ACTIONTYPE.productMenuResize, payload : false});
       // dispatch({type : ACTIONTYPE.productMenuNavbarResize, payload : false});
+    
       setProductMenu((product) => {
         const newProduct = {};
         for (const item in product){
