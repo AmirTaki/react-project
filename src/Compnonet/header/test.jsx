@@ -15,10 +15,13 @@ const Test = () => {
     const reducer = (state, action) => {
         switch(action.type){
             case "product":
-                return {};
+                const {id} = action.payload
+                return {...state.product, [id] : !state.product[id] };
         }
     }
-    const [state, dispatch] = useReducer(reducer, {})
+    const [state, dispatch] = useReducer(reducer, {
+        product:{}
+    })
 
 /*
     const handlerClick = (index) => {
@@ -43,7 +46,7 @@ const Test = () => {
               
 
 
-                <div className={`${product[index] ? "flex!" : "hidden!"} w-50  bg-amber-300 fixed `}>
+                <div className={`${state.product[index] ? "flex!" : "hidden!"} w-50  bg-amber-300 fixed `}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at?
                 </div>
              
