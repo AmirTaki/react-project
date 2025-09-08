@@ -109,8 +109,8 @@ const  HeaderBottom = () => {
       }
     })
 
-    const listHandler = ()  => {
-      window.innerWidth <= 768 ?  dispatch({type : ACTIONTYPE.productMenuNavbar}) : dispatch({type : ACTIONTYPE.productMenu})
+    const listHandler = (id)  => {
+      window.innerWidth <= 768 ?  dispatch({type : ACTIONTYPE.productMenuNavbar}) : dispatch({type : ACTIONTYPE.productMenu, id : id})
     }
     const handlerProductMenu = (e) => {
       dispatch({type : ACTIONTYPE.animationProductMenuResize , payload : true});
