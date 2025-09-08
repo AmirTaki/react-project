@@ -160,7 +160,8 @@ const  HeaderBottom = () => {
     }
 
     const exitNavbar = (index) => {
-      setProductMenuNavbar((product) => ({...product, [index]: false}))
+      // setProductMenuNavbar((product) => ({...product, [index]: false}))
+      dispatch({type : productMenuNavbarResize})
       setTimeout(() => {
         dispatch({type : ACTIONTYPE.moveNavbarResize})
       },700)
