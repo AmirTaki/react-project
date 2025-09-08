@@ -1,0 +1,43 @@
+import { useState } from "react"
+
+const Test = () => {
+
+    const array = []
+    for(let i = 0; i < 3 ; i++){
+        array.push(false)
+    }
+
+    const numbers = [0, 1, 2]
+    
+    const [product, setProduct] = useState(array)
+   
+    const handlerClick = (index) => {
+        
+        setProduct(prev => (prev.map((item, i)=> (
+            i === index ? !item : item
+        ))))
+    
+     
+    }
+
+    return(
+        <>
+        {array.map((item, index) => (
+            <div className="flex flex-col ">
+                <button onClick={()=> {handlerClick(index)}}>CLICK 1</button>
+              
+
+
+                <div className={`${product[index] ? "flex!" : "hidden!"} w-50  bg-amber-300 fixed `}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at?
+                </div>
+             
+            </div>
+        ))}
+          
+        </>
+      
+    )
+}
+
+export default Test

@@ -2,6 +2,8 @@ import './App.css'
 
 import Section from './Compnonet/section'
 import Header from "./Compnonet/header/header"
+import Test from './Compnonet/header/test'
+
 
 
 
@@ -9,10 +11,11 @@ import Header from "./Compnonet/header/header"
 function App() {
   
   return (
-    <div className='h-[2000px] bg-red-500'>
-      <Header />
-      <Section />
-    </div>
+    <Test />
+    // <div className='h-[2000px] bg-red-500'>
+    //   <Header />
+    //   <Section />
+    // </div>
   )
 }
 
