@@ -86,7 +86,8 @@ const  HeaderBottom = () => {
  
 
     const [productMenu, setProductMenu] =  useState(false)
-    const [] =  useState(false)
+    const [productMenuNavbar, setProductMenuNavbar] =  useState(false)
+    const [animationProductMenu, setAnimationProductMenu] =  useState(false)
 
     const handerResize = () =>{
       
