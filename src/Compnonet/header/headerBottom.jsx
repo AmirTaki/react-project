@@ -100,10 +100,14 @@ const  HeaderBottom = () => {
       setProductMenu((product) => {
         const newProduct = {};
         for (const item in product){
+          console.log(product[item])
           product[item] = false
         }
-        return newProduct
+        return newProduct;
       })
+
+
+    
       
       setProductMenuNavbar(false)
      }
