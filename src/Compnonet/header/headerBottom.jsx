@@ -32,6 +32,7 @@ const ACTIONTYPE = {
 }
 
 const  HeaderBottom = () => {
+    const menus = ['menu1', 'menu2', 'menu3']
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
 
@@ -216,12 +217,14 @@ const  HeaderBottom = () => {
               <i className="bi bi-search text-gray-400 cursor-pointer text-lg hover:scale-130    max-md:right-[10px] absolute hover:text-gray-900 duration-300"    onClick={()=>{dispatch({type : ACTIONTYPE.search})}}></i>
             </div>
           </div>
-          
-          {/* Menu */}
-          <div className={` ${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
+         
+          {menus.map((menu, loc) => (
+            <div className={`${navbar ? "" :""}`}>
+                {/* Menu */}
+          <div  className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
             {/* title menu */}
             <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
-              <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>menu 1</div>
+              <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
               <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
             </div>
             {/* megaMenu   =>    */}
@@ -233,19 +236,20 @@ const  HeaderBottom = () => {
                 {/* container List  */}
                 <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[800px]  m-2"}`}>    
                   {/* title List */}
-                  <div onClick = {()=> {listHandler(0)}} className={`${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
-                      <div className={`${navbar ? "" : ""}`}>list 1</div>
+                  <div onClick = {()=> {listHandler(loc)}} className={`${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
+                      <div className={`${navbar ? "" : ""}`}>list : {loc}</div>
                       <div className={`${navbar ? "" : "hidden"}`}><i className="bi bi-chevron-right"></i></div>
                   </div>
 
 
                   {/* container product ============================================================> Hidden  =>   */}
-                  <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  ${state.productMenuNavbar[0] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[0] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[0] & navbar === false? "animate-productMenuReverse!" : ""}` }>
-                    <i onClick = {()=>{handlerProductMenu(0)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
+                  <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
+                  ${state.productMenuNavbar[loc] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[loc] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[loc] & navbar === false? "animate-productMenuReverse!" : ""}` }>
+                    <i onClick = {()=>{handlerProductMenu(loc)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                   
                     <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
-                      <div onClick={()=> {listHandler(0)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
-                      <div onClick={()=>{exitNavbar(0)}}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
+                      <div onClick={()=> {listHandler(loc)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
+                      <div onClick={()=>{exitNavbar(loc)}}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
                     </div>
                     {/* category */}
                     <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
@@ -286,66 +290,20 @@ const  HeaderBottom = () => {
                     </div>
                   </div>
                 </div>
-                {/* container List  */}
-                <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[800px]  m-2"}`}>    
-                  {/* title List */}
-                  <div onClick = {()=> {listHandler(1)}} className={`${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
-                      <div className={`${navbar ? "" : ""}`}>list 1</div>
-                      <div className={`${navbar ? "" : "hidden"}`}><i className="bi bi-chevron-right"></i></div>
-                  </div>
-
-
-                  {/* container product ============================================================> Hidden  =>   */}
-                  <div className={`${navbar ? "bg-red-500 shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[900px] top-0 -left-[0px]! bg-yellow-500 shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  ${state.productMenuNavbar[1] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${ state.productMenu[1] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[1] & navbar === false? "animate-productMenuReverse!" : ""}` }>
-                    <i onClick = {(e)=>{handlerProductMenu(1)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
-                  
-                    <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
-                      <div onClick={()=>{listHandler(1)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
-                      <div onClick={()=>{exitNavbar(1)}}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
-                    </div>
-                    {/* category */}
-                    <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
-                        <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
-                        {/* category item */}
-                        <div className=" flex bg-white h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
-                          <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i className="bi bi-anthropic"></i></div>
-                          <div className="">category</div>
-                        </div>
-                    </div>
-                    {/* serics */}
-                    <div className={`${navbar ? "flex flex-col w-[50%] h-[45%] bg-transparent overflow-hidden border-l-gray-100 border-r-1! border-t-gray-100 border-t-1!" :"flex flex-col  w-[300px] overflow-hidden border-l-gray-100 border-r-1!"}`}>
-                      <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY SERYS</div>
-                      {/* serics item */}
-                      <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                        <div className="">serics</div>
-                      </div>
-                    </div>
-                    {/* image */}
-                    <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[300px]    overflow-hidden  justify-center items-center gap-1"}`}>
-                      {/* itemImages */} 
-                      <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
-                        "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
-                      }`}>
-                        <img src={labtop} alt = "" className="w-[150px] h-[150px]"/>
-                        <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
-                      
-                      </div>
-                      {/* itemImages */} 
-                      <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
-                        "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
-                      }`}>
-                        <img src={labtop} alt=""className="w-[150px] h-[150px]"/>
-                        <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
-                      
-                      </div>
-                                          
-                    </div>
-                  </div>
-                </div>
+             
           
               </div>
             </div>
           </div>
+            </div>
+          ))}        
+      
+
+          
+        
+      
+      
+        
       
         </div>
 
