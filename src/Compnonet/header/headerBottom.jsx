@@ -71,7 +71,9 @@ const  HeaderBottom = () => {
 
         // productMenuNavbar 
         case ACTIONTYPE.productMenuNavbar :
-          reducer
+          return {...state, productMenuNavbar : {
+            ...state.productMenuNavbar, 
+          }}
 
         case ACTIONTYPE.productMenuNavbarResize : 
           return {...state, productMenuNavbar : action.payload}
@@ -145,7 +147,7 @@ const  HeaderBottom = () => {
 
     const listHandler = (id)  => {
       // window.innerWidth <= 768 ?  setProductMenuNavbar((product) => ({...product, [id] : !product[id]})) : setProductMenu((product) => ({...product, [id] : !product[id] }))
-      window.innerWidth <= 768 ?  setProductMenuNavbar((product) => ({...product, [id] : !product[id]})) : dispatch({type : ACTIONTYPE.productMenu, payload : {id : id}}) ;
+      window.innerWidth <= 768 ? dispatch({type : ACTIONTYPE.productMenuNavbar , payload : {id : id}}): dispatch({type : ACTIONTYPE.productMenu, payload : {id : id}}) ;
     }
     const handlerProductMenu = (index) => {
       setAnimationProductMenu((product) => ({...product, [index] : true}))
