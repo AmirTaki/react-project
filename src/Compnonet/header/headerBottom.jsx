@@ -48,33 +48,33 @@ const  HeaderBottom = () => {
           return {...state, search : false}
         
         // MoveNaveBar 
-        case ACTIONTYPE.moveNavbar : 
-          return {...state, moveNavbar : !state.moveNavbar};
+        // case ACTIONTYPE.moveNavbar : 
+        //   return {...state, moveNavbar : !state.moveNavbar};
 
-        case ACTIONTYPE.moveNavbarResize : 
-          return {...state, moveNavbar : false};
+        // case ACTIONTYPE.moveNavbarResize : 
+        //   return {...state, moveNavbar : false};
 
         // productMenu
-        case ACTIONTYPE.productMenu : 
-          console.log(state.productMenu[0])
-          return {...state.productMenu, [action.id] : !state.productMenu[action.id]}
+        // case ACTIONTYPE.productMenu : 
+        //   console.log(state.productMenu[0])
+        //   return {...state.productMenu, [action.id] : !state.productMenu[action.id]}
 
-        case ACTIONTYPE.productMenuResize :
+        // case ACTIONTYPE.productMenuResize :
           // return {...state, productMenu : action.payload}
 
         // productMenuNavbar 
-        case ACTIONTYPE.productMenuNavbar :
-          return {...state, productMenuNavbar : !state.productMenuNavbar}
+        // case ACTIONTYPE.productMenuNavbar :
+        //   return {...state, productMenuNavbar : !state.productMenuNavbar}
 
-        case ACTIONTYPE.productMenuNavbarResize : 
-          return {...state, productMenuNavbar : action.payload}
+        // case ACTIONTYPE.productMenuNavbarResize : 
+        //   return {...state, productMenuNavbar : action.payload}
 
-        //animationProductMenu
-        case ACTIONTYPE.animationProductMenu : 
-          return {...state, animationProductMenu : !state.animationProductMenu }
+        // //animationProductMenu
+        // case ACTIONTYPE.animationProductMenu : 
+        //   return {...state, animationProductMenu : !state.animationProductMenu }
 
-        case ACTIONTYPE.animationProductMenuResize : 
-          return {...state, animationProductMenu : action.payload}
+        // case ACTIONTYPE.animationProductMenuResize : 
+        //   return {...state, animationProductMenu : action.payload}
         
         // default 
         default :
