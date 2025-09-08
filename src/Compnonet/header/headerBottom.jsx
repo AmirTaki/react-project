@@ -210,7 +210,7 @@ const  HeaderBottom = () => {
                   
                     <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
                       <div onClick={()=> {listHandler(0)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
-                      <div onClick={exitNavbar}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
+                      <div onClick={()=>{exitNavbar(0)}}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
                     </div>
                     {/* category */}
                     <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
@@ -266,7 +266,7 @@ const  HeaderBottom = () => {
                   
                     <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
                       <div onClick={()=>{listHandler(1)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
-                      <div onClick={exitNavbar}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
+                      <div onClick={()=>{exitNavbar(1)}}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
                     </div>
                     {/* category */}
                     <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
