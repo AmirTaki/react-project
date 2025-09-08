@@ -54,18 +54,13 @@ const  HeaderBottom = () => {
 
         // productMenu
         case ACTIONTYPE.productMenu : 
-          console.log(state)
           const {id} = action.payload;
-          return {
-            ...state,
-            product: {
-              ...state.productMenu, 
-              [id] : !state.productMenu[id]  
-            }
+          return {...state,
+            product: { ...state.productMenu, [id] : !state.productMenu[id]  }
           }
 
-        // case ACTIONTYPE.productMenuResize :
-          // return {...state, productMenu : action.payload}
+        case ACTIONTYPE.productMenuResize :
+          return {}
 
         // productMenuNavbar 
         case ACTIONTYPE.productMenuNavbar :
@@ -90,7 +85,7 @@ const  HeaderBottom = () => {
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
  
 
-    const [productMenu, setProductMenu] =  useState({})
+    // const [productMenu, setProductMenu] =  useState({})
     const [productMenuNavbar, setProductMenuNavbar] =  useState({})
     const [animationProductMenu, setAnimationProductMenu] =  useState({})
 
@@ -103,13 +98,15 @@ const  HeaderBottom = () => {
       // dispatch({type : ACTIONTYPE.productMenuResize, payload : false});
       // dispatch({type : ACTIONTYPE.productMenuNavbarResize, payload : false});
     
-      setProductMenu((product) => {
-        const newProduct = {};
-        for (const item in product){
-          product[item] = false
-        }
-        return newProduct;
-      })
+      // setProductMenu((product) => {
+      //   const newProduct = {};
+      //   for (const item in product){
+      //     product[item] = false
+      //   }
+      //   return newProduct;
+      // })
+
+      dispatch({type:ACTIONTYPE.productMenuResize})
 
 
     
