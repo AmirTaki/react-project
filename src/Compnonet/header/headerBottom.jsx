@@ -57,10 +57,10 @@ const  HeaderBottom = () => {
         // productMenu
         case ACTIONTYPE.productMenu : 
           console.log(state)
-          return {...state, [action.id] : !state.productMenu[action.id]}
+          return {...state.productMenu, [action.id] : !state.productMenu[action.id]}
 
         case ACTIONTYPE.productMenuResize :
-          return {...state, productMenu : action.payload}
+          // return {...state, productMenu : action.payload}
 
         // productMenuNavbar 
         case ACTIONTYPE.productMenuNavbar :
