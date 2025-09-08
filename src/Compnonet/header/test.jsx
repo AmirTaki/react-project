@@ -11,7 +11,15 @@ const Test = () => {
     
     const [product, setProduct] = useState({})
 
+
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "product":
+                return {};
+        }
+    }
     const [state, dispatch] = useReducer(reducer, {})
+
 /*
     const handlerClick = (index) => {
         setProduct(currentProducts =>
@@ -22,7 +30,8 @@ const Test = () => {
     const handlerClick = (index) => {
         
         // setProduct({...product, [index] : !product[index]})
-        setProduct((prev) => ({...prev, [index] : !prev[index]}))
+        // setProduct((prev) => ({...prev, [index] : !prev[index]}))
+        dispatch({type : "product", payload : index})
      
     }
 
