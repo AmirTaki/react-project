@@ -10,7 +10,7 @@ const initialStateHeader = {
   moveNavbar : false,
   productMenu : {},
   productMenuNavbar : {},
-  animationProductMenu : false
+  animationProductMenu : {}
 }
 
 const ACTIONTYPE = {
@@ -89,7 +89,7 @@ const  HeaderBottom = () => {
 
         //animationProductMenu
         case ACTIONTYPE.animationProductMenu : 
-          return {...state, animationProductMenu : !state.animationProductMenu }
+          return {}
 
         case ACTIONTYPE.animationProductMenuResize : 
           return {...state, animationProductMenu : action.payload}
@@ -105,7 +105,7 @@ const  HeaderBottom = () => {
 
     // const [productMenu, setProductMenu] =  useState({})
     // const [productMenuNavbar, setProductMenuNavbar] =  useState({})
-    const [animationProductMenu, setAnimationProductMenu] =  useState({})
+    // const [animationProductMenu, setAnimationProductMenu] =  useState({})
 
     const handerResize = () =>{
       
@@ -160,11 +160,13 @@ const  HeaderBottom = () => {
       window.innerWidth <= 768 ? dispatch({type : ACTIONTYPE.productMenuNavbar , payload : {index : id}}): dispatch({type : ACTIONTYPE.productMenu, payload : {id : id}}) ;
     }
     const handlerProductMenu = (index) => {
-      setAnimationProductMenu((product) => ({...product, [index] : true}))
+      // setAnimationProductMenu((product) => ({...product, [index] : true}))
+      dispatch({type : ACTIONTYPE.animationProductMenu, payload : {page : index, animation : true}})
       setTimeout(() => {
         // setProductMenu((product) => ({...product, [index] : !product[index]}))
         dispatch({type : ACTIONTYPE.productMenu, payload : {id : index}})
-        setAnimationProductMenu((product) => ({...product, [index] : false}))
+        // setAnimationProductMenu((product) => ({...product, [index] : false}))
+        dispatch({type : ACTIONTYPE.animationProductMenu, payload : {page : index, animation : false}})
       }, 500);
     }
 
