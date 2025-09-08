@@ -59,10 +59,15 @@ const  HeaderBottom = () => {
             productMenu: { ...state.productMenu, [id] : !state.productMenu[id]  }
           }
 
-        // case ACTIONTYPE.productMenuResize :
-        //   return {...state, 
-        //     product 
-        //   }
+        case ACTIONTYPE.productMenuResize :
+          const newProductMenu = Object.keys(state.productMenu).reduce((acc, key) => {
+            acc[key] = false;
+            return acc;
+          }, {});
+    
+          return {...state, 
+            productMenu : newProductMenu
+          }
 
         // productMenuNavbar 
         case ACTIONTYPE.productMenuNavbar :
