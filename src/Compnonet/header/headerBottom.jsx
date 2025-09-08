@@ -9,7 +9,7 @@ const initialStateHeader = {
   search : false,
   moveNavbar : false,
   productMenu : {},
-  productMenuNavbar : false,
+  productMenuNavbar : {},
   animationProductMenu : false
 }
 
@@ -71,7 +71,7 @@ const  HeaderBottom = () => {
 
         // productMenuNavbar 
         case ACTIONTYPE.productMenuNavbar :
-          return {...state, productMenuNavbar : !state.productMenuNavbar}
+          reducer
 
         case ACTIONTYPE.productMenuNavbarResize : 
           return {...state, productMenuNavbar : action.payload}
@@ -93,7 +93,7 @@ const  HeaderBottom = () => {
  
 
     // const [productMenu, setProductMenu] =  useState({})
-    const [productMenuNavbar, setProductMenuNavbar] =  useState({})
+    // const [productMenuNavbar, setProductMenuNavbar] =  useState({})
     const [animationProductMenu, setAnimationProductMenu] =  useState({})
 
     const handerResize = () =>{
