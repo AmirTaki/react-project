@@ -55,7 +55,7 @@ const  HeaderBottom = () => {
 
         // productMenu
         case ACTIONTYPE.productMenu : 
-          return {...state, productMenu : !state.productMenu}
+          return {...state, id  : !state.productMenu}
 
         case ACTIONTYPE.productMenuResize :
           return {...state, productMenu : action.payload}
