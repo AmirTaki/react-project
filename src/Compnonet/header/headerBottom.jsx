@@ -36,7 +36,7 @@ const ACTIONTYPE = {
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3', 'list4',"list5",'list6'] 
+    const lists = ['list1', 'list2', 'list3','list4']
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
     const [heightNav, setHeight] = useState("400px");
@@ -45,7 +45,9 @@ const  HeaderBottom = () => {
         if(navbar){
           const  LI= document.querySelectorAll(".megaContainer")[index]
           const Size  = LI.querySelectorAll(".listContainer").length
-          console.log((Size*100)/2)
+          console.log(Size)
+          Size =  Size % 2 ===  0 ? Size : Size + 1   
+          // console.log((Size*100)/2)
           setHeight(`${(Size*100)/2}px`);
 
           
@@ -250,7 +252,7 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
-                {heightNav}
+                {/* {heightNav} */}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
                 {/*   ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!   animate-mege!  "} */}
                 <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${heightNav}]!  overflow-hidden duration-500!`}  >
