@@ -6,77 +6,30 @@ import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 
 
-
-
-
-
-
 const  HeaderBottom = () => {
-    const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
-    const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
-    const {scrollTop} = useContext(GlobalHeaderScroll);
-    const [navbar, setNavbar] = useState(false);
-    
-  
-    const handlerHeightNavbar = (index) => {
-        if(navbar){
-          const  LI= document.querySelectorAll(".megaContainer")[index]
-          const Size  = LI.querySelectorAll(".listContainer").length
-          const x = (Size % 2 ===  0) ? Size : Size + 1
-          // setHeight(`${(x*100)/2}px`);
-          dispatch({type : ACTIONTYPE.heightNavbar, payload : `${(x*100)/2}px`})
-        }
-       
-      }
 
-    
+  const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
+    const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
+
+    const {scrollTop} = useContext(GlobalHeaderScroll);
+    const [navbar, setNavbar] = useState(false);   
     const [state, dispatch]  =   useReducer (reducerHeader,initialStateHeader);
  
-
-    // const [productMenu, setProductMenu] =  useState({})
-    // const [productMenuNavbar, setProductMenuNavbar] =  useState({})
-    // const [animationProductMenu, setAnimationProductMenu] =  useState({})
-
     const handerResize = () =>{
       
       setNavbar(window.innerWidth <= 768 ? true : false);
-      
       dispatch({type: ACTIONTYPE.searchResize })
       dispatch({type: ACTIONTYPE.moveNavbarResize})
-      // dispatch({type : ACTIONTYPE.productMenuResize, payload : false});
-      // dispatch({type : ACTIONTYPE.productMenuNavbarResize, payload : false});
-    
-      // setProductMenu((product) => {
-      //   const newProduct = {};
-      //   for (const item in product){
-      //     product[item] = false
-      //   }
-      //   return newProduct;
-      // })
-
       dispatch({type:ACTIONTYPE.productMenuResize})
       dispatch({type:ACTIONTYPE.productMenuNavbarResize})
-
-
-    
-      
-    //   setProductMenuNavbar((product) => {
-    //     const newProduct = {};
-    //     for(const item in product){
-    //       product[item] = false
-    //     }
-    //     return newProduct
-    //   })
-     }
+    }
 
     useEffect(() => {
       handerResize()
-
       return() => {
         window.addEventListener('resize', handerResize)
       }
     },[] )
-
 
     useEffect(() => {
       document.documentElement.style.overflow  = state.moveNavbar ? "hidden" : 'auto'
@@ -86,22 +39,17 @@ const  HeaderBottom = () => {
     })
 
     const listHandler = (id)  => {
-      // window.innerWidth <= 768 ?  setProductMenuNavbar((product) => ({...product, [id] : !product[id]})) : setProductMenu((product) => ({...product, [id] : !product[id] }))
       window.innerWidth <= 768 ? dispatch({type : ACTIONTYPE.productMenuNavbar , payload : {index : id}}): dispatch({type : ACTIONTYPE.productMenu, payload : {id : id}}) ;
     }
     const handlerProductMenu = (index) => {
-      // setAnimationProductMenu((product) => ({...product, [index] : true}))
       dispatch({type : ACTIONTYPE.animationProductMenu, payload : {page : index, animation : true}})
       setTimeout(() => {
-        // setProductMenu((product) => ({...product, [index] : !product[index]}))
         dispatch({type : ACTIONTYPE.productMenu, payload : {id : index}})
-        // setAnimationProductMenu((product) => ({...product, [index] : false}))
         dispatch({type : ACTIONTYPE.animationProductMenu, payload : {page : index, animation : false}})
       }, 500);
     }
 
     const exitNavbar = (index) => {
-      // setProductMenuNavbar((product) => ({...product, [index]: false}))
       dispatch({type : ACTIONTYPE.productMenuNavbarResize})
       setTimeout(() => {
         dispatch({type : ACTIONTYPE.moveNavbarResize})
@@ -109,20 +57,18 @@ const  HeaderBottom = () => {
      
     }
 
-
-      
+    
     const [height, setHeight] = useState([]);
     const EnterHandler = (index) => {
       const LI = document.querySelectorAll(".megaContainer")[index]
       const Size  = LI.querySelectorAll(".listContainer").length
       dispatch({type : ACTIONTYPE.heightNavbar, payload :{height :  `${Size*50}px` , place  : index}})
-      // setHeight((prev) => ({...prev, [index] : `${Size*50}px`  }))
     }
     const LeaverHandler = (index) => {
       dispatch({type : ACTIONTYPE.heightNavbar, payload :{height :  `0` , place  : index}})
     }
-    return(
-      
+    
+    return(    
       <div className={`h-[60px] bg-white flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full
           ${ scrollTop > 90 ? "top-0! duration-300":"top-10! duration-300"}`
       }>
