@@ -36,18 +36,27 @@ const ACTIONTYPE = {
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3', 'list4','list1',] 
+    const lists = ['list1', 'list2', 'list3', 'list4','list5'] 
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
     const [heightNav, setHeight] = useState(0);
-    const handlerHeightNavbar = () => {
-       if (navbar) {
-          const  LI= document.querySelector(".megaContainer")
+  
+    const handlerHeightNavbar = (index) => {
+        if(navbar){
+          const  LI= document.querySelectorAll(".megaContainer")[index]
           const Size  = LI.querySelectorAll(".listContainer").length
-          setHeight(Size*50)
+         
+          setHeight("300px");
+
+          
+          // console.log(typeof(heightNav))
+
+        }
+       
           // dispatch({type : ACTIONTYPE.heightNavbar, payload : Size*50})
-        }        
+       
       }
+    const h = "250px"
     const reducer = (state, action) => {
       // console.log(state)
       switch(action.type){
@@ -233,9 +242,9 @@ const  HeaderBottom = () => {
           </div>
          
           {menus.map((menu, loc) => (
-            <div className={`${navbar ? "" :""}`}>
+            <div key = {loc} className={`${navbar ? "" :""}`}>
               {/* Menu */}
-              <div onMouseEnter={handlerHeightNavbar} className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
+              <div onMouseEnter={()=> {handlerHeightNavbar(loc)}} className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
@@ -243,7 +252,7 @@ const  HeaderBottom = () => {
                 </div>
                 {heightNav}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
-                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${heightNav}px]!  ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}  >
+                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${h}]!  ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!   animate-mege!  "}`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
@@ -251,7 +260,7 @@ const  HeaderBottom = () => {
                     {/* container List  */}
                     
                     {lists.map((pr, ind ) => (
-                      <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[800px]  m-2"}`}>    
+                      <div  key = {ind} className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[800px]  m-2"}`}>    
                       {/* title List */}
                       <div onClick = {()=> {listHandler(`${loc}${ind}`)}} className={`listContainer ${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
                           <div className={`${navbar ? "" : ""}`}>{pr}</div>
