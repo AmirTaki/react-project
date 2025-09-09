@@ -310,21 +310,17 @@ const  HeaderBottom = () => {
                         {/* image */}
                         <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[35vw]    overflow-hidden  justify-center items-center gap-1"}`}>
                         
-                        
+                          <div className="w-[90%] h-[35%] bg-gray-100">
+
+                          </div>
                           {/* itemImages */} 
-                          <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
+                          <div className={`${navbar ? "bg-gray-100 hidden flex-col justify-center items-center w-[200px] h-[230px]" :
                             "w-[200px] h-[230px] bg-gray-100  flex-col justify-center items-center hidden"
                           }`}>
                             <img src={labtop} alt=""className="w-[100px] h-[100px]"/>
                             <div className=" w-[100px] h-[80px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>                          
                           </div>                                              
-                          {/* itemImages */} 
-                          <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
-                            "w-[200px] h-[230px] bg-gray-100  flex-col justify-center items-center hidden"
-                          }`}>
-                            <img src={labtop} alt=""className="w-[100px] h-[100px]"/>
-                            <div className=" w-[100px] h-[80px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>                          
-                          </div>                                              
+                                                                   
                         </div>
                       </div>
                       </div>
