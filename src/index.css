@@ -50,3 +50,10 @@
     
 
 }
+.megaContainer{
+    height: 0;
+}
+
+.menu:hover .megaContainer {
+    height: 350px;
+}
