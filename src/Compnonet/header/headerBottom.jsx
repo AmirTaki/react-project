@@ -117,7 +117,9 @@ const  HeaderBottom = () => {
 
         // height 
         case ACTIONTYPE.heightNavbar : 
-          return {...state, heightNavbar : action.payload };
+          const {height} = action.payload;
+          const {place} = action.payload
+          return {...state, [place] : height };
         
         // default 
         default :
@@ -208,7 +210,7 @@ const  HeaderBottom = () => {
       
     const [height, setHeight] = useState([]);
     const EnterHandler = (index) => {
-      const  LI= document.querySelectorAll(".megaContainer")[index]
+      const LI = document.querySelectorAll(".megaContainer")[index]
       const Size  = LI.querySelectorAll(".listContainer").length
       dispatch({type : ACTIONTYPE.heightNavbar, payload :{height :  `${Size*50}px` , place  : index}})
       // setHeight((prev) => ({...prev, [index] : `${Size*50}px`  }))
