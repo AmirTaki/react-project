@@ -84,7 +84,6 @@ const  HeaderBottom = () => {
             a[b] = false;
             return a
           }, {})
-          console.log(newProductMenuNavber)
           return {...state,
             productMenuNavbar : newProductMenuNavber
           }
@@ -187,6 +186,10 @@ const  HeaderBottom = () => {
         dispatch({type : ACTIONTYPE.moveNavbarResize})
       },700)
      
+    }
+
+    const handlerHightNavbar = (index) => {
+      console.log(index)
     }
      
      
