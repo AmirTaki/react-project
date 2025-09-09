@@ -187,15 +187,18 @@ const  HeaderBottom = () => {
       },700)
      
     }
-
+    const [hight,setHight] =  useState([])
     const handlerHightNavbar = (index) => {
       if(navbar) {
         const NavbarMenu =  document.querySelectorAll('.megaContainer')
         const hightSize = NavbarMenu[index].querySelectorAll('.listContainer').length
         console.log(hightSize *  50)
-        NavbarMenu[index].style.hight = `${hightSize *  50}px`
+        // NavbarMenu[index].style.hight = `${hightSize *  50}px`
+        const H = `${hightSize *  50}px`
+        setHight({...hight, [index] : H})
       } 
     }
+    console.log(hight)
      
      
   
@@ -230,14 +233,14 @@ const  HeaderBottom = () => {
           {menus.map((menu, loc) => (
             <div className={`${navbar ? "" :""}`}>
               {/* Menu */}
-              <div  className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
+              <div  onMouseMove={()=>handlerHightNavbar(loc)} className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   =>    */}
-                <div  onMouseMove={()=>handlerHightNavbar(loc)} className={` megaContainer ${navbar ? "bg-gray-100 h-[0] overflow-hidden group-hover/menu:h-[200px] duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
+                <div   className={` megaContainer ${navbar ? "bg-gray-100 h-[0] overflow-hidden group-hover/menu:h-[200px] duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
