@@ -264,7 +264,7 @@ const  HeaderBottom = () => {
                 {/*  group-hover/menu:h-[${state.heightNavbar}]!  */}
                 <div   
                   style={{height: state.heightNavbar[loc]}} 
-                  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  
+                  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden!   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  
                   >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[80vw]   "}`}>
@@ -282,7 +282,7 @@ const  HeaderBottom = () => {
 
 
                       {/* container product ============================================================> Hidden  =>   */}
-                      <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[80vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
+                      <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[80vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1!  flex!  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
                       ${state.productMenuNavbar[`${loc}${ind}`] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[`${loc}${ind}`] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[`${loc}${ind}`] & navbar === false? "animate-productMenuReverse!" : ""}` }>
                         <i onClick = {()=>{handlerProductMenu(`${loc}${ind}`)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                       
@@ -308,28 +308,23 @@ const  HeaderBottom = () => {
                           </div>
                         </div>
                         {/* image */}
-                        <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[35vw]    overflow-hidden  justify-center items-center gap-1"}`}>
+                        <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]   items-center gap-10 " : "flex flex-col w-[35vw]    overflow-hidden   justify-center! items-center! gap-5 "}`}>
                         
-                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[70%] h-[45%]"}`}>
-                              <img src={labtop} alt="" className={`object-center ${navbar ? "w-[170px] h-[170px]" : "w-[70%] h-[90%]"}`} />
-                              <div className={`text-center ${navbar ? "" : "w-[70%] h-[10%]"}`}>ASUS Zenbook Duo (2024) UX8406</div>
+                          
+                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[190px] h-[190px] mx-30 "}`}>
+                            <img src={labtop} alt="" />
+                              {/* <img src={labtop} alt="" className={`object-center ${navbar ? "w-[170px] h-[170px]" : "w-[250px] h-[90%]"}`} />
+                              <div className={`text-center ${navbar ? "" : "w-[70%] h-[10%]"}`}>ASUS Zenbook Duo (2024) UX8406</div> */}
                           </div>
-                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[90%]"}`}>
-                              <img src={labtop} alt="" className="w-[170px] h-[170px]" />
-                              <div className="w-[160px]  text-center">ASUS Zenbook Duo (2024) UX8406</div>
+                
+                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[190px] h-[190px] mx-30"}`}>
+                              {/* <img src={labtop} alt="" className={`object-center ${navbar ? "w-[170px] h-[170px]" : "w-[250px] h-[90%]"}`} />
+                              <div className={`text-center ${navbar ? "" : "w-[70%] h-[10%]"}`}>ASUS Zenbook Duo (2024) UX8406</div> */}
                           </div>
+                
                         
                         
-                        
-                        
-                          {/* itemImages */} 
-                          <div className={`${navbar ? "bg-gray-100 hidden flex-col justify-center items-center w-[200px] h-[230px]" :
-                            "w-[200px] h-[230px] bg-gray-100  flex-col justify-center items-center hidden"
-                          }`}>
-                            <img src={labtop} alt=""className="w-[100px] h-[100px]"/>
-                            <div className=" w-[100px] h-[80px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>                          
-                          </div>                                              
-                                                                   
+                                                         
                         </div>
                       </div>
                       </div>
