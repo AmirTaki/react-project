@@ -11,7 +11,7 @@ const initialStateHeader = {
   productMenu : {},
   productMenuNavbar : {},
   animationProductMenu : {},
-  heightNavbar : 0
+  heightNavbar : {}
 }
 
 const ACTIONTYPE = {
@@ -210,10 +210,11 @@ const  HeaderBottom = () => {
     const EnterHandler = (index) => {
       const  LI= document.querySelectorAll(".megaContainer")[index]
       const Size  = LI.querySelectorAll(".listContainer").length
-      setHeight((prev) => ({...prev, [index] : `${Size*50}px`  }))
+      dispatch({type : ACTIONTYPE.heightNavbar, payload :{height :  `${Size*50}px` , place  : index}})
+      // setHeight((prev) => ({...prev, [index] : `${Size*50}px`  }))
     }
     const LeaverHandler = (index) => {
-      setHeight((prev) => ({...prev, [index] : "0px"  }))
+      dispatch({type : ACTIONTYPE.heightNavbar, payload :{height :  `0` , place  : index}})
     }
     return(
       
@@ -255,7 +256,7 @@ const  HeaderBottom = () => {
                 {/* {heightNav} */}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
                 {/*  group-hover/menu:h-[${state.heightNavbar}]!  */}
-                <div   style={{height: height[loc]}}  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
+                <div   style={{height: }}  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
