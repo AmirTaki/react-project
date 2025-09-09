@@ -310,7 +310,7 @@ const  HeaderBottom = () => {
                         {/* image */}
                         <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[35vw]    overflow-hidden  justify-center items-center gap-1"}`}>
                         
-                          <div className="w-[240px] h-[35%] bg-gray-100 flex justify-center items-center flex-col ">
+                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[100%]"}`}>
                               <img src={labtop} alt="" className="w-[170px] h-[170px]" />
                               <div className="w-[160px] text-center">ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
