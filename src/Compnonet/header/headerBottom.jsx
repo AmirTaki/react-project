@@ -255,14 +255,17 @@ const  HeaderBottom = () => {
               {/* Menu  onMouseEnter={(e)=> {handlerHeightNavbar(loc)}} */}
               <div onMouseLeave={ ()=> {LeaverHandler(loc)}} onMouseEnter={()=>{EnterHandler(loc)}}    className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
-                <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
+                <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : "p-3"}`}>{menu}</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* {heightNav} */}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
                 {/*  group-hover/menu:h-[${state.heightNavbar}]!  */}
-                <div   style={{height: state.heightNavbar[loc]}}  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
+                <div   
+                  style={{height: state.heightNavbar[loc]}} 
+                  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl  top-[101px] fixed group-hover/menu:flex! left-0  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  
+                  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
