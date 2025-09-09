@@ -36,7 +36,7 @@ const ACTIONTYPE = {
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3','list4','list5', ]
+    const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3','list4' ]
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
     // const [heightNav, setHeight] = useState("400px");
@@ -248,7 +248,7 @@ const  HeaderBottom = () => {
                 {/* {heightNav} */}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
                 {/*   */}
-                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${state.heightNavbar}]!    ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!   animate-mege!  "}`}  >
+                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${state.heightNavbar}]!    ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
