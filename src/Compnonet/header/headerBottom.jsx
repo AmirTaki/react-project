@@ -252,7 +252,8 @@ const  HeaderBottom = () => {
                 </div>
                 {heightNav}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
-                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${h}]!  ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!   animate-mege!  "}`}  >
+                {/*   ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!   animate-mege!  "} */}
+                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${h}]!  overflow-hidden duration-500!`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
