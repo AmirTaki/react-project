@@ -33,7 +33,7 @@ const ACTIONTYPE = {
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3', 'list4', 'list5', 'list6', 'list7'] 
+    const lists = ['list1', 'list2', 'list3', 'list4', 'list5', 'list6', 'list7','list8', 'list9', 'list10'] 
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
 
@@ -194,10 +194,11 @@ const  HeaderBottom = () => {
         const  LI= document.querySelector(".megaContainer")
         const Size  = LI.querySelectorAll(".listContainer").length
        
-        const h = `${Size * 50}px` ;
+        const h = `${Size * 100 }` ;
         
-        setHeight(h);
+        setHeight(400);
         console.log(typeof(Height))
+        console.log(Height)
 
       }
       
@@ -244,7 +245,7 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
-                <div     className={` megaContainer  h-[0]    group-hover/menu:h-[${Height}]!     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`} 
+                <div     className={` megaContainer  h-[0]    group-hover/menu:h-[500px]!     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`} 
                   // style={navbar ? {'--menu-h' : Height }: undefined}
                   >
                   {/* container list */}
