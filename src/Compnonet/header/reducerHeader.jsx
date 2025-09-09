@@ -1,3 +1,5 @@
+import { ACTIONTYPE } from "./FactHeader";
+
 export const initialStateHeader = {
   search : false,
   moveNavbar : false,

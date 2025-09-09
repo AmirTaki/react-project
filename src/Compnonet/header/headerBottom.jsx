@@ -2,30 +2,14 @@ import logo from "../../assets/logo.webp";
 import { act, createContext, useContext, useEffect, useReducer, useRef, useState } from 'react';
 import labtop from "../../assets/fwebp.webp"
 import { GlobalHeaderScroll } from "./header";
+import { initialStateHeader, reducerHeader } from "./reducerHeader";
+import { ACTIONTYPE } from "./FactHeader";
 
 
 
 
 
-const ACTIONTYPE = {
-  search : "search",
-  searchResize : "searchResize",
 
-  moveNavbar : "moveNavbar",
-  moveNavbarResize : "moveNavbarResize",
-
-  productMenu : "productMenu",
-  productMenuResize : "productMenuResize",
-
-
-  productMenuNavbar : "productMenuNavbar",
-  productMenuNavbarResize : "productMenuNavbarResize",
-
-  animationProductMenu : "animationProductMenu",
-  animationProductMenuResize : "animationProductMenuResize",
-
-  heightNavbar : "heightNavbar"
-}
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
@@ -46,7 +30,7 @@ const  HeaderBottom = () => {
       }
 
     
-    const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
+    const [state, dispatch]  =   useReducer (reducerHeader,initialStateHeader);
  
 
     // const [productMenu, setProductMenu] =  useState({})
