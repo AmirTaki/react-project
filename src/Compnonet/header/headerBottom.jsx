@@ -46,7 +46,7 @@ const  HeaderBottom = () => {
           const  LI= document.querySelectorAll(".megaContainer")[index]
           const Size  = LI.querySelectorAll(".listContainer").length
          
-          setHeight("300px");
+          setHeight("500px");
 
           
           // console.log(typeof(heightNav))
@@ -56,7 +56,7 @@ const  HeaderBottom = () => {
           // dispatch({type : ACTIONTYPE.heightNavbar, payload : Size*50})
        
       }
-    const h = "500px"
+    const h = "250px"
     const reducer = (state, action) => {
       // console.log(state)
       switch(action.type){
@@ -253,7 +253,7 @@ const  HeaderBottom = () => {
                 {heightNav}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
                 {/*   ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!   animate-mege!  "} */}
-                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${heightNav}]!  overflow-hidden duration-500!`}  >
+                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${h}]!  overflow-hidden duration-500!`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
