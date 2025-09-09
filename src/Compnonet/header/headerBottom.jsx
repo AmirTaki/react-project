@@ -31,15 +31,23 @@ const ACTIONTYPE = {
   animationProductMenu : "animationProductMenu",
   animationProductMenuResize : "animationProductMenuResize",
 
-  heightNavbar : heightNavbar
+  heightNavbar : "heightNavbar"
 }
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3', 'list4', 'list5', 'list6', ] 
+    const lists = ['list1', 'list2', 'list3', 'list4','list1',] 
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
-
+    const [heightNav, setHeight] = useState(0);
+    const handlerHeightNavbar = () => {
+       if (navbar) {
+          const  LI= document.querySelector(".megaContainer")
+          const Size  = LI.querySelectorAll(".listContainer").length
+          setHeight(Size*50)
+          // dispatch({type : ACTIONTYPE.heightNavbar, payload : Size*50})
+        }        
+      }
     const reducer = (state, action) => {
       // console.log(state)
       switch(action.type){
@@ -105,14 +113,14 @@ const  HeaderBottom = () => {
 
         // height 
         case ACTIONTYPE.heightNavbar : 
-          return {...state, }
+          return {...state, heightNavbar : action.payload };
         
         // default 
         default :
-          return {...state}
+          return {...state, }
       }
-    }
     
+    }
     const [state, dispatch]  =   useReducer (reducer,initialStateHeader);
  
 
@@ -191,20 +199,11 @@ const  HeaderBottom = () => {
       },700)
      
     }
-    const [Height, setHeight] = useState(0)
 
-    const handlerHeightNavbar = () => {
-      if (navbar) {
-        const  LI= document.querySelector(".megaContainer")
-        const Size  = LI.querySelectorAll(".listContainer").length
-        setHeight(Size*50);
-      }
+
       
-    }
-     
-
-     
-  
+    
+    
     return(
       
       <div className={`h-[60px] bg-white flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full
@@ -242,8 +241,9 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
+                {heightNav}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
-                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${Height}px]!  ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}  >
+                <div     className={` megaContainer  h-[0]  group-hover/menu:h-[${heightNav}px]!  ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
