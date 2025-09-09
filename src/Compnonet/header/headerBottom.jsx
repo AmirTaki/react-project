@@ -313,19 +313,14 @@ const  HeaderBottom = () => {
                           
                           <div className={` bg-gray-100 flex items-center justify-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[190px] h-[200px] mx-30 "}`}>
                             <img src={labtop} className="bg-transparent w-[150px] h-[150px]"  alt="" />
-                            <div className={`text-center ${navbar ? "" : "bg-transparent w-[130px] text-[12px]"}`}>ASUS Zenbook Duo (2024) UX8406</div> 
-
-                              {/* <img src={labtop} alt="" className={`object-center ${navbar ? "w-[170px] h-[170px]" : "w-[250px] h-[90%]"}`} />
-                              <div className={`text-center ${navbar ? "" : "w-[70%] h-[10%]"}`}>ASUS Zenbook Duo (2024) UX8406</div> */}
+                            <div className={`text-center text-gray-400  hover:text-blue-600 duration-300 cursor-pointer ${navbar ? "" : "bg-transparent w-[130px] text-[12px] "}`}>ASUS Zenbook Duo (2024) UX8406</div> 
+                          </div>
+                          <div className={` bg-gray-100 flex items-center justify-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[190px] h-[200px] mx-30 "}`}>
+                            <img src={labtop} className="bg-transparent w-[150px] h-[150px]"  alt="" />
+                            <div className={`text-center text-gray-400  hover:text-blue-600 duration-300 cursor-pointer ${navbar ? "" : "bg-transparent w-[130px] text-[12px] "}`}>ASUS Zenbook Duo (2024) UX8406</div> 
                           </div>
                 
-                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[190px] h-[190px] mx-30"}`}>
-                              {/* <img src={labtop} alt="" className={`object-center ${navbar ? "w-[170px] h-[170px]" : "w-[250px] h-[90%]"}`} />
-                              <div className={`text-center ${navbar ? "" : "w-[70%] h-[10%]"}`}>ASUS Zenbook Duo (2024) UX8406</div> */}
-                          </div>
-                
-                        
-                        
+        
                                                          
                         </div>
                       </div>
