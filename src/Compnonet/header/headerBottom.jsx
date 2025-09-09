@@ -203,9 +203,8 @@ const  HeaderBottom = () => {
         const hightSize = NavbarMenu[index].querySelectorAll('.listContainer').length
   
         // NavbarMenu[index].style.hight = `${hightSize *  50}px`
-        const H = `${hightSize *  50}px`;
-        NavbarMenu[index].style.hight = `${hightSize *  50}px`
-        console.log(NavbarMenu[index].style.hight )
+        const H = `${hightSize *  50}`;
+        
         setHight((h) => H)
       } 
     }
@@ -252,7 +251,7 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
-                <div     className={` megaContainer  ${navbar ? "bg-gray-100 h-[0] overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
+                <div     className={` megaContainer h-[0] group-hover/menu:h-[${hight}px]! ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}

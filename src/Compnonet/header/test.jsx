@@ -45,11 +45,11 @@ const Test = () => {
         dispatch({type : "product", payload : {id : index}})
      
     }
-
+    const h = "200px"
     return(
         <>
         {array.map((item, index) => (
-            <div className="flex flex-col ">
+            <div className={`flex flex-col h-[${h}]`}>
                 <button onClick={()=> {handlerClick(index)}}>CLICK 1</button>
               
                 {/* {state.product[index] ? "ok" : "not"} */}
