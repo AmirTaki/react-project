@@ -9,18 +9,18 @@ const Test = () => {
         const mega = document.querySelectorAll(".mega")[index]
         const alpha = mega.querySelectorAll('.alpha').length;
         console.log(alpha)
-        setHeigt((h) => ({}))
-        setHeigt(`${alpha*30}px`)
+        setHeigt((h) => ({...h, [index] : `${alpha*30}px`}))
+        // setHeigt(`${alpha*30}px`)
     }
-    const leave = () => {
-        setHeigt("0px")
+    const leave = (index) => {
+        setHeigt((h) => ({...h, [index] : `0`}))
 
     }
     return(
         <div>
             <div onMouseEnter={()=> {enter(0)}} onMouseLeave={()=> {leave(0)}} className="bg-blue-500 w-[300px] group/one ">
                 <div>menu</div>
-                <div style={{height : height}} className="h-0 overflow-hidden  duration-300 mega">
+                <div style={{height : height[0]}} className="h-0 overflow-hidden  duration-300 mega">
                     <div className="alpha">item</div>
                     <div className="alpha">item</div>
                     <div className="alpha">item</div>
@@ -29,7 +29,23 @@ const Test = () => {
             </div>
             <div onMouseEnter={()=> {enter(1)}} onMouseLeave={()=> {leave(1)}} className="bg-blue-500 w-[300px] group/one ">
                 <div>menu</div>
-                <div style={{height : height}} className="h-0 overflow-hidden  duration-300 mega">
+                <div style={{height : height[1]}} className="h-0 overflow-hidden  duration-300 mega">
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
+                    <div className="alpha">item</div>
                     <div className="alpha">item</div>
                     <div className="alpha">item</div>
                     <div className="alpha">item</div>
