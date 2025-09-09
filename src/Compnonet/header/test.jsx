@@ -1,3 +1,4 @@
+import { use } from "react"
 import { act, useReducer, useState } from "react"
 
 const Test = () => {
@@ -31,6 +32,8 @@ const Test = () => {
       product:{}
     })
 
+    const [auto , setAuto] = useState(true)
+
 /*
     const handlerClick = (index) => {
         setProduct(currentProducts =>
@@ -45,11 +48,11 @@ const Test = () => {
         dispatch({type : "product", payload : {id : index}})
      
     }
-    const h = "200px"
+    const h = "500px"
     return(
-        <>
+        <div className="group/menu">
         {array.map((item, index) => (
-            <div className={`flex flex-col h-[${h}]`}>
+            <div className= { ` h-[200px]  group-hover/menu:h-[${h}]! duration-300 ${auto ? "flex flex-col   " : ""} `}>
                 <button onClick={()=> {handlerClick(index)}}>CLICK 1</button>
               
                 {/* {state.product[index] ? "ok" : "not"} */}
@@ -60,7 +63,7 @@ const Test = () => {
              
             </div>
         ))}
-        </>
+        </div>
       
     )
 }

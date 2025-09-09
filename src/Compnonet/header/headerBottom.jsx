@@ -194,9 +194,10 @@ const  HeaderBottom = () => {
         const  LI= document.querySelector(".megaContainer")
         const Size  = LI.querySelectorAll(".listContainer").length
        
-        const h = Size * 50;
-        setHeight(h);
+        const h = `${Size * 50}px` ;
         
+        setHeight(h);
+        console.log(typeof(Height))
 
       }
       
@@ -243,7 +244,7 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
-                <div     className={` megaContainer       ${navbar ? "bg-gray-100  overflow-hidden h-[0]  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`} 
+                <div     className={` megaContainer  h-[0]    group-hover/menu:h-[${Height}]!     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`} 
                   // style={navbar ? {'--menu-h' : Height }: undefined}
                   >
                   {/* container list */}
