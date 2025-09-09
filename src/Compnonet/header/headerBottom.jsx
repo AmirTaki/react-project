@@ -313,7 +313,7 @@ const  HeaderBottom = () => {
                           <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
                             "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
                           }`}>
-                            <img src={labtop} alt = "" className="w-[150px] h-[150px]"/>
+                            <img src={labtop} alt = "" className={`${navbar ? "w-[150px] h-[150px]" : "w-[15vw] h-[15vh]"}`}/>
                             <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
                           
                           </div>
