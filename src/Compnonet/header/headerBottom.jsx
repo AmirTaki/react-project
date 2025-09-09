@@ -192,7 +192,8 @@ const  HeaderBottom = () => {
       if(navbar) {
         const NavbarMenu =  document.querySelectorAll('.megaContainer')
         const hightSize = NavbarMenu[index].querySelectorAll('.listContainer').length
-        console.log(hightSize * )
+        console.log(hightSize *  50)
+        NavbarMenu[index].style.hight = `${hightSize *  50}px`
       } 
     }
      
