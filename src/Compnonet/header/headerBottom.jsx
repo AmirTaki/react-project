@@ -239,7 +239,7 @@ const  HeaderBottom = () => {
           {menus.map((menu, loc) => (
             <div key = {loc} className={`${navbar ? "" :""}`}>
               {/* Menu */}
-              <div onMouseEnter={()=> {handlerHeightNavbar(loc)}} className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
+              <div onMouseEnter={(e)=> {handlerHeightNavbar(loc)}} className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
