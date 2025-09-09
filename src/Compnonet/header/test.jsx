@@ -3,66 +3,19 @@ import { act, useReducer, useState } from "react"
 
 const Test = () => {
 
-    const array = []
-    for(let i = 0; i < 3 ; i++){
-        array.push(false)
-    }
 
-    const numbers = [0, 1, 2]
-    
-    const [product, setProduct] = useState({})
-
-
-    const reducer = (state, action) => {
-        switch(action.type){
-            case "product":
-                const {id} = action.payload
-                return {
-                    ...state,
-                    product: {
-                        ...state.product,
-                        [action.payload.id]: !state.product[action.payload.id]
-                    }
-                };
-            default:
-                return state;
-        }
-    }
-    const [state, dispatch] = useReducer(reducer, {
-      product:{}
-    })
-
-    const [auto , setAuto] = useState(true)
-
-/*
-    const handlerClick = (index) => {
-        setProduct(currentProducts =>
-        currentProducts.map((item, i) => (i === index ? !item : item))
-        );
-    }
-*/
-    const handlerClick = (index) => {
-        
-        // setProduct({...product, [index] : !product[index]})
-        // setProduct((prev) => ({...prev, [index] : !prev[index]}))
-        dispatch({type : "product", payload : {id : index}})
-     
-    }
     const h = "500px"
     return(
-        <div className="group/menu">
-        {array.map((item, index) => (
-            <div className= { ` h-[200px]  group-hover/menu:h-[${h}]! duration-300 ${auto ? "flex flex-col   " : ""} `}>
-                <button onClick={()=> {handlerClick(index)}}>CLICK 1</button>
-              
-                {/* {state.product[index] ? "ok" : "not"} */}
-
-                <div className={`${state.product[index] ? "" : "hidden"} w-50  bg-amber-300 fixed `}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, at?
+        <div>
+            <div className="bg-blue-500 w-[300px] group/one ">
+                <div>menu</div>
+                <div className="h-0 overflow-hidden group-hover/one:h-[100px]! duration-300">
+                    <div className="">item</div>
+                    <div className="">item</div>
+                    <div className="">item</div>
+                    <div className="">item</div>
                 </div>
-             
             </div>
-        ))}
         </div>
       
     )
