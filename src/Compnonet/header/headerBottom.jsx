@@ -291,7 +291,7 @@ const  HeaderBottom = () => {
                           <div onClick={()=>{exitNavbar(`${loc}${ind}`)}}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
                         </div>
                         {/* category */}
-                        <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[300px]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
+                        <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[30vw]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
                             <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
                             {/* category item */}
                             <div className=" flex bg-white h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
@@ -300,7 +300,7 @@ const  HeaderBottom = () => {
                             </div>
                         </div>
                         {/* serics */}
-                        <div className={`${navbar ? "flex flex-col w-[50%] h-[45%] bg-transparent overflow-hidden border-l-gray-100 border-r-1! border-t-gray-100 border-t-1!" :"flex flex-col  w-[300px] overflow-hidden border-l-gray-100 border-r-1!"}`}>
+                        <div className={`${navbar ? "flex flex-col w-[50%] h-[45%] bg-transparent overflow-hidden border-l-gray-100 border-r-1! border-t-gray-100 border-t-1!" :"flex flex-col  w-[30vw] overflow-hidden border-l-gray-100 border-r-1!"}`}>
                           <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY SERYS</div>
                           {/* serics item */}
                           <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
@@ -308,7 +308,7 @@ const  HeaderBottom = () => {
                           </div>
                         </div>
                         {/* image */}
-                        <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[300px]    overflow-hidden  justify-center items-center gap-1"}`}>
+                        <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[30vw]    overflow-hidden  justify-center items-center gap-1"}`}>
                           {/* itemImages */} 
                           <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
                             "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
