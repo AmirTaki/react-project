@@ -187,7 +187,7 @@ const  HeaderBottom = () => {
       },700)
      
     }
-    const [hight,setHight] =  useState()
+    const [hight,setHight] =  useState([])
 
     const handlerHightNavbar = (index) => {
 
@@ -201,12 +201,14 @@ const  HeaderBottom = () => {
           return newCurrent;
         })
 
+
+
         const NavbarMenu =  document.querySelectorAll('.megaContainer')
         const hightSize = NavbarMenu[index].querySelectorAll('.listContainer').length
         console.log(hightSize *  50)
         // NavbarMenu[index].style.hight = `${hightSize *  50}px`
         const H = `${hightSize *  50}px`
-        setHight({...hight, [index] : true})
+        setHight({...hight, [index] : !hight[index]})
       } 
     }
     console.log(hight)
