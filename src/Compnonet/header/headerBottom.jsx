@@ -1,5 +1,5 @@
 import logo from "../../assets/logo.webp";
-import { act, createContext, useContext, useEffect, useReducer, useState } from 'react';
+import { act, createContext, useContext, useEffect, useReducer, useRef, useState } from 'react';
 import labtop from "../../assets/fwebp.webp"
 import { GlobalHeaderScroll } from "./header";
 
@@ -187,28 +187,21 @@ const  HeaderBottom = () => {
       },700)
      
     }
-    const [hight,setHight] =  useState(0)
+    const [HeightList, setHeight] = useState(0)
+    const heightRef =  useRef (0)
+    const handlerHeightNavbar = () => {
+      if (navbar) {
+        const  LI= document.querySelector(".megaContainer")
+        const Size  = LI.querySelectorAll(".listContainer").length
+       
+        const h = Size * 50;
+        setHeight(h);
+        heightRef.current = h
+        console.log(heightRef.current)
 
-    const handlerHightNavbar = (index) => {
-
-      if(navbar) {
-        // setHight((current) => {
-        //   const newCurrent = {};
-        //   for (const item in current){
-        //     current[item] = false
-        //   }
-        //   return newCurrent;
-        // })
-        const NavbarMenu =  document.querySelectorAll('.megaContainer')
-        const hightSize = NavbarMenu[index].querySelectorAll('.listContainer').length
-  
-        // NavbarMenu[index].style.hight = `${hightSize *  50}px`
-        const H = `${hightSize *  50}`;
-        
-        setHight((h) => H)
-      } 
+      }
+      
     }
-    console.log(hight)
      
 
      
@@ -244,14 +237,16 @@ const  HeaderBottom = () => {
           {menus.map((menu, loc) => (
             <div className={`${navbar ? "" :""}`}>
               {/* Menu */}
-              <div  onMouseMove={()=>handlerHightNavbar(loc)} className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
+              <div onMouseEnter={handlerHeightNavbar} className={`${navbar ? "menu group/menu duration-500! bg-transparent " : "group/menu hover:border-b-2!  hover:border-b-gray-950!  relative "}`}>
                 {/* title menu */}
                 <div className= {`${navbar? "flex justify-between px-3 bg-transparent h-[50px] items-center cursor-pointer  " : "h-[60px] flex items-center justify-center cursor-pointer   "}`}>
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
-                <div     className={` megaContainer h-[0] group-hover/menu:h-[${hight}px]! ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
+                <div     className={` megaContainer       ${navbar ? "bg-gray-100  overflow-hidden h-[0] group-hover/menu:h-[200px]!  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`} 
+                  // style={navbar ? { height : height} : undefined}
+                  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
@@ -308,17 +303,12 @@ const  HeaderBottom = () => {
                             "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
                           }`}>
                             <img src={labtop} alt=""className="w-[150px] h-[150px]"/>
-                            <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>
-                          
-                          </div>
-                                              
+                            <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>                          
+                          </div>                                              
                         </div>
                       </div>
                       </div>
-                    ))}
-                
-                
-              
+                    ))}      
                   </div>
                 </div>
               </div>
