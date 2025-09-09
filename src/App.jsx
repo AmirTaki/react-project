@@ -11,11 +11,11 @@ import Test from './Compnonet/header/test'
 function App() {
   
   return (
-    <Test />
-    // <div className='h-[2000px] bg-red-500'>
-    //   <Header />
-    //   <Section />
-    // </div>
+    // <Test />
+    <div className='h-[2000px] bg-red-500'>
+      <Header />
+      <Section />
+    </div>
   )
 }
 

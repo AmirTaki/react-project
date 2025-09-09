@@ -36,7 +36,7 @@ const ACTIONTYPE = {
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3','list4', ]
+    const lists = ['list1', 'list2', 'list3','list4','list5','list1', ]
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
     
@@ -208,7 +208,9 @@ const  HeaderBottom = () => {
       
     const [height, setHeight] = useState([]);
     const EnterHandler = (index) => {
-      setHeight((prev) => ({...prev, [index] : "300px"  }))
+      const  LI= document.querySelectorAll(".megaContainer")[index]
+      const Size  = LI.querySelectorAll(".listContainer").length
+      setHeight((prev) => ({...prev, [index] : `${Size*50}px`  }))
     }
     const LeaverHandler = (index) => {
       setHeight((prev) => ({...prev, [index] : "0px"  }))
@@ -253,7 +255,7 @@ const  HeaderBottom = () => {
                 {/* {heightNav} */}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
                 {/*  group-hover/menu:h-[${state.heightNavbar}]!  */}
-                <div   style={{height: height}}  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
+                <div   style={{height: height[loc]}}  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
