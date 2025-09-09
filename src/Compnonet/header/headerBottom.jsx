@@ -321,10 +321,7 @@ const  HeaderBottom = () => {
                             <img src={labtop} className={`${navbar ? "w-[150px] h-[150px]" : "bg-transparent w-[150px] h-[150px]"}`}  alt="" />
                             <div className={`text-center text-gray-400  hover:text-blue-600 duration-300 cursor-pointer ${navbar ? "w-[150px] text-[14px]" : "bg-transparent w-[130px] text-[12px] "}`}>ASUS Zenbook Duo (2024) UX8406</div> 
                           </div>
-                       
-                
-        
-                                                         
+                                                                             
                         </div>
                       </div>
                       </div>
