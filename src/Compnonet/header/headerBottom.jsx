@@ -264,16 +264,16 @@ const  HeaderBottom = () => {
                 {/*  group-hover/menu:h-[${state.heightNavbar}]!  */}
                 <div   
                   style={{height: state.heightNavbar[loc]}} 
-                  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl left-[20%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  
+                  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  
                   >
                   {/* container list */}
-                  <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[60vw]   "}`}>
+                  <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[80vw]   "}`}>
                     {/* category */}
                     <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                     {/* container List  */}
                     
                     {lists.map((pr, ind ) => (
-                      <div  key = {ind} className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[50vw]  m-2"}`}>    
+                      <div  key = {ind} className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[70vw]  m-2"}`}>    
                       {/* title List */}
                       <div onClick = {()=> {listHandler(`${loc}${ind}`)}} className={`listContainer ${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
                           <div className={`${navbar ? "" : ""}`}>{pr}</div>
@@ -282,7 +282,7 @@ const  HeaderBottom = () => {
 
 
                       {/* container product ============================================================> Hidden  =>   */}
-                      <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[60vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
+                      <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[80vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1! hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
                       ${state.productMenuNavbar[`${loc}${ind}`] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[`${loc}${ind}`] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[`${loc}${ind}`] & navbar === false? "animate-productMenuReverse!" : ""}` }>
                         <i onClick = {()=>{handlerProductMenu(`${loc}${ind}`)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                       
