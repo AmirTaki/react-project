@@ -206,8 +206,13 @@ const  HeaderBottom = () => {
 
 
       
-    const [height, setHeight] = useState(0);
-    
+    const [height, setHeight] = useState([]);
+    const EnterHandler = (index) => {
+      setHeight((prev) => ({...prev, [index] : "300px"  }))
+    }
+    const LeaverHandler = (index) => {
+      setHeight((prev) => ({...prev, [index] : "0px"  }))
+    }
     return(
       
       <div className={`h-[60px] bg-white flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full
