@@ -36,7 +36,7 @@ const ACTIONTYPE = {
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3','list4']
+    const lists = ['list1', 'list2', 'list3','list4' ]
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
     const [heightNav, setHeight] = useState("400px");
@@ -45,10 +45,8 @@ const  HeaderBottom = () => {
         if(navbar){
           const  LI= document.querySelectorAll(".megaContainer")[index]
           const Size  = LI.querySelectorAll(".listContainer").length
-          console.log(Size)
-          Size =  Size % 2 ===  0 ? Size : Size + 1   
-          // console.log((Size*100)/2)
-          setHeight(`${(Size*100)/2}px`);
+          const x = (Size % 2 ===  0) ? Size : Size + 1
+          setHeight(`${(x*100)/2}px`);
 
           
           // console.log(typeof(heightNav))
