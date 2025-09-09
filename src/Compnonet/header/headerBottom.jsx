@@ -57,8 +57,6 @@ const  HeaderBottom = () => {
      
     }
 
-    
-    const [height, setHeight] = useState([]);
     const EnterHandler = (index) => {
       const LI = document.querySelectorAll(".megaContainer")[index]
       const Size  = LI.querySelectorAll(".listContainer").length
@@ -67,7 +65,7 @@ const  HeaderBottom = () => {
     const LeaverHandler = (index) => {
       dispatch({type : ACTIONTYPE.heightNavbar, payload :{height :  `0` , place  : index}})
     }
-    
+
     return(    
       <div className={`h-[60px] bg-white flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full
           ${ scrollTop > 90 ? "top-0! duration-300":"top-10! duration-300"}`
