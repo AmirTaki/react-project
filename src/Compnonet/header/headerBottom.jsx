@@ -118,8 +118,12 @@ const  HeaderBottom = () => {
         // height 
         case ACTIONTYPE.heightNavbar : 
           const {height} = action.payload;
-          const {place} = action.payload
-          return {...state, [place] : height };
+          const {place} = action.payload;
+          return {...state,
+            heightNavbar : {
+              ...state.heightNavbar,
+              [place] : height 
+            }};
         
         // default 
         default :
@@ -258,7 +262,7 @@ const  HeaderBottom = () => {
                 {/* {heightNav} */}
                 {/* megaMenu   => group-hover/menu:h-[200px]   */}
                 {/*  group-hover/menu:h-[${state.heightNavbar}]!  */}
-                <div   style={{height: }}  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
+                <div   style={{height: state.heightNavbar[loc]}}  className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110  group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  >
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
