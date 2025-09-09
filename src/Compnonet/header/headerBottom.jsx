@@ -282,7 +282,7 @@ const  HeaderBottom = () => {
 
 
                       {/* container product ============================================================> Hidden  =>   */}
-                      <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "  z-10!  fixed!  w-[80vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1!  flex!  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
+                      <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "   z-10!  fixed!  w-[80vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1!  hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
                       ${state.productMenuNavbar[`${loc}${ind}`] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[`${loc}${ind}`] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[`${loc}${ind}`] & navbar === false? "animate-productMenuReverse!" : ""}` }>
                         <i onClick = {()=>{handlerProductMenu(`${loc}${ind}`)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
                       
