@@ -33,7 +33,7 @@ const ACTIONTYPE = {
 
 const  HeaderBottom = () => {
     const menus = ['menu1', 'menu2', 'menu3'] 
-    const lists = ['list1', 'list2', 'list3'] 
+    const lists = ['list1', 'list2', 'list3', 'list4', 'list5', 'list6', 'list7'] 
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
 
