@@ -311,18 +311,18 @@ const  HeaderBottom = () => {
                         <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[30vw]    overflow-hidden  justify-center items-center gap-1"}`}>
                           {/* itemImages */} 
                           <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
-                            "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
+                            "w-[150px] h-[170px] bg-gray-100 flex flex-col justify-center items-center"
                           }`}>
-                            <img src={labtop} alt = "" className={`${navbar ? "w-[150px] h-[150px]" : "w-[10vw] h-[5vw]"}`}/>
-                            <div className={` text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200  ${navbar ? "w-[150px] h-[150px]" : "w-[10vw] h-[5vw]"}`}>ASUS Zenbook Duo (2024) UX8406</div>
+                            <img src={labtop} alt = "" className={` w-[100px] h-[100px]`}/>
+                            <div className={`w-[100px] h-[100px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200 `}>ASUS Zenbook Duo (2024) UX8406</div>
                           
                           </div>
                           {/* itemImages */} 
                           <div className={`${navbar ? "bg-gray-100 flex flex-col justify-center items-center w-[200px] h-[230px]" :
-                            "w-[200px] h-[230px] bg-gray-100 flex flex-col justify-center items-center"
+                            "w-[200px] h-[230px] bg-gray-100  flex-col justify-center items-center hidden"
                           }`}>
-                            <img src={labtop} alt=""className="w-[150px] h-[150px]"/>
-                            <div className=" w-[150px] h-[150px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>                          
+                            <img src={labtop} alt=""className="w-[100px] h-[100px]"/>
+                            <div className=" w-[100px] h-[100px] text-center flex items-center text-gray-600 hover:text-blue-500 cursor-pointer duration-200">ASUS Zenbook Duo (2024) UX8406</div>                          
                           </div>                                              
                         </div>
                       </div>
