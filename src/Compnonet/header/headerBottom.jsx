@@ -310,13 +310,13 @@ const  HeaderBottom = () => {
                         {/* image */}
                         <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]  items-center gap-10 " : "flex flex-col w-[35vw]    overflow-hidden  justify-center items-center gap-1"}`}>
                         
-                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[90%]"}`}>
-                              <img src={labtop} alt="" className="w-[170px] h-[170px]" />
-                              <div className="w-[160px] text-center">ASUS Zenbook Duo (2024) UX8406</div>
+                          <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[70%] h-[45%]"}`}>
+                              <img src={labtop} alt="" className={`object-center ${navbar ? "w-[170px] h-[170px]" : "w-[70%] h-[90%]"}`} />
+                              <div className={`text-center ${navbar ? "" : "w-[70%] h-[10%]"}`}>ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
                           <div className={` bg-gray-100 flex justify-center items-center flex-col ${navbar ? "w-[240px] h-[35%]" : "w-[90%]"}`}>
                               <img src={labtop} alt="" className="w-[170px] h-[170px]" />
-                              <div className="w-[160px] text-center">ASUS Zenbook Duo (2024) UX8406</div>
+                              <div className="w-[160px]  text-center">ASUS Zenbook Duo (2024) UX8406</div>
                           </div>
                         
                         
