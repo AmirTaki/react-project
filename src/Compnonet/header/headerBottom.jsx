@@ -56,7 +56,7 @@ const  HeaderBottom = () => {
           // dispatch({type : ACTIONTYPE.heightNavbar, payload : Size*50})
        
       }
-    const h = "250px"
+    const h = "500px"
     const reducer = (state, action) => {
       // console.log(state)
       switch(action.type){
