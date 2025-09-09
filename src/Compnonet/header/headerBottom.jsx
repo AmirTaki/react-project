@@ -189,7 +189,11 @@ const  HeaderBottom = () => {
     }
 
     const handlerHightNavbar = (index) => {
-      console.log(index)
+      if(navbar) {
+        const NavbarMenu =  document.querySelectorAll('.megaContainer')
+        const hightSize = NavbarMenu[index].querySelectorAll('.listContainer').length
+        console.log(hightSize * )
+      } 
     }
      
      
@@ -232,7 +236,7 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
                 {/* megaMenu   =>    */}
-                <div  onMouseMove={()=>handlerHightNavbar(loc)} className={`${navbar ? "bg-gray-100 h-[0] overflow-hidden group-hover/menu:h-[200px] duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
+                <div  onMouseMove={()=>handlerHightNavbar(loc)} className={` megaContainer ${navbar ? "bg-gray-100 h-[0] overflow-hidden group-hover/menu:h-[200px] duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
@@ -241,7 +245,7 @@ const  HeaderBottom = () => {
                     {lists.map((pr, ind ) => (
                       <div className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[800px]  m-2"}`}>    
                       {/* title List */}
-                      <div onClick = {()=> {listHandler(ind+loc)}} className={`${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
+                      <div onClick = {()=> {listHandler(ind+loc)}} className={`listContainer ${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
                           <div className={`${navbar ? "" : ""}`}>{pr}</div>
                           <div className={`${navbar ? "" : "hidden"}`}><i className="bi bi-chevron-right"></i></div>
                       </div>
