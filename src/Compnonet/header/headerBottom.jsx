@@ -187,7 +187,7 @@ const  HeaderBottom = () => {
       },700)
      
     }
-    // const [hight,setHight] =  useState([])
+    const [hight,setHight] =  useState(0)
 
     const handlerHightNavbar = (index) => {
 
@@ -201,15 +201,15 @@ const  HeaderBottom = () => {
         // })
         const NavbarMenu =  document.querySelectorAll('.megaContainer')
         const hightSize = NavbarMenu[index].querySelectorAll('.listContainer').length
-        console.log(hightSize *  50)
+  
         // NavbarMenu[index].style.hight = `${hightSize *  50}px`
         const H = `${hightSize *  50}px`;
         NavbarMenu[index].style.hight = `${hightSize *  50}px`
         console.log(NavbarMenu[index].style.hight )
-        // setHight({...hight, [index] : !hight[index]})
+        setHight((h) => H)
       } 
     }
-    // console.log(hight)
+    console.log(hight)
      
 
      
@@ -251,8 +251,8 @@ const  HeaderBottom = () => {
                   <div className={`${navbar ? "text-gray-400 group-hover/menu:text-gray-600! " : ""}`}>{menu}</div>
                   <div className={`${navbar ?  "text-gray-400 group-hover/menu:rotate-180 group-hover/menu:text-red-500! duration-300!" : "hidden"}`}><i className="bi bi-chevron-down"></i></div>
                 </div>
-                {/* megaMenu   =>    */}
-                <div     className={` megaContainer  ${navbar ? "bg-gray-100 h-[0] overflow-hidden group-hover/menu:h-[200px] duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
+                {/* megaMenu   => group-hover/menu:h-[200px]   */}
+                <div   style = {{height :  `${hight}`}}  className={` megaContainer  ${navbar ? "bg-gray-100 h-[0] overflow-hidden  duration-500!" : "bg-white h-[0] hidden   rounded-2xl shadow-2xl absolute top-[62px] -right-110 group-hover/menu:h-[500px]! group-hover/menu:flex!  duration-500!    animate-mege!  "}`}>
                   {/* container list */}
                   <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[900px]   "}`}>
                     {/* category */}
