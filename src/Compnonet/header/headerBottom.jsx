@@ -193,13 +193,7 @@ const  HeaderBottom = () => {
       if (navbar) {
         const  LI= document.querySelector(".megaContainer")
         const Size  = LI.querySelectorAll(".listContainer").length
-       
-        const h = Size*50;
-        console.log(h)
-        setHeight(h);
-        console.log(typeof(Height))
-        console.log(Height)
-
+        setHeight(Size*50);
       }
       
     }
