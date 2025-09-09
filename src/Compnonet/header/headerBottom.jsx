@@ -39,16 +39,16 @@ const  HeaderBottom = () => {
     const lists = ['list1', 'list2', 'list3','list4','list5' ]
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);
-    const [heightNav, setHeight] = useState("400px");
+    // const [heightNav, setHeight] = useState("400px");
   
     const handlerHeightNavbar = (index) => {
         if(navbar){
           const  LI= document.querySelectorAll(".megaContainer")[index]
           const Size  = LI.querySelectorAll(".listContainer").length
           const x = (Size % 2 ===  0) ? Size : Size + 1
-          setHeight(`${(x*100)/2}px`);
+          // setHeight(`${(x*100)/2}px`);
+          dispatch({type : ACTIONTYPE.heightNavbar, payload : `${(x*100)/2}px`})
         }
-          // dispatch({type : ACTIONTYPE.heightNavbar, payload : Size*50})
        
       }
 
