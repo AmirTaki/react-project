@@ -24,7 +24,14 @@ const Section = () => {
         
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft -= window.innerWidth - 10
+
+        if(SliderImage.scrollLeft < window.innerWidth - 10){
+        SliderImage.scrollLeft = SliderImage.scrollWidth
+        }
     }
+
+
+
     useEffect (() => {
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.addEventListener("wheel", (e) => {
