@@ -8,6 +8,19 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
     const imgScroll =  useRef(null)
     
+
+    
+    const Time =  setInterval(() => {
+        const SliderImage =  document.querySelector(".sliderImage")
+
+        SliderImage.style.scrollBehavior = "smooth"
+        SliderImage.scrollLeft += window.innerWidth - 10
+
+        if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
+            SliderImage.scrollLeft = 0
+        }
+    }, 5000)
+    
     const handlerRight = () => {
         const SliderImage =  document.querySelector(".sliderImage")
         
@@ -18,6 +31,12 @@ const Section = () => {
             SliderImage.scrollLeft = 0
         }
     }
+    const handlerImage = () => {
+        const SliderImage =  document.querySelector(".sliderImage")
+        SliderImage.style.scrollBehavior = "smooth"
+        SliderImage.scrollLeft = 0
+    }
+    window.addEventListener('resize', handlerImage,      clearInterval(Time) )
 
     const handlerLeft = () => {
         const SliderImage =  document.querySelector(".sliderImage")
@@ -26,13 +45,15 @@ const Section = () => {
         SliderImage.scrollLeft -= window.innerWidth - 10
 
         if(SliderImage.scrollLeft < window.innerWidth - 10){
-        SliderImage.scrollLeft = SliderImage.scrollWidth
+            SliderImage.scrollLeft = SliderImage.scrollWidth
         }
     }
 
 
 
     useEffect (() => {
+        window.addEventListener('resize', handlerImage, )
+        clearInterval(Time)
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.addEventListener("wheel", (e) => {
             // e.preventDefault()
@@ -45,11 +66,12 @@ const Section = () => {
         }
 
     }) 
+ 
     return(
         <div className={`bg-red-500 mt-[101px]  h-[600px]`}>
             
             <div className="">
-                <div ref = {imgScroll} className="bg-blue-400 w-[100%] h-[600px]   sliderImage overflow-x-scroll flex  flex-col flex-wrap overflow-y-hidden relative!  ">
+                <div ref = {imgScroll} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
                     <div className="bg-green-200 w-[100%]! h-[600px]!  ">
                         <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
