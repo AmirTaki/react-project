@@ -1,11 +1,13 @@
 
 import { useContext } from "react"
 import { ContextHeaderBottom } from "./headerBottom"
-import { initialStateHeader, reducerHeader} from "./reducerHeader"
-import { ACTIONTYPE } from "./FactHeader"
+import labtop from "../../assets/fwebp.webp"
 
-const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
+// import { initialStateHeader, reducerHeader} from "./reducerHeader"
+// import { ACTIONTYPE } from "./FactHeader"
+
 const MenuMegaMenu = ({menu, loc}) => {
+    const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
     return(
         <div key = {loc} className={`${navbar ? "" :""}`}>
             {/* Menu  onMouseEnter={(e)=> {handlerHeightNavbar(loc)}} */}
