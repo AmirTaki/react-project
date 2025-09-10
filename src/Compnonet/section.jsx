@@ -8,21 +8,21 @@ const Section = () => {
     return(
         <div className={`bg-red-100 mt-[101px] `}>
             {/* image slider  */}
-            <div className="">
-                <div className="">
-                    <img src={img1} alt="" />
+            <div className="flex  overflow-x-scroll relative">
+                <div className="w-[100%] ">
+                    <img src={img1} className="" alt="" />
                 </div>
                 <div className="">
-                    <img src={img1} alt="" />
+                    <img src={img2} alt="" />
                 </div>
                 <div className="">
-                    <img src={img1} alt="" />
+                    <img src={img3} alt="" />
                 </div>
                 <div className="">
-                    <img src={img1} alt="" />
+                    <img src={img4} alt="" />
                 </div>
                 <div className="">
-                    <img src={img1} alt="" />
+                    <img src={img5} alt="" />
                 </div>
             </div>
 
