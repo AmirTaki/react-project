@@ -40,6 +40,14 @@ const Section = () => {
                     <img src={img4} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
                
+
+               {/*  */}
+               <div className="">
+                    <i class="bi bi-arrow-right-circle"></i>
+               </div>
+               <div className="">
+                    <i class="bi bi-arrow-left-circle"></i>
+               </div>
             </div>
 
 
