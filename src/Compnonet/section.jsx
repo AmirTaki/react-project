@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react"
+import { useEffect, useLayoutEffect } from "react"
 import img1 from "../assets/img1.webp"
 import img2 from "../assets/img2.jpg"
 import img3 from "../assets/img3.jpg"
@@ -10,11 +10,17 @@ const Section = () => {
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehvior = "smooth"
     }
-    useLayoutEffect (() => {
+    useEffect (() => {
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.addEventListener("wheel", (e) => {
-            // e.preventDefault()
+            e.preventDefault()
         })
+
+        return()=> {
+            SliderImage.addEventListener("wheel", (e) => {
+            e.preventDefault()
+            })  
+        }
 
     }) 
     return(

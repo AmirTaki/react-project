@@ -96,7 +96,7 @@ const  HeaderBottom = () => {
         
           <ContextHeaderBottom.Provider value = {{menus, lists, navbar, setNavbar, state, dispatch, reducerHeader, listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}}>
             {menus.map((menu, loc) => (
-              <MenuMegaMenu menu = {menu} loc = {loc} />
+              <MenuMegaMenu key = {loc} menu = {menu} loc = {loc} />
             ))}        
       
           </ContextHeaderBottom.Provider>
