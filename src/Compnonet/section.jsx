@@ -6,9 +6,9 @@ import img5 from "../assets/img5.jpg"
 
 const Section = () => {
     return(
-        <div className={`bg-red-100 mt-[101px] `}>
+        <div className={`bg-red-500 mt-[101px] flex items-center justify-center h-[600px]`}>
          
-
+        <div className="bg-blue-400 w-[500px] h-[300px]"></div>
 
 
 
