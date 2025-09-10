@@ -1,4 +1,4 @@
-const ProductMegaMenu = () => {
+const ProductMegaMenu = ({pr , ind}) => {
     return(
         <div  key = {ind} className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[70vw]  m-2"}`}>    
             {/* title List */}
