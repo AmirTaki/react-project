@@ -101,13 +101,6 @@ const  HeaderBottom = () => {
       
           </ContextHeaderBottom.Provider>
        
-
-          
-        
-      
-      
-        
-      
         </div>
 
         {/* RIGHT  */}
