@@ -1,4 +1,4 @@
-
+import img1 from "../assets/img1.webp"
 
 const Section = () => {
     return(
@@ -6,7 +6,7 @@ const Section = () => {
             {/* image slider  */}
             <div className="">
                 <div className="">
-                    <img src="" alt="" />
+                    <img src={img1} alt="" />
                 </div>
             </div>
 
