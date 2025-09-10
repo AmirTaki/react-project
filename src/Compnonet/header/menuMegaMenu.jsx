@@ -3,8 +3,6 @@ import { useContext } from "react"
 import { ContextHeaderBottom } from "./headerBottom"
 import labtop from "../../assets/fwebp.webp"
 
-// import { initialStateHeader, reducerHeader} from "./reducerHeader"
-// import { ACTIONTYPE } from "./FactHeader"
 
 const MenuMegaMenu = ({menu, loc}) => {
     const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
