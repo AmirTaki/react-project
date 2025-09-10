@@ -42,11 +42,11 @@ const Section = () => {
                     </div>
                
                 </div>
-                <div className="bg-white absolute! top-[50%] right-[4%]">
-                    <i className="bi bi-arrow-right-circle cursor-pointer text-red-200 hover:text-red-800 duration-300"></i>
+                <div className="bg-transparent absolute! top-[50%] right-[4%]">
+                    <i className="bi bi-arrow-right-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
-                <div className="bg-white absolute! top-[50%] left-[4%]">
-                    <i className="bi bi-arrow-left-circle cursor-pointer text-red-200 hover:text-red-800 duration-300"></i>
+                <div className="bg-transparent absolute! top-[50%] left-[4%]">
+                    <i className="bi bi-arrow-left-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
             </div>
           
