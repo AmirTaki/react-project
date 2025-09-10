@@ -7,7 +7,7 @@ import { GlobalHeaderScroll } from "./header"
 
 
 const MenuMegaMenu = ({menu, loc}) => {
-    const {scrollTop} = useContext {GlobalHeaderScroll}
+    const {scrollTop} = useContext (GlobalHeaderScroll)
     const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
     return(
         <div key = {loc} className={`${navbar ? "" :""}`}>
@@ -23,7 +23,10 @@ const MenuMegaMenu = ({menu, loc}) => {
             {/*  group-hover/menu:h-[${state.heightNavbar}]!  */}
             <div   
                 style={{height: state.heightNavbar[loc]}} 
-                className={` megaContainer  h-[0]     ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden!   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}`}  
+                className={` megaContainer  h-[0]    
+                    ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-red-400 h-[0] hidden!   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}
+                    ${scrollTop > 90 ? "":""}
+                    `}  
                 >
                 {/* container list */}
                 <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[80vw]   "}`}>
