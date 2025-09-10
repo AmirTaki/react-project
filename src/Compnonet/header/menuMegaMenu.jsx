@@ -2,8 +2,12 @@
 import { useContext } from "react"
 import { ContextHeaderBottom } from "./headerBottom"
 import ProductMegaMenu from "./productMegaMenu"
+import { GlobalHeaderScroll } from "./header"
+
+
 
 const MenuMegaMenu = ({menu, loc}) => {
+    const {scrollTop} = useContext {GlobalHeaderScroll}
     const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
     return(
         <div key = {loc} className={`${navbar ? "" :""}`}>
