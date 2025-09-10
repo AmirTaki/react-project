@@ -9,7 +9,7 @@ import { ACTIONTYPE } from "./FactHeader";
 const  HeaderBottom = () => {
 
   const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
-    const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
+  const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
 
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);   
