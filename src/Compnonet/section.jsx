@@ -26,7 +26,7 @@ const Section = () => {
     return(
         <div className={`bg-red-500 mt-[101px]  h-[600px]`}>
          
-            <div className="bg-blue-400 w-[100%] h-[600px]   sliderImage overflow-x-scroll flex  flex-col flex-wrap overflow-y-hidden   ">
+            <div className="bg-blue-400 w-[100%] h-[600px]   sliderImage overflow-x-scroll flex  flex-col flex-wrap overflow-y-hidden relative!  ">
                 <div className="bg-green-200 w-[100%]! h-[600px]!  ">
                     <img src={img1} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
@@ -42,10 +42,10 @@ const Section = () => {
                
 
                {/*  */}
-               <div className="">
+               <div className="bg-white absolute! top-[50%] right-[4%]">
                     <i class="bi bi-arrow-right-circle"></i>
                </div>
-               <div className="">
+               <div className="bg-white absolute! top-[50%] left-[4%]">
                     <i class="bi bi-arrow-left-circle"></i>
                </div>
             </div>
