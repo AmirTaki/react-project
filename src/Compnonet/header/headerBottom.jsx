@@ -95,11 +95,13 @@ const  HeaderBottom = () => {
             </div>
           </div>
         
-          
-          {menus.map((menu, loc) => (
+          <ContextHeaderBottom.Provider>
+            {menus.map((menu, loc) => (
               <MenuMegaMenu menu = {menu} loc = {loc} />
-          ))}        
+            ))}        
       
+          </ContextHeaderBottom.Provider>
+       
 
           
         
