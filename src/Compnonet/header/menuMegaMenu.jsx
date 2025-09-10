@@ -24,8 +24,8 @@ const MenuMegaMenu = ({menu, loc}) => {
             <div   
                 style={{height: state.heightNavbar[loc]}} 
                 className={` megaContainer  h-[0]    
-                    ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-red-400 h-[0] hidden!   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}
-                    ${scrollTop > 90 ? "top-[61px]!":"top-[101px]!"}
+                    ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden!   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}
+                    ${scrollTop > 90 ? "top-[60.40px]!":"top-[101px]!"}
                     `}  
                 >
                 {/* container list */}
