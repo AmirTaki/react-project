@@ -12,6 +12,10 @@ const Section = () => {
         
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft += window.innerWidth - 10
+
+        if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
+            SliderImage.scrollLeft = 0
+        }
     }
 
     const handlerLeft = () => {
