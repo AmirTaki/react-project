@@ -12,7 +12,9 @@ function App() {
   
   return (
     // <Test />
-    <div className='h-[2000px] bg-red-100'>
+    <div className='h-[2000px] bg-red-100
+      
+    '>
       <Header />
       <Section />
     </div>
