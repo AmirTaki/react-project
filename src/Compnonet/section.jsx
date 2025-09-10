@@ -2,7 +2,17 @@
 
 const Section = () => {
     return(
-        <div className={`bg-red-500 mt-[101px] `}>
+        <div className={`bg-red-100 mt-[101px] `}>
+            {/* image slider  */}
+            <div className="">
+                <div className="">
+                    <img src="" alt="" />
+                </div>
+            </div>
+
+
+
+
             <div>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit delectus ea eius obcaecati nihil, similique aliquam, molestiae quaerat quo nemo soluta commodi exercitationem repellat deserunt eaque est! Fugiat, voluptas iusto.
             </div>
