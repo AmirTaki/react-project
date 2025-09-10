@@ -1,4 +1,11 @@
+import { useContext } from "react"
+import { ContextHeaderBottom } from "./headerBottom"
+
+
+
 const ProductMegaMenu = ({pr , ind}) => {
+    const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
+    
     return(
         <div  key = {ind} className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[70vw]  m-2"}`}>    
             {/* title List */}
