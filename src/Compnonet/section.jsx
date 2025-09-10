@@ -8,17 +8,17 @@ const Section = () => {
     return(
         <div className={`bg-red-500 mt-[101px] flex items-center justify-center h-[600px]`}>
          
-            <div className="bg-blue-400 w-[500px] h-[300px]  items-center justify-center overflow-x-scroll  ">
-                <div className="bg-green-200 w-[500px]! h-[300px]! ">
+            <div className="bg-blue-400 w-[500px] h-[300px]    overflow-x-scroll   overflow-y-hidden">
+                <div className="bg-green-200 w-[500px]! h-[300px]! inline!">
                     <img src={img1} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
-                <div className="bg-green-200 w-[500px]! h-[300px]! ">
+                <div className="bg-green-200 w-[500px]! h-[300px]! inline! ">
                     <img src={img2} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
-                <div className="bg-green-200 w-[500px]! h-[300px]! ">
+                <div className="bg-green-200 w-[500px]! h-[300px]! inline! ">
                     <img src={img3} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
-                <div className="bg-green-200 w-[500px]! h-[300px]! ">
+                <div className="bg-green-200 w-[500px]! h-[300px]! inline! ">
                     <img src={img4} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
                
