@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import img1 from "../assets/img1.webp"
 import img2 from "../assets/img2.jpg"
 import img3 from "../assets/img3.jpg"
@@ -8,18 +8,20 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
     const imgScroll =  useRef(null)
     
-
+    const [t, St] = useState(0)
     
-    const Time =  setInterval(() => {
-        const SliderImage =  document.querySelector(".sliderImage")
-
-        SliderImage.style.scrollBehavior = "smooth"
-        SliderImage.scrollLeft += window.innerWidth - 10
-
-        if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
-            SliderImage.scrollLeft = 0
-        }
-    }, 5000)
+    useEffect(() => {
+            setInterval(() => {
+            const SliderImage =  document.querySelector(".sliderImage")
+            
+            SliderImage.style.scrollBehavior = "smooth"
+            SliderImage.scrollLeft += window.innerWidth - 10
+       
+            if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
+                SliderImage.scrollLeft = 0
+            }    
+        }, 5000)
+    }, [])
     
     const handlerRight = () => {
         const SliderImage =  document.querySelector(".sliderImage")
@@ -36,7 +38,13 @@ const Section = () => {
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft = 0
     }
-    window.addEventListener('resize', handlerImage,      clearInterval(Time) )
+   
+
+    useEffect(() => {
+        return() => {
+            window.addEventListener('resize', handlerImage  )     
+        }
+    },[])
 
     const handlerLeft = () => {
         const SliderImage =  document.querySelector(".sliderImage")
@@ -53,7 +61,7 @@ const Section = () => {
 
     useEffect (() => {
         window.addEventListener('resize', handlerImage, )
-        clearInterval(Time)
+        // clearInterval(Time)
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.addEventListener("wheel", (e) => {
             // e.preventDefault()
@@ -93,9 +101,6 @@ const Section = () => {
                     <i className="bi bi-arrow-left-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
             </div>
-          
-
-
           
         </div>
     )
