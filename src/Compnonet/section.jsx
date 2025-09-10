@@ -8,20 +8,20 @@ const Section = () => {
     return(
         <div className={`bg-red-100 mt-[101px] `}>
             {/* image slider  */}
-            <div className="flex  overflow-x-scroll relative">
-                <div className="w-[100%] ">
+            <div className="flex  flex-col relative overflow-scroll w-[100%] h-[500px]">
+                <div className="w-[100%] absolute ">
                     <img src={img1} className="" alt="" />
                 </div>
-                <div className="">
+                <div className=" w-[100%] absolute ">
                     <img src={img2} alt="" />
                 </div>
-                <div className="">
+                <div className=" w-[100%] absolute ">
                     <img src={img3} alt="" />
                 </div>
-                <div className="">
+                <div className=" w-[100%] absolute ">
                     <img src={img4} alt="" />
                 </div>
-                <div className="">
+                <div className="w-[100%] absolute ">
                     <img src={img5} alt="" />
                 </div>
             </div>
