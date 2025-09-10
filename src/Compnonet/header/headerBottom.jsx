@@ -6,6 +6,8 @@ import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
 
+export const ContextHeaderBottom =  createContext();
+
 const  HeaderBottom = () => {
 
   const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
