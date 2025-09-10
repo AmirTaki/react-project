@@ -95,7 +95,7 @@ const  HeaderBottom = () => {
         
           
           {menus.map((menu, loc) => (
-              <MenuMegaMenu />
+              <MenuMegaMenu menu = {menu} loc = {loc} />
           ))}        
       
 

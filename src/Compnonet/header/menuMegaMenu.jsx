@@ -1,4 +1,4 @@
-const MenuMegaMenu = () => {
+const MenuMegaMenu = ({menu, loc}) => {
     return(
         <div key = {loc} className={`${navbar ? "" :""}`}>
             {/* Menu  onMouseEnter={(e)=> {handlerHeightNavbar(loc)}} */}
