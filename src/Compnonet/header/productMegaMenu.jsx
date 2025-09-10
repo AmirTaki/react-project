@@ -3,7 +3,7 @@ import { ContextHeaderBottom } from "./headerBottom"
 import labtop from "../../assets/fwebp.webp"
 
 
-const ProductMegaMenu = ({pr , ind}) => {
+const ProductMegaMenu = ({loc, pr , ind}) => {
     const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
     
     return(

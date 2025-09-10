@@ -28,7 +28,7 @@ const MenuMegaMenu = ({menu, loc}) => {
                     {/* container List  */}
                 
                     {lists.map((pr, ind ) => (
-                        <ProductMegaMenu pr = {pr} ind = {ind} />
+                        <ProductMegaMenu loc = {loc}  pr = {pr} ind = {ind} />
         
                     ))}      
                 </div>
