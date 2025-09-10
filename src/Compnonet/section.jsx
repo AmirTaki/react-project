@@ -13,30 +13,30 @@ const Section = () => {
     useEffect (() => {
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.addEventListener("wheel", (e) => {
-            e.preventDefault()
+            // e.preventDefault()
         })
 
         return()=> {
             SliderImage.addEventListener("wheel", (e) => {
-            e.preventDefault()
+            // e.preventDefault()
             })  
         }
 
     }) 
     return(
-        <div className={`bg-red-500 mt-[101px] flex items-center justify-center h-[600px]`}>
+        <div className={`bg-red-500 mt-[101px]  h-[600px]`}>
          
-            <div className="bg-blue-400 w-[500px] h-[300px]   sliderImage overflow-x-scroll flex  flex-col flex-wrap overflow-y-hidden   ">
-                <div className="bg-green-200 w-[500px]! h-[300px]!  ">
+            <div className="bg-blue-400 w-[100%] h-[600px]   sliderImage overflow-x-scroll flex  flex-col flex-wrap overflow-y-hidden   ">
+                <div className="bg-green-200 w-[100%]! h-[600px]!  ">
                     <img src={img1} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
-                <div className="bg-green-200 w-[500px]! h-[300px]!  ">
+                <div className="bg-green-200 w-[100%]! h-[600px]!  ">
                     <img src={img2} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
-                <div className="bg-green-200 w-[500px]! h-[300px]!  ">
+                <div className="bg-green-200 w-[100%]! h-[600px]!  ">
                     <img src={img3} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
-                <div className="bg-green-200 w-[500px]! h-[300px]!  ">
+                <div className="bg-green-200 w-[100%]! h-[600px]!  ">
                     <img src={img4} className="w-[100%]! h-[100%]!" alt="" />
                 </div>
                
