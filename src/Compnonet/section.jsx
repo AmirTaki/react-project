@@ -8,10 +8,12 @@ const Section = () => {
     return(
         <div className={`bg-red-500 mt-[101px] flex items-center justify-center h-[600px]`}>
          
-            <div className="bg-blue-400 w-[500px] h-[300px] flex items-center ">
-                <div className="bg-green-200 w-[250px] h-[250px]"></div>
+            <div className="bg-blue-400 w-[500px] h-[300px]  overflow-scroll ">
+                <div className="bg-green-200 w-[250px] h-[250px] "></div>
                 <div className="bg-pink-200 w-[250px] h-[250px]"></div>
                 <div className="bg-yellow-200 w-[250px] h-[250px]"></div>
+                <div className="bg-orange-200 w-[250px] h-[250px]"></div>
+                <div className="bg-blue-200 w-[250px] h-[250px]"></div>
             </div>
 
 
