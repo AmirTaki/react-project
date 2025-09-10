@@ -7,6 +7,7 @@ import img5 from "../assets/img5.jpg"
 
 const Section = () => {
     const imgScroll =  useRef(null)
+    
     const handlerRight = () => {
         const SliderImage =  document.querySelector(".sliderImage")
         
@@ -19,7 +20,10 @@ const Section = () => {
     }
 
     const handlerLeft = () => {
-
+        const SliderImage =  document.querySelector(".sliderImage")
+        
+        SliderImage.style.scrollBehavior = "smooth"
+        SliderImage.scrollLeft -= window.innerWidth - 10
     }
     useEffect (() => {
         const SliderImage =  document.querySelector(".sliderImage")
