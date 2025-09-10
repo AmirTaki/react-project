@@ -41,15 +41,12 @@ const Section = () => {
                         <img src={img4} className="w-[100%]! h-[100%]!" alt="" />
                     </div>
                
-
-               {/*  */}
-               
                 </div>
                 <div className="bg-white absolute! top-[50%] right-[4%]">
-                    <i class="bi bi-arrow-right-circle"></i>
+                    <i className="bi bi-arrow-right-circle cursor-pointer text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
                 <div className="bg-white absolute! top-[50%] left-[4%]">
-                    <i class="bi bi-arrow-left-circle"></i>
+                    <i className="bi bi-arrow-left-circle cursor-pointer text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
             </div>
           
