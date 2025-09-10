@@ -6,9 +6,14 @@ import img4 from "../assets/img4.jpg"
 import img5 from "../assets/img5.jpg"
 
 const Section = () => {
-    const handler = () => {
+    const handlerRight = () => {
         const SliderImage =  document.querySelector(".sliderImage")
-        SliderImage.style.scrollBehvior = "smooth"
+        SliderImage.style.scrollBehavior = "smooth"
+        SliderImage.scrollLeft += window.innerWidth - 10
+    }
+
+    const handlerLeft = () => {
+
     }
     useEffect (() => {
         const SliderImage =  document.querySelector(".sliderImage")
@@ -29,23 +34,23 @@ const Section = () => {
             <div className="">
                 <div className="bg-blue-400 w-[100%] h-[600px]   sliderImage overflow-x-scroll flex  flex-col flex-wrap overflow-y-hidden relative!  ">
                     <div className="bg-green-200 w-[100%]! h-[600px]!  ">
-                        <img src={img1} className="w-[100%]! h-[100%]!" alt="" />
+                        <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
                     <div className="bg-green-200 w-[100%]! h-[600px]!  ">
-                        <img src={img2} className="w-[100%]! h-[100%]!" alt="" />
+                        <img src={img2} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
                     <div className="bg-green-200 w-[100%]! h-[600px]!  ">
-                        <img src={img3} className="w-[100%]! h-[100%]!" alt="" />
+                        <img src={img3} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
                     <div className="bg-green-200 w-[100%]! h-[600px]!  ">
-                        <img src={img4} className="w-[100%]! h-[100%]!" alt="" />
+                        <img src={img4} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
                
                 </div>
-                <div className="bg-transparent absolute! top-[50%] right-[4%]">
+                <div onClick = {handlerRight} className="bg-transparent absolute! top-[50%] right-[4%]">
                     <i className="bi bi-arrow-right-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
-                <div className="bg-transparent absolute! top-[50%] left-[4%]">
+                <div onClick  = {handlerLeft} className="bg-transparent absolute! top-[50%] left-[4%]">
                     <i className="bi bi-arrow-left-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
             </div>
