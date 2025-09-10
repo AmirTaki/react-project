@@ -1,7 +1,10 @@
+
 import { useContext } from "react"
 import { ContextHeaderBottom } from "./headerBottom"
+import { initialStateHeader, reducerHeader} from "./reducerHeader"
+import { ACTIONTYPE } from "./FactHeader"
 
-const {menus, lists, navbar, setNavbar, state, dispatch, reducerHeader, listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
+const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
 const MenuMegaMenu = ({menu, loc}) => {
     return(
         <div key = {loc} className={`${navbar ? "" :""}`}>
