@@ -8,11 +8,19 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
 
   
-   const [state, dispatch] = useReducer(reducer, {
+   const  reducerSection = (state, action) => {
+     switch(action.type){
+        case "":
+            return state
+     }
+   }
+   
+   const [state, dispatch] = useReducer(reducerSection, {
         conter : 0,
         imgList : [0, 1, 2, 3, 4],
         changeColor : {}
     })
+
     const imgList = [0, 1, 2, 3, 4]
     const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({ })
