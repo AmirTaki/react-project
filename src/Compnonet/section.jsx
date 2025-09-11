@@ -30,20 +30,7 @@ const Section = () => {
         setChangeColor((color) => ({...color, [index] : true}) )
     }
     const handlerRight = () => {
-        
-        if(conter >= (document.querySelectorAll('.itemImg').length ) - 1 ){
-            handleClickItem(0)
-
-        }
-        // if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
-
-                    
-    
-        else {
-            handleClickItem(conter + 1)
-            
-        }
-         
+        conter >= (document.querySelectorAll('.itemImg').length ) - 1 ? handleClickItem(0):handleClickItem(conter + 1)     
     }
 
     const handlerLeft = () => {
