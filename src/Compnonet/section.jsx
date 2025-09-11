@@ -8,8 +8,12 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
     const imgScroll =  useRef(null)
     
-    
+    useLayoutEffect(() => {
+        const imageItem = document.querySelectorAll(".itemImg");
 
+    },[])
+
+    console.log(imageItem)
     const [t, St] = useState(0)
     
     useEffect(() => {
@@ -25,7 +29,7 @@ const Section = () => {
             }    
             St((t) => (t+1))
         }, 5000)
-            console.log('ok')
+        
     }, [])
     
     const handlerRight = () => {
