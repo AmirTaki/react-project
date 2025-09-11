@@ -59,7 +59,7 @@ const Section = () => {
   
  
     return(
-        <div className={`bg-red-500 mt-[101px]  h-[600px]`}>
+        <div className={` mt-[101px]  h-[600px]`}>
             
             <div className=" relative!">
                 <div  className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
@@ -91,7 +91,7 @@ const Section = () => {
                     {imgList.map((item, index) => (
                         
                         <div onClick = {() => {handleClickItem(index)}} 
-                        className={`clickImgItem rounded-2xl w-[20px] h-[10px]  bg-sky-300 hover:bg-red-500! cursor-pointer! duration-300! ${changeColor[index] ? "bg-red-500! scale-150! w-10!" : "bg-sky-300! scale-100!"}`} key  = {index}> </div>
+                        className={`clickImgItem rounded-2xl w-[20px] h-[10px]  bg-sky-300 hover:bg-blue-500! cursor-pointer! duration-300! ${changeColor[index] ? "bg-red-800! scale-150! w-10!" : "bg-gray-300! scale-100!"}`} key  = {index}> </div>
                     ))}
                 </div>
             </div>
