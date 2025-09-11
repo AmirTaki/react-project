@@ -16,6 +16,7 @@ const Section = () => {
     
     
     const handleClickItem = (index) => {
+        clearInterval(time);
         setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
@@ -28,6 +29,10 @@ const Section = () => {
             return newColors;
         })
         setChangeColor((color) => ({...color, [index] : true}) )
+        const time = setInterval(() => {
+            (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
+        }, 5000)
+        
     }
     const handlerRight = () => {
         (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
@@ -39,32 +44,12 @@ const Section = () => {
 
 
 
-    
-    useEffect(() => {
-
-        // setInterval(() => {
-        //     const SliderImage =  document.querySelector(".sliderImage")
-        //     SliderImage.style.scrollBehavior = "smooth"
-
-        //     if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
-        //         SliderImage.scrollLeft = 0
-        //     }    
-        //     else {
-        //         SliderImage.scrollLeft += window.innerWidth - 10                    
-        //     }
-           
-
-        // }, 5000)
-        
-    }, [])
-    
  
     useEffect(() => {
         handleClickItem(0)
         window.addEventListener('resize', setHandlerImg)
         return() => {
             window.addEventListener('resize',  setHandlerImg)    
-
         }
     },[])
 
@@ -96,10 +81,10 @@ const Section = () => {
                
                 </div>
                 <div onClick = {handlerRight} className="bg-transparent absolute! top-[50%] right-[4%]">
-                    <i className="bi bi-arrow-right-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800 duration-300"></i>
+                    <i className="bi bi-arrow-right-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800! duration-300"></i>
                 </div>
                 <div onClick  = {handlerLeft} className="bg-transparent absolute! top-[50%] left-[4%]">
-                    <i className="bi bi-arrow-left-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800 duration-300"></i>
+                    <i className="bi bi-arrow-left-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800! duration-300"></i>
                 </div>
 
                 <div className=" w-100 h-10 flex gap-5 absolute bottom-[5%] left-[45%]">
