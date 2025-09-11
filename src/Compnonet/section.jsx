@@ -10,11 +10,7 @@ const Section = () => {
     const imgList = [1, 2, 3, 4, 5]
     const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({
-        0: false,
-        1:false,
-        2:true,
-        3:false,
-        4:false,
+       
     })
 
     const handleClickItem = (index) => {
@@ -34,7 +30,7 @@ const Section = () => {
     
 
 
-    const [t, St] = useState(0)
+
     
     useEffect(() => {
         
@@ -43,11 +39,13 @@ const Section = () => {
             
             SliderImage.style.scrollBehavior = "smooth"
             SliderImage.scrollLeft += window.innerWidth - 10
-
+            setConter((conter)=> (conter + 1))
             if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
                 SliderImage.scrollLeft = 0
+                setConter((conter)=> (conter = 0))
             }    
-            St((t) => (t+1))
+            handleClickItem(conter)
+         
         }, 5000)
         
     }, [])
