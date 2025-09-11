@@ -9,7 +9,6 @@ const Section = () => {
     const imgScroll =  useRef(null)
     const imgList = [0, 1, 2, 3, 4]
     const [conter, setConter] = useState(0);
-    const [time, setTime] = useState(false)
     const [changeColor, setChangeColor] = useState({
        
     })
@@ -41,11 +40,11 @@ const Section = () => {
 
     useEffect(() => {
       const timeLaps = setInterval(() => {
-
+        (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
       },5000)
-      return() => {
-        clearInterval(timeLaps)
-      }  
+    //   return() => 
+        // clearInterval(timeLaps)
+      
     },[])
  
     useEffect(() => {
@@ -64,10 +63,10 @@ const Section = () => {
     return(
         <div className={`bg-red-500 mt-[101px]  h-[600px]`}>
             
-            <div className="">
+            <div className=" relative!">
                 <div ref = {imgScroll} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
                     <div className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
-                        <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
+                        <img src={img1} className="w-[8%]! h-[100%]! object-cover" alt="" />
                     </div>
                     <div className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img2} className="w-[100%]! h-[100%]! object-cover" alt="" />
@@ -90,11 +89,11 @@ const Section = () => {
                     <i className="bi bi-arrow-left-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800! duration-300"></i>
                 </div>
 
-                <div className=" w-100 h-10 flex gap-5 absolute bottom-[5%] left-[45%]">
+                <div className=" w-fit h-10 flex gap-5 absolute bottom-[5%] left-[50%] right-[50%] bg-transparent  items-center justify-center">
                     {imgList.map((item, index) => (
                         
                         <div onClick = {() => {handleClickItem(index)}} 
-                        className={`clickImgItem rounded-2xl w-[20px] h-[10px] bg-sky-300 hover:bg-red-500! cursor-pointer! duration-300! ${changeColor[index] ? "bg-red-500! scale-150! w-10!" : "bg-sky-300! scale-100!"}`} key  = {index}> </div>
+                        className={`clickImgItem rounded-2xl w-[20px] h-[10px]  bg-sky-300 hover:bg-red-500! cursor-pointer! duration-300! ${changeColor[index] ? "bg-red-500! scale-150! w-10!" : "bg-sky-300! scale-100!"}`} key  = {index}> </div>
                     ))}
                 </div>
             </div>
