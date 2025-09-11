@@ -15,7 +15,10 @@ const Section = () => {
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft = (index * window.innerWidth) - 10
+        SliderImage[index].style.backgroundColor = "red"
     }
+
+    
 
 
     const [t, St] = useState(0)
