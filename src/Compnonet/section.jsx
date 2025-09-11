@@ -115,8 +115,10 @@ const Section = () => {
                     <i className="bi bi-arrow-left-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
 
-                <div className="">
-                    <div className=""></div>
+                <div className="bg-red-600 w-50 h-10">
+                    {imgList.mpa((item, index) => (
+                        
+                    ))}
                 </div>
             </div>
           {t}
