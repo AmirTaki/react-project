@@ -8,7 +8,7 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
     const imgScroll =  useRef(null)
     const imgList = [1, 2, 3, 4, 5]
-
+    const [changeColor, setChangeColor] = useState([])
 
     const handleClickItem = (index) => {
         const SliderImage =  document.querySelector(".sliderImage")
