@@ -6,12 +6,9 @@ import img4 from "../assets/img4.jpg"
 import img5 from "../assets/img5.jpg"
 
 const Section = () => {
-    const imgScroll =  useRef(null)
     const imgList = [0, 1, 2, 3, 4]
     const [conter, setConter] = useState(0);
-    const [changeColor, setChangeColor] = useState({
-       
-    })
+    const [changeColor, setChangeColor] = useState({ })
 
 
     const handleClickItem = (index) => {        
@@ -36,16 +33,6 @@ const Section = () => {
     const handlerLeft = () => {
         (conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(conter - 1)
     }
-
-
-    // useEffect(() => {
-    //   const timeLaps = setInterval(() => {
-    //     (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
-    //   },5000)
-    // //   return() => 
-    //     // clearInterval(timeLaps)
-      
-    // },[])
 
 
     useEffect(() => {
@@ -75,7 +62,7 @@ const Section = () => {
         <div className={`bg-red-500 mt-[101px]  h-[600px]`}>
             
             <div className=" relative!">
-                <div ref = {imgScroll} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
+                <div  className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
                     <div className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
                         <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
@@ -108,7 +95,6 @@ const Section = () => {
                     ))}
                 </div>
             </div>
-          {conter}
         </div>
     )
 }
