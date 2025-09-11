@@ -7,13 +7,12 @@ import img5 from "../assets/img5.jpg"
 
 const Section = () => {
     const imgScroll =  useRef(null)
-    const imgList = []
-    useLayoutEffect(() => {
-        var imageItem = document.querySelectorAll(".itemImg");
-        clear(imgList)
-        for (let i = 0; i < imageItem.length; i++) imgList.push(i)   
-        console.log(imgList)     
-    },[])
+    const imgList = [1, 2, 3, 4]
+    // useLayoutEffect(() => {
+    //     var imageItem = document.querySelectorAll(".itemImg");
+    //     for (let i = 0; i < imageItem.length; i++) imgList.push(i)   
+    //     console.log(imgList)     
+    // },[])
 
 
     const [t, St] = useState(0)
@@ -116,9 +115,9 @@ const Section = () => {
                 </div>
 
                 <div className="bg-red-600 w-50 h-10">
-                    {/* {imgList.mpa((item, index) => (
+                    {imgList.map((item, index) => (
                         <div key  = {index}>{item}</div>
-                    ))} */}
+                    ))}
                 </div>
             </div>
           {t}
