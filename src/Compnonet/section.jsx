@@ -40,8 +40,13 @@ const Section = () => {
 
 
     useEffect(() => {
-      setInterval()  
-    })
+      const timeLaps = setInterval(() => {
+
+      },5000)
+      return() => {
+        clearInterval(timeLaps)
+      }  
+    },[])
  
     useEffect(() => {
         handleClickItem(0)
