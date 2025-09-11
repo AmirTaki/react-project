@@ -25,7 +25,7 @@ const Section = () => {
     const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({ })
 
-
+    
     const handleClickItem = (index) => {        
         setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
@@ -47,6 +47,7 @@ const Section = () => {
 
     const handlerLeft = () => {
         (conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(conter - 1)
+        dispatch({type : 'handleClickItem' })
     }
 
 
