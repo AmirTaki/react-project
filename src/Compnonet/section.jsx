@@ -38,14 +38,14 @@ const Section = () => {
     }
 
 
-    useEffect(() => {
-      const timeLaps = setInterval(() => {
-        (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
-      },5000)
-    //   return() => 
-        // clearInterval(timeLaps)
+    // useEffect(() => {
+    //   const timeLaps = setInterval(() => {
+    //     (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
+    //   },5000)
+    // //   return() => 
+    //     // clearInterval(timeLaps)
       
-    },[])
+    // },[])
  
     useEffect(() => {
         handleClickItem(0)
@@ -66,7 +66,7 @@ const Section = () => {
             <div className=" relative!">
                 <div ref = {imgScroll} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
                     <div className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
-                        <img src={img1} className="w-[8%]! h-[100%]! object-cover" alt="" />
+                        <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
                     <div className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img2} className="w-[100%]! h-[100%]! object-cover" alt="" />
@@ -89,7 +89,7 @@ const Section = () => {
                     <i className="bi bi-arrow-left-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800! duration-300"></i>
                 </div>
 
-                <div className=" w-fit h-10 flex gap-5 absolute bottom-[5%] left-[50%] right-[50%] bg-transparent  items-center justify-center">
+                <div className=" w-[100%] h-10 flex gap-5 absolute bottom-[5%] bg-transparent  items-center justify-center">
                     {imgList.map((item, index) => (
                         
                         <div onClick = {() => {handleClickItem(index)}} 
