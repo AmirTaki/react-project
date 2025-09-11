@@ -13,12 +13,8 @@ const Section = () => {
        
     })
 
-    
-    const Time = setInterval(()=> {
-        (conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(conter - 1)
-    }, 3000)
-    const handleClickItem = (index) => {
-        
+
+    const handleClickItem = (index) => {        
         setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
@@ -31,9 +27,8 @@ const Section = () => {
             return newColors;
         })
         setChangeColor((color) => ({...color, [index] : true}) )
-      
-        
     }
+
     const handlerRight = () => {
         (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
     }
