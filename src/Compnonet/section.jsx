@@ -114,7 +114,7 @@ const Section = () => {
 
                 <div className=" w-50 h-10 flex gap-3 absolute bottom-[5%] left-[45%]">
                     {imgList.map((item, index) => (
-                        <div className=" rounded-2xl w-[20px] h-[10px] bg-sky-300 hover:bg-red-500! cursor-pointer! duration-300!" key  = {index}></div>
+                        <div onClick = {() => {handleClickItem(index)}} className=" rounded-2xl w-[20px] h-[10px] bg-sky-300 hover:bg-red-500! cursor-pointer! duration-300!" key  = {index}></div>
                     ))}
                 </div>
             </div>
