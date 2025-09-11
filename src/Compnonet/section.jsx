@@ -14,6 +14,7 @@ const Section = () => {
     })
 
     const handleClickItem = (index) => {
+        setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft = (index * window.innerWidth) - 10
@@ -36,19 +37,14 @@ const Section = () => {
 
         setInterval(() => {
             const SliderImage =  document.querySelector(".sliderImage")
-            
             SliderImage.style.scrollBehavior = "smooth"
-            SliderImage.scrollLeft += window.innerWidth - 10
-            setConter((conter)=> (conter + 1))
-            
-        
+            SliderImage.scrollLeft += window.innerWidth - 10                    
+
             if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
                 SliderImage.scrollLeft = 0
-                // setConter(conter = 0)
-                //  handleClickItem(conter)
             }    
            
-            handleClickItem(conter)
+
         }, 5000)
         
     }, [])
@@ -58,9 +54,11 @@ const Section = () => {
         
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft += window.innerWidth - 10
+        handleClickItem(conter + 1)
 
         if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
             SliderImage.scrollLeft = 0
+            handleClickItem(0)
         }  
     }
 
@@ -74,6 +72,7 @@ const Section = () => {
    
 
     useEffect(() => {
+        handleClickItem(0)
         return() => {
             window.addEventListener('resize', handlerImage  )    
 
