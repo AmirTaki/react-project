@@ -60,12 +60,17 @@ const Section = () => {
     
  
     useEffect(() => {
-        window.addEventListener('resize', handleClickItem(0), )
+        handleClickItem(0)
+        window.addEventListener('resize', setHandlerImg)
         return() => {
-            window.addEventListener('resize', handleClickItem(0)  )    
+            window.addEventListener('resize',  setHandlerImg)    
 
         }
     },[])
+
+    const setHandlerImg = () => {
+        handleClickItem(0)
+    }
   
  
     return(
