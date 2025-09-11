@@ -38,7 +38,9 @@ const Section = () => {
     }
 
 
-
+    useEffect(() => {
+        
+    })
  
     useEffect(() => {
         handleClickItem(0)
