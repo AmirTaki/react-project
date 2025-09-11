@@ -35,17 +35,17 @@ const Section = () => {
     
     useEffect(() => {
 
-        setInterval(() => {
-            const SliderImage =  document.querySelector(".sliderImage")
-            SliderImage.style.scrollBehavior = "smooth"
-            SliderImage.scrollLeft += window.innerWidth - 10                    
+        // setInterval(() => {
+        //     const SliderImage =  document.querySelector(".sliderImage")
+        //     SliderImage.style.scrollBehavior = "smooth"
+        //     SliderImage.scrollLeft += window.innerWidth - 10                    
 
-            if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
-                SliderImage.scrollLeft = 0
-            }    
+        //     if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
+        //         SliderImage.scrollLeft = 0
+        //     }    
            
 
-        }, 5000)
+        // }, 5000)
         
     }, [])
     
@@ -84,9 +84,11 @@ const Section = () => {
         
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft -= window.innerWidth - 10
+        handleClickItem(conter - 1)
 
         if(SliderImage.scrollLeft < window.innerWidth - 10){
             SliderImage.scrollLeft = SliderImage.scrollWidth
+            handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 )
         }
         
     }
