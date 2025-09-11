@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useReducer, useRef, useState } from "react"
 import img1 from "../assets/img1.webp"
 import img2 from "../assets/img2.jpg"
 import img3 from "../assets/img3.jpg"
@@ -6,6 +6,12 @@ import img4 from "../assets/img4.jpg"
 import img5 from "../assets/img5.jpg"
 
 const Section = () => {
+
+    const [state, dispatch ] =  useReducer(reducer, {
+        changeColor : {},
+        
+    })
+    
     const imgList = [0, 1, 2, 3, 4]
     const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({ })
