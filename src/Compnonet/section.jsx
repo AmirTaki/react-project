@@ -114,9 +114,9 @@ const Section = () => {
                     <i className="bi bi-arrow-left-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
 
-                <div className="bg-red-600 w-50 h-10">
+                <div className=" w-50 h-10 flex gap-3 absolute bottom-[5%] left-[45%]">
                     {imgList.map((item, index) => (
-                        <div key  = {index}>{item}</div>
+                        <div className="rounded-2xl w-[20px] h-[10px] bg-blue-500" key  = {index}></div>
                     ))}
                 </div>
             </div>
