@@ -9,11 +9,13 @@ const Section = () => {
     const imgScroll =  useRef(null)
     
     useLayoutEffect(() => {
-        const imageItem = document.querySelectorAll(".itemImg");
-
+        var imageItem = document.querySelectorAll(".itemImg");
+        var imgList = []
+        for (let i = 0; i < imageItem.length; i++) imgList.push(i)   
+        console.log(imgList)     
     },[])
 
-    console.log(imageItem)
+
     const [t, St] = useState(0)
     
     useEffect(() => {
