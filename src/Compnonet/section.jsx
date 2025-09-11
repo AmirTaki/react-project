@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useReducer, useRef, useState } from "react"
+import { act, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react"
 import img1 from "../assets/img1.webp"
 import img2 from "../assets/img2.jpg"
 import img3 from "../assets/img3.jpg"
@@ -10,8 +10,8 @@ const Section = () => {
   
    const  reducerSection = (state, action) => {
      switch(action.type){
-        case "":
-            return state
+        case "selectIndex":
+            return {...state , [conter] : action.index }
      }
    }
    
