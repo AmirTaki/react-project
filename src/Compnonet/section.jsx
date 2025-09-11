@@ -15,7 +15,7 @@ const Section = () => {
 
     
     
-      const handleClickItem = (index) => {
+    const handleClickItem = (index) => {
         setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
@@ -59,43 +59,13 @@ const Section = () => {
     }, [])
     
  
-
-    
-    const handlerImage = () => {
-        const SliderImage =  document.querySelector(".sliderImage")
-        SliderImage.style.scrollBehavior = "smooth"
-        SliderImage.scrollLeft = 0
-        handleClickItem(0)
-    }
-   
-
     useEffect(() => {
-        handleClickItem(0)
+        window.addEventListener('resize', handleClickItem(0), )
         return() => {
-            window.addEventListener('resize', handlerImage  )    
+            window.addEventListener('resize', handleClickItem(0)  )    
 
         }
     },[])
-
-
-
-
-    useEffect (() => {
-        window.addEventListener('resize', handlerImage, )
-        // clearInterval(Time)
-        const SliderImage =  document.querySelector(".sliderImage")
-        SliderImage.addEventListener("wheel", (e) => {
-            // e.preventDefault()
-        })
-
-        return()=> {
-            SliderImage.addEventListener("wheel", (e) => {
-            // e.preventDefault()
-            })  
-        }
-
-    }) 
-
   
  
     return(
