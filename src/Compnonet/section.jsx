@@ -11,6 +11,10 @@ const Section = () => {
     var imageItem = document.querySelectorAll(".itemImg");
     for (let i = 0; i < imageItem.length; i++) imgList.push(i) 
 
+    const handleClickItem = (index) => {
+        SliderImage.style.scrollBehavior = "smooth"
+        liderImage.scrollLeft = (index * window.innerWidth) - 10
+    }
 
 
     const [t, St] = useState(0)
