@@ -13,7 +13,9 @@ const Section = () => {
        
     })
 
-    const handleClickItem = (index) => {
+    
+    
+      const handleClickItem = (index) => {
         setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
@@ -27,9 +29,25 @@ const Section = () => {
         })
         setChangeColor((color) => ({...color, [index] : true}) )
     }
+    const handlerRight = () => {
+        const SliderImage =  document.querySelector(".sliderImage")
+        
 
+
+        if(conter >= (document.querySelectorAll('.itemImg').length ) - 1 ){
+            handleClickItem(0)
+
+        }
+        // if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
+
+                    
     
-
+        else {
+            handleClickItem(conter + 1)
+            
+        }
+         
+    }
 
 
     
@@ -38,29 +56,20 @@ const Section = () => {
         // setInterval(() => {
         //     const SliderImage =  document.querySelector(".sliderImage")
         //     SliderImage.style.scrollBehavior = "smooth"
-        //     SliderImage.scrollLeft += window.innerWidth - 10                    
 
         //     if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
         //         SliderImage.scrollLeft = 0
         //     }    
+        //     else {
+        //         SliderImage.scrollLeft += window.innerWidth - 10                    
+        //     }
            
 
         // }, 5000)
         
     }, [])
     
-    const handlerRight = () => {
-        const SliderImage =  document.querySelector(".sliderImage")
-        
-        SliderImage.style.scrollBehavior = "smooth"
-        SliderImage.scrollLeft += window.innerWidth - 10
-        handleClickItem(conter + 1)
-
-        if(SliderImage.scrollLeft >= SliderImage.scrollWidth - window.innerWidth ){
-            SliderImage.scrollLeft = 0
-            handleClickItem(0)
-        }  
-    }
+ 
 
     
     const handlerImage = () => {
@@ -110,6 +119,8 @@ const Section = () => {
         }
 
     }) 
+
+  
  
     return(
         <div className={`bg-red-500 mt-[101px]  h-[600px]`}>
