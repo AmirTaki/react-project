@@ -8,6 +8,7 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
     const imgScroll =  useRef(null)
     const imgList = [1, 2, 3, 4, 5]
+    const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({
         0: false,
         1:false,
@@ -142,7 +143,7 @@ const Section = () => {
                     ))}
                 </div>
             </div>
-          {t}
+          {conter}
         </div>
     )
 }
