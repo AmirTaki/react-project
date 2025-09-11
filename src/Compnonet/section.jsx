@@ -8,7 +8,13 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
     const imgScroll =  useRef(null)
     const imgList = [1, 2, 3, 4, 5]
-    const [changeColor, setChangeColor] = useState([])
+    const [changeColor, setChangeColor] = useState({
+        0: false,
+        1:true,
+        2:false,
+        3:false,
+        4:false,
+    })
 
     const handleClickItem = (index) => {
         const SliderImage =  document.querySelector(".sliderImage")
@@ -121,10 +127,10 @@ const Section = () => {
                     <i className="bi bi-arrow-left-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
 
-                <div className=" w-50 h-10 flex gap-3 absolute bottom-[5%] left-[45%]">
+                <div className=" w-100 h-10 flex gap-5 absolute bottom-[5%] left-[45%]">
                     {imgList.map((item, index) => (
                         <div onClick = {() => {handleClickItem(index)}} 
-                        className={`clickImgItem rounded-2xl w-[20px] h-[10px] bg-sky-300 hover:bg-red-500! cursor-pointer! duration-300! ${changeColor[index] ? "bg-red-500! scale-110!" : "bg-sky-300! scale-1!"}`} key  = {index}></div>
+                        className={`clickImgItem rounded-2xl w-[20px] h-[10px] bg-sky-300 hover:bg-red-500! cursor-pointer! duration-300! ${changeColor[index] ? "bg-red-500! scale-150! w-10!" : "bg-sky-300! scale-100!"}`} key  = {index}></div>
                     ))}
                 </div>
             </div>
