@@ -10,8 +10,8 @@ const Section = () => {
     const imgList = [1, 2, 3, 4, 5]
     const [changeColor, setChangeColor] = useState({
         0: false,
-        1:true,
-        2:false,
+        1:false,
+        2:true,
         3:false,
         4:false,
     })
@@ -20,6 +20,7 @@ const Section = () => {
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft = (index * window.innerWidth) - 10
+        setChangeColor((color) => ({...color, [index] : true}) )
     }
 
     
