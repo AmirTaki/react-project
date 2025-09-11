@@ -121,10 +121,10 @@ const Section = () => {
                
                 </div>
                 <div onClick = {handlerRight} className="bg-transparent absolute! top-[50%] right-[4%]">
-                    <i className="bi bi-arrow-right-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
+                    <i className="bi bi-arrow-right-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
                 <div onClick  = {handlerLeft} className="bg-transparent absolute! top-[50%] left-[4%]">
-                    <i className="bi bi-arrow-left-circle cursor-pointer text-3xl text-red-200 hover:text-red-800 duration-300"></i>
+                    <i className="bi bi-arrow-left-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800 duration-300"></i>
                 </div>
 
                 <div className=" w-100 h-10 flex gap-5 absolute bottom-[5%] left-[45%]">
