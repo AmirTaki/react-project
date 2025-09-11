@@ -30,21 +30,11 @@ const Section = () => {
         setChangeColor((color) => ({...color, [index] : true}) )
     }
     const handlerRight = () => {
-        conter >= (document.querySelectorAll('.itemImg').length ) - 1 ? handleClickItem(0):handleClickItem(conter + 1)     
+        (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
     }
 
     const handlerLeft = () => {
-
-        if(conter <= 0 ){
-            handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 )
-
-        }
-        else {
-                    handleClickItem(conter - 1)
-
-        }
-       
-        
+        (conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(conter - 1)
     }
 
 
