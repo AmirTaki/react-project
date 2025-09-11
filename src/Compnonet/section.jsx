@@ -21,7 +21,7 @@ const Section = () => {
         changeColor : {}
     })
 
-    const imgList = [0, 1, 2, 3, 4]
+    // const imgList = [0, 1, 2, 3, 4]
     const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({ })
 
@@ -51,7 +51,7 @@ const Section = () => {
 
     const handlerLeft = () => {
         (conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(conter - 1)
-        dispatch({type : 'handleClickItem' })
+
     }
 
 
