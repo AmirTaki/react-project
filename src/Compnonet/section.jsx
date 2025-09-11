@@ -30,10 +30,7 @@ const Section = () => {
         setChangeColor((color) => ({...color, [index] : true}) )
     }
     const handlerRight = () => {
-        const SliderImage =  document.querySelector(".sliderImage")
         
-
-
         if(conter >= (document.querySelectorAll('.itemImg').length ) - 1 ){
             handleClickItem(0)
 
@@ -48,6 +45,21 @@ const Section = () => {
         }
          
     }
+
+    const handlerLeft = () => {
+
+        if(conter <= 0 ){
+            handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 )
+
+        }
+        else {
+                    handleClickItem(conter - 1)
+
+        }
+       
+        
+    }
+
 
 
     
@@ -88,19 +100,6 @@ const Section = () => {
         }
     },[])
 
-    const handlerLeft = () => {
-        const SliderImage =  document.querySelector(".sliderImage")
-        
-        SliderImage.style.scrollBehavior = "smooth"
-        SliderImage.scrollLeft -= window.innerWidth - 10
-        handleClickItem(conter - 1)
-
-        if(SliderImage.scrollLeft < window.innerWidth - 10){
-            SliderImage.scrollLeft = SliderImage.scrollWidth
-            handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 )
-        }
-        
-    }
 
 
 
