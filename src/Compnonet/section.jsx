@@ -20,6 +20,13 @@ const Section = () => {
         const SliderImage =  document.querySelector(".sliderImage")
         SliderImage.style.scrollBehavior = "smooth"
         SliderImage.scrollLeft = (index * window.innerWidth) - 10
+        setChangeColor((colors) => {
+            const newColors = {};
+            for (const color in colors){
+                colors[color] = false
+            }
+            return newColors;
+        })
         setChangeColor((color) => ({...color, [index] : true}) )
     }
 
