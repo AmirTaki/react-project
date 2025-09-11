@@ -7,12 +7,10 @@ import img5 from "../assets/img5.jpg"
 
 const Section = () => {
     const imgScroll =  useRef(null)
-    const imgList = [1, 2, 3, 4]
-    // useLayoutEffect(() => {
-    //     var imageItem = document.querySelectorAll(".itemImg");
-    //     for (let i = 0; i < imageItem.length; i++) imgList.push(i)   
-    //     console.log(imgList)     
-    // },[])
+    const imgList = []
+    var imageItem = document.querySelectorAll(".itemImg");
+    for (let i = 0; i < imageItem.length; i++) imgList.push(i) 
+
 
 
     const [t, St] = useState(0)
