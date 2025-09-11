@@ -9,6 +9,7 @@ const Section = () => {
     const imgScroll =  useRef(null)
     const imgList = [0, 1, 2, 3, 4]
     const [conter, setConter] = useState(0);
+    const [time, setTime] = useState(false)
     const [changeColor, setChangeColor] = useState({
        
     })
@@ -39,7 +40,7 @@ const Section = () => {
 
 
     useEffect(() => {
-        
+      setInterval()  
     })
  
     useEffect(() => {
