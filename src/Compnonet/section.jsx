@@ -35,6 +35,11 @@ const Section = () => {
                 return {...state, conter : nextConunter}
             }
                 
+            case "prevSlide" : {
+                const prevCounter = 
+                return {...state, conter : prevCounter}
+            }
+
             case  "newColor" :
                 return {...state, 
                     changeColor : {  [action.payload] : true }
