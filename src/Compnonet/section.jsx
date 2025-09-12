@@ -85,12 +85,24 @@ const Section = () => {
         }
     }, [])
 
+
+//  useEffect(() => {
+//   const Time = setInterval(() => {
+//      (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
+//   },4000)
+//   return() => {
+//     window.addEventListener('resize',  clearInterval(Time))    
+//   }
+//  })
+
     useEffect(()=> {
         const time = setInterval(() => {
-            handleClickItem(state.conter + 1)
+           dispatch({type : "nextSlide"  })
         },4000)
-        clearInterval(time)
-    },[])
+        return() => {
+            window.addEventListener('resize', clearInterval(time))
+        }
+    },)
    
   
  
