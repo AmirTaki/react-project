@@ -7,6 +7,7 @@ import img5 from "../assets/img5.jpg"
 
 const Section = () => {
 
+    const sliderRef  =  useRef(null)
     const reducer = (state, action) => {
         switch(action.type){
             case "conter" : 
