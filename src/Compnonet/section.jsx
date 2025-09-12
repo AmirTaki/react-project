@@ -14,11 +14,16 @@ const Section = () => {
                 return {...state, conter : action.payload}
             
             case "changeImage" :
-                const SliderImage =  document.querySelector(".sliderImage")
-                SliderImage.style.scrollBehavior = "smooth"
-                SliderImage.scrollLeft = (action.payload * window.innerWidth) - 10
-                return{...state
-              }
+                if(sliderRef){
+                    sliderRef.current.style.scrollBehavior = "smooth"
+                    sliderRef.current.scrollLeft = action.payload * sliderRef.current.offsetWdith;
+                }
+                return {...state}
+                // const SliderImage =  document.querySelector(".sliderImage")
+                // SliderImage.style.scrollBehavior = "smooth"
+                // SliderImage.scrollLeft = (action.payload * window.innerWidth) - 10
+                // return{...state
+            //   }
         
             case  "changeColors" : 
                 const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
