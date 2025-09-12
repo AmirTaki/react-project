@@ -8,6 +8,8 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
 
     const sliderRef  =  useRef(null)
+    const itemImg = useRef(null)
+  
     const reducer = (state, action) => {
         switch(action.type){
             case "conter" : 
@@ -35,9 +37,8 @@ const Section = () => {
             }
 
             case "nextSlide" : {
-// (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
-
-                state.conter >=
+                const nextConunter = state.conter >=  (document.querySelectorAll('.itemImg').length ) - 1 ? 0 :  state.conter + 1             
+                return {...state, conter : nextConunter}
             }
                 
             case  "newColor" :
