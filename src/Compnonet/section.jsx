@@ -9,8 +9,8 @@ const Section = () => {
 
     const reducer = (state, action) => {
         switch(action.type){
-            case "" : 
-                return state
+            case "conter" : 
+                return {...state, conter : action.payload}
         }
     }
     const [state, dispatch] =  useReducer(reducer ,{
@@ -24,7 +24,7 @@ const Section = () => {
     const [changeColor, setChangeColor] = useState({ })
 
     const  handleClickItem2 = (index) => {
-        
+        dispatch({type : "conter", payload : index})   
     }
     const handleClickItem = (index) => {        
         setConter((conter) => (conter = index))
