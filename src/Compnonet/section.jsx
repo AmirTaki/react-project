@@ -47,11 +47,6 @@ const Section = () => {
                 const prevCounter = state.conter <= 0 ? (document.querySelectorAll('.itemImg').length ) - 1 :  state.conter -1 ;
                 return {...state, conter : prevCounter}
             }
-
-            case  "newColor" :
-                return {...state, 
-                    changeColor : {  [action.payload] : true }
-                }
             default :{
                 return {...state}
             }
@@ -80,6 +75,7 @@ const Section = () => {
     }
     useEffect(() => {
         dispatch({type : 'changeImage', payload : state.conter})
+        dispatch({type : 'changeColors', payload : state.conter})
     }, [state.conter])
 
   
