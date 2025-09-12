@@ -75,17 +75,7 @@ const Section = () => {
         dispatch({type : 'changeImage', payload : state.conter})
     }, [state.conter])
 
-    // useEffect(() => {
-    //     const Time = setInterval(() => {
-    //         (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
-    //     },4000)
-
-    //     return() => {
-    //         window.addEventListener('resize',  clearInterval(Time))    
-    //     }
-    // })
- 
-
+  
     useEffect(() => {
         const setHandlerImg = () => {
             handleClickItem(0)
@@ -97,17 +87,8 @@ const Section = () => {
         }
     }, [])
 
-    useEffect(() => {
-        // handleClickItem(0)
-        window.addEventListener('resize', setHandlerImg)
-        return() => {
-            window.addEventListener('resize',  setHandlerImg)    
-        }
-    },[])
 
-    const  = () => {
-        // handleClickItem(0)
-    }
+   
   
  
     return(
