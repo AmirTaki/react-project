@@ -107,24 +107,19 @@ const Section = () => {
     }, [])
 
 
-//  useEffect(() => {
-//   const Time = setInterval(() => {
-//      (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
-//   },4000)
-//   return() => {
-//     window.addEventListener('resize',  clearInterval(Time))    
-//   }
-//  })
-
-    useEffect(()=> {
-        const time = setInterval(() => {
-           dispatch({type : "nextSlide"  })
-        },4000)
-        return() => {
-            window.addEventListener('resize', clearInterval(time))
-        }
-    },)
+    // useEffect(()=> {
+    //     const time = setInterval(() => {
+    //        dispatch({type : "nextSlide"  })
+    //     },4000)
+    //     return() => {
+    //         window.addEventListener('resize', clearInterval(time))
+    //     }
+    // },)
    
+    useInterval(() => {
+        dispatch({type : "nextSlide"  })
+
+    }, 4000)
   
  
     return(
