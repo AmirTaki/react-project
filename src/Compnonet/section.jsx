@@ -14,6 +14,8 @@ const Section = () => {
         }
     }
     const [state, dispatch] =  useReducer(reducer ,{
+        conter : 0,
+        changeColor : {},
 
     })
 
@@ -21,7 +23,9 @@ const Section = () => {
     const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({ })
 
-    
+    const  handleClickItem2 = (index) => {
+        
+    }
     const handleClickItem = (index) => {        
         setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
