@@ -33,6 +33,10 @@ const Section = () => {
                 return {...state,
                     changeColor : newColors
               }
+
+            case "nextSlide" : {
+                
+            }
                 
             case  "newColor" :
                 return {...state, 
