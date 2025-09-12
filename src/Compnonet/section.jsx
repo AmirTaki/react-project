@@ -57,17 +57,18 @@ const Section = () => {
     })
 
     const imgList = [0, 1, 2, 3, 4]
-    const  handleClickItem = (index) => {
-        dispatch({type : "conter", payload : index})  
-        dispatch({type : "changeImage",payload : index}) 
-        dispatch({type : "changeColors"})
-        dispatch({type : "newColor" , payload : index})
+    // const  handleClickItem = (index) => {
+    //     dispatch({type : "conter", payload : index})  
+    //     dispatch({type : "changeImage",payload : index}) 
+    //     dispatch({type : "changeColors"})
+    //     dispatch({type : "newColor" , payload : index})
    
+    // }
+    const handleClickItem = (index) => {
+        dispatch({type : 'changeImage', payload : index})
     }
 
     const handlerRight = () => {
-        // (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
-    
         dispatch({type : "nextSlide"  })
     }
 
@@ -77,18 +78,18 @@ const Section = () => {
     }
 
 
-    useEffect(() => {
-        const Time = setInterval(() => {
-            (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
-        },4000)
+    // useEffect(() => {
+    //     const Time = setInterval(() => {
+    //         (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
+    //     },4000)
 
-        return() => {
-            window.addEventListener('resize',  clearInterval(Time))    
-        }
-    })
+    //     return() => {
+    //         window.addEventListener('resize',  clearInterval(Time))    
+    //     }
+    // })
  
     useEffect(() => {
-        handleClickItem(0)
+        // handleClickItem(0)
         window.addEventListener('resize', setHandlerImg)
         return() => {
             window.addEventListener('resize',  setHandlerImg)    
@@ -96,7 +97,7 @@ const Section = () => {
     },[])
 
     const setHandlerImg = () => {
-        handleClickItem(0)
+        // handleClickItem(0)
     }
   
  
