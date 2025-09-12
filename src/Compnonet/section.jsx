@@ -7,7 +7,11 @@ import img5 from "../assets/img5.jpg"
 
 
 function useInterval (callback, delay) {
-    
+    const savedCallBack  = useRef();
+
+    useEffect(()=> {
+        savedCallBack.current = callback;
+    }, [callback])
 }
 
 
