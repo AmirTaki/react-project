@@ -25,7 +25,6 @@ function useInterval (callback, delay) {
     }, [delay])
 }
 
-
 const Section = () => {
 
     const sliderRef  =  useRef(null)
