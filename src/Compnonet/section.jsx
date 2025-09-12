@@ -36,7 +36,7 @@ const Section = () => {
             }
                 
             case "prevSlide" : {
-                const prevCounter = 
+                const prevCounter = state.conter <= 0 ? (document.querySelectorAll('.itemImg').length ) - 1 :  state.conter -1 ;
                 return {...state, conter : prevCounter}
             }
 
@@ -71,7 +71,6 @@ const Section = () => {
 
     const handlerLeft = () => {
         dispatch({type : 'prevSlide'})
-        (state.conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(state.conter - 1)
 
     }
 
