@@ -12,20 +12,21 @@ const Section = () => {
             case "conter" : 
                 return {...state, conter : action.payload}
             
-                case "changeImage" :
-                    const SliderImage =  document.querySelector(".sliderImage")
-                    SliderImage.style.scrollBehavior = "smooth"
-                    SliderImage.scrollLeft = (index * window.innerWidth) - 10
+            case "changeImage" :
+                const SliderImage =  document.querySelector(".sliderImage")
+                SliderImage.style.scrollBehavior = "smooth"
+                SliderImage.scrollLeft = (index * window.innerWidth) - 10
                 return{...state}
-            
-                case  "changeColors" : 
-                   const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
-                        color[item] = false;
-                        return color
-                    })
+        
+            case  "changeColors" : 
+            const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
+                    color[item] = false;
+                    return color
+                })
                 return {...state,
                     changeColor : newColors
                 }
+                
 
         }
     }
@@ -43,6 +44,7 @@ const Section = () => {
         dispatch({type : "conter", payload : index})  
         dispatch({type : "changeImage"}) 
         dispatch({type : "changeColors"})
+        dispatch({type : "newColor" , color : index})
    
     }
     const handleClickItem = (index) => {        
