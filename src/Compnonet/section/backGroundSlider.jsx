@@ -1,9 +1,9 @@
 import { act, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react"
-import img1 from "../assets/img1.webp"
-import img2 from "../assets/img2.jpg"
-import img3 from "../assets/img3.jpg"
-import img4 from "../assets/img4.jpg"
-import img5 from "../assets/img5.jpg"
+import img1 from "../../assets/img1.webp"
+import img2 from "../../assets/img2.jpg"
+import img3 from "../../assets/img3.jpg"
+import img4 from "../../assets/img4.jpg"
+import img5 from "../../assets/img5.jpg"
 
 
 function useInterval (callback, delay) {
@@ -25,7 +25,7 @@ function useInterval (callback, delay) {
     }, [delay])
 }
 
-const Section = () => {
+const BackGroundSlider = () => {
 
     const sliderRef  =  useRef(null)
   
@@ -162,4 +162,4 @@ const Section = () => {
     )
 }
 
-export default Section;
+export default BackGroundSlider;

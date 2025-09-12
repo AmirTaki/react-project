@@ -1,8 +1,8 @@
 import './App.css'
 
-import Section from './Compnonet/section'
 import Header from "./Compnonet/header/header"
 import Test from './Compnonet/header/test'
+import Section from './Compnonet/section/section'
 
 
 
