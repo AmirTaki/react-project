@@ -11,11 +11,16 @@ const Section = () => {
         switch(action.type){
             case "conter" : 
                 return {...state, conter : action.payload}
-            case "changeImage" :
+            
+                case "changeImage" :
                     const SliderImage =  document.querySelector(".sliderImage")
                     SliderImage.style.scrollBehavior = "smooth"
                     SliderImage.scrollLeft = (index * window.innerWidth) - 10
-                return{state},
+                return{...state}
+            
+                case  "" : 
+                return state;
+
         }
     }
     const [state, dispatch] =  useReducer(reducer ,{
@@ -29,7 +34,9 @@ const Section = () => {
     const [changeColor, setChangeColor] = useState({ })
 
     const  handleClickItem2 = (index) => {
-        dispatch({type : "conter", payload : index})   
+        dispatch({type : "conter", payload : index})  
+        dispatch({type : "changeImage"}) 
+        
    
     }
     const handleClickItem = (index) => {        
