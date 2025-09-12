@@ -15,21 +15,22 @@ const Section = () => {
             case "changeImage" :
                 const SliderImage =  document.querySelector(".sliderImage")
                 SliderImage.style.scrollBehavior = "smooth"
-                SliderImage.scrollLeft = (index * window.innerWidth) - 10
-                return{...state}
+                SliderImage.scrollLeft = (action.payload * window.innerWidth) - 10
+                return{...state
+              }
         
             case  "changeColors" : 
                 const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
                         color[item] = false;
                         return color
-                    })
+                    },{})
                 return {...state,
                     changeColor : newColors
-                }
+              }
                 
             case  "newColor" :
                 return {...state, 
-                    changeColor : {  [index] : true }
+                    changeColor : {  [action.payload] : true }
                 }
                 
 
@@ -47,7 +48,7 @@ const Section = () => {
 
     const  handleClickItem = (index) => {
         dispatch({type : "conter", payload : index})  
-        dispatch({type : "changeImage"}) 
+        dispatch({type : "changeImage",payload : index}) 
         dispatch({type : "changeColors"})
         dispatch({type : "newColor" , payload : index})
    
@@ -68,18 +69,18 @@ const Section = () => {
     // }
 
     const handlerRight = () => {
-        (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
+        (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
     }
 
     const handlerLeft = () => {
-        (conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(conter - 1)
+        (state.conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(state.conter - 1)
 
     }
 
 
     useEffect(() => {
         const Time = setInterval(() => {
-            (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
+            (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
         },4000)
 
         return() => {
@@ -133,7 +134,7 @@ const Section = () => {
                     {imgList.map((item, index) => (
                         
                         <div onClick = {() => {handleClickItem(index)}} 
-                        className={`clickImgItem rounded-2xl w-[20px] h-[10px]  bg-sky-300 hover:bg-blue-500! cursor-pointer! duration-300! ${changeColor[index] ? "bg-red-800! scale-150! w-10!" : "bg-gray-300! scale-100!"}`} key  = {index}> </div>
+                        className={`clickImgItem rounded-2xl w-[20px] h-[10px]  bg-sky-300 hover:bg-blue-500! cursor-pointer! duration-300! ${state.changeColor[index] ? "bg-red-800! scale-150! w-10!" : "bg-gray-300! scale-100!"}`} key  = {index}> </div>
                     ))}
                 </div>
             </div>
