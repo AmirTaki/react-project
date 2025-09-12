@@ -60,7 +60,7 @@ const Section = () => {
     const imgList = [0, 1, 2, 3, 4]
 
     const handleClickItem = (index) => {
-        dispatch({type : 'changeImage', payload : index})
+        dispatch({type : 'conter', payload : index})
     }
 
     const handlerRight = () => {
