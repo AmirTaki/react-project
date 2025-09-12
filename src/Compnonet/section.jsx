@@ -7,29 +7,11 @@ import img5 from "../assets/img5.jpg"
 
 const Section = () => {
 
-  
-   const  reducerSection = (state, action) => {
-     switch(action.type){
-        case "selectIndex":
-            return {...state , conter :  action.payload}
-     }
-   }
-   
-   const [state, dispatch] = useReducer(reducerSection, {
-        conter : 0,
-        imgList : [0, 1, 2, 3, 4],
-        changeColor : {}
-    })
-
-    // const imgList = [0, 1, 2, 3, 4]
+    const imgList = [0, 1, 2, 3, 4]
     const [conter, setConter] = useState(0);
     const [changeColor, setChangeColor] = useState({ })
 
     
-    const handleClickItem2 = (index) => {
-        dispatch({type : selectIndex, payload :  index})
-    }
-
     const handleClickItem = (index) => {        
         setConter((conter) => (conter = index))
         const SliderImage =  document.querySelector(".sliderImage")
