@@ -44,9 +44,6 @@ const Section = () => {
     })
 
     const imgList = [0, 1, 2, 3, 4]
-    // const [conter, setConter] = useState(0);
-    // const [changeColor, setChangeColor] = useState({ })
-
     const  handleClickItem = (index) => {
         dispatch({type : "conter", payload : index})  
         dispatch({type : "changeImage",payload : index}) 
@@ -54,20 +51,6 @@ const Section = () => {
         dispatch({type : "newColor" , payload : index})
    
     }
-    // const handleClickItem = (index) => {        
-    //     setConter((conter) => (conter = index))
-    //     const SliderImage =  document.querySelector(".sliderImage")
-    //     SliderImage.style.scrollBehavior = "smooth"
-    //     SliderImage.scrollLeft = (index * window.innerWidth) - 10
-    //     setChangeColor((colors) => {
-    //         const newColors = {};
-    //         for (const color in colors){
-    //             colors[color] = false
-    //         }
-    //         return newColors;
-    //     })
-    //     setChangeColor((color) => ({...color, [index] : true}) )
-    // }
 
     const handlerRight = () => {
         (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
@@ -106,7 +89,7 @@ const Section = () => {
         <div className={` mt-[101px]  h-[600px]`}>
             
             <div className=" relative!">
-                <div  className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
+                <div ref = {sliderRef} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
                     <div className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
                         <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
