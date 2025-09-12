@@ -18,8 +18,14 @@ const Section = () => {
                     SliderImage.scrollLeft = (index * window.innerWidth) - 10
                 return{...state}
             
-                case  "" : 
-                return state;
+                case  "changeColors" : 
+                   const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
+                        color[item] = false;
+                        return color
+                    })
+                return {...state,
+                    changeColor : newColors
+                }
 
         }
     }
@@ -36,7 +42,7 @@ const Section = () => {
     const  handleClickItem2 = (index) => {
         dispatch({type : "conter", payload : index})  
         dispatch({type : "changeImage"}) 
-        
+        dispatch({type : "changeColors"})
    
     }
     const handleClickItem = (index) => {        
