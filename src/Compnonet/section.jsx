@@ -31,9 +31,6 @@ const Section = () => {
                     return {...state,
                         changeColor : Colors
                 }
-
-                
-
             
             case "nextSlide" : {
                 console.log('ok')
@@ -88,7 +85,12 @@ const Section = () => {
         }
     }, [])
 
+    useEffect(()=> {
+        const time = setInterval(() => {
 
+        },4000)
+        clearInterval(time)
+    },[])
    
   
  
