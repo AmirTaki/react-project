@@ -65,6 +65,7 @@ const Section = () => {
     }
 
     const handlerLeft = () => {
+        dispatch({type : 'prevSlide'})
         (state.conter <= 0 ) ? handleClickItem((document.querySelectorAll('.itemImg').length ) - 1 ) : handleClickItem(state.conter - 1)
 
     }
