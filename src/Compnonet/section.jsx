@@ -87,7 +87,14 @@ const Section = () => {
  
 
     useEffect(() => {
-
+        const setHandlerImg = () => {
+            handleClickItem(0)
+        }
+        setHandlerImg();
+        window.addEventListener('resize', setHandlerImg);
+        return() => {
+            window.addEventListener('resize', setHandlerImg)
+        }
     }, [])
 
     useEffect(() => {
@@ -98,7 +105,7 @@ const Section = () => {
         }
     },[])
 
-    const setHandlerImg = () => {
+    const  = () => {
         // handleClickItem(0)
     }
   
