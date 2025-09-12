@@ -15,9 +15,9 @@ const Section = () => {
                 return {...state, conter : action.payload}
             
             case "changeImage" :
-                if(sliderRef){
-                    sliderRef.current.style.scrollBehavior = "smooth"
-                    sliderRef.current.scrollLeft = action.payload * sliderRef.current.offsetWdith;
+                if(sliderRef.current){
+                    sliderRef.current.style.scrollBehavior = "smooth";
+                    sliderRef.current.scrollLeft = action.payload * sliderRef.current.offsetWidth;
                 }
                 return {...state}
              
@@ -31,6 +31,7 @@ const Section = () => {
             }
 
             case "nextSlide" : {
+                console.log('ok')
                 const nextConunter = state.conter >=  (document.querySelectorAll('.itemImg').length ) - 1 ? 0 :  state.conter + 1             
                 return {...state, conter : nextConunter}
             }
@@ -52,7 +53,7 @@ const Section = () => {
     }
     const [state, dispatch] =  useReducer(reducer ,{
         conter : 0,
-        changeColor : {},
+        changeColor : {0 : true},
 
     })
 
@@ -76,7 +77,9 @@ const Section = () => {
         dispatch({type : 'prevSlide'})
 
     }
-
+    useEffect(() => {
+        dispatch({type : 'changeImage', payload : state.conter})
+    }, [state.conter])
 
     // useEffect(() => {
     //     const Time = setInterval(() => {
