@@ -5,6 +5,12 @@ import img3 from "../assets/img3.jpg"
 import img4 from "../assets/img4.jpg"
 import img5 from "../assets/img5.jpg"
 
+
+function useInterval (callback, delay) {
+    
+}
+
+
 const Section = () => {
 
     const sliderRef  =  useRef(null)
