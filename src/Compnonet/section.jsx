@@ -22,19 +22,17 @@ const Section = () => {
                 return {...state}
              
             case  "changeColors" : 
-            //     const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
-            //             color[item] = false;
-            //             return color
-            //         },{})
-            //     return {...state,
-            //         changeColor : newColors
-            // }
+                const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
+                    color[item] = false;
+                    return color
+                },{})
 
-                const newColors = {};
-                state.changeColor.forEach((_, i) => {
-                    newColors[i] = i === action.payload;
-                });
-                return {...state, changeColor : newColors};
+                const Colors =  {...newColors, [action.payload] : true}
+                    return {...state,
+                        changeColor : Colors
+                }
+
+                
 
             
             case "nextSlide" : {
@@ -55,7 +53,7 @@ const Section = () => {
     }
     const [state, dispatch] =  useReducer(reducer ,{
         conter : 0,
-        changeColor : {0 : true},
+        changeColor : {},
 
     })
 
