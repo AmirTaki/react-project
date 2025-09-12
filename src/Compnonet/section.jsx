@@ -32,10 +32,12 @@ const Section = () => {
                     },{})
                 return {...state,
                     changeColor : newColors
-              }
+            }
 
             case "nextSlide" : {
+// (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
 
+                state.conter >=
             }
                 
             case  "newColor" :
@@ -101,19 +103,19 @@ const Section = () => {
             
             <div className=" relative!">
                 <div ref = {sliderRef} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
-                    <div className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
+                    <div ref = {itemImg}  className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
                         <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img2} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img3} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img4} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img5} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
                
