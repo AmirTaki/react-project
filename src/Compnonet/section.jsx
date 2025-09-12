@@ -19,12 +19,17 @@ const Section = () => {
                 return{...state}
         
             case  "changeColors" : 
-            const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
-                    color[item] = false;
-                    return color
-                })
+                const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
+                        color[item] = false;
+                        return color
+                    })
                 return {...state,
                     changeColor : newColors
+                }
+                
+            case  "newColor" :
+                return {...state, 
+                    changeColor : {  [index] : true }
                 }
                 
 
@@ -37,30 +42,30 @@ const Section = () => {
     })
 
     const imgList = [0, 1, 2, 3, 4]
-    const [conter, setConter] = useState(0);
-    const [changeColor, setChangeColor] = useState({ })
+    // const [conter, setConter] = useState(0);
+    // const [changeColor, setChangeColor] = useState({ })
 
-    const  handleClickItem2 = (index) => {
+    const  handleClickItem = (index) => {
         dispatch({type : "conter", payload : index})  
         dispatch({type : "changeImage"}) 
         dispatch({type : "changeColors"})
-        dispatch({type : "newColor" , color : index})
+        dispatch({type : "newColor" , payload : index})
    
     }
-    const handleClickItem = (index) => {        
-        setConter((conter) => (conter = index))
-        const SliderImage =  document.querySelector(".sliderImage")
-        SliderImage.style.scrollBehavior = "smooth"
-        SliderImage.scrollLeft = (index * window.innerWidth) - 10
-        setChangeColor((colors) => {
-            const newColors = {};
-            for (const color in colors){
-                colors[color] = false
-            }
-            return newColors;
-        })
-        setChangeColor((color) => ({...color, [index] : true}) )
-    }
+    // const handleClickItem = (index) => {        
+    //     setConter((conter) => (conter = index))
+    //     const SliderImage =  document.querySelector(".sliderImage")
+    //     SliderImage.style.scrollBehavior = "smooth"
+    //     SliderImage.scrollLeft = (index * window.innerWidth) - 10
+    //     setChangeColor((colors) => {
+    //         const newColors = {};
+    //         for (const color in colors){
+    //             colors[color] = false
+    //         }
+    //         return newColors;
+    //     })
+    //     setChangeColor((color) => ({...color, [index] : true}) )
+    // }
 
     const handlerRight = () => {
         (conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(conter + 1)     
