@@ -44,7 +44,9 @@ const Section = () => {
                 return {...state, 
                     changeColor : {  [action.payload] : true }
                 }
-                
+            default :{
+                return {...state}
+            }
 
         }
     }
