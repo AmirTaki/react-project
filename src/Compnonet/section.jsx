@@ -22,14 +22,21 @@ const Section = () => {
                 return {...state}
              
             case  "changeColors" : 
-                const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
-                        color[item] = false;
-                        return color
-                    },{})
-                return {...state,
-                    changeColor : newColors
-            }
+            //     const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
+            //             color[item] = false;
+            //             return color
+            //         },{})
+            //     return {...state,
+            //         changeColor : newColors
+            // }
 
+                const newColors = {};
+                state.changeColor.forEach((_, i) => {
+                    newColors[i] = i === action.payload;
+                });
+                return {...state, changeColor : newColors};
+
+            
             case "nextSlide" : {
                 console.log('ok')
                 const nextConunter = state.conter >=  (document.querySelectorAll('.itemImg').length ) - 1 ? 0 :  state.conter + 1             
