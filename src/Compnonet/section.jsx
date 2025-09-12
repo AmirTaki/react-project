@@ -87,7 +87,7 @@ const Section = () => {
 
     useEffect(()=> {
         const time = setInterval(() => {
-
+            handleClickItem(state.conter + 1)
         },4000)
         clearInterval(time)
     },[])
