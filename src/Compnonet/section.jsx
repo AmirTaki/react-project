@@ -8,7 +8,6 @@ import img5 from "../assets/img5.jpg"
 const Section = () => {
 
     const sliderRef  =  useRef(null)
-    const itemImg = useRef(null)
   
     const reducer = (state, action) => {
         switch(action.type){
@@ -21,12 +20,7 @@ const Section = () => {
                     sliderRef.current.scrollLeft = action.payload * sliderRef.current.offsetWdith;
                 }
                 return {...state}
-                // const SliderImage =  document.querySelector(".sliderImage")
-                // SliderImage.style.scrollBehavior = "smooth"
-                // SliderImage.scrollLeft = (action.payload * window.innerWidth) - 10
-                // return{...state
-            //   }
-        
+             
             case  "changeColors" : 
                 const newColors =  Object.keys(state.changeColor).reduce((color, item) =>{
                         color[item] = false;
@@ -104,19 +98,19 @@ const Section = () => {
             
             <div className=" relative!">
                 <div ref = {sliderRef} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
-                    <div ref = {itemImg}  className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
+                    <div   className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
                         <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img2} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img3} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img4} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
-                    <div ref = {itemImg} className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
+                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img5} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
                
