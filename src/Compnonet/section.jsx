@@ -58,13 +58,7 @@ const Section = () => {
     })
 
     const imgList = [0, 1, 2, 3, 4]
-    // const  handleClickItem = (index) => {
-    //     dispatch({type : "conter", payload : index})  
-    //     dispatch({type : "changeImage",payload : index}) 
-    //     dispatch({type : "changeColors"})
-    //     dispatch({type : "newColor" , payload : index})
-   
-    // }
+
     const handleClickItem = (index) => {
         dispatch({type : 'changeImage', payload : index})
     }
@@ -91,6 +85,11 @@ const Section = () => {
     //     }
     // })
  
+
+    useEffect(() => {
+
+    }, [])
+
     useEffect(() => {
         // handleClickItem(0)
         window.addEventListener('resize', setHandlerImg)
