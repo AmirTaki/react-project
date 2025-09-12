@@ -53,7 +53,7 @@ const BackGroundSlider = () => {
                 }
             
             case "nextSlide" : {
-                console.log('ok')
+                // imgList.length
                 const nextConunter = state.conter >=  (document.querySelectorAll('.itemImg').length ) - 1 ? 0 :  state.conter + 1             
                 return {...state, conter : nextConunter}
             }
