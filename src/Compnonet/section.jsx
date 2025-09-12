@@ -35,7 +35,7 @@ const Section = () => {
               }
 
             case "nextSlide" : {
-                
+
             }
                 
             case  "newColor" :
@@ -62,7 +62,9 @@ const Section = () => {
     }
 
     const handlerRight = () => {
-        (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
+        // (state.conter >= (document.querySelectorAll('.itemImg').length ) - 1 ) ? handleClickItem(0):handleClickItem(state.conter + 1)     
+    
+        dispatch({type : "nextSlide"  })
     }
 
     const handlerLeft = () => {
