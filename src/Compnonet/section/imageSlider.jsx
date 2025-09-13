@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
     const [heart, setHeart] = useState('bi bi-heart')
+    const imgSlider =  useRef(null)
     const handlerHeart = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
     return (
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
-            <div className="
-                sliderImage
-                w-[90%] h-[520px] bg-white
-                flex! flex-wrap flex-col justify-center! items-center overflow-x-scroll 
-                max-md:grid! max-md:grid-cols-2! max-md:justify-items-center max-md:items-center max-md:overflow-hidden! 
-                max-sm:grid! max-sm:grid-cols-1! max-sm:justify-items-center max-sm:items-center max-sm:overflow-hidden! 
+            <div
+                ref = {imgSlider}
+                className="
+                    sliderImage
+                    w-[90%] h-[520px] bg-white
+                    flex! flex-wrap flex-col justify-center! items-center overflow-x-scroll 
+                    max-md:grid! max-md:grid-cols-2! max-md:justify-items-center max-md:items-center max-md:overflow-hidden! 
+                    max-sm:grid! max-sm:grid-cols-1! max-sm:justify-items-center max-sm:items-center max-sm:overflow-hidden! 
                 "
             
             >
