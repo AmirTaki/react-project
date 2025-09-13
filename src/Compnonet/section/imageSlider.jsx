@@ -10,8 +10,10 @@ const ImageSlider = () => {
                 "
             
             >
-                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-200 lg:mx-3 my-1 overflow-hidden rounded-4xl">
-                    <div >
+                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-200 lg:mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative">
+                        <div className=""><i class="bi bi-heart"></i></div>
+                        <div className=""><i class="bi bi-heart-fill"></i></div>
                         <img src={IMG} alt=""  />
                     </div>
                 </div>
