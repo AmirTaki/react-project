@@ -6,7 +6,7 @@ const ImageSlider = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
     return (
-       <div className="w-[100%] h-[600px] bg-blue-500 flex items-center justify-center ">
+       <div className="w-[100%] h-[600px] bg-white flex items-center justify-center ">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div className="
                 sliderImage

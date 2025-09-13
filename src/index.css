@@ -66,17 +66,18 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 .sliderImage::-webkit-scrollbar{
-    /* width: 5px; */
     height: 7px;
     border-radius: 10px;
-    background-color: hsl(0, 0%, 80%);
+    background-color: hsl(0, 0%, 89%);
+     transition:    background-color .5s;
 }
 
 .sliderImage::-webkit-scrollbar-thumb{
     border-radius: 10px;
-    background-color: hsl(0, 0%, 27%);
+    background-color: hsl(0, 0%, 70%);
 }
 .sliderImage::-webkit-scrollbar-thumb:hover {
     background-color: black; 
+    transition:    background-color .5s;
     cursor: pointer;
 }
