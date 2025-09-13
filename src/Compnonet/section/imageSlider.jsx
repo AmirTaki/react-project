@@ -10,8 +10,8 @@ const ImageSlider = () => {
             <div className="
                 w-[90%] h-[500px] bg-red-500 lg:bg-yellow-500 sm:bg-green-500
                 lg:flex! lg:flex-wrap lg:flex-col lg:justify-center! lg:items-center lg:overflow-x-scroll! 
-                sm:grid sm:grid-cols-2 sm:justify-items-center sm:items-center sm:overflow-hidden
-                grid grid-cols-1 justify-items-center items-center overflow-hidden
+                sm:grid! sm:grid-cols-2! sm:justify-items-center sm:items-center sm:overflow-hidden
+                grid! grid-cols-1! justify-items-center items-center overflow-hidden
                 "
             
             >
@@ -25,8 +25,10 @@ const ImageSlider = () => {
                         </div>
                         <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
                     </div>
-                    <div className="bg-red-500 flex flex-col">
-                        <div></div>
+                    <div className="bg-red-500 flex flex-col ">
+                        <div className="bg-blue-500 p-2 font-bold text-gray-400 hover:text-gray-800 duration-300">
+                            30$
+                        </div>
                     </div>
                 </div>
                 
