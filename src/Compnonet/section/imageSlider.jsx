@@ -23,7 +23,10 @@ const ImageSlider = () => {
                         `}>
                             <i className={`${heart}`}></i>
                         </div>
-                        <img src={IMG} alt=""  />
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-red-500 flex flex-col">
+                        <div></div>
                     </div>
                 </div>
                 
