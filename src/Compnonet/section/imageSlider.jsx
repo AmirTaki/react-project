@@ -25,7 +25,7 @@ const ImageSlider = () => {
                         </div>
                         <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
                     </div>
-                    <div className="bg-white flex flex-col  items-center ">
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
                         <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
                             30$
                         </div>
@@ -37,6 +37,7 @@ const ImageSlider = () => {
                         </div>
                     </div>
                 </div>
+           
            
                 
                 
