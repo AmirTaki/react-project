@@ -18,13 +18,9 @@ const ImageSlider = () => {
             imgSlider.current.scrollLeft += 300 
         }
     }
-    const wheel = () => {
-       useEffect(() => {
-        const handleWheel = (e) => {
-            e.preventDefault(); 
-        }
-       },[])
-    }
+    document.querySelector('.sliderImage').addEventListener("wheel", (e)=>{
+        e.preventDefault();
+    })
     
     const handlerHeart = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
