@@ -18,6 +18,7 @@ const ImageSlider = () => {
             imgSlider.current.scrollLeft += 300 
         }
     }
+    
     const handlerHeart = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
@@ -25,6 +26,7 @@ const ImageSlider = () => {
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div
+                onWheel={(event)=> {event.preventDefault()}}
                 ref = {imgSlider}
                 className="
                     sliderImage
@@ -47,7 +49,7 @@ const ImageSlider = () => {
                             <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
                         </div>
                         <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                            <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            <div className="bg-white w-[100%] p-2 font-medium text-gray-600">
                                 30$
                             </div>
                             <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
