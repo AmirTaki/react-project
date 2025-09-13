@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
     const [heart, setHeart] = useState('bi bi-heart')
@@ -19,7 +19,11 @@ const ImageSlider = () => {
         }
     }
     const wheel = () => {
-        
+        useEffect(() => {
+            const handleWheeel = (event) => {
+                event.preventDefault();            
+            }
+        })
     }
     
     const handlerHeart = () => {
