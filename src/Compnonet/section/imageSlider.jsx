@@ -1,9 +1,12 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
     const [heart, setHeart] = useState('bi bi-heart')
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    const [state, dispatch] = useReducer(reducer, {
+
+    })
     const leftHandler = () => {
         if(imgSlider.current)
         {
