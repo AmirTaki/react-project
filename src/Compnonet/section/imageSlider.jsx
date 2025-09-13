@@ -232,10 +232,10 @@ const ImageSlider = () => {
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-700 lg:mx-3 my-1"></div> */}
 
             </div>
-            <div className="bg-amber-300">
+            <div className="bg-amber-300 max-md:hidden absolute top-[50%] right-[1%]">
                 <i class="bi bi-chevron-double-right"></i>
             </div>
-            <div className="bg-red-500">
+            <div className="bg-red-500 max-md:hidden absolute top-[50%] left-[1%]">
                 <i class="bi bi-chevron-double-left"></i>
             </div>
        </div>
