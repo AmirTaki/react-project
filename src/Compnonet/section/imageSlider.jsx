@@ -7,7 +7,10 @@ const ImageSlider = () => {
     const reducer = (state, action) => {
         switch(action.type){
             case "heart":
-                return {...state}
+                return {...state, heart : {
+                    ...state.heart, 
+                    [action.payload] : !state.heart[action.payload]
+                }}
 
             default : {
                 return {...state}
