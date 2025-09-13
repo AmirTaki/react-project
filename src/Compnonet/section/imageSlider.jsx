@@ -4,7 +4,18 @@ const ImageSlider = () => {
     const [heart, setHeart] = useState('bi bi-heart')
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "heart":
+                return {...state}
+
+            default : {
+                return {...state}
+            }
+        }
+    }
     const [state, dispatch] = useReducer(reducer, {
+        heart : {},
 
     })
     const leftHandler = () => {
