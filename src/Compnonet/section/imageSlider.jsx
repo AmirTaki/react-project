@@ -15,7 +15,7 @@ const ImageSlider = () => {
                 "
             
             >
-                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-200 lg:mx-3 my-1 overflow-hidden rounded-2xl">
+                <div className="w-[250px] lg:h-[420px]  h-[240px] bg-sky-200 lg:mx-3 my-1 overflow-hidden rounded-2xl">
                     <div className="relative">
                         <div onClick = {handlerHeart} 
                         className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
@@ -25,13 +25,14 @@ const ImageSlider = () => {
                         </div>
                         <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
                     </div>
-                    <div className="bg-red-500 flex flex-col ">
-                        <div className="bg-white p-2 font-bold text-gray-700">
+                    <div className="bg-white flex flex-col items-center ">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
                             30$
                         </div>
-                        <div className="bg-white p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
                             Texas Tech Red Raiders Women's  College World Series Participant
                         </div>
+                        <div className="bg-blue-400"></div>
                     </div>
                 </div>
                 
