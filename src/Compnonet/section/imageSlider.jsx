@@ -19,11 +19,9 @@ const ImageSlider = () => {
         }
     }
     const wheel = () => {
-        useEffect(() => {
-            const handleWheeel = (event) => {
-                event.preventDefault();            
-            }
-        })
+       useEffect(() => {
+
+       },[])
     }
     
     const handlerHeart = () => {
@@ -33,6 +31,7 @@ const ImageSlider = () => {
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div
+                onWheel={wheel}
                 ref = {imgSlider}
                 className="
                     sliderImage
