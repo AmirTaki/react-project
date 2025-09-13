@@ -1,5 +1,10 @@
+import { useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
+    const [heart, setHeart] = useState('bi bi-heart')
+    const handlerHeart = () => {
+
+    }
     return (
        <div className="w-[100%] h-[600px] bg-blue-500 flex items-center justify-center">
             <div className="
@@ -12,7 +17,7 @@ const ImageSlider = () => {
             >
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-200 lg:mx-3 my-1 overflow-hidden rounded-2xl">
                     <div className="relative">
-                        <div className="absolute right-2 top-2 text-gray-500 cursor-pointer hover:text-gray-900  duration-300"><i class="bi bi-heart"></i></div>
+                        <div onClick = {handlerHeart} className="absolute right-2 top-2 text-gray-500 cursor-pointer hover:text-gray-900  duration-300"><i className={`${heart}`}></i></div>
                         {/* <div className=""><i class="bi bi-heart-fill"></i></div> */}
                         <img src={IMG} alt=""  />
                     </div>
