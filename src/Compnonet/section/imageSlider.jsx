@@ -3,7 +3,7 @@ import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
     const [heart, setHeart] = useState('bi bi-heart')
     const handlerHeart = () => {
-
+       setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
     return (
        <div className="w-[100%] h-[600px] bg-blue-500 flex items-center justify-center">
