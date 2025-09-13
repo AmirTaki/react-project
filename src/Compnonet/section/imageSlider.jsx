@@ -16,7 +16,183 @@ const ImageSlider = () => {
                 "
             
             >
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                    <div className="relative ">
+                        <div onClick = {handlerHeart} 
+                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
+                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                        `}>
+                            <i className={`${heart}`}></i>
+                        </div>
+                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
+                    </div>
+                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
+                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
+                            30$
+                        </div>
+                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
+                        </div>
+                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
+                            Performance
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
                     <div className="relative ">
                         <div onClick = {handlerHeart} 
                         className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
@@ -39,169 +215,7 @@ const ImageSlider = () => {
                     </div>
                 </div>
            
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
-                    <div className="relative ">
-                        <div onClick = {handlerHeart} 
-                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
-                        `}>
-                            <i className={`${heart}`}></i>
-                        </div>
-                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
-                    </div>
-                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
-                            30$
-                        </div>
-                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                            Texas Tech Red Raiders Women's  College World Series Participant
-                        </div>
-                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                            Performance
-                        </div>
-                    </div>
-                </div>
-           
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
-                    <div className="relative ">
-                        <div onClick = {handlerHeart} 
-                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
-                        `}>
-                            <i className={`${heart}`}></i>
-                        </div>
-                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
-                    </div>
-                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
-                            30$
-                        </div>
-                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                            Texas Tech Red Raiders Women's  College World Series Participant
-                        </div>
-                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                            Performance
-                        </div>
-                    </div>
-                </div>
-           
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
-                    <div className="relative ">
-                        <div onClick = {handlerHeart} 
-                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
-                        `}>
-                            <i className={`${heart}`}></i>
-                        </div>
-                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
-                    </div>
-                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
-                            30$
-                        </div>
-                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                            Texas Tech Red Raiders Women's  College World Series Participant
-                        </div>
-                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                            Performance
-                        </div>
-                    </div>
-                </div>
-           
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
-                    <div className="relative ">
-                        <div onClick = {handlerHeart} 
-                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
-                        `}>
-                            <i className={`${heart}`}></i>
-                        </div>
-                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
-                    </div>
-                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
-                            30$
-                        </div>
-                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                            Texas Tech Red Raiders Women's  College World Series Participant
-                        </div>
-                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                            Performance
-                        </div>
-                    </div>
-                </div>
-           
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
-                    <div className="relative ">
-                        <div onClick = {handlerHeart} 
-                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
-                        `}>
-                            <i className={`${heart}`}></i>
-                        </div>
-                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
-                    </div>
-                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
-                            30$
-                        </div>
-                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                            Texas Tech Red Raiders Women's  College World Series Participant
-                        </div>
-                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                            Performance
-                        </div>
-                    </div>
-                </div>
-           
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
-                    <div className="relative ">
-                        <div onClick = {handlerHeart} 
-                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
-                        `}>
-                            <i className={`${heart}`}></i>
-                        </div>
-                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
-                    </div>
-                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
-                            30$
-                        </div>
-                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                            Texas Tech Red Raiders Women's  College World Series Participant
-                        </div>
-                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                            Performance
-                        </div>
-                    </div>
-                </div>
-           
-                <div className="w-[250px] h-[430px]  max-md:h-[250px] bg-white mx-3 my-1 overflow-hidden rounded-2xl">
-                    <div className="relative ">
-                        <div onClick = {handlerHeart} 
-                        className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                    ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
-                        `}>
-                            <i className={`${heart}`}></i>
-                        </div>
-                        <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
-                    </div>
-                    <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                        <div className="bg-white w-[100%] p-2 font-bold text-gray-700">
-                            30$
-                        </div>
-                        <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                            Texas Tech Red Raiders Women's  College World Series Participant
-                        </div>
-                        <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                            Performance
-                        </div>
-                    </div>
-                </div>
-           
-           
-                
+
                 
                 
                 {/* <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-300 lg:mx-3 my-1"></div>
