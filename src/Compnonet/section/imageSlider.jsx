@@ -13,10 +13,10 @@ const ImageSlider = () => {
     }
     const rightHandler = () => {
         if(imgSlider.current)
-                {
-                    imgSlider.current.style.scrollBehavior  = "smooth"
-                    imgSlider.current.scrollLeft += 300 
-                }
+        {
+            imgSlider.current.style.scrollBehavior  = "smooth"
+            imgSlider.current.scrollLeft += 300 
+        }
     }
     const handlerHeart = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
