@@ -8,7 +8,7 @@ const ImageSlider = () => {
     return (
        <div className="w-[100%] h-[600px] bg-blue-500 flex items-center justify-center">
             <div className="
-                w-[90%] h-[520px] bg-red-500 lg:bg-yellow-500 sm:bg-green-500
+                w-[90%] h-[520px] bg-red-500 lg:bg-yellow-500 @xs:bg-green-500
                 lg:flex! lg:flex-wrap lg:flex-col lg:justify-center! lg:items-center lg:overflow-x-scroll! 
                 sm:grid! sm:grid-cols-2! sm:justify-items-center sm:items-center sm:overflow-hidden
                 grid! grid-cols-1! justify-items-center items-center overflow-hidden
