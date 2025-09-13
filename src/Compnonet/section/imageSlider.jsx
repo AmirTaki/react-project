@@ -20,7 +20,9 @@ const ImageSlider = () => {
     }
     const wheel = () => {
        useEffect(() => {
-
+        const handleWheel = (e) => {
+            e.preventDefault(); 
+        }
        },[])
     }
     
