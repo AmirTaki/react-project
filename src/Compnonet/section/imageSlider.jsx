@@ -12,6 +12,13 @@ const ImageSlider = () => {
                     [action.payload] : !state.heart[action.payload]
                 }}
 
+            case "left" : 
+                if(imgSlider.current)
+                    {
+                        imgSlider.current.style.scrollBehavior  = "smooth"
+                        imgSlider.current.scrollLeft -= action.payload
+                    }
+                return{...state}
             default : {
                 return {...state}
             }
@@ -22,11 +29,7 @@ const ImageSlider = () => {
 
     })
     const leftHandler = () => {
-        if(imgSlider.current)
-        {
-            imgSlider.current.style.scrollBehavior  = "smooth"
-            imgSlider.current.scrollLeft -= 300 
-        }
+        dispatch({type : 'left', payload : 300})
     }
     const rightHandler = () => {
         if(imgSlider.current)
