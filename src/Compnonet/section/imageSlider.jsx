@@ -1,3 +1,4 @@
+import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
     return (
        <div className="w-[100%] h-[600px] bg-blue-500 flex items-center justify-center">
@@ -9,8 +10,15 @@ const ImageSlider = () => {
                 "
             
             >
-                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-200 lg:mx-3 my-1"></div>
-                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-300 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-200 lg:mx-3 my-1">
+                    <div className="">
+                        <img src={IMG} alt="" />
+                    </div>
+                </div>
+                
+                
+                
+                {/* <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-300 lg:mx-3 my-1"></div>
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-400 lg:mx-3 my-1"></div>
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-500 lg:mx-3 my-1"></div>
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-sky-600 lg:mx-3 my-1"></div>
@@ -20,7 +28,7 @@ const ImageSlider = () => {
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-400 lg:mx-3 my-1"></div>
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-500 lg:mx-3 my-1"></div>
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-600 lg:mx-3 my-1"></div>
-                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-700 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-700 lg:mx-3 my-1"></div> */}
 
             </div>
        </div>
