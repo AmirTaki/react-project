@@ -4,6 +4,7 @@ import BackGroundSlider from "./backGroundSlider";
 const Section = () => {
     return(
         <BackGroundSlider />
+        
     )
 }
 
