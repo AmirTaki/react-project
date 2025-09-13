@@ -9,6 +9,7 @@ const ImageSlider = () => {
        <div className="w-[100%] h-[600px] bg-blue-500 flex items-center justify-center ">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div className="
+                sliderImage
                 w-[90%] h-[520px] bg-white
                 flex! flex-wrap flex-col justify-center! items-center overflow-x-scroll 
                 max-md:grid! max-md:grid-cols-2! max-md:justify-items-center max-md:items-center max-md:overflow-hidden! 
