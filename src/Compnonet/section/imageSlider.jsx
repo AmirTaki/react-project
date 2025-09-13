@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
-    const [heart, setHeart] = useState('bi bi-heart')
+
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     const reducer = (state, action) => {
@@ -62,14 +62,15 @@ const ImageSlider = () => {
                 "
             
             >
+                {/*   ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"} */}
                 {LISTIMG.map((item,index) => (
                     <div key = {item} className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
                         <div className="relative ">
                             <div onClick = {() => {handlerHeart(index)}} 
                             className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                        ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"}
+                                      
                             `}>
-                                <i className={`${heart}`}></i>
+                                <i className={`${state.heart[index] ? "bi bi-heart-fill" : "bi bi-heart"}`}></i>
                             </div>
                             <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
                         </div>
