@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
-const ImageSlider = () => {
 
+const ImageSlider = () => {
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     const reducer = (state, action) => {
@@ -19,6 +19,14 @@ const ImageSlider = () => {
                         imgSlider.current.scrollLeft -= action.payload
                     }
                 return{...state}
+
+            case "right" : 
+                if(imgSlider.current)
+                    {
+                        imgSlider.current.style.scrollBehavior  = "smooth"
+                        imgSlider.current.scrollLeft += action.payload
+                    }
+                return{...state}
             default : {
                 return {...state}
             }
@@ -32,11 +40,7 @@ const ImageSlider = () => {
         dispatch({type : 'left', payload : 300})
     }
     const rightHandler = () => {
-        if(imgSlider.current)
-        {
-            imgSlider.current.style.scrollBehavior  = "smooth"
-            imgSlider.current.scrollLeft += 300 
-        }
+        dispatch({type : 'right', payload : 300})
     }
 
     useLayoutEffect(() => {
@@ -49,11 +53,9 @@ const ImageSlider = () => {
    
     const handlerHeart = (index) => {
         dispatch({type : 'heart', payload : index})
-    //    setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
     return (
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
-        {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div
                 ref = {imgSlider}
                 className="
@@ -62,8 +64,7 @@ const ImageSlider = () => {
                     flex! flex-wrap flex-col justify-center! items-center overflow-x-scroll 
                     max-md:grid! max-md:grid-cols-2! max-md:justify-items-center max-md:items-center max-md:overflow-hidden! 
                     max-sm:grid! max-sm:grid-cols-1! max-sm:justify-items-center max-sm:items-center max-sm:overflow-hidden! 
-                "
-            
+                "           
             >
    
                 {LISTIMG.map((item,index) => (
