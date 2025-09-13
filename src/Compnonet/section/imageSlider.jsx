@@ -41,8 +41,9 @@ const ImageSlider = () => {
     
     },[])
    
-    const handlerHeart = () => {
-       setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
+    const handlerHeart = (index) => {
+        dispatch({type : 'heart', payload : index})
+    //    setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
     return (
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
