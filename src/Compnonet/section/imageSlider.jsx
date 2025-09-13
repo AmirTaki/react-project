@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
 const ImageSlider = () => {
     const [heart, setHeart] = useState('bi bi-heart')
@@ -18,10 +18,15 @@ const ImageSlider = () => {
             imgSlider.current.scrollLeft += 300 
         }
     }
-    document.querySelector('.sliderImage').addEventListener("wheel", (e)=>{
-        e.preventDefault();
-    })
+
+    useLayoutEffect(() => {
+       imgSlider.current.addEventListener("wheel", (e)=>{
+            // e.preventDefault();
+            
+        })
     
+    },[])
+   
     const handlerHeart = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
@@ -29,7 +34,7 @@ const ImageSlider = () => {
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div
-                onWheel={wheel}
+       
                 ref = {imgSlider}
                 className="
                     sliderImage
@@ -67,10 +72,10 @@ const ImageSlider = () => {
 
             </div>
             <div onClick={rightHandler} className=" text-gray-300 hover:text-gray-700 cursor-pointer duration-300 max-md:hidden absolute top-[50%] right-[2%]">
-                <i class="bi bi-chevron-double-right"></i>
+                <i className="bi bi-chevron-double-right"></i>
             </div>
             <div onClick={leftHandler} className="text-gray-300 hover:text-gray-700 cursor-pointer duration-300 max-md:hidden absolute top-[50%] left-[2%]">
-                <i class="bi bi-chevron-double-left"></i>
+                <i className="bi bi-chevron-double-left"></i>
             </div>
        </div>
     )
