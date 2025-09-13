@@ -232,14 +232,13 @@ const ImageSlider = () => {
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-700 lg:mx-3 my-1"></div> */}
 
             </div>
-            <div className=" text-gray-300 hover:text-gray-700 cursor-pointer duration-300 max-md:hidden absolute top-[50%] right-[1%]">
+            <div className=" text-gray-300 hover:text-gray-700 cursor-pointer duration-300 max-md:hidden absolute top-[50%] right-[2%]">
                 <i class="bi bi-chevron-double-right"></i>
             </div>
-            <div className="text-gray-300 hover:text-gray-700 cursor-pointer duration-300 max-md:hidden absolute top-[50%] left-[1%]">
+            <div className="text-gray-300 hover:text-gray-700 cursor-pointer duration-300 max-md:hidden absolute top-[50%] left-[2%]">
                 <i class="bi bi-chevron-double-left"></i>
             </div>
        </div>
     )
 }
-//  sm:grid sm:grid-cols-3 sm:justify-items-center sm:items-center
 export default ImageSlider
