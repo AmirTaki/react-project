@@ -1,10 +1,14 @@
 import BackGroundSlider from "./backGroundSlider";
+import ImageSlider from "./imageSlider";
 
 
 const Section = () => {
     return(
-        <BackGroundSlider />
-        
+        <section>
+            <BackGroundSlider />
+            <ImageSlider />
+        </section>
+
     )
 }
 
