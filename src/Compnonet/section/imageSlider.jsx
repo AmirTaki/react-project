@@ -5,10 +5,18 @@ const ImageSlider = () => {
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     const leftHandler = () => {
-
+        if(imgSlider.current)
+        {
+            imgSlider.current.style.scrollBehavior  = "smooth"
+            imgSlider.current.scrollLeft -= 300 
+        }
     }
     const rightHandler = () => {
-        
+        if(imgSlider.current)
+                {
+                    imgSlider.current.style.scrollBehavior  = "smooth"
+                    imgSlider.current.scrollLeft += 300 
+                }
     }
     const handlerHeart = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
