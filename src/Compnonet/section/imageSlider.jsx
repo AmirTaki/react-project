@@ -4,14 +4,14 @@ const ImageSlider = () => {
             <div className="
                 w-[90%] h-[500px] bg-red-500 lg:bg-yellow-500 sm:bg-green-500
                 lg:flex! lg:flex-wrap lg:flex-col lg:justify-center! lg:items-center lg:overflow-x-scroll! 
-                sm:grid sm:grid-cols-3 sm:justify-items-center sm:items-center sm:overflow-hidden
+                sm:grid sm:grid-cols-2 sm:justify-items-center sm:items-center sm:overflow-hidden
                 "
             
             >
-                <div className="w-[200px] h-[400px] bg-sky-200 mx-3"></div>
+                <div className="w-[200px] lg:h-[400px]  sm:h-[200px] bg-sky-200 mx-3"></div>
                 <div className="w-[200px] h-[400px] bg-sky-300 mx-3"></div>
                 <div className="w-[200px] h-[400px] bg-sky-400 mx-3"></div>
-                {/* <div className="w-[200px] h-[400px] bg-sky-500 mx-3"></div> */}
+                <div className="w-[200px] h-[400px] bg-sky-500 mx-3"></div>
                 <div className="w-[200px] h-[400px] bg-sky-600 mx-3"></div>
                 <div className="w-[200px] h-[400px] bg-sky-700 mx-3"></div>
                 <div className="w-[200px] h-[400px] bg-red-200 mx-3"></div>
