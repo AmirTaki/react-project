@@ -3,7 +3,7 @@ const ImageSlider = () => {
        <div className="w-[100%] h-[600px] bg-blue-500 flex items-center justify-center">
             <div className="
                 w-[90%] h-[500px] bg-red-500 lg:bg-yellow-500 sm:bg-green-500
-                lg:flex lg:justify-center lg:itmes-center
+                lg:flex! lg:justify-center! lg:items-center
                 "
             
             >
