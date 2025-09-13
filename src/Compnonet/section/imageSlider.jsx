@@ -6,7 +6,7 @@ const ImageSlider = () => {
        setHeart (heart === 'bi bi-heart' ?  'bi bi-heart-fill' : 'bi bi-heart') 
     }
     return (
-       <div className="w-[100%] h-[600px] bg-white flex items-center justify-center ">
+       <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div className="
                 sliderImage
@@ -231,6 +231,12 @@ const ImageSlider = () => {
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-600 lg:mx-3 my-1"></div>
                 <div className="w-[250px] lg:h-[400px]  h-[240px] bg-red-700 lg:mx-3 my-1"></div> */}
 
+            </div>
+            <div className="bg-amber-300">
+                <i class="bi bi-chevron-double-right"></i>
+            </div>
+            <div className="bg-red-500">
+                <i class="bi bi-chevron-double-left"></i>
             </div>
        </div>
     )
