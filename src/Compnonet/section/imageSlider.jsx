@@ -34,7 +34,6 @@ const ImageSlider = () => {
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
         {/*  max-sm:bg-green-500! max-md:bg-amber-300! bg-red-500 */}
             <div
-       
                 ref = {imgSlider}
                 className="
                     sliderImage
