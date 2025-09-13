@@ -68,8 +68,8 @@ const  HeaderBottom = () => {
     }
 
     return(    
-      <div className={`h-[60px] bg-white flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed w-full
-          ${ scrollTop > 90 ? "top-0! duration-300":"top-10! duration-300"}`
+      <div className={`h-[60px] bg-white flex items-center justify-between shadow-lg shadow-gray-600 top-10 px-6 z-100! fixed! w-full
+          ${ scrollTop > 250 ? "top-0! duration-500!":"top-10! duration-500!"}`
       }>
     
         {/* LEFT */}
