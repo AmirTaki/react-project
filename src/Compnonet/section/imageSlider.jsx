@@ -62,13 +62,13 @@ const ImageSlider = () => {
                 "
             
             >
-                {/*   ${heart === 'bi bi-heart' ? "text-gray-500" : "text-red-600!"} */}
+   
                 {LISTIMG.map((item,index) => (
                     <div key = {item} className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
                         <div className="relative ">
                             <div onClick = {() => {handlerHeart(index)}} 
                             className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
-                                      
+                                     ${!state.heart[index]  ? "text-gray-500!" : "text-red-600!"}  
                             `}>
                                 <i className={`${state.heart[index] ? "bi bi-heart-fill" : "bi bi-heart"}`}></i>
                             </div>
