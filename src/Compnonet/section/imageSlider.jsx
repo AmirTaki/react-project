@@ -8,18 +8,18 @@ const ImageSlider = () => {
                 "
             
             >
-                <div className="w-[200px] lg:h-[400px]  sm:h-[200px] bg-sky-200 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-sky-300 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-sky-400 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-sky-500 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-sky-600 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-sky-700 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-red-200 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-red-300 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-red-400 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-red-500 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-red-600 mx-3"></div>
-                <div className="w-[200px] h-[400px] bg-red-700 mx-3"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-sky-200 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-sky-300 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-sky-400 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-sky-500 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-sky-600 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-sky-700 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-red-200 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-red-300 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-red-400 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-red-500 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-red-600 lg:mx-3 my-1"></div>
+                <div className="w-[250px] lg:h-[400px]  sm:h-[240px] bg-red-700 lg:mx-3 my-1"></div>
 
             </div>
        </div>
