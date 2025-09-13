@@ -26,8 +26,11 @@ const ImageSlider = () => {
                         <img src={IMG} alt="" className="w-[100%] h-[100%] object-cover" />
                     </div>
                     <div className="bg-red-500 flex flex-col ">
-                        <div className="bg-blue-500 p-2 font-bold text-gray-400 hover:text-gray-800 duration-300">
+                        <div className="bg-white p-2 font-bold text-gray-700">
                             30$
+                        </div>
+                        <div className="bg-white p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            Texas Tech Red Raiders Women's  College World Series Participant
                         </div>
                     </div>
                 </div>
