@@ -15,7 +15,7 @@ const ImageSlider = () => {
                 "
             
             >
-                <div className="w-[250px] lg:h-[430px]  h-[240px] bg-white lg:mx-3 my-1 overflow-hidden rounded-2xl">
+                <div className="w-[250px] lg:h-[430px]  h-[250px] bg-white lg:mx-3 my-1 overflow-hidden rounded-2xl">
                     <div className="relative ">
                         <div onClick = {handlerHeart} 
                         className={`absolute right-2 top-2 cursor-pointer hover:text-gray-900  duration-300 
