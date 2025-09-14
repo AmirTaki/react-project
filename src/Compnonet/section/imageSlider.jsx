@@ -42,20 +42,13 @@ const ImageSlider = () => {
     })
   
     useEffect(() => {
- 
-        // (Object.keys(state.heart).forEach((a,b)=> {
-        //     console.log(b)
-        //     setHeartConter(b )
-        // },{}))
         setHeartConter(0)
         for (let i = 0  ; i < LISTIMG.length ; i++) {
-            state.heart[i] === true ? setHeartConter((c) => c + i ) : ''
+            state.heart[i] === true ? setHeartConter((c) => c + 1) : ''
         }
         console.log(heartConter)
      
-        // Object.keys(state.heart).reduce((a,b) => {
-        //     console.log(a)
-        // },{})
+   
     },[state.heart])
     
   
