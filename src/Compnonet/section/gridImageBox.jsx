@@ -10,7 +10,7 @@ const GridImageBox = () => {
                 <div className="w-[300px] h-[400px] bg-yellow-300 absolute right-0 top-0 flex flex-col items-center justify-center">
                     <div className="bg-white text-gray-300 hover:text-gray-700 hover:duration-600 duration-600 rounded-md hover:scale-110  w-[50%]  text-center flex items-center justify-center h-[40px] ">For Rain or Shine</div>
                     <div className="group  w-[80%] h-[50px] bg-black flex text-white items-center">tick
-                       <i className="bi bi-arrow-right group-hover:translate-x-22! group-hover:duration-500!    transform  "></i>
+                       <i className="bi bi-arrow-right group-hover:translate-x-22! group-hover:duration-500!    transform  group-[:not(:hover)]:translate-x-0! group-[:not(:hover)]:duration-500! "></i>
                     </div>
                 </div>
             </div>
