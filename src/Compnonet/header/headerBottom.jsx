@@ -114,6 +114,7 @@ const  HeaderBottom = () => {
             <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             <i className="bi bi-handbag text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             <i className="bi bi-heart max-md:hidden  md:block text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300" ></i>
+            <div className={`  ${heartConter > 0 ? "flex" : "hidden"}  justify-center items-center text-white bg-red-600 w-5 h-5 rounded-full absolute bottom-[9px]! -right-[13px]!`}>{heartConter}</div>
           </div>
           <div className="">
             
