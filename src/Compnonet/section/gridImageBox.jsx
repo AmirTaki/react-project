@@ -8,15 +8,18 @@ const GridImageBox = () => {
             <div className=" relative">
                 <img src={img8} className="w-[100%]  max-lg:h-[600px]! object-cover!  " alt="" />
                 <div className="w-[300px] h-[400px] bg-transparent absolute right-0 top-0 flex flex-col items-start pl-5 justify-center gap-4">
-                    <div className="bg-white text-gray-300 hover:text-gray-700 hover:duration-600 duration-600 rounded-md hover:scale-110  w-[50%]  text-center flex items-center justify-center h-[40px] ">For Rain or Shine</div>
-                    <div className="group hover:cursor-pointer p-2 w-[80%] h-[50px] bg-amber-400 rounded-md flex text-white items-center">tick
+                    <div className="bg-white text-gray-400 hover:text-white hover:duration-600 duration-600 rounded-md hover:scale-110  w-[50%]  text-center flex items-center justify-center h-[40px]  hover:bg-amber-300/10!">For Rain or Shine</div>
+                    
+                    <div className="group hover:cursor-pointer p-2 w-[80%] h-[50px] bg-white hover:bg-amber-300/10! hover:text-white duration-500! hover:duration-500! rounded-md flex text-gray-500 items-center">tick
                        <i className=" pl-2 bi bi-arrow-right group-hover:translate-x-19! group-hover:duration-900!    transform  group-[:not(:hover)]:translate-x-0! group-[:not(:hover)]:duration-900! "></i>
                     </div>
+                    
                     <div className="bg-white h-[100px] text-gray-500 text-sm line-clamp-3 p-2 w-[80%] rounded-md overflow-hidden duration-500! hover:duration-500! hover:bg-gray-500 hover:text-white  flex items-center">LeBorn XXll 'Currency'
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </div>
+                    
                     <div className="w-[35%] h-[40px]">
-                        <button className="bg-white w-[100%] h-[100%] rounded-3xl">SHOP</button>
+                        <button className="bg-white w-[100%] h-[100%] rounded-3xl hover:text-amber-500! hover:bg-amber-300/10! duration-500! hover:duration-500!">SHOP</button>
                     </div>
                 </div>
             </div>
