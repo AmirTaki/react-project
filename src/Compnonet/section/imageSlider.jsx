@@ -40,13 +40,14 @@ const ImageSlider = () => {
         heart : {},
 
     })
-    const [conter, setConter] = useState(0)
+  
     useEffect(() => {
         (Object.keys(state.heart).forEach((a,b)=> {
-            setConter(b + 1)
+            setHeartConter(b + 1)
         },{}))
-    },[state.heart])
+    })
     
+    console.log(heartConter)
   
   
     const leftHandler = () => {
