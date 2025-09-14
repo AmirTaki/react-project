@@ -2,10 +2,10 @@ import { useContext, useEffect, useLayoutEffect, useReducer, useRef, useState } 
 import IMG from "../../assets/t-shirt.avif";
 import { GlobalHearts } from "../../App";
 
-GlobalHearts
-useContext
+
 
 const ImageSlider = () => {
+   const {heartConter, setHeartConter} =  useContext(GlobalHearts)  
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     const reducer = (state, action) => {
