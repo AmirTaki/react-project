@@ -6,16 +6,16 @@ const GridImageBox = () => {
     return(
         <div className="w-[100%]  bg-red-400 grid grid-cols-2! max-lg:grid-cols-1! ">
             <div className=" bg-blue-200">
-                <img src={img8} className="w-[100%]  h-[100%] " alt="" />
+                <img src={img8} className="w-[100%]  max-lg:h-[600px]! object-cover!  " alt="" />
             </div>
             <div className=" bg-blue-200">
-                <img src={img9} className="w-[100%]  h-[100%]" alt="" />
+                <img src={img9} className="w-[100%]  max-lg:h-[600px]! object-cover! " alt="" />
             </div>
             <div className=" bg-blue-200">
-                <img src={img10} className="w-[100%]  h-[100%] " alt="" />
+                <img src={img10} className="w-[100%]  max-lg:h-[600px]! object-cover! " alt="" />
             </div>
             <div className=" bg-blue-200">
-                <img src={img11} className="w-[100%]  h-[100%]" alt="" />
+                <img src={img11} className="w-[100%] max-lg:h-[600px]! object-cover! " alt="" />
             </div>
             
         </div>
