@@ -4,8 +4,10 @@ import { GlobalHeaderScroll } from "./header";
 import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
+import { GlobalHearts } from "../../App";
 
 export const ContextHeaderBottom =  createContext();
+const {heartConter}  =  useContext(GlobalHearts)
 
 const  HeaderBottom = () => {
 
