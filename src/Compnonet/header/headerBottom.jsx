@@ -113,7 +113,7 @@ const  HeaderBottom = () => {
             <i className="bi bi-search hover:scale-130  text-gray-400 cursor-pointer text-lg  md:right-[115px] max-md:right-[80px] absolute hover:text-gray-900 duration-300"   onClick={()=>{dispatch({type : ACTIONTYPE.search})}}></i>
             <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             <i className="bi bi-handbag text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
-            <i className="bi bi-heart max-md:hidden  md:block text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300" ></i>
+            <i className={`${heartConter > 0 ? "text-red-500! bi bi-heart-fill!" : "text-gray-400! bi bi-heart!"} bi bi-heart max-md:hidden  md:block text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300 `} ></i>
             <div className={`   ${heartConter && (navbar === false) > 0 ? "flex" : "hidden"}  justify-center items-center text-white bg-red-600 w-5 h-5 rounded-full absolute bottom-[9px]! -right-[13px]!`}>{heartConter}</div>
           </div>
           <div className="">
