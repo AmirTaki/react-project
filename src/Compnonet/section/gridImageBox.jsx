@@ -9,6 +9,9 @@ const GridImageBox = () => {
                 <img src={img8} className="w-[100%]  max-lg:h-[600px]! object-cover!  " alt="" />
                 <div className="w-[300px] h-[400px] bg-yellow-300 absolute right-0 top-0 flex flex-col items-center justify-center">
                     <div className="bg-white text-gray-300 hover:text-gray-700 hover:duration-600 duration-600 rounded-md hover:scale-110  w-[50%]  text-center flex items-center justify-center h-[40px] ">For Rain or Shine</div>
+                    <div className="w-[80%] h-[50px] bg-black flex text-white items-center">tick
+                        <i></i>
+                    </div>
                 </div>
             </div>
             <div className=" bg-blue-200">
