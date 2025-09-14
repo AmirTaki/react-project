@@ -47,11 +47,11 @@ const ImageSlider = () => {
         //     console.log(b)
         //     setHeartConter(b )
         // },{}))
+        setHeartConter(0)
         for (let i = 0  ; i < LISTIMG.length ; i++) {
-            console.log(state.heart[i])
-            state.heart[i] ? setHeartConter((c) => c + 1) : ''
+            state.heart[i] === true ? setHeartConter((c) => c + i ) : ''
         }
-        
+        console.log(heartConter)
      
         // Object.keys(state.heart).reduce((a,b) => {
         //     console.log(a)
