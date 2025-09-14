@@ -1,8 +1,6 @@
 const GridImageBox = () => {
     return(
-        <>
-            grid image box
-        </>
+        <div className="w-[100%] h-[500px] bg-red-400"></div>
     )
 }
 export default GridImageBox;
