@@ -4,9 +4,10 @@ import img10 from "../../assets/img10.jpg"
 import img11 from "../../assets/img11.jpg"
 const GridImageBox = () => {
     return(
-        <div className="w-[100%]  bg-red-400 grid grid-cols-2! max-lg:grid-cols-1! ">
-            <div className=" bg-blue-200">
+        <div className="w-[100%]  grid grid-cols-2! max-lg:grid-cols-1! ">
+            <div className=" relative">
                 <img src={img8} className="w-[100%]  max-lg:h-[600px]! object-cover!  " alt="" />
+                <div className="w-[200px] h-[400px] bg-yellow-300 absolute right-0 top-0"></div>
             </div>
             <div className=" bg-blue-200">
                 <img src={img9} className="w-[100%]  max-lg:h-[600px]! object-cover! " alt="" />
