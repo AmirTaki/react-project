@@ -42,8 +42,10 @@ const ImageSlider = () => {
     })
   
     useEffect(() => {
+ 
         (Object.keys(state.heart).forEach((a,b)=> {
-            setHeartConter(b + 1)
+            console.log(b)
+            setHeartConter(b )
         },{}))
     })
     
