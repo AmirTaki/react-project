@@ -7,10 +7,10 @@ import MenuMegaMenu from "./menuMegaMenu";
 import { GlobalHearts } from "../../App";
 
 export const ContextHeaderBottom =  createContext();
-const {heartConter}  =  useContext(GlobalHearts)
+
 
 const  HeaderBottom = () => {
-
+  const {heartConter}  =  useContext(GlobalHearts)
   const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
   const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
 
@@ -77,7 +77,7 @@ const  HeaderBottom = () => {
         {/* LEFT */}
         <div className="flex gap-3 max-md:block  md:hidden ">
           <i onClick={()=> {dispatch({type : ACTIONTYPE.moveNavbar})}} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
-          <i className={`bi bi-heart  text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg ${heartConter > 0 ? "" : ""}` } ></i>
+          <i className={`bi bi-heart   hover:text-gray-900 duration-300 cursor-pointer text-lg ${heartConter > 0 ? "text-red-500!" : "text-gray-400!"}` } ></i>
         </div>
         <div className="" >
             <img src={logo} alt="" className='w-20' />
