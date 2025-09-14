@@ -14,13 +14,14 @@ function App() {
   
   return (
     // <Test />
-    
-    <div className='h-[2000px] bg-red-100
-      
-    '>
-      <Header />
-      <Section />
-    </div>
+    <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
+      <div className='h-[2000px] bg-red-100'>
+        <Header />
+        <Section />
+      </div>
+ 
+    </GlobalHearts.Provider>
+  
   )
 }
 
