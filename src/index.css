@@ -7,6 +7,16 @@
     --animate-mege: megeMenu .3s ease-in-out forwards;
     --animate-productMenu: productMenu .5s ease-in-out forwards;
     --animate-productMenuReverse: productMenuReverse .5s ease-in-out forwards  ;
+    --animate-moveFlash : moveFlash 1s ease-in-out forwards;
+
+    @keyframes moveFlash {
+        0%{
+            transform: translateX(0)
+        }
+        100%{
+            transform: translateX(200px)
+        }
+    }
     @keyframes megeMenu {
         0%
         
