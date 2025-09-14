@@ -77,7 +77,7 @@ const  HeaderBottom = () => {
         {/* LEFT */}
         <div className="flex gap-3 max-md:block  md:hidden ">
           <i onClick={()=> {dispatch({type : ACTIONTYPE.moveNavbar})}} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
-          <i className="bi bi-heart  text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg" ></i>
+          <i className={`bi bi-heart  text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg ${heartConter > 0 ? "" : ""}` } ></i>
         </div>
         <div className="" >
             <img src={logo} alt="" className='w-20' />
