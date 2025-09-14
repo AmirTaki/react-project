@@ -36,20 +36,17 @@ const ImageSlider = () => {
         heart : {},
 
     })
-
+    const [conter, setConter] = useState(0)
     useEffect(() => {
         (Object.keys(state.heart).forEach((a,b)=> {
             setConter(b + 1)
         },{}))
     },[state.heart])
-    const [conter, setConter] = useState(0)
+    
   
   
     const leftHandler = () => {
         dispatch({type : 'left', payload : 300});
-     
-       
-        console.log(conter )
     }
     const rightHandler = () => {
         dispatch({type : 'right', payload : 300})

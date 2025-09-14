@@ -1,3 +1,4 @@
+import { createContext } from 'react'
 import './App.css'
 
 import Header from "./Compnonet/header/header"
@@ -6,7 +7,7 @@ import Section from './Compnonet/section/section'
 
 
 
-
+export const GlobalHearts = createContext()
 
 function App() {
   
