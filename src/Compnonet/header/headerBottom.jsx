@@ -78,7 +78,7 @@ const  HeaderBottom = () => {
         <div className="flex gap-3 max-md:block  md:hidden  relative">
           <i onClick={()=> {dispatch({type : ACTIONTYPE.moveNavbar})}} className="bi bi-list text-gray-400 hover:text-gray-900 duration-300 cursor-pointer text-lg hover:scale-140"></i>
           <i className={` bi bi-heart hover:text-gray-900 duration-300 cursor-pointer text-lg ${heartConter > 0 ? "text-red-500! bi bi-heart-fill!" : "text-gray-400! bi bi-heart!"}` } ></i>
-          <div className="flex justify-center items-center text-white bg-red-600 w-5 h-5 rounded-full absolute bottom-[9px]! -right-[13px]!">{heartConter}</div>
+          <div className={`  ${heartConter > 0 ? "flex" : "hidden"}  justify-center items-center text-white bg-red-600 w-5 h-5 rounded-full absolute bottom-[9px]! -right-[13px]!`}>{heartConter}</div>
         </div>
         <div className="" >
             <img src={logo} alt="" className='w-20' />
