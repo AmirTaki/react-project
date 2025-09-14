@@ -1,5 +1,9 @@
-import { useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
+import { GlobalHearts } from "../../App";
+
+GlobalHearts
+useContext
 
 const ImageSlider = () => {
     const imgSlider =  useRef(null)
