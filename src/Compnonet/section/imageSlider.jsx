@@ -44,11 +44,8 @@ const ImageSlider = () => {
     useEffect(() => {
         setHeartConter(0)
         for (let i = 0  ; i < LISTIMG.length ; i++) {
-            state.heart[i] === true ? setHeartConter((c) => c + 1) : ''
+            state.heart[i] === true ? setHeartConter((heart) => heart + 1) : ''
         }
-        console.log(heartConter)
-     
-   
     },[state.heart])
     
   

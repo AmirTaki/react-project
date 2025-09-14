@@ -19,7 +19,6 @@ function App() {
         <Header />
         <Section />
       </div>
- 
     </GlobalHearts.Provider>
   
   )
