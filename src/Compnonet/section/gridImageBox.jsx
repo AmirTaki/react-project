@@ -14,7 +14,7 @@ const GridImageBox = () => {
                        <i className=" pl-2 bi bi-arrow-right group-hover:translate-x-19! group-hover:duration-900!    transform  group-[:not(:hover)]:translate-x-0! group-[:not(:hover)]:duration-900! "></i>
                     </div>
                     
-                    <div className="bg-white h-[100px] text-gray-500 text-sm line-clamp-3 p-2 w-[80%] rounded-md overflow-hidden duration-500! hover:duration-500! hover:bg-gray-500 hover:text-white  flex items-center">LeBorn XXll 'Currency'
+                    <div className="bg-white h-[100px] text-gray-700 text-sm line-clamp-3 p-2 w-[80%] rounded-md overflow-hidden duration-700! hover:duration-700! hover:text-amber-500! hover:bg-amber-300/10!  flex items-center">LeBorn XXll 'Currency'
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </div>
                     
