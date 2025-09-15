@@ -70,8 +70,6 @@ const SliderPage = () => {
 
     useEffect(() => {
         const  handleImage = () => {
-            refSlide.current.style.scrollBehavior = "smooth"
-            refSlide.current.scrollLeft = 0
             dispatch({type : 'conter'})
         }
 
