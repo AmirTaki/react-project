@@ -13,26 +13,31 @@ import slide11 from "../../assets/slide11.webp"
 import slide12 from "../../assets/slide12.webp"
 import slide13 from "../../assets/slide13.webp"
 import slide14 from "../../assets/slide14.webp"
+import { flushSync } from "react-dom"
 
 const SliderPage = () => {
     const refSlide =    useRef()
-    const [conter, setConter] = useState(1)
+    const [conter, setConter] = useState(0)
     const listImg = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ]
     const listItemsTwo = Array.from({length : listImg.length/2}, (_) => `${_}`);
     const x = listImg.length / 3
     const right = () => {
        if (refSlide.current){
+        console.log(conter, "right")
+        flushSync(() => (setConter((conter)=>(conter + 1))))
 
         refSlide.current.style.scrollBehavior = "smooth";
-        refSlide.current.scrollLeft += refSlide.current.offsetWidth   
-        setConter(conter + 1)
-
+        // refSlide.current.scrollLeft += refSlide.current.offsetWidth   
+        
+        
     }
 }
 const left = () => {
     if (refSlide.current){
+        console.log(conter, "left")
         refSlide.current.style.scrollBehavior = "smooth";
-        refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
+        refSlide.current.scrollLeft = conter * refSlide.current.offsetWidth;
+        // refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
            setConter(conter - 1)     
       
 
