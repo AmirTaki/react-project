@@ -1,4 +1,7 @@
 const SliderPage = () => {
+    const left = () => {
+        
+    }
     return(
         <div className="w-[100%] h-[700px] bg-gray-600 flex items-center justify-center">
             <div className="w-[70%] h-[500px] bg-blue-200 flex flex-col flex-wrap overflow-scroll">
@@ -12,7 +15,7 @@ const SliderPage = () => {
             </div>
 
 
-            <div className="">click right</div>
+            <div onClick={left} className="">click right</div>
         </div>
     )
 }
