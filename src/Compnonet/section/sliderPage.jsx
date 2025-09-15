@@ -50,7 +50,7 @@ const left = () => {
         const  handleImage = () => {
             refSlide.current.style.scrollBehavior = "smooth"
             refSlide.current.scrollLeft = 0
-            setConter((conter) => (conter = 1))
+            setConter(0)
         }
 
         window.addEventListener("resize", handleImage)
@@ -79,10 +79,10 @@ const left = () => {
             </div>
 
 
-            <div onClick={right} className={`${conter >= x ? "hidden": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={right} className={`${conter >= x - 1? "hidden!": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl bi bi-arrow-right-square"></i>
             </div>
-            <div onClick={left} className={`${conter <= 0 ? "hidden" : "flex"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={left} className={`${conter <= 0 ? "hidden!" : "flex"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
