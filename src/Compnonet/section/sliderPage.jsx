@@ -20,13 +20,19 @@ const SliderPage = () => {
     const reduce = (state, action) => {
         switch(action.type){
             case 'conter' : 
-                return {...state, conter : 1}
+                return {...state, conter : 0}
+
+            case "increment" : 
+                return {...state, conter : state.conter >= (state.listImg.length / 3) ? state.conter : state.conter + action.payload}
+            
+            case "decrement" : 
+                return {...state, conter : state.conter <= 0 ? state.conter = 0 : state.conter - action.payload}
+
             case "rightClick":
                 if (refSlide.current){
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft = refSlide.current.offsetWidth * state.conter 
                     // refSlide.current.scrollLeft += refSlide.current.offsetWidth
-                    return {...state, conter : state.conter >= (state.listImg.length / 3) ? state.conter : state.conter + action.payload}
    
                 }
 
@@ -35,7 +41,6 @@ const SliderPage = () => {
                     refSlide.current.style.scrollBehavior = "smooth";
                     // refSlide.current.scrollLeft -= refSlide.current.offsetWidth  
                     refSlide.current.scrollLeft = refSlide.current.offsetWidth * state.conter 
-                    return {...state, conter : state.conter <= 0 ? state.conter = 0 : state.conter - action.payload}
                 }
             case "handlerItem" : 
                 if(refSlide.current){
