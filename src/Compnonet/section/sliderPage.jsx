@@ -20,8 +20,11 @@ const SliderPage = () => {
     const reduce = (state, action) => {
         switch(action.type){
             case "":
-                return state
+                return {...state}
+            default :
+                return {...state}
         }
+
     }
     const [state, setState] = useReducer (reduce, {
         conter : 0,
