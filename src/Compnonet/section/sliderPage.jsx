@@ -58,11 +58,14 @@ const SliderPage = () => {
    
    
     const right = () => {
-        dispatch({type : "rightClick", payload : 1})  
+        dispatch({type:'increment' , payload : 1})
+        // dispatch({type : "rightClick", payload : 1})  
     }
 
     const left = () => {
-        dispatch({type : 'leftClick', payload : 1})       
+        dispatch({type:'decrement' , payload : 1})
+
+        // dispatch({type : 'leftClick', payload : 1})       
     }
 
 
