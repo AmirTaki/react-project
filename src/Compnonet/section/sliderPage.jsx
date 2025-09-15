@@ -5,7 +5,8 @@ const SliderPage = () => {
     const left = () => {
        if (refSlide.current){
         refSlide.current.style.scrollBehavior = "smooth"
-        
+        refSlide.current.scrollLeft += refSlide.current.offsetWidth
+
        }
     }
     return(
