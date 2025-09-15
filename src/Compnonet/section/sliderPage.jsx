@@ -45,17 +45,17 @@ const SliderPage = () => {
         
     }
 }
-const left = () => {
+    const left = () => {
 
-    if (refSlide.current){
-            setConter((conter) => (  conter <= 0 ? conter = 0 : conter  - 1))    
+        if (refSlide.current){
+                setConter((conter) => (  conter <= 0 ? conter = 0 : conter  - 1))    
 
-        refSlide.current.style.scrollBehavior = "smooth";
-        refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
-            
-      
+            refSlide.current.style.scrollBehavior = "smooth";
+            refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
+                
+        
+        }
     }
-}
 
     useEffect(() => {
         const  handleImage = () => {
@@ -80,7 +80,7 @@ const left = () => {
         <div  className="w-[100%] h-[600px] bg-white flex flex-col items-center justify-center relative">
             <div ref = {refSlide} className="w-[80%] h-[500px] bg-white flex flex-col flex-wrap  overflow-hidden! ">
 
-                {listImg.map((item, index) => (
+                {state.listImg.map((item, index) => (
                     <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  bg-white">
                         <img src={item} className="w-[100%] h-[100%]" alt="" />
                         <div className="bg-gray-300 h-[60px]  flex justify-center items-center text-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
