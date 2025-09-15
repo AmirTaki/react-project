@@ -81,9 +81,9 @@ const SliderPage = () => {
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
-            <div className="flex gap-3 w-[80%] bg-amber-200 justify-center">
+            <div className="flex gap-3 w-[80%]  justify-center">
                 {listImg.map((item) => (
-                    <div key = {item} className="w-[20px] h-[10px] bg-blue-200"></div>
+                    <div key = {item} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
                 ))}
             </div>
         </div>
