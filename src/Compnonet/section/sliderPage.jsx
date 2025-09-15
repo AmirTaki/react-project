@@ -21,19 +21,17 @@ const SliderPage = () => {
         switch(action.type){
             case "rightClick":
                 if (refSlide.current){
-                    // setConter(conter > x - 1 ?  conter  : conter  + 1)  
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft += refSlide.current.offsetWidth
-                    return {...state}
+                    return {...state, conter : state.conter + action.payload}
    
                 }
 
             case "leftClick":
                  if (refSlide.current){
-                        // setConter((conter) => (  conter <= 0 ? conter = 0 : conter  - 1))    
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
-                    return{...state}
+                    return {...state, conter : state.conter - action.payload}
                 }
                 
             default :
@@ -56,6 +54,8 @@ const SliderPage = () => {
     const left = () => {
         dispatch({type : 'leftClick', payload : 1})       
     }
+
+
 
 //     useEffect(() => {
 //         const  handleImage = () => {
@@ -98,7 +98,7 @@ const SliderPage = () => {
             </div>
 
             <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-25">
-                {state.listItemsTwo.map((_, index) => (                    
+                {listItemsTwo.map((_, index) => (                    
                     <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer"></div>
                 ))}
             </div>
