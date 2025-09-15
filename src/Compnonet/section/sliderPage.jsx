@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import slide1 from "../../assets/slide1.webp"
 import slide2 from "../../assets/slide2.webp"
 import slide3 from "../../assets/slide3.webp"
@@ -31,6 +31,13 @@ const SliderPage = () => {
 
        }
     }
+    useEffect(() => {
+        window.addEventListener("resize", )
+
+        return()=> {
+            window.addEventListener('resize', )
+        }
+    }, [])
     return(
         <div  className="w-[100%] h-[700px] bg-gray-600 flex items-center justify-center relative">
             <div ref = {refSlide} className="w-[80%] h-[500px] bg-blue-200 flex flex-col flex-wrap  overflow-hidden! ">
@@ -41,9 +48,7 @@ const SliderPage = () => {
                         <div className="bg-gray-300 h-[60px] flex justify-center items-center text-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
                     </div>
                 ))}
-                
-
-
+        
             </div>
 
 
