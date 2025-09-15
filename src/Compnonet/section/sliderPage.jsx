@@ -17,7 +17,7 @@ import { flushSync } from "react-dom"
 
 const SliderPage = () => {
     const refSlide =    useRef()
-    const [conter, setConter] = useState(0)
+    const [conter, setConter] = useState(1)
     const listImg = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ]
     const listItemsTwo = Array.from({length : listImg.length/2}, (_) => `${_}`);
     const x = listImg.length / 3
@@ -25,7 +25,7 @@ const SliderPage = () => {
        if (refSlide.current){
         console.log(conter, "right")
         flushSync(() => (setConter((conter)=>(conter + 1))))
-
+        refSlide.current.scrollLeft = conter * refSlide.current.offsetWidth;
         refSlide.current.style.scrollBehavior = "smooth";
         // refSlide.current.scrollLeft += refSlide.current.offsetWidth   
         
@@ -38,10 +38,8 @@ const left = () => {
         refSlide.current.style.scrollBehavior = "smooth";
         refSlide.current.scrollLeft = conter * refSlide.current.offsetWidth;
         // refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
-           setConter(conter - 1)     
+           setConter(conter === 0 ? conter = 0 : conter  - 1)     
       
-
-       }
     }
     
 
@@ -78,10 +76,10 @@ const left = () => {
             </div>
 
 
-            <div onClick={right} className={`${conter >= x ? "hidden": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={right} className={`${conter > 0 ? "flex": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl bi bi-arrow-right-square"></i>
             </div>
-            <div onClick={left} className={`${conter > 1 ? "flex" : "hidden"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={left} className={`${conter > 0 ? "flex" : "flex"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
