@@ -16,6 +16,7 @@ import slide14 from "../../assets/slide14.webp"
 
 const SliderPage = () => {
     const refSlide =    useRef()
+    const listImg = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ]
     const right = () => {
        if (refSlide.current){
         refSlide.current.style.scrollBehavior = "smooth"
