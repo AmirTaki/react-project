@@ -68,7 +68,7 @@ const SliderPage = () => {
     }
 
     return(
-        <div  className="w-[100%] h-[700px] bg-gray-500 flex flex-col items-center justify-center relative">
+        <div  className="w-[100%] h-[700px] bg-white flex flex-col items-center justify-center relative">
             <div ref = {refSlide} className="w-[80%] h-[500px] bg-white flex flex-col flex-wrap  overflow-hidden! ">
 
                 {listImg.map((item, index) => (
@@ -81,19 +81,19 @@ const SliderPage = () => {
             </div>
 
 
-            <div onClick={right} className={`${conter >= x ? "hidden": "flex" } absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={right} className={`${conter >= x ? "hidden": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl bi bi-arrow-right-square"></i>
             </div>
-            <div onClick={left} className={`${conter > 1 ? "flex" : "hidden"} absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={left} className={`${conter > 1 ? "flex" : "hidden"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
-            <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden!">
+            <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-25">
                 {listItemsTwo.map((_, index) => (                    
                     <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl"></div>
                 ))}
             </div>
-            <div className="flex gap-3 w-[80%]  justify-center">
+            <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-25">
                 {listImg.map((_, index) => (                    
                     <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
                 ))}
