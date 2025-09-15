@@ -32,6 +32,7 @@ const SliderPage = () => {
                 if (refSlide.current){
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft = refSlide.current.offsetWidth * state.conter 
+                    return{...state}
                     // refSlide.current.scrollLeft += refSlide.current.offsetWidth
    
                 }
@@ -58,16 +59,16 @@ const SliderPage = () => {
    
     const right = () => {
         dispatch({type:'increment' , payload : 1})
-        // dispatch({type : "rightClick", payload : 1})  
+    
     }
 
     const left = () => {
         dispatch({type:'decrement' , payload : 1})
-
-        // dispatch({type : 'leftClick', payload : 1})       
     }
 
-
+    useEffect(() => {
+        dispatch({type : 'changeImge'})
+    },[state.conter])
 
     useEffect(() => {
         const  handleImage = () => {
