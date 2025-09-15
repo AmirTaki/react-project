@@ -88,9 +88,9 @@ const SliderPage = () => {
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
-            <div className="flex gap-3 w-[80%]  justify-center">
+            <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden!">
                 {listItemsTwo.map((_, index) => (                    
-                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
+                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl"></div>
                 ))}
             </div>
             <div className="flex gap-3 w-[80%]  justify-center">
