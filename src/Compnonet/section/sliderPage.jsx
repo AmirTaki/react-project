@@ -32,20 +32,25 @@ const SliderPage = () => {
        }
     }
     useEffect(() => {
-        window.addEventListener("resize", )
+        const  handleImage = () => {
+            refSlide.current.style.scrollBehavior = "smooth"
+            refSlide.current.scrollLeft = 0
+        }
+
+        window.addEventListener("resize", handleImage)
 
         return()=> {
-            window.addEventListener('resize', )
+            window.addEventListener('resize', handleImage )
         }
     }, [])
     return(
-        <div  className="w-[100%] h-[700px] bg-gray-600 flex items-center justify-center relative">
-            <div ref = {refSlide} className="w-[80%] h-[500px] bg-blue-200 flex flex-col flex-wrap  overflow-hidden! ">
+        <div  className="w-[100%] h-[700px] bg-gray-500 flex items-center justify-center relative">
+            <div ref = {refSlide} className="w-[80%] h-[500px] bg-white flex flex-col flex-wrap  overflow-hidden! ">
 
                 {listImg.map((item, index) => (
-                    <div className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  bg-amber-400">
+                    <div className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  bg-white">
                         <img src={item} className="w-[100%] h-[100%]" alt="" />
-                        <div className="bg-gray-300 h-[60px] flex justify-center items-center text-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
+                        <div className="bg-gray-300 h-[60px]  flex justify-center items-center text-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
                     </div>
                 ))}
         
