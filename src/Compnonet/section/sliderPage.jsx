@@ -1,6 +1,9 @@
+import { useRef } from "react"
+
 const SliderPage = () => {
+    const refSlide =    useRef()
     const left = () => {
-        
+
     }
     return(
         <div className="w-[100%] h-[700px] bg-gray-600 flex items-center justify-center">
