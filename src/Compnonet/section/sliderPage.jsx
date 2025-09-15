@@ -32,9 +32,7 @@ const SliderPage = () => {
                 if (refSlide.current){
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft = refSlide.current.offsetWidth * state.conter 
-                    return{...state}
-                    // refSlide.current.scrollLeft += refSlide.current.offsetWidth
-   
+                    return{...state}   
                 }
 
             case "handlerItem" : 
@@ -63,7 +61,10 @@ const SliderPage = () => {
     }
 
     const left = () => {
-        dispatch({type:'decrement' , payload : 1})
+    }
+    
+    const changeIndex = (index) => {
+        dispatch({type:'changeIndex' , payload : index})
     }
 
     useEffect(() => {
@@ -84,10 +85,6 @@ const SliderPage = () => {
         }
     }, [])
 
-    const handlerItem = (index) => {
-        dispatch({type : 'handlerItem' , payload : index})
-         
-    }
 
     return(
         <div  className="w-[100%] h-[600px] bg-white flex flex-col items-center justify-center relative">
@@ -112,12 +109,12 @@ const SliderPage = () => {
 
             <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-25">
                 {listItemsTwo.map((_, index) => (                    
-                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer"></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer"></div>
                 ))}
             </div>
             <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-25">
                 {state.listImg.map((_, index) => (                    
-                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl cursor-pointer"></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl cursor-pointer"></div>
                 ))}
             </div>
         </div>
