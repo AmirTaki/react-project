@@ -51,8 +51,12 @@ const SliderPage = () => {
             </div>
 
 
-            <div onClick={right} className="absolute">click right</div>
-            <div onClick={left} className="absolute">click left</div>
+            <div onClick={right} className="absolute top-[50%] right-[1%]">
+                <i class="bi bi-arrow-right-square"></i>
+            </div>
+            <div onClick={left} className="absolute top-[50%] left-[1%]">
+                <i class="bi bi-arrow-left-square"></i>
+            </div>
         </div>
     )
 }
