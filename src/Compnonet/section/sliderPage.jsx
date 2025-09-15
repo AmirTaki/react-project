@@ -19,22 +19,23 @@ const SliderPage = () => {
     const refSlide =    useRef()
     const reduce = (state, action) => {
         switch(action.type){
-            case "":
+            case "rightClick":
                 return {...state}
             default :
                 return {...state}
         }
 
     }
-    const [state, setState] = useReducer (reduce, {
+    const [state, dispatch] = useReducer (reduce, {
         conter : 0,
         listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ],
-        listItemsTwo = Array.from({length : listImg.length/2}, (_) => `${_}`);
-        maxNumber : listImg.length / 3,
     })
+    const  listItemsTwo = Array.from({length : state.listImg.length / 2}, (_) => `${_}`)
+    const maxNumber = state.listImg.length / 3
    
    
     const right = () => {
+        dispatch({type : "rightClick", payload : 1})
        if (refSlide.current){
 
                   setConter(conter > x - 1 ?  conter  : conter  + 1)  
@@ -45,31 +46,33 @@ const SliderPage = () => {
         
     }
 }
-    const left = () => {
 
-        if (refSlide.current){
-                setConter((conter) => (  conter <= 0 ? conter = 0 : conter  - 1))    
 
-            refSlide.current.style.scrollBehavior = "smooth";
-            refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
+//     const left = () => {
+
+//         if (refSlide.current){
+//                 setConter((conter) => (  conter <= 0 ? conter = 0 : conter  - 1))    
+
+//             refSlide.current.style.scrollBehavior = "smooth";
+//             refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
                 
         
-        }
-    }
+//         }
+//     }
 
-    useEffect(() => {
-        const  handleImage = () => {
-            refSlide.current.style.scrollBehavior = "smooth"
-            refSlide.current.scrollLeft = 0
-            setConter(0)
-        }
+//     useEffect(() => {
+//         const  handleImage = () => {
+//             refSlide.current.style.scrollBehavior = "smooth"
+//             refSlide.current.scrollLeft = 0
+//             setConter(0)
+//         }
 
-        window.addEventListener("resize", handleImage)
+//         window.addEventListener("resize", handleImage)
 
-        return()=> {
-            window.addEventListener('resize', handleImage )
-        }
-    }, [])
+//         return()=> {
+//             window.addEventListener('resize', handleImage )
+//         }
+//     }, [])
 
     const handlerItem = (index) => {
         refSlide.current.style.scrollBehavior = "smooth";
@@ -90,20 +93,20 @@ const SliderPage = () => {
             </div>
 
 
-            <div onClick={right} className={`${conter >= x - 1? "hidden!": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={right} className={`${state.conter >= state.maxNumber - 1? "hidden!": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl bi bi-arrow-right-square"></i>
             </div>
-            <div onClick={left} className={`${conter <= 0 ? "hidden!" : "flex"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={left} className={`${state.conter <= 0 ? "hidden!" : "flex"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
             <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-25">
-                {listItemsTwo.map((_, index) => (                    
+                {state.listItemsTwo.map((_, index) => (                    
                     <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer"></div>
                 ))}
             </div>
             <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-25">
-                {listImg.map((_, index) => (                    
+                {state.listImg.map((_, index) => (                    
                     <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl cursor-pointer"></div>
                 ))}
             </div>
