@@ -20,12 +20,9 @@ const SliderPage = () => {
     const [state, setState] = useReducer (reduce, {
         conter : 0,
         listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ],
-
+        listItemsTwo = Array.from({length : listImg.length/2}, (_) => `${_}`);
         maxNumber : listImg.length / 3,
     })
-    const [conter, setConter] = useState(0)
-    const listItemsTwo = Array.from({length : listImg.length/2}, (_) => `${_}`);
-    const x = listImg.length / 3
    
    
     const right = () => {
