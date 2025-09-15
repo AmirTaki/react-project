@@ -24,10 +24,10 @@ const SliderPage = () => {
 
             case "increment" : 
                 return {...state, conter : state.conter >= (state.listImg.length / 3) ? state.conter : state.conter + action.payload}
+                
+                case "decrement" : 
+                return {...state, conter : state.conter <= 0 ? 0 : state.conter - action.payload}
             
-            case "decrement" : 
-                return {...state, conter : state.conter <= 0 ? state.conter = 0 : state.conter - action.payload}
-
             case "changeImge":
                 if (refSlide.current){
                     refSlide.current.style.scrollBehavior = "smooth";
@@ -35,12 +35,8 @@ const SliderPage = () => {
                     return{...state}   
                 }
 
-            case "handlerItem" : 
-                if(refSlide.current){
-                    refSlide.current.style.scrollBehavior = "smooth";
-                    refSlide.current.scrollLeft = refSlide.current.offsetWidth * action.payload  
-                    return{...state}
-                }
+            case "changeIndex" : 
+                return {...state, conter : action.payload}
 
             default :
                 return {...state}
@@ -61,6 +57,7 @@ const SliderPage = () => {
     }
 
     const left = () => {
+         dispatch({type:'decrement' , payload : 1})
     }
     
     const changeIndex = (index) => {
