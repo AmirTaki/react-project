@@ -28,7 +28,7 @@ const SliderPage = () => {
             case "decrement" : 
                 return {...state, conter : state.conter <= 0 ? state.conter = 0 : state.conter - action.payload}
 
-            case "rightClick":
+            case "changeImge":
                 if (refSlide.current){
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft = refSlide.current.offsetWidth * state.conter 
@@ -36,12 +36,6 @@ const SliderPage = () => {
    
                 }
 
-            case "leftClick":
-                if (refSlide.current){    
-                    refSlide.current.style.scrollBehavior = "smooth";
-                    // refSlide.current.scrollLeft -= refSlide.current.offsetWidth  
-                    refSlide.current.scrollLeft = refSlide.current.offsetWidth * state.conter 
-                }
             case "handlerItem" : 
                 if(refSlide.current){
                     refSlide.current.style.scrollBehavior = "smooth";
