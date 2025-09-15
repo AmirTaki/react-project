@@ -31,11 +31,12 @@ const SliderPage = () => {
        }
     }
     return(
-        <div  className="w-[100%] h-[700px] bg-gray-600 flex items-center justify-center">
-            <div ref = {refSlide} className="w-[70%] h-[500px] bg-blue-200 flex flex-col flex-wrap  overflow-hidden!">
+        <div  className="w-[100%] h-[700px] bg-gray-600 flex items-center justify-center relative">
+            <div ref = {refSlide} className="w-[80%] h-[500px] bg-blue-200 flex flex-col flex-wrap  overflow-hidden!">
 
-                <div className="w-[33.34%] max-lg:w-[50%] flex justify-center max-sm:w-[100%] h-[500px] bg-amber-400">
+                <div className="w-[33.34%] max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px] bg-amber-400">
                     <img src={slide1} className="w-[100%] h-[100%]" alt="" />
+                    <div className="bg-gray-300 h-[50px] flex justify-center items-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
                 </div>
                 <div className="w-[33.34%] max-lg:w-[50%] max-sm:w-[100%] h-[500px] bg-red-400"></div>
                 <div className="w-[33.34%] max-lg:w-[50%] max-sm:w-[100%] h-[500px] bg-blue-400"></div>
@@ -50,8 +51,8 @@ const SliderPage = () => {
             </div>
 
 
-            <div onClick={right} className="">click right</div>
-            <div onClick={left} className="">click left</div>
+            <div onClick={right} className="absolute">click right</div>
+            <div onClick={left} className="absolute">click left</div>
         </div>
     )
 }
