@@ -93,7 +93,7 @@ const SliderPage = () => {
             </div>
 
 
-            <div onClick={right} className={`${state.conter >= state.maxNumber - 1? "hidden!": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
+            <div onClick={right} className={`${state.conter >= (state.listImg.length / 3) - 1 ? "hidden!": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl bi bi-arrow-right-square"></i>
             </div>
             <div onClick={left} className={`${state.conter <= 0 ? "hidden!" : "flex"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
