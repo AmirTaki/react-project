@@ -24,7 +24,8 @@ const SliderPage = () => {
                     // setConter(conter > x - 1 ?  conter  : conter  + 1)  
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft += refSlide.current.offsetWidth
-                    return {...state, conter : state.conter + action.payload}
+                    console.log(Math.round(state.listImg.length / 3))
+                    return {...state, conter : state.conter >= (state.listImg.length / 3) ? state.conter : state.conter + action.payload}
    
                 }
 
@@ -35,17 +36,17 @@ const SliderPage = () => {
                     return {...state, conter : state.conter <= 0 ? state.conter = 0 : state.conter - action.payload}
                 }
                 
-            default :
+                default :
                 return {...state}
+            }
+            
         }
-
-    }
-    const [state, dispatch] = useReducer (reduce, {
-        conter : 0,
-        listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ],
-    })
-    const  listItemsTwo = Array.from({length : state.listImg.length / 2}, (_) => `${_}`)
-    const maxNumber = state.listImg.length / 3
+        const [state, dispatch] = useReducer (reduce, {
+            conter : 0,
+            listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ],
+        })
+        const  listItemsTwo = Array.from({length : state.listImg.length / 2}, (_) => `${_}`)
+        const maxNumber = state.listImg.length / 3
    
    
     const right = () => {
