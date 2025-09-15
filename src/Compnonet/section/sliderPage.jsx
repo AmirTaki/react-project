@@ -36,7 +36,14 @@ const SliderPage = () => {
 
             case "changeIndex" : 
                 return {...state, conter : action.payload}
-
+            
+            case "changeColor" : 
+                const NewColors = Object.keys(state.changeColor).reduce((a, b) => {
+                    a[b] = false;
+                    return a
+                }, {})
+            
+                return {...state, changeColor : {[state.conter] : true} }
             default :
                 return {...state}
         }    
@@ -65,6 +72,7 @@ const SliderPage = () => {
 
     useEffect(() => {
         dispatch({type : 'changeImge'})
+        dispatch({type : 'changeColor'})
     },[state.conter])
 
     useEffect(() => {
