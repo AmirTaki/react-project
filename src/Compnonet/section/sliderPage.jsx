@@ -51,10 +51,10 @@ const SliderPage = () => {
             </div>
 
 
-            <div onClick={right} className="absolute top-[50%] right-[4%]">
+            <div onClick={right} className="absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!">
                 <i className="text-2xl bi bi-arrow-right-square"></i>
             </div>
-            <div onClick={left} className="absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer">
+            <div onClick={left} className="absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!">
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
         </div>
