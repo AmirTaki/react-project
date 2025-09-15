@@ -86,7 +86,7 @@ const SliderPage = () => {
             </div>
 
             <div className="flex gap-3 w-[80%]  justify-center">
-                {listImg.map((_, index) => (
+                {listImg.map((_, index) => (                    
                     <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
                 ))}
             </div>
