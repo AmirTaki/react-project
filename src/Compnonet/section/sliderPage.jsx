@@ -18,6 +18,8 @@ const SliderPage = () => {
     const refSlide =    useRef()
     const [conter, setConter] = useState(1)
     const listImg = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ]
+    const listItemsTwo = Array.from({length : listImg.length/2}, (_) => `${_}`);
+    console.log(listItemsTwo)
     const x = listImg.length / 3
     const right = () => {
        if (refSlide.current){
@@ -39,7 +41,7 @@ const SliderPage = () => {
            refSlide.current.style.scrollBehavior = "smooth";
            refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
            setConter(conter - 1)     
-            refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
+            // refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
         //         console.log(refSlide.current.offsetWidth * conter)
         //     setConter(conter - 1)
 
@@ -88,7 +90,7 @@ const SliderPage = () => {
             </div>
 
             <div className="flex gap-3 w-[80%]  justify-center">
-                {listImg.map((_, index) => (                    
+                {listItemsTwo.map((_, index) => (                    
                     <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
                 ))}
             </div>
