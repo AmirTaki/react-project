@@ -27,6 +27,15 @@ const SliderPage = () => {
                     return {...state}
    
                 }
+
+            case "leftClick":
+                 if (refSlide.current){
+                        // setConter((conter) => (  conter <= 0 ? conter = 0 : conter  - 1))    
+                    refSlide.current.style.scrollBehavior = "smooth";
+                    refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
+                    return{...state}
+                }
+                
             default :
                 return {...state}
         }
@@ -43,20 +52,10 @@ const SliderPage = () => {
     const right = () => {
         dispatch({type : "rightClick", payload : 1})  
     }
-}
 
-
-//     const left = () => {
-
-//         if (refSlide.current){
-//                 setConter((conter) => (  conter <= 0 ? conter = 0 : conter  - 1))    
-
-//             refSlide.current.style.scrollBehavior = "smooth";
-//             refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
-                
-        
-//         }
-//     }
+    const left = () => {
+        dispatch({type : 'leftClick', payload : 1})       
+    }
 
 //     useEffect(() => {
 //         const  handleImage = () => {
