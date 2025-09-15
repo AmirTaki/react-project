@@ -24,12 +24,12 @@ const MenuMegaMenu = ({menu, loc}) => {
             <div   
                 style={{height: state.heightNavbar[loc]}} 
                 className={` megaContainer  h-[0]    
-                    ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden!   rounded-2xl shadow-2xl left-[10%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}
+                    ${navbar ? "bg-gray-100  overflow-hidden  duration-500!" : "bg-white h-[0] hidden!   rounded-2xl shadow-2xl left-[5%] top-[101px] fixed group-hover/menu:flex!  duration-500! group-hover/menu:h-[500px]!  overflow-hidden  animate-mege!  "}
                     ${scrollTop > 90 ? "top-[60.40px]!":"top-[101px]!"}
                     `}  
                 >
                 {/* container list */}
-                <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[80vw]   "}`}>
+                <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[90vw]   "}`}>
                 {/* category */}
                     <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                     {/* container List  */}
