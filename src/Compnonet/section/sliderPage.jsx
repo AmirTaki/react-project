@@ -109,14 +109,14 @@ const SliderPage = () => {
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
-            <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-25">
+            <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-20">
                 {listItemsTwo.map((_, index) => (                    
-                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-125": "scale-100" } w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer`}></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-[silver]!": "scale-100 bg-red-500" } w-[25px] h-[10px] bg-red-500 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
             <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-25">
                 {state.listImg.map((_, index) => (                    
-                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-125": "scale-100" } w-[20px] h-[10px] bg-blue-800 rounded-2xl cursor-pointer`}></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-[silver]!": "scale-100 bg-blue-500" } w-[25px] h-[10px] bg-blue-500 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
         </div>
