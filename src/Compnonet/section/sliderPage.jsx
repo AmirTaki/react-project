@@ -4,6 +4,7 @@ const SliderPage = () => {
     const refSlide =    useRef()
     const left = () => {
        if (refSlide.current){
+        refSlide.current.style.scrollBehavior = "smooth"
         
        }
     }
