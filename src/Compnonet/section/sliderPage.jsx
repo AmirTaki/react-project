@@ -19,9 +19,10 @@ const SliderPage = () => {
     const refSlide =    useRef()
     const reduce = (state, action) => {
         switch(action.type){
+            case 'conter' : 
+                return {...state, conter : 0}
             case "rightClick":
                 if (refSlide.current){
-                    // setConter(conter > x - 1 ?  conter  : conter  + 1)  
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft += refSlide.current.offsetWidth
                     console.log(Math.round(state.listImg.length / 3))
@@ -30,12 +31,18 @@ const SliderPage = () => {
                 }
 
             case "leftClick":
-                 if (refSlide.current){    
+                if (refSlide.current){    
                     refSlide.current.style.scrollBehavior = "smooth";
                     refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
                     return {...state, conter : state.conter <= 0 ? state.conter = 0 : state.conter - action.payload}
                 }
-                
+            case "handlerItem" : 
+                if(refSlide.current){
+                    refSlide.current.style.scrollBehavior = "smooth";
+                    refSlide.current.scrollLeft = refSlide.current.offsetWidth * action.payload  
+                    return{...state}
+                }
+
                 default :
                 return {...state}
             }
@@ -46,7 +53,7 @@ const SliderPage = () => {
             listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ],
 
         })
-        const maxNumber = state.listImg.length / 3
+
         const listItemsTwo = Array.from({length : Math.round (state.listImg.length) / 2}, (_) => `${_}`)
    
    
@@ -60,23 +67,23 @@ const SliderPage = () => {
 
 
 
-//     useEffect(() => {
-//         const  handleImage = () => {
-//             refSlide.current.style.scrollBehavior = "smooth"
-//             refSlide.current.scrollLeft = 0
-//             setConter(0)
-//         }
+    useEffect(() => {
+        const  handleImage = () => {
+            refSlide.current.style.scrollBehavior = "smooth"
+            refSlide.current.scrollLeft = 0
+            dispatch({type : 'conter'})
+        }
 
-//         window.addEventListener("resize", handleImage)
+        window.addEventListener("resize", handleImage)
 
-//         return()=> {
-//             window.addEventListener('resize', handleImage )
-//         }
-//     }, [])
+        return()=> {
+            window.addEventListener('resize', handleImage )
+        }
+    }, [])
 
     const handlerItem = (index) => {
-        refSlide.current.style.scrollBehavior = "smooth";
-        refSlide.current.scrollLeft = refSlide.current.offsetWidth * index   
+        dispatch({type : 'handlerItem' , payload : index})
+         
     }
 
     return(
