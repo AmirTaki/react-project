@@ -20,7 +20,13 @@ const SliderPage = () => {
     const reduce = (state, action) => {
         switch(action.type){
             case "rightClick":
-                return {...state}
+                if (refSlide.current){
+                    // setConter(conter > x - 1 ?  conter  : conter  + 1)  
+                    refSlide.current.style.scrollBehavior = "smooth";
+                    refSlide.current.scrollLeft += refSlide.current.offsetWidth
+                    return {...state}
+   
+                }
             default :
                 return {...state}
         }
@@ -35,15 +41,7 @@ const SliderPage = () => {
    
    
     const right = () => {
-        dispatch({type : "rightClick", payload : 1})
-       if (refSlide.current){
-
-                  setConter(conter > x - 1 ?  conter  : conter  + 1)  
-
-        refSlide.current.style.scrollBehavior = "smooth";
-        refSlide.current.scrollLeft += refSlide.current.offsetWidth   
-        
-        
+        dispatch({type : "rightClick", payload : 1})  
     }
 }
 
