@@ -23,26 +23,18 @@ const SliderPage = () => {
     const right = () => {
        if (refSlide.current){
 
-
-
-        // console.log(refSlide.current.scrollWidth);
-
         refSlide.current.style.scrollBehavior = "smooth";
-        // refSlide.current.scrollLeft += refSlide.current.offsetWidth
-        refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
-        // console.log(refSlide.current.offsetWidth * conter)
+        refSlide.current.scrollLeft += refSlide.current.offsetWidth   
         setConter(conter + 1)
 
-       }
     }
-    const left = () => {
-       if (refSlide.current){
-           refSlide.current.style.scrollBehavior = "smooth";
-           refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
+}
+const left = () => {
+    if (refSlide.current){
+        refSlide.current.style.scrollBehavior = "smooth";
+        refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
            setConter(conter - 1)     
-            // refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
-        //         console.log(refSlide.current.offsetWidth * conter)
-        //     setConter(conter - 1)
+      
 
        }
     }
@@ -68,7 +60,7 @@ const SliderPage = () => {
     }
 
     return(
-        <div  className="w-[100%] h-[700px] bg-white flex flex-col items-center justify-center relative">
+        <div  className="w-[100%] h-[600px] bg-white flex flex-col items-center justify-center relative">
             <div ref = {refSlide} className="w-[80%] h-[500px] bg-white flex flex-col flex-wrap  overflow-hidden! ">
 
                 {listImg.map((item, index) => (
@@ -90,12 +82,12 @@ const SliderPage = () => {
 
             <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-25">
                 {listItemsTwo.map((_, index) => (                    
-                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl"></div>
+                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer"></div>
                 ))}
             </div>
             <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-25">
                 {listImg.map((_, index) => (                    
-                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
+                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl cursor-pointer"></div>
                 ))}
             </div>
         </div>
