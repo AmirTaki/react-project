@@ -18,7 +18,7 @@ const SliderPage = () => {
     const refSlide =    useRef()
     const [conter, setConter] = useState(1)
     const listImg = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ]
-
+    const x = listImg.length / 3
     const right = () => {
        if (refSlide.current){
 
@@ -27,18 +27,19 @@ const SliderPage = () => {
         // console.log(refSlide.current.scrollWidth);
 
         refSlide.current.style.scrollBehavior = "smooth";
-        refSlide.current.scrollLeft += refSlide.current.offsetWidth
-        // refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
+        // refSlide.current.scrollLeft += refSlide.current.offsetWidth
+        refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
         // console.log(refSlide.current.offsetWidth * conter)
-        // setConter(conter + 1)
+        setConter(conter + 1)
 
        }
     }
     const left = () => {
        if (refSlide.current){
-            refSlide.current.style.scrollBehavior = "smooth";
-            refSlide.current.scrollLeft -= refSlide.current.offsetWidth        
-        // refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
+           refSlide.current.style.scrollBehavior = "smooth";
+           refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
+           setConter(conter - 1)     
+            refSlide.current.scrollLeft -= refSlide.current.offsetWidth   
         //         console.log(refSlide.current.offsetWidth * conter)
         //     setConter(conter - 1)
 
@@ -79,10 +80,10 @@ const SliderPage = () => {
             </div>
 
 
-            <div onClick={right} className="absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!">
+            <div onClick={right} className={`${conter >= x ? "hidden": "flex" } absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl bi bi-arrow-right-square"></i>
             </div>
-            <div onClick={left} className="absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!">
+            <div onClick={left} className={`${conter > 1 ? "flex" : "hidden"} absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
             </div>
 
