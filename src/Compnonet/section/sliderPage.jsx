@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useReducer, useRef, useState } from "react"
 import slide1 from "../../assets/slide1.webp"
 import slide2 from "../../assets/slide2.webp"
 import slide3 from "../../assets/slide3.webp"
@@ -17,6 +17,9 @@ import { flushSync } from "react-dom"
 
 const SliderPage = () => {
     const refSlide =    useRef()
+    const [state, setState] = useReducer (reduce, {
+
+    })
     const [conter, setConter] = useState(0)
     const listImg = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ]
     const listItemsTwo = Array.from({length : listImg.length/2}, (_) => `${_}`);
