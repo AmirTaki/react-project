@@ -21,9 +21,9 @@ const SliderPage = () => {
     
     const right = () => {
        if (refSlide.current){
-        refSlide.current.style.scrollBehavior = "smooth"
+        refSlide.current.style.scrollBehavior = "smooth";
         // refSlide.current.scrollLeft += refSlide.current.offsetWidth
-        (setConter((conter) => (conter + 1)))
+        (setConter((conter) => (conter + 1)));
         refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
 
        }
@@ -39,6 +39,7 @@ const SliderPage = () => {
         const  handleImage = () => {
             refSlide.current.style.scrollBehavior = "smooth"
             refSlide.current.scrollLeft = 0
+            setConter((conter) => (conter = 0))
         }
 
         window.addEventListener("resize", handleImage)
