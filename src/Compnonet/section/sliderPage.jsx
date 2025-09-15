@@ -60,6 +60,10 @@ const SliderPage = () => {
         }
     }, [])
 
+    const handlerItem = () => {
+
+    }
+
     return(
         <div  className="w-[100%] h-[700px] bg-gray-500 flex flex-col items-center justify-center relative">
             <div ref = {refSlide} className="w-[80%] h-[500px] bg-white flex flex-col flex-wrap  overflow-hidden! ">
@@ -82,8 +86,8 @@ const SliderPage = () => {
             </div>
 
             <div className="flex gap-3 w-[80%]  justify-center">
-                {listImg.map((item) => (
-                    <div key = {item} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
+                {listImg.map((_, index) => (
+                    <div  onClick={()=>{handlerItem(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl"></div>
                 ))}
             </div>
         </div>
