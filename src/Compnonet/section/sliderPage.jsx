@@ -13,7 +13,6 @@ import slide11 from "../../assets/slide11.webp"
 import slide12 from "../../assets/slide12.webp"
 import slide13 from "../../assets/slide13.webp"
 import slide14 from "../../assets/slide14.webp"
-import { flushSync } from "react-dom"
 
 const SliderPage = () => {
     const refSlide =    useRef()
@@ -25,7 +24,7 @@ const SliderPage = () => {
             case "increment" : 
                 return {...state, conter : state.conter >= (state.listImg.length / 3) ? state.conter : state.conter + action.payload}
                 
-                case "decrement" : 
+            case "decrement" : 
                 return {...state, conter : state.conter <= 0 ? 0 : state.conter - action.payload}
             
             case "changeImge":
@@ -104,12 +103,12 @@ const SliderPage = () => {
 
             <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-25">
                 {listItemsTwo.map((_, index) => (                    
-                    <div  onClick={()=>{changeIndex(index)}} key = {index} className="w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer"></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-125": "scale-100" } w-[20px] h-[10px] bg-red-800 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
             <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-25">
                 {state.listImg.map((_, index) => (                    
-                    <div  onClick={()=>{changeIndex(index)}} key = {index} className="w-[20px] h-[10px] bg-blue-800 rounded-2xl cursor-pointer"></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-125": "scale-100" } w-[20px] h-[10px] bg-blue-800 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
         </div>
