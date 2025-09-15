@@ -60,8 +60,9 @@ const SliderPage = () => {
         }
     }, [])
 
-    const handlerItem = () => {
-
+    const handlerItem = (index) => {
+        refSlide.current.style.scrollBehavior = "smooth";
+        refSlide.current.scrollLeft = refSlide.current.offsetWidth * index   
     }
 
     return(
