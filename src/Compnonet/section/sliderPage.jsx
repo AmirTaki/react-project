@@ -36,17 +36,16 @@ const SliderPage = () => {
     }
     const left = () => {
        if (refSlide.current){
-        refSlide.current.style.scrollBehavior = "smooth";
-        refSlide.current.scrollLeft -= refSlide.current.offsetWidth        
+            refSlide.current.style.scrollBehavior = "smooth";
+            refSlide.current.scrollLeft -= refSlide.current.offsetWidth        
         // refSlide.current.scrollLeft = refSlide.current.offsetWidth * conter
         //         console.log(refSlide.current.offsetWidth * conter)
         //     setConter(conter - 1)
 
        }
     }
-    if(refSlide.current){
-        console.log(refSlide.current.scrollLeft)
-    }
+    
+
     useEffect(() => {
         const  handleImage = () => {
             refSlide.current.style.scrollBehavior = "smooth"
@@ -62,7 +61,7 @@ const SliderPage = () => {
     }, [])
 
     return(
-        <div  className="w-[100%] h-[700px] bg-gray-500 flex items-center justify-center relative">
+        <div  className="w-[100%] h-[700px] bg-gray-500 flex flex-col items-center justify-center relative">
             <div ref = {refSlide} className="w-[80%] h-[500px] bg-white flex flex-col flex-wrap  overflow-hidden! ">
 
                 {listImg.map((item, index) => (
@@ -80,6 +79,12 @@ const SliderPage = () => {
             </div>
             <div onClick={left} className="absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!">
                 <i className="text-2xl  bi bi-arrow-left-square"></i>
+            </div>
+
+            <div className="flex gap-3 w-[80%] bg-amber-200 justify-center">
+                {listImg.map((item) => (
+                    <div key = {item} className="w-[20px] h-[10px] bg-blue-200"></div>
+                ))}
             </div>
         </div>
     )
