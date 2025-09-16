@@ -51,9 +51,25 @@ const ImageAdvert = () => {
     
     return(
         <>
-        <div className="relative flex h-[500px]">
-                
-            <div className=" w-[50%] h-[100%]   relative max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] p-1 max-sm:p-0!">
+        <div className="relative flex h-[500px] w-[100%] bg-blue-400">
+            <div className="bg-red-500 h-[500px] w-[50%] max-lg:hidden! p-1 ">
+                <img src={img1} className="w-[100%] h-[100%]!" alt="" />
+            </div>
+            <div className="bg-green-500 h-[500px] w-[50%]"></div>
+           
+        </div>
+       
+           
+        </>     
+    )
+}
+
+export default ImageAdvert
+
+/*
+
+
+ <div className=" w-[50%] h-[100%]   relative max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] p-1 max-sm:p-0!">
                 <img src={img1} className="w-[100%] h-[100%]! object-fill" alt="" />
                 <div className="bg-black bg-opacity-20 absolute bottom-1 w-[90%] text-white p-3 max-sm:w-[100%]!" >
                     <h4 className="text-gray-400">0-The ROG Pelta wireless gaming headset :</h4>
@@ -78,11 +94,4 @@ const ImageAdvert = () => {
             <div className={`${state.conter <= 0 ? "hidden!" : "flex!"} absolute top-[50%] left-3  hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
                 <i onClick={LeftButton} className="bi bi-caret-left  text-2xl"></i>
             </div>
-        </div>
-       
-           
-        </>     
-    )
-}
-
-export default ImageAdvert
+            */
