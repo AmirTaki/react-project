@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useReducer, useRef } from "react"
 import img1 from "../../assets/advert1.jpg"
 import img2 from "../../assets/advert2.jpg"
 import img3 from "../../assets/advert3.jpg"
@@ -14,12 +14,11 @@ import img11 from  "../../assets/img9.jpg"
 const ImageAdvert = () => {
     const listImg = [img2, img3, img4, img5, img6, img7, img8, img9, img10, img11]
     const refSlider = useRef()
-    const conter = 0
-    const RightButton = () => {
-        if(refSlider.current){
-            refSlider.current.scrollLeft = refSlider.current.offseWieght * conter
-        }
-    }
+  
+    useReducer(reducer, {
+        conter : 0,
+        
+    })
     return(
         <>
             <div ref = {refSlider} className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll relative ">
