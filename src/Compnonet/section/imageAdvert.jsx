@@ -19,7 +19,10 @@ const ImageAdvert = () => {
     const reducer = (state, action) => {
         switch(action.type) {
             case "right" : 
-                return {...state, conter : action.payload }
+                return {...state, conter : state.conter + action.payload }
+          
+            case "left" : 
+                return {...state, conter : state.conter - action.payload }
 
             case 'slide' : 
                 if(refSlider.current){
@@ -34,10 +37,14 @@ const ImageAdvert = () => {
         
     })
 
+    
     const RightButton = () => {
         dispatch({type : "right", payload : 1})
     }
-
+    
+    const LeftButton = () => {
+        dispatch({type : "left", payload : 1})
+    }
     useEffect(()=> {
         dispatch({type : 'slide'})
     },[state.conter])
