@@ -14,6 +14,12 @@ import img11 from  "../../assets/img9.jpg"
 const ImageAdvert = () => {
     const listImg = [img2, img3, img4, img5, img6, img7, img8, img9, img10, img11]
     const refSlider = useRef()
+    const conter = 0
+    const RightButton = () => {
+        if(refSlider.current){
+            refSlider.current.scrollLeft = refSlider.current.offseWieght * conter
+        }
+    }
     return(
         <>
             <div ref = {refSlider} className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll relative ">
@@ -37,7 +43,7 @@ const ImageAdvert = () => {
                 ))}
 
                 <div className="absolute top-[50%] right-3 hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer">
-                    <i className="bi bi-caret-right text-2xl"></i>
+                    <i onClick = {RightButton} className="bi bi-caret-right text-2xl"></i>
                 </div>
                 <div className=" absolute top-[50%] left-3  hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer">
                     <i className="bi bi-caret-left  text-2xl"></i>
