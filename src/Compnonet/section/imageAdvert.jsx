@@ -8,7 +8,7 @@ const ImageAdvert = () => {
     return(
         <>
             <div className="w-[100%] h-[500px] bg-red-500 flex flex-col flex-wrap overflow-x-scroll ">
-                <div className="bg-pink-500 w-[50%] h-[100%] max-lg:hidden ">
+                <div className=" w-[50%] h-[100%] max-lg:hidden p-2">
                     <img src={img1} className="w-[100%] h-[100%]! object-cover" alt="" />
                 </div>
               
