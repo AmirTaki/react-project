@@ -6,8 +6,9 @@ import img5 from "../../assets/advert5.jpg"
 
 const ImageAdvert = () => {
     return(
-        <div className="w-[100%] h-[500px] bg-blue-500">
-
+        <div className="w-[100%] h-[500px] bg-blue-500 flex  ">
+            <div className="bg-red-500 h-[500px] w-[50%] "></div>
+            <div className="bg-green-500 h-[500px] w-[50%] "></div>
         </div>
     )
 }
