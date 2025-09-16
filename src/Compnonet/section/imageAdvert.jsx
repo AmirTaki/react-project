@@ -10,6 +10,8 @@ const ImageAdvert = () => {
             <div className="bg-red-500 h-[500px] w-[50%] "></div>
             <div className="bg-green-500 h-[500px] w-[50%] "></div>
             <div className="bg-pink-500 h-[500px] w-[50%] "></div>
+            <div className="bg-gray-500 h-[500px] w-[50%] "></div>
+            <div className="bg-amber-500 h-[500px] w-[50%] "></div>
 
         </div>
     )
