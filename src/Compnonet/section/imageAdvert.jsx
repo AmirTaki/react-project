@@ -16,13 +16,21 @@ const ImageAdvert = () => {
     const refSlider = useRef()
   
 
-    const reducer = () => {
-        
+    const reducer = (state, action) => {
+        switch(action.type) {
+            case "" : 
+                return {...state, conter : action.payload }
+        }
     }
     const [state, dispatch] = useReducer(reducer, {
         conter : 0,
         
     })
+
+    const RightButton = () => {
+        dispatch({type : "right", payload : 1})
+    }
+    
     return(
         <>
             <div ref = {refSlider} className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll relative ">
