@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import img1 from "../../assets/advert1.jpg"
 import img2 from "../../assets/advert2.jpg"
 import img3 from "../../assets/advert3.jpg"
@@ -12,9 +13,10 @@ import img11 from  "../../assets/img9.jpg"
 
 const ImageAdvert = () => {
     const listImg = [img2, img3, img4, img5, img6, img7, img8, img9, img10, img11]
+    const refSlider = useRef()
     return(
         <>
-            <div className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll relative ">
+            <div ref = {refSlider} className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll relative ">
                 
                 <div className=" w-[50%] h-[100%]   relative max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] p-1 max-sm:p-0!">
                     <img src={img1} className="w-[100%] h-[100%]! object-fill" alt="" />
