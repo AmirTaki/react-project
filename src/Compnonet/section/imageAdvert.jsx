@@ -7,7 +7,13 @@ import img5 from "../../assets/advert5.jpg"
 const ImageAdvert = () => {
     return(
         <>
-            <div className="w-[100%] h-[500px] bg-red-500"></div>
+            <div className="w-[100%] h-[500px] bg-red-500">
+                <div className="w-[25%] h-[25%] bg-blue-300"></div>
+                <div className="w-[25%] h-[25%] bg-blue-400"></div>
+                <div className="w-[25%] h-[25%] bg-blue-500"></div>
+                <div className="w-[25%] h-[25%] bg-blue-600"></div>
+                <div className="w-[25%] h-[25%] bg-blue-700"></div>
+            </div>
         </>
         // flex   flex-col flex-wrap overflow-x-scroll
      
