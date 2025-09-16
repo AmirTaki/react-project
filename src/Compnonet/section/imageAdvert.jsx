@@ -34,11 +34,11 @@ const ImageAdvert = () => {
                     </div>
                 ))}
 
-                <div className="bg-red-500 absolute top-[50%] right-2">
-                    <i className="bi bi-caret-right"></i>
+                <div className="absolute top-[50%] right-2 hover:scale-150 duration-300">
+                    <i className="bi bi-caret-right text-2xl"></i>
                 </div>
-                <div className="bg-blue-500 absolute top-[50%] left-2">
-                    <i className="bi bi-caret-left"></i>
+                <div className=" absolute top-[50%] left-2  hover:scale-150 duration-300">
+                    <i className="bi bi-caret-left  text-2xl"></i>
                 </div>
             </div>
         </>     
