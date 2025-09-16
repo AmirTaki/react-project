@@ -50,11 +50,12 @@ const SliderPage = () => {
     }
         const [state, dispatch] = useReducer (reduce, {
             conter : 0,
-            listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14 ],
+            listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9 , slide10, slide11, slide12, slide13, slide14],
             changeColor : {}
         })
 
-        const listItemsTwo = Array.from({length : Math.round (state.listImg.length) / 2}, (_) => `${_}`)
+        const listItemsTwo = Array.from({length : Math.round (state.listImg.length / 2) }, (_) => `${_}`)
+
    
    
     const right = () => {
