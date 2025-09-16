@@ -8,16 +8,16 @@ const ImageAdvert = () => {
     return(
         <>
             <div className="w-[100%] h-[500px] bg-red-500 flex flex-col flex-wrap ">
-                <div className="w-[25%] h-[50%] bg-blue-300 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-blue-400 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-blue-500 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-blue-600 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-blue-700 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-green-300 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-green-400 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-green-500 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-green-600 max-md:w-[50%] max-md:h-[100%]"></div>
-                <div className="w-[25%] h-[50%] bg-green-700 max-md:w-[50%] max-md:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-blue-300  max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-blue-400  max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-blue-500  max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-blue-600  max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-blue-700  max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-green-300 max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-green-400 max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-green-500 max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-green-600 max-lg:w-[50%] max-lg:h-[100%]"></div>
+                <div className="w-[25%] h-[50%] bg-green-700 max-lg:w-[50%] max-lg:h-[100%]"></div>
             </div>
         </>
         // flex   flex-col flex-wrap overflow-x-scroll
