@@ -16,38 +16,38 @@ const ImageAdvert = () => {
     const refSlider = useRef()
   
 
-    const reducer = (state, action) => {
-        switch(action.type) {
-            case "right" : 
-                return {...state, conter : state.conter + action.payload }
+    // const reducer = (state, action) => {
+    //     switch(action.type) {
+    //         case "right" : 
+    //             return {...state, conter : state.conter + action.payload }
           
-            case "left" : 
-                return {...state, conter : state.conter - action.payload }
+    //         case "left" : 
+    //             return {...state, conter : state.conter - action.payload }
 
-            case 'slide' : 
-                if(refSlider.current){
-                    refSlider.current.style.scrollBehavior = "smooth";     
-                    refSlider.current.scrollLeft = refSlider.current.offsetWidth * state.conter
-                    return {...state}
-                }
-        }
-    }
-    const [state, dispatch] = useReducer(reducer, {
-        conter : 0,
-        maxConter : Math.ceil(listImg.length /  2 )  
-    })
-    console.log(Math.ceil(listImg.length /  2 ) )
+    //         case 'slide' : 
+    //             if(refSlider.current){
+    //                 refSlider.current.style.scrollBehavior = "smooth";     
+    //                 refSlider.current.scrollLeft = refSlider.current.offsetWidth * state.conter
+    //                 return {...state}
+    //             }
+    //     }
+    // }
+    // const [state, dispatch] = useReducer(reducer, {
+    //     conter : 0,
+    //     maxConter : Math.ceil(listImg.length /  2 )  
+    // })
+    // console.log(Math.ceil(listImg.length /  2 ) )
     
-    const RightButton = () => {
-        dispatch({type : "right", payload : 1})
-    }
+    // const RightButton = () => {
+    //     dispatch({type : "right", payload : 1})
+    // }
     
-    const LeftButton = () => {
-        dispatch({type : "left", payload : 1})
-    }
-    useEffect(()=> {
-        dispatch({type : 'slide'})
-    },[state.conter])
+    // const LeftButton = () => {
+    //     dispatch({type : "left", payload : 1})
+    // }
+    // useEffect(()=> {
+    //     dispatch({type : 'slide'})
+    // },[state.conter])
     
     return(
         <>
@@ -55,7 +55,18 @@ const ImageAdvert = () => {
             <div className="bg-red-500 h-[500px] w-[50%] max-lg:hidden! p-1 ">
                 <img src={img1} className="w-[100%] h-[100%]!" alt="" />
             </div>
-            <div className="bg-green-500 h-[500px] w-[50%]"></div>
+            <div ref = {refSlider} className="w-[50%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll  ">
+                {listImg.map((item, index) => (
+                    <div key = {index} className="w-[50%] h-[50%]   max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] relative p-1 max-sm:p-0!">
+                        <img src={item} className="w-[100%] h-[100%]! object-fill" alt="" />
+                        <div className="bg-black bg-opacity-20 absolute bottom-1 text-white p-3 w-[98%] max-sm:w-[100%]!  " >
+                            <h4 className="text-gray-400">{index + 1}-The ROG Pelta wireless gaming headset :</h4>
+                            <p className="text-gray-200 text-sm">The ROG Pelta's ergomomic, comfort-focused design, high-end audio spaecs, and stunning battery life make it an ideal match for any gamer.</p>
+                        </div>
+                    </div>
+                ))}
+               
+            </div>
            
         </div>
        
