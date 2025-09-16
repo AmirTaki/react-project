@@ -55,7 +55,7 @@ const ImageAdvert = () => {
             <div className="bg-red-500 h-[500px] w-[50%] max-lg:hidden! p-1 ">
                 <img src={img1} className="w-[100%] h-[100%]!" alt="" />
             </div>
-            <div ref = {refSlider} className="w-[50%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll  ">
+            <div ref = {refSlider} className="w-[50%] h-[500px] max-lg:w-[100%] bg-white flex flex-col flex-wrap overflow-x-scroll  ">
                 {listImg.map((item, index) => (
                     <div key = {index} className="w-[50%] h-[50%]   max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] relative p-1 max-sm:p-0!">
                         <img src={item} className="w-[100%] h-[100%]! object-fill" alt="" />
