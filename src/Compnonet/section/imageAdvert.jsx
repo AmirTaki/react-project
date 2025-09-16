@@ -15,7 +15,11 @@ const ImageAdvert = () => {
     const listImg = [img2, img3, img4, img5, img6, img7, img8, img9, img10, img11]
     const refSlider = useRef()
   
-    useReducer(reducer, {
+
+    const reducer = () => {
+        
+    }
+    const [state, dispatch] = useReducer(reducer, {
         conter : 0,
         
     })
