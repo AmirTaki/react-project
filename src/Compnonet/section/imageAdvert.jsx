@@ -16,38 +16,38 @@ const ImageAdvert = () => {
     const refSlider = useRef()
   
 
-    // const reducer = (state, action) => {
-    //     switch(action.type) {
-    //         case "right" : 
-    //             return {...state, conter : state.conter + action.payload }
+    const reducer = (state, action) => {
+        switch(action.type) {
+            case "right" : 
+                return {...state, conter : state.conter + action.payload }
           
-    //         case "left" : 
-    //             return {...state, conter : state.conter - action.payload }
+            case "left" : 
+                return {...state, conter : state.conter - action.payload }
 
-    //         case 'slide' : 
-    //             if(refSlider.current){
-    //                 refSlider.current.style.scrollBehavior = "smooth";     
-    //                 refSlider.current.scrollLeft = refSlider.current.offsetWidth * state.conter
-    //                 return {...state}
-    //             }
-    //     }
-    // }
-    // const [state, dispatch] = useReducer(reducer, {
-    //     conter : 0,
-    //     maxConter : Math.ceil(listImg.length /  2 )  
-    // })
-    // console.log(Math.ceil(listImg.length /  2 ) )
+            case 'slide' : 
+                if(refSlider.current){
+                    refSlider.current.style.scrollBehavior = "smooth";     
+                    refSlider.current.scrollLeft = refSlider.current.offsetWidth * state.conter
+                    return {...state}
+                }
+        }
+    }
+    const [state, dispatch] = useReducer(reducer, {
+        conter : 0,
+        maxConter : Math.ceil(listImg.length /  2 )  
+    })
+    console.log(Math.ceil(listImg.length /  2 ) )
     
-    // const RightButton = () => {
-    //     dispatch({type : "right", payload : 1})
-    // }
+    const RightButton = () => {
+        dispatch({type : "right", payload : 1})
+    }
     
-    // const LeftButton = () => {
-    //     dispatch({type : "left", payload : 1})
-    // }
-    // useEffect(()=> {
-    //     dispatch({type : 'slide'})
-    // },[state.conter])
+    const LeftButton = () => {
+        dispatch({type : "left", payload : 1})
+    }
+    useEffect(()=> {
+        dispatch({type : 'slide'})
+    },[state.conter])
     
     return(
         <>
@@ -66,6 +66,13 @@ const ImageAdvert = () => {
                     </div>
                 ))}
                
+            </div>
+
+            <div className={`${state.conter  >= state.maxConter  - 1 ? "hidden!" : "flex!" } absolute top-[50%] right-3 hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
+                <i onClick = {RightButton} className="bi bi-caret-right text-2xl"></i>
+            </div>
+            <div className={`${state.conter <= 0 ? "hidden!" : "flex!"} absolute top-[50%] left-3  hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
+                <i onClick={LeftButton} className="bi bi-caret-left  text-2xl"></i>
             </div>
            
         </div>
