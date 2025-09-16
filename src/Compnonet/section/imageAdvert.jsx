@@ -24,6 +24,7 @@ const ImageAdvert = () => {
             case 'slide' : 
                 if(refSlider.current){
                     refSlider.current.style.scrollBehvior = "smooth"
+                    refSlider.current.scrollLeft = refSlider.current.offsetWidth * state.conter
                     return {...state}
                 }
         }
