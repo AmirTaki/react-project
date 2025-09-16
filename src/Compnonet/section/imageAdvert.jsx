@@ -12,7 +12,7 @@ const ImageAdvert = () => {
                 
                 <div className=" w-[50%] h-[100%]   relative max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] p-1">
                     <img src={img1} className="w-[100%] h-[100%]! object-cover" alt="" />
-                    <div className="bg-black bg-opacity-20 absolute bottom-0 text-white p-3 " >
+                    <div className="bg-black bg-opacity-20 absolute bottom-1 w-[90%] text-white p-3 " >
                         <h4 className="text-gray-400">0-The ROG Pelta wireless gaming headset :</h4>
                         <p className="text-gray-200 text-sm">The ROG Pelta's ergomomic, comfort-focused design, high-end audio spaecs, and stunning battery life make it an ideal match for any gamer.</p>
                     </div>
@@ -21,7 +21,7 @@ const ImageAdvert = () => {
                 {listImg.map((item, index) => (
                     <div key = {index} className="w-[25%] h-[50%]   max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] relative p-1">
                         <img src={item} className="w-[100%] h-[100%]! object-cover" alt="" />
-                        <div className="bg-black bg-opacity-20 absolute bottom-0 text-white p-3   " >
+                        <div className="bg-black bg-opacity-20 absolute bottom-1 text-white p-3 w-[98%]  " >
                             <h4 className="text-gray-400">{index + 1}-The ROG Pelta wireless gaming headset :</h4>
                             <p className="text-gray-200 text-sm">The ROG Pelta's ergomomic, comfort-focused design, high-end audio spaecs, and stunning battery life make it an ideal match for any gamer.</p>
                         </div>
