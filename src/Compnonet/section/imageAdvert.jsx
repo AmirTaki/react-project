@@ -6,12 +6,12 @@ import img5 from "../../assets/advert5.jpg"
 
 const ImageAdvert = () => {
     return(
-        <div className="w-[100%] h-[500px] bg-blue-500 flex   flex-col flex-wrap overflow-scroll">
-            <div className="bg-red-500 h-[500px] w-[50%] "></div>
-            <div className="bg-green-500 h-[500px] w-[50%] "></div>
-            <div className="bg-pink-500 h-[500px] w-[50%] "></div>
-            <div className="bg-gray-500 h-[500px] w-[50%] "></div>
-            <div className="bg-amber-500 h-[500px] w-[50%] "></div>
+        <div className="w-[100%] h-[500px] bg-blue-500 flex   flex-col flex-wrap overflow-x-scroll">
+            <div className="bg-red-500 h-[500px] w-[50%] max-lg:w-[100%] "></div>
+            <div className="bg-green-500 h-[500px] w-[50%] max-lg:w-[100%]"></div>
+            <div className="bg-pink-500 h-[500px] w-[50%] max-lg:w-[100%]"></div>
+            <div className="bg-gray-500 h-[500px] w-[50%] max-lg:w-[100%]"></div>
+            <div className="bg-amber-500 h-[500px] w-[50%] max-lg:w-[100%]"></div>
 
         </div>
     )
