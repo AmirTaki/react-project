@@ -1,4 +1,4 @@
-import { useReducer, useRef } from "react"
+import { useEffect, useReducer, useRef } from "react"
 import img1 from "../../assets/advert1.jpg"
 import img2 from "../../assets/advert2.jpg"
 import img3 from "../../assets/advert3.jpg"
@@ -18,8 +18,14 @@ const ImageAdvert = () => {
 
     const reducer = (state, action) => {
         switch(action.type) {
-            case "" : 
+            case "right" : 
                 return {...state, conter : action.payload }
+
+            case 'slide' : 
+                if(refSlider.current){
+                    refSlider.current.style.scrollBehvior = "smooth"
+                    return {...state}
+                }
         }
     }
     const [state, dispatch] = useReducer(reducer, {
@@ -30,6 +36,10 @@ const ImageAdvert = () => {
     const RightButton = () => {
         dispatch({type : "right", payload : 1})
     }
+
+    useEffect(()=> {
+        dispatch({type : 'slide'})
+    },[state.conter])
     
     return(
         <>
