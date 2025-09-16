@@ -44,7 +44,8 @@ const ImageAdvert = () => {
     
     return(
         <>
-            <div ref = {refSlider} className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll relative ">
+        <div className="relative">
+                 <div ref = {refSlider} className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll  ">
                 
                 <div className=" w-[50%] h-[100%]   relative max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] p-1 max-sm:p-0!">
                     <img src={img1} className="w-[100%] h-[100%]! object-fill" alt="" />
@@ -63,7 +64,7 @@ const ImageAdvert = () => {
                         </div>
                     </div>
                 ))}
-
+               
                 <div className="absolute top-[50%] right-3 hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer">
                     <i onClick = {RightButton} className="bi bi-caret-right text-2xl"></i>
                 </div>
@@ -71,6 +72,9 @@ const ImageAdvert = () => {
                     <i className="bi bi-caret-left  text-2xl"></i>
                 </div>
             </div>
+        </div>
+       
+           
         </>     
     )
 }
