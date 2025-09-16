@@ -7,7 +7,7 @@ import img5 from "../../assets/advert5.jpg"
 const ImageAdvert = () => {
     return(
         <>
-            <div className="w-[100%] h-[500px] bg-red-500 flex flex-col flex-wrap overflow-scroll ">
+            <div className="w-[100%] h-[500px] bg-red-500 flex flex-col flex-wrap overflow-x-scroll ">
                 <div className="w-[25%] h-[50%] bg-blue-300  max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%]"></div>
                 <div className="w-[25%] h-[50%] bg-blue-400  max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%]"></div>
                 <div className="w-[25%] h-[50%] bg-blue-500  max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%]"></div>
