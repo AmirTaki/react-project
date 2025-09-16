@@ -12,7 +12,7 @@ import img10 from  "../../assets/img7.jpg"
 import img11 from  "../../assets/img9.jpg"
 
 const ImageAdvert = () => {
-    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9, img10, img11]
+    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9, img10, ]
     const refSlider = useRef()
   
 
@@ -73,7 +73,7 @@ const ImageAdvert = () => {
                 ))}
                
             </div>
-            <div className={` absolute top-[50%] right-3 hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
+            <div className={`${state.conter >= state.maxConter   ? "hidden!" : "flex!" } absolute top-[50%] right-3 hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
                 <i onClick = {RightButton} className="bi bi-caret-right text-2xl"></i>
             </div>
             <div className={`${state.conter <= 0 ? "hidden!" : "flex!"} absolute top-[50%] left-3  hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
