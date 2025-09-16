@@ -8,7 +8,7 @@ const ImageAdvert = () => {
     return(
         <>
             <div className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll ">
-                <div className=" w-[50%] h-[100%] max-lg:hidden  relative">
+                <div className=" w-[50%] h-[100%]   relative max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%]">
                     <img src={img1} className="w-[100%] h-[100%]! object-cover" alt="" />
                     <div className="bg-black bg-opacity-30 absolute bottom-0 text-white p-3 " >
                         <h1>0-The ROG Pelta wireless gaming headset :</h1>
@@ -17,7 +17,7 @@ const ImageAdvert = () => {
                 </div>
               
               
-                <div className="bg-orange-500 max-lg:flex! max-sm:flex! max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] hidden "></div>
+                {/* <div className="bg-orange-500 max-lg:flex! max-sm:flex!  hidden "></div> */}
                 <div className="w-[25%] h-[50%] bg-blue-300  max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%]"></div>
                 <div className="w-[25%] h-[50%] bg-blue-400  max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%]"></div>
                 <div className="w-[25%] h-[50%] bg-blue-500  max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%]"></div>
