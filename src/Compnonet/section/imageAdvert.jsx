@@ -77,7 +77,7 @@ const ImageAdvert = () => {
                     <i onClick = {RightButton} className="bi bi-caret-right text-2xl"></i>
                 </div>
                 <div className=" absolute top-[50%] left-3  hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer">
-                    <i className="bi bi-caret-left  text-2xl"></i>
+                    <i onClick={LeftButton} className="bi bi-caret-left  text-2xl"></i>
                 </div>
         </div>
        
