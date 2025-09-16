@@ -8,9 +8,9 @@ const ImageAdvert = () => {
     return(
         <>
             <div className="w-[100%] h-[500px] bg-white flex flex-col flex-wrap overflow-x-scroll ">
-                <div className=" w-[50%] h-[100%] max-lg:hidden ">
+                <div className=" w-[50%] h-[100%] max-lg:hidden  relative">
                     <img src={img1} className="w-[100%] h-[100%]! object-cover" alt="" />
-                    <div className="">
+                    <div className=" absolute bottom-0 text-white p-3">
                         <h1>0-The ROG Pelta wireless gaming headset :</h1>
                         <p>The ROG Pelta's ergomomic, comfort-focused design, high-end audio spaecs, and stunning battery life make it an ideal match for any gamer.</p>
                     </div>
