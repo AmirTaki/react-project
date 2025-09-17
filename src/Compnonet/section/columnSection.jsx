@@ -17,7 +17,23 @@ const ColumnSection = () => {
   })
   return (
     <div className="w-[90%] bg-blue-600 mx-auto h-[700px]">
-      <div className="w-[100%] bg-amber-700 h-[500px] group">
+
+      <div  className="w-[100%] bg-amber-700 group">
+        <div className="flex items-center justify-between p-3 bg-green-300">
+          <div className="">menu</div>
+          <div className="">></div>
+        </div>
+        <div className="bg-yellow-300 h-0 overflow-hidden group-hover:h-[200px]! duration-300">
+          <div className="">item</div>
+          <div className="">item</div>
+          <div className="">item</div>
+          <div className="">item</div>
+          <div className="">item</div>
+          <div className="">item</div>
+        </div>
+
+      </div>
+      <div  className="w-[100%] bg-amber-700  group">
         <div className="flex items-center justify-between p-3 bg-green-300">
           <div className="">menu</div>
           <div className="">></div>
