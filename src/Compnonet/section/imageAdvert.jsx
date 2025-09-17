@@ -29,6 +29,15 @@ const ImageAdvert = () => {
             case "handerClick" :
                 return {...state , conter : action.payload}
 
+            case "color" : 
+                const NewColor =  Object.keys(state.colorButton).reduce((a,b) => {
+                    a[b] = false
+                    return a
+                },{})
+                  const Colors =    {...NewColor, [state.conter] : true}
+                return{...state,
+                    colorButton : Colors
+                }
             case 'slide' : 
                 if(refSlider.current){
                     refSlider.current.style.scrollBehavior = "smooth";     
@@ -41,7 +50,7 @@ const ImageAdvert = () => {
         conter : 0,
         maxConterLg : Math.ceil(listImg.length /  2 ) , 
         maxConter : Math.ceil(listImg.length /  4 ) ,
-        color : {0: 'red', 1: "blue", 2:'green', 3: "yellow", 4:'pink' } 
+        colorButton : {}
     })
     
     const RightButton = () => {
@@ -53,6 +62,7 @@ const ImageAdvert = () => {
     }
     useEffect(()=> {
         dispatch({type : 'slide'})
+        dispatch({type : "color"})
     },[state.conter])
     
     const changeItem = (index) => {
@@ -96,7 +106,7 @@ const ImageAdvert = () => {
             <div className="absolute flex items-center justify-center  w-[100%] bottom-30 sm:hidden">
                 <div className="bg-gray-500 flex items-center justify-center  w-[40%] rounded-4xl">
                     {listImg.map((_, index)=> (
-                        <div onClick={() => {changeItem(index)}} key = {index} className="w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl bg-red-600"></div>
+                        <div onClick={() => {changeItem(index)}} key = {index} className="w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl "></div>
                     ))}
                 </div>
              
