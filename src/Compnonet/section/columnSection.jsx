@@ -17,12 +17,16 @@ const ColumnSection = () => {
           return a
         },{})
         return {...state, height : {newHeight}}
+      case "innerWidth" : 
+        const flag = window.innerWidth <= 768 ? true : false
+        return {...state, innerWidth : flag}
       default : 
         return {...state}
     }
   }
   const [state, dispatch] = useReducer(reducer, {
     height : {},
+    innerWidth : false
 
   })
   const MenuHandler = (index) => {
@@ -33,6 +37,7 @@ const ColumnSection = () => {
 
   useEffect(() => {
     const handlerResize = () => {
+      dispatch({type : 'innerWidth'})
       dispatch({type : 'heightHandler'})
     }
     window.addEventListener('resize',handlerResize )
