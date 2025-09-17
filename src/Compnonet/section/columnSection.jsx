@@ -1,4 +1,6 @@
 const ColumnSection = () => {
+  const menus = ["menu1", "menu2", 'menu3', 'menu4']
+  const items = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9']
   return (
     <div className="w-[90%] bg-blue-600 mx-auto h-[700px]">
       <div className="w-[100%] h-[100px] hover:h-[500px] duration-500 bg-red-500 overflow-hidden flex flex-row justify-center">
@@ -16,45 +18,7 @@ const ColumnSection = () => {
             </div>
           </ul>
         </div>
-        <div className="bg-yellow-400 w-50">
-          <ul>menu
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-
-          </ul>
-
-        </div>
-        <div className="bg-pink-400 w-50">
-          <ul>menu
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-
-          </ul>
-
-        </div>
-        <div className="bg-purple-600 w-50">
-          <ul>menu
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-
-          </ul>
-
-        </div>
+      
       </div>
     </div>
   )
