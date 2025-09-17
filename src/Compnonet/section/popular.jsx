@@ -5,6 +5,14 @@ const Popular = () => {
             <div className="bg-red-500" >
                 <h1>Popular right now</h1>
             </div>
+            <div className="bg-blue-500 grid grid-cols-3">
+                <div className="bg-gray-200 w-[140px] h-[10px]"></div>
+                <div className="bg-gray-300 w-[140px] h-[10px]"></div>
+                <div className="bg-gray-400 w-[140px] h-[10px]"></div>
+                <div className="bg-gray-500 w-[140px] h-[10px]"></div>
+                <div className="bg-gray-600 w-[140px] h-[10px]"></div>
+                <div className="bg-gray-700 w-[140px] h-[10px]"></div>
+            </div>
         </div>
         </div>
        
