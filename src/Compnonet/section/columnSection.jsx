@@ -8,34 +8,38 @@ const ColumnSection = () => {
     switch(action.type){
       case "hightItmes" :
         const {index} = action.payload
-        const {h} = action.h
-        return {...state, [index] : h }
+        const {height} = action.payload
+        return {...state, height :{ [index] : height}}
       default : 
         return {...state}
     }
   }
   const [state, dispatch] = useReducer(reducer, {
-    hieght : {},
+    height : {},
 
   })
   const MenuHandler = (index) => {
-    dispatch({type : "hightItmes" , payload : {h : '200px', index : index}})
+    const Menus = document.querySelectorAll(".menusControler")[index]
+    const itemsHight =  Menus.querySelectorAll(".itemConterole").length
+    dispatch({type : "hightItmes" , payload : {height : `${itemsHight*50}px`, index : index}})
   }
   return (
     <div className="w-[90%] bg-blue-600 mx-auto h-[700px]">
 
-      <div  onClick={ () => {MenuHandler (0)}} className="w-[100%] bg-amber-700 group">
+      <div  onClick={ () => {MenuHandler (0)}} className="w-[100%] bg-amber-700 menusControler ">
         <div className="flex items-center justify-between p-3 bg-green-300">
           <div className="">menu</div>
           <div className="">></div>
         </div>
-        <div className="bg-yellow-300 h-0 overflow-hidden group-hover:h-[200px]! duration-300">
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
+        <div 
+          style={{height : state.height[0]}}
+          className="bg-yellow-300 h-0 overflow-hidden  duration-300">
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
         </div>
 
       </div>
