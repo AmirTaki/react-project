@@ -55,7 +55,16 @@ const ImageAdvert = () => {
 
         <div className="flex h-[500px] w-[100%] bg-gray-300">
             <div className="h-[500px] w-[50%] bg-red-500 max-lg:hidden"></div>
-            <div className="h-[500px] w-[50%] bg-green-500"></div>
+            <div className="h-[500px] w-[50%] bg-green-500 flex flex-col flex-wrap overflow-x-scroll">
+                <div className="h-[50%] w-[50%] bg-yellow-500"></div>
+                <div className="h-[50%] w-[50%] bg-blue-500"></div>
+                <div className="h-[50%] w-[50%] bg-pink-500"></div>
+                <div className="h-[50%] w-[50%] bg-black"></div>
+                <div className="h-[50%] w-[50%] bg-yellow-500"></div>
+                <div className="h-[50%] w-[50%] bg-blue-500"></div>
+                <div className="h-[50%] w-[50%] bg-pink-500"></div>
+                <div className="h-[50%] w-[50%] bg-black"></div>
+            </div>
         </div>     
 
 
