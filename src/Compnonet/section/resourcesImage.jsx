@@ -13,8 +13,12 @@ const ResourcesImage = () => {
            <div className="w-[90%] h-[700px] bg-blue-500  mx-auto">
                 <div className="[&::-webkit-scrollbar]:opacity-0 w-[100%] h-[350px] bg-white flex items-center   flex-col flex-wrap    overflow-y-hidden   justify-center">
                     {listImg.map((img, key) => (
-                        <div key = {key} className="w-[400px] h-[100%]  flex justify-center">
+                        <div key = {key} className="w-[365px] h-[100%]  flex justify-center relative">
                             <img src={img} alt=""  className="w-[350px] h-[300px]!" />
+                            <div className="bg-white w-[310px] h-[110px] flex flex-col px-3 justify-center  absolute right-1 bottom-8">
+                                <h4 className="text-lg mb-2">How To Clean Shoes</h4>
+                                <p className="text-[12px]">Get down and dirty with adidas and learn how to clean your sneakers the right way.</p>
+                            </div>
                         </div>
                     ))}
               
