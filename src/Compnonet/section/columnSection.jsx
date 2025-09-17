@@ -26,45 +26,32 @@ const ColumnSection = () => {
   }
   return (
     <>
-    <div className="w-[90%] bg-blue-600 mx-auto  flex max-md:flex-col h-[100px] hover:h-[600px] duration-300">
+    <div className="w-[90%] bg-blue-600 mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[600px]  duration-300
+      
+    ">
+      {menus.map((menu, index) => (
+        <div  onClick={ () => {MenuHandler (index)}} 
+          className="max-md:w-[100%]  bg-amber-700 menusControler ">
+          <div className="flex items-center justify-between p-3 bg-green-300">
+            <div className="">{menu}</div>
+            <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 `}></i>
+          </div>
+          <div 
+            style={{height : state.height[index]}}
+            className="bg-yellow-300 max-md:h-0  overflow-hidden  duration-300">
+            <div className="itemConterole">item</div>
+            <div className="itemConterole">item</div>
+            <div className="itemConterole">item</div>
+            <div className="itemConterole">item</div>
+            <div className="itemConterole">item</div>
+            <div className="itemConterole">item</div>
+          </div>
 
-      <div  onClick={ () => {MenuHandler (0)}} 
-        className="max-md:w-[100%]  bg-amber-700 menusControler ">
-        <div className="flex items-center justify-between p-3 bg-green-300">
-          <div className="">menu</div>
-          <i className={`${state.height[0] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 `}></i>
         </div>
-        <div 
-          style={{height : state.height[0]}}
-          className="bg-yellow-300 md:h-0  overflow-hidden  duration-300">
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-        </div>
-
-      </div>
+      ))}
 
       {/*  */}
-      <div  onClick={ () => {MenuHandler (1)}} className="w-[100%] bg-amber-700 menusControler ">
-        <div className="flex items-center justify-between p-3 bg-green-300">
-          <div className="">menu</div>
-          <i className={`${state.height[1] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 `}></i>
-        </div>
-        <div 
-          style={{height : state.height[1]}}
-          className="bg-yellow-300 h-0 overflow-hidden  duration-300">
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-          <div className="itemConterole">item</div>
-          
-        </div>
 
-      </div>
-     
     </div>
     <div className="h-[300px] w-[300px]"></div></>
   )
