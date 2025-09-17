@@ -18,6 +18,8 @@ const ImageAdvert = () => {
 
     const reducer = (state, action) => {
         switch(action.type) {
+            case "conter" : 
+                return {...state, conter : 0}
             case "right" : 
                 return {...state, conter : state.conter + action.payload }
           
@@ -59,7 +61,7 @@ const ImageAdvert = () => {
         return() => {
             window.addEventListener('resize', handlerSlide)
         }
-    })
+    },[])
 
     return(
         <>
