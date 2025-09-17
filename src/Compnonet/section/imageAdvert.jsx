@@ -1,9 +1,9 @@
 import { useEffect, useReducer, useRef } from "react"
-import img1 from "../../assets/img1.webp"
-import img2 from "../../assets/img2.jpg"
-import img3 from "../../assets/img3.jpg"
-import img4 from "../../assets/img4.jpg"
-import img5 from "../../assets/img5.jpg"
+import img1 from "../../assets/advert1.jpg"
+import img2 from "../../assets/advert2.jpg"
+import img3 from "../../assets/advert3.jpg"
+import img4 from "../../assets/advert4.jpg"
+import img5 from "../../assets/advert5.jpg"
 import img6 from  "../../assets/img2.jpg"
 import img7 from  "../../assets/img3.jpg"
 import img8 from  "../../assets/img4.jpg"
@@ -12,7 +12,7 @@ import img10 from  "../../assets/img7.jpg"
 import img11 from  "../../assets/img9.jpg"
 
 const ImageAdvert = () => {
-    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10, img2]
+    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10]
     const refSlider = useRef()
   
 
@@ -48,6 +48,7 @@ const ImageAdvert = () => {
     }
     const [state, dispatch] = useReducer(reducer, {
         conter : 0,
+        imgSelect : 0,
         maxConterLg : Math.ceil(listImg.length /  2 ) , 
         maxConter : Math.ceil(listImg.length /  4 ) ,
         colorButton : {}
@@ -69,6 +70,10 @@ const ImageAdvert = () => {
         dispatch({type : 'handerClick' , payload : index})
     } 
 
+    const clickImage = (index) => {
+        dispatch({type:"changeImage" , payload : index})
+    }
+
     useEffect(() => {
         const handlerSlide = () => {
             dispatch({type : "conter"})
@@ -86,13 +91,13 @@ const ImageAdvert = () => {
 
         <div className="flex h-[500px] w-[100%] bg-gray-300 relative!">
             <div className="h-[500px] w-[50%] bg-red-500 max-lg:hidden ">
-                <img src={img1} className="h-[100%]!" alt="" />
+                <img src={listImg[state.imgSelect]} className="h-[100%]!" alt="" />
             </div>
             
             <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%] bg-green-500 flex flex-col flex-wrap overflow-hidden">
                 {listImg.map(((item, index) => (
                     <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  ">
-                        <img src={item} className="h-[100%]! lg:hover:grayscale-75 lg:hover:scale-110 lg:cursor-pointer cursor-default duration-500 " alt="" />
+                        <img onClick={()=>{clickImage(index)}}  src={item} className="h-[100%]! lg:hover:grayscale-75 lg:hover:scale-110 lg:cursor-pointer cursor-default duration-500 " alt="" />
                     </div>
                 )))}
    
