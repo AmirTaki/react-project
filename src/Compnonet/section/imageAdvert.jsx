@@ -11,7 +11,7 @@ import img9 from  "../../assets/img5.jpg"
 import img10 from  "../../assets/img7.jpg"
 
 const ImageAdvert = () => {
-    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10]
+    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10, img1, img2]
     const refSlider = useRef()
   
 
@@ -91,7 +91,7 @@ const ImageAdvert = () => {
     return(
         <>
 
-        <div className="flex h-[500px] w-[100%] bg-gray-300 relative!">
+        <div className="flex h-[500px] w-[100%] bg-white relative!">
             <div className="h-[500px] w-[50%]  max-lg:hidden p-[2px] ">
                 <img src={listImg[state.imgSelect]} className="h-[100%]! duration-200" alt="" />
             </div>
@@ -109,7 +109,7 @@ const ImageAdvert = () => {
    
             </div>
 
-            <div className={` ${state.conter  >= state.maxConterLg - 1 ? "max-lg:hidden!" : "flex!" }  ${state.conter >= state.maxConter - 1 ? "lg:hidden!" : "flex!"} flex! absolute top-[50%] right-3 max-sm:hidden! hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
+            <div className={` ${state.conter + 1  >= state.maxConterLg  ? "max-lg:hidden!" : "flex!" }  ${state.conter + 1 >= state.maxConter  ? "lg:hidden!" : "flex!"} flex! absolute top-[50%] right-3 max-sm:hidden! hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
                 <i onClick = {RightButton} className="bi bi-caret-right text-2xl"></i>
             </div>
             <div className={`${state.conter <= 0 ? "hidden!" : "flex!"} absolute top-[50%] left-[52%] max-lg:left-3! max-sm:hidden! hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
@@ -126,9 +126,6 @@ const ImageAdvert = () => {
             </div>
         </div>     
 
-
-
-        <div className="h-[300px] w-[100%]"></div>
         </>
       
     )
