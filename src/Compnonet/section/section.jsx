@@ -3,6 +3,7 @@ import GridImageBox from "./gridImageBox";
 import ImageAdvert from "./imageAdvert";
 import ImageSlider from "./imageSlider";
 import Popular from "./popular";
+import ResourcesImage from "./resourcesImage";
 import SliderPage from "./sliderPage";
 
 
@@ -16,6 +17,7 @@ const Section = () => {
             <SliderPage  />
             <ImageAdvert />
             <Popular />
+            <ResourcesImage />
         </section>
 
     )
