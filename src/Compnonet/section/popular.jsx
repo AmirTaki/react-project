@@ -1,8 +1,10 @@
 const Popular = () => {
     return(
-        <>
-            popular
-        </>
+        <div className="flex flex-col bg-amber-200 w-[100%] h-[300px]">
+            <div >
+                <h1>Popular right now</h1>
+            </div>
+        </div>
     )
 }
 
