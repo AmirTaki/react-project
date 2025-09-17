@@ -1,4 +1,4 @@
-import { useReducer } from "react"
+import { useEffect, useReducer } from "react"
 
 const ColumnSection = () => {
   const menus = ["menu1", "menu2", 'menu3', 'menu4']
@@ -11,6 +11,12 @@ const ColumnSection = () => {
         const {height} = action.payload
         return {...state, height :{ [index] : height}}
      
+      case "heightHandler" : 
+        const newHeight =Object.keys(state.height).reduce((a, b) => {
+          a [b] = false
+          return a
+        })
+        return {...state, height : newHeight}
       default : 
         return {...state}
     }
@@ -24,6 +30,16 @@ const ColumnSection = () => {
     const itemsHight =  Menus.querySelectorAll(".itemConterole").length
     state.height[index] >= "0px" ?  dispatch({type : "hightItmes" , payload : {height : `0`, index : index}}) : dispatch({type : "hightItmes" , payload : {height : `${itemsHight*30}px`, index : index}})
   }
+
+  useEffect(() => {
+    const handlerResize = () => {
+      dispatch({type : 'heightHandler'})
+    }
+    window.addEventListener('resize',handlerResize )
+    return() => {
+      window.addEventListener('resize',handlerResize )
+    }
+  }, [])
   return (
     <>
     <div className="w-[90%] bg-blue-600 mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[600px]  duration-300
