@@ -6,19 +6,25 @@ const ColumnSection = () => {
 
   const reducer = (state, action) => {
     switch(action.type){
-      case "" :
-        return {...state}
+      case "hightItmes" :
+        const {index} = action.payload
+        const {h} = action.h
+        return {...state, [index] : h }
       default : 
         return {...state}
     }
   }
   const [state, dispatch] = useReducer(reducer, {
+    hieght : {},
 
   })
+  const MenuHandler = (index) => {
+    dispatch({type : "hightItmes" , payload : {h : '200px', index : index}})
+  }
   return (
     <div className="w-[90%] bg-blue-600 mx-auto h-[700px]">
 
-      <div  className="w-[100%] bg-amber-700 group">
+      <div  onClick={ () => {MenuHandler (0)}} className="w-[100%] bg-amber-700 group">
         <div className="flex items-center justify-between p-3 bg-green-300">
           <div className="">menu</div>
           <div className="">></div>
