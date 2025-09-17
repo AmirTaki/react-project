@@ -12,11 +12,11 @@ const ColumnSection = () => {
         return {...state, height :{ [index] : height}}
      
       case "heightHandler" : 
-        const newHeight =Object.keys(state.height).reduce((a, b) => {
-          a [b] = false
+        const newHeight = Object.keys(state.height).reduce((a, b) => {
+          a [b] = 0
           return a
-        })
-        return {...state, height : newHeight}
+        },{})
+        return {...state, height : {newHeight}}
       default : 
         return {...state}
     }
