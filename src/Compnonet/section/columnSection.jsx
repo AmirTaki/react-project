@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react"
+import { useEffect, useReducer, useRef } from "react"
 
 const ColumnSection = () => {
   const menus = ["menu1", "menu2", 'menu3', 'menu4']
@@ -35,7 +35,7 @@ const ColumnSection = () => {
     const Menus = document.querySelectorAll(".menusControler")[index]
     const itemsHight =  Menus.querySelectorAll(".itemConterole").length
     if(state.innerWidth) {
-      state.height[index] >= "0px" ?  dispatch({type : "hightItmes" , payload : {height : `0`, index : index}}) : dispatch({type : "hightItmes" , payload : {height : `${itemsHight*30}px`, index : index}})
+      state.height[index] >= "0px" ?  dispatch({type : "hightItmes" , payload : {height : `0`, index : index}}) : dispatch({type : "hightItmes" , payload : {height : `${itemsHight*48}px`, index : index}})
     }
   }
 
@@ -52,33 +52,29 @@ const ColumnSection = () => {
   return (
     <>
     <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[300px]  duration-300
-      md:justify-center md:gap-3 md:border-b-1! border-b-gray-800!
+      md:justify-center md:gap-3 md:border-b-1! border-b-gray-800! mb-10
     ">
       {menus.map((menu, index) => (
-        <div  onClick={ () => {MenuHandler (index)}} 
+        <div  
           className="max-md:w-[100%] w-[150px] bg-transparent menusControler flex flex-col  ">
-          <div className="flex items-center justify-between p-3 bg-transparent">
+          <div  onClick={ () => {MenuHandler (index)}} className="flex items-center justify-between p-3 bg-transparent">
             <div className="text-gray-600">{menu}</div>
             <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 md:hidden `}></i>
           </div>
           <div 
             style={{height : state.height[index]}}
-            className="bg-transparent max-md:h-0  overflow-hidden  duration-300 flex flex-col  p-3 gap-3">
-            <div className="itemConterole text-gray-200">item</div>
-            <div className="itemConterole text-gray-200">item</div>
-            <div className="itemConterole text-gray-200">item</div>
-            <div className="itemConterole text-gray-200">item</div>
-            <div className="itemConterole text-gray-200">item</div>
-            <div className="itemConterole text-gray-200">item</div>
+            className="bg-transparent max-md:h-0  overflow-hidden  duration-300 flex flex-col  md:p-3  max-md:pl-9 gap-3 pt-2 max-md:gap-6!">
+              {items.map((item, key) => (
+                <div key = {key} className="itemConterole text-gray-400 hover:underline hover:text-gray-800 duration-200 cursor-pointer">{item}</div>
+              ))}
           </div>
 
         </div>
       ))}
 
-      {/*  */}
-
     </div>
-    <div className="h-[300px] w-[300px]"></div></>
+
+    </>
   )
 }
 
