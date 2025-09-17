@@ -57,14 +57,10 @@ const ImageAdvert = () => {
             <div className="h-[500px] w-[50%] bg-red-500 max-lg:hidden "></div>
             
             <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%] bg-green-500 flex flex-col flex-wrap overflow-x-scroll">
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  bg-yellow-500"></div>
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] bg-blue-500"></div>
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] bg-pink-500"></div>
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] bg-black"></div>
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] bg-yellow-500"></div>
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] bg-blue-500"></div>
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] bg-pink-500"></div>
-                <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] bg-black"></div>
+                {listImg.map(((item, index) => (
+                    <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  bg-yellow-500"></div>
+                )))}
+   
             </div>
 
             <div className={` ${state.conter  >= state.maxConterLg - 1 ? "max-lg:hidden!" : "flex!" }  ${state.conter >= state.maxConter - 1 ? "lg:hidden!" : "flex!"} flex! absolute top-[50%] right-3 max-sm:hidden! hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
