@@ -30,7 +30,7 @@ const ColumnSection = () => {
       <div  onClick={ () => {MenuHandler (0)}} className="w-[100%] bg-amber-700 menusControler ">
         <div className="flex items-center justify-between p-3 bg-green-300">
           <div className="">menu</div>
-          <div className="">></div>
+          <i className={`${state.height[0] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 `}></i>
         </div>
         <div 
           style={{height : state.height[0]}}
@@ -49,7 +49,7 @@ const ColumnSection = () => {
       <div  onClick={ () => {MenuHandler (1)}} className="w-[100%] bg-amber-700 menusControler ">
         <div className="flex items-center justify-between p-3 bg-green-300">
           <div className="">menu</div>
-          <div className="">></div>
+          <i className={`${state.height[1] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 `}></i>
         </div>
         <div 
           style={{height : state.height[1]}}
