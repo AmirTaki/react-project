@@ -17,22 +17,26 @@ const ColumnSection = () => {
           return a
         },{})
         return {...state, height : {newHeight}}
+      
       case "innerWidth" : 
         const flag = window.innerWidth <= 768 ? true : false
         return {...state, innerWidth : flag}
+      
       default : 
         return {...state}
     }
   }
   const [state, dispatch] = useReducer(reducer, {
     height : {},
-    innerWidth : false
+    innerWidth : true
 
   })
   const MenuHandler = (index) => {
     const Menus = document.querySelectorAll(".menusControler")[index]
     const itemsHight =  Menus.querySelectorAll(".itemConterole").length
-    state.height[index] >= "0px" ?  dispatch({type : "hightItmes" , payload : {height : `0`, index : index}}) : dispatch({type : "hightItmes" , payload : {height : `${itemsHight*30}px`, index : index}})
+    if(state.innerWidth) {
+      state.height[index] >= "0px" ?  dispatch({type : "hightItmes" , payload : {height : `0`, index : index}}) : dispatch({type : "hightItmes" , payload : {height : `${itemsHight*30}px`, index : index}})
+    }
   }
 
   useEffect(() => {
