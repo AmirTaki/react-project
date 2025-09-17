@@ -27,14 +27,14 @@ const ColumnSection = () => {
   return (
     <>
     <div className="w-[90%] bg-blue-600 mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[600px]  duration-300
-      
+      md:justify-center md:gap-3
     ">
       {menus.map((menu, index) => (
         <div  onClick={ () => {MenuHandler (index)}} 
           className="max-md:w-[100%]  bg-amber-700 menusControler ">
           <div className="flex items-center justify-between p-3 bg-green-300">
             <div className="">{menu}</div>
-            <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 `}></i>
+            <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 md:hidden `}></i>
           </div>
           <div 
             style={{height : state.height[index]}}
