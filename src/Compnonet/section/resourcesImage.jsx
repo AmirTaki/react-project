@@ -7,13 +7,17 @@ import img6 from "../../assets/resurse6.avif"
 import img7 from "../../assets/resurse7.avif"
 
 const ResourcesImage = () => {
+    const listImg = [img1, img2, img3, img4, img5, img6, img7]
     return(
         <>
            <div className="w-[90%] h-[700px] bg-blue-500  mx-auto">
-                <div className="w-[100%] h-[350px] bg-red-500 flex items-center   flex-col flex-wrap   overflow-scroll  justify-center">
-                    <div className="w-[400px] h-[100%] bg-green-200 flex justify-center">
-                        <img src={img1} alt=""  className="w-[350px] h-[300px]!" />
-                    </div>
+                <div className="w-[100%] h-[350px] bg-white flex items-center   flex-col flex-wrap   overflow-scroll   justify-center">
+                    {listImg.map((img, key) => (
+                        <div key = {key} className="w-[400px] h-[100%]  flex justify-center">
+                            <img src={img} alt=""  className="w-[350px] h-[300px]!" />
+                        </div>
+                    ))}
+              
                
                 </div>
             </div> 
