@@ -9,7 +9,6 @@ import img7 from  "../../assets/img3.jpg"
 import img8 from  "../../assets/img4.jpg"
 import img9 from  "../../assets/img5.jpg"
 import img10 from  "../../assets/img7.jpg"
-import img11 from  "../../assets/img9.jpg"
 
 const ImageAdvert = () => {
     const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10]
@@ -93,14 +92,18 @@ const ImageAdvert = () => {
         <>
 
         <div className="flex h-[500px] w-[100%] bg-gray-300 relative!">
-            <div className="h-[500px] w-[50%] bg-red-500 max-lg:hidden ">
-                <img src={listImg[state.imgSelect]} className="h-[100%]!" alt="" />
+            <div className="h-[500px] w-[50%]  max-lg:hidden ">
+                <img src={listImg[state.imgSelect]} className="h-[100%]! duration-200" alt="" />
             </div>
             
-            <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%] bg-green-500 flex flex-col flex-wrap overflow-hidden">
+            <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%]  flex flex-col flex-wrap overflow-hidden">
                 {listImg.map(((item, index) => (
-                    <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  ">
+                    <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] relative ">
                         <img onClick={()=>{clickImage(index)}}  src={item} className="h-[100%]! lg:hover:grayscale-75 lg:hover:scale-110 lg:cursor-pointer cursor-default duration-500 " alt="" />
+                        <div className=" absolute  bg-[rgba(0,0,0,0.2)]  bottom-0  p-3 flex flex-col ">
+                            <h6 className="text-sm text-gray-400">{index + 1}-ROG Travel books another killer vacation</h6>
+                            <p className="text-sm text-gray-200">Troy Baker and Ned Luke team up to offer a killer vacation plan in a post-apocalyptic paradise.</p>
+                        </div>
                     </div>
                 )))}
    
