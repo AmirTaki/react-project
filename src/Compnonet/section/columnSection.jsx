@@ -10,6 +10,7 @@ const ColumnSection = () => {
         const {index} = action.payload
         const {height} = action.payload
         return {...state, height :{ [index] : height}}
+     
       default : 
         return {...state}
     }
@@ -21,7 +22,7 @@ const ColumnSection = () => {
   const MenuHandler = (index) => {
     const Menus = document.querySelectorAll(".menusControler")[index]
     const itemsHight =  Menus.querySelectorAll(".itemConterole").length
-    dispatch({type : "hightItmes" , payload : {height : `${itemsHight*50}px`, index : index}})
+    state.height[index] >= "0px" ?  dispatch({type : "hightItmes" , payload : {height : `0`, index : index}}) : dispatch({type : "hightItmes" , payload : {height : `${itemsHight*30}px`, index : index}})
   }
   return (
     <div className="w-[90%] bg-blue-600 mx-auto h-[700px]">
@@ -43,21 +44,25 @@ const ColumnSection = () => {
         </div>
 
       </div>
-      <div  className="w-[100%] bg-amber-700  group">
+
+      {/*  */}
+      <div  onClick={ () => {MenuHandler (1)}} className="w-[100%] bg-amber-700 menusControler ">
         <div className="flex items-center justify-between p-3 bg-green-300">
           <div className="">menu</div>
           <div className="">></div>
         </div>
-        <div className="bg-yellow-300 h-0 overflow-hidden group-hover:h-[200px]! duration-300">
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
-          <div className="">item</div>
+        <div 
+          style={{height : state.height[1]}}
+          className="bg-yellow-300 h-0 overflow-hidden  duration-300">
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
+          <div className="itemConterole">item</div>
+          
         </div>
 
       </div>
+     
     </div>
   )
 }
