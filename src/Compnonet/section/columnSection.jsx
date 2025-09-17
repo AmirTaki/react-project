@@ -51,25 +51,25 @@ const ColumnSection = () => {
   }, [])
   return (
     <>
-    <div className="w-[90%] bg-blue-600 mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[600px]  duration-300
-      md:justify-center md:gap-3
+    <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[300px]  duration-300
+      md:justify-center md:gap-3 md:border-b-1! border-b-gray-800!
     ">
       {menus.map((menu, index) => (
         <div  onClick={ () => {MenuHandler (index)}} 
-          className="max-md:w-[100%]  bg-amber-700 menusControler ">
-          <div className="flex items-center justify-between p-3 bg-green-300">
-            <div className="">{menu}</div>
+          className="max-md:w-[100%] w-[150px] bg-transparent menusControler flex flex-col  ">
+          <div className="flex items-center justify-between p-3 bg-transparent">
+            <div className="text-gray-600">{menu}</div>
             <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 md:hidden `}></i>
           </div>
           <div 
             style={{height : state.height[index]}}
-            className="bg-yellow-300 max-md:h-0  overflow-hidden  duration-300">
-            <div className="itemConterole">item</div>
-            <div className="itemConterole">item</div>
-            <div className="itemConterole">item</div>
-            <div className="itemConterole">item</div>
-            <div className="itemConterole">item</div>
-            <div className="itemConterole">item</div>
+            className="bg-transparent max-md:h-0  overflow-hidden  duration-300 flex flex-col  p-3 gap-3">
+            <div className="itemConterole text-gray-200">item</div>
+            <div className="itemConterole text-gray-200">item</div>
+            <div className="itemConterole text-gray-200">item</div>
+            <div className="itemConterole text-gray-200">item</div>
+            <div className="itemConterole text-gray-200">item</div>
+            <div className="itemConterole text-gray-200">item</div>
           </div>
 
         </div>
