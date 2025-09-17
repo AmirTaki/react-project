@@ -26,6 +26,9 @@ const ImageAdvert = () => {
             case "left" : 
                 return {...state, conter : state.conter - action.payload }
 
+            case "handerClick" :
+                return {...state , conter : action.payload}
+
             case 'slide' : 
                 if(refSlider.current){
                     refSlider.current.style.scrollBehavior = "smooth";     
@@ -53,7 +56,7 @@ const ImageAdvert = () => {
     },[state.conter])
     
     const changeItem = (index) => {
-
+        dispatch({type : 'handerClick' , payload : index})
     } 
 
     useEffect(() => {
