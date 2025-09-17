@@ -71,7 +71,7 @@ const ImageAdvert = () => {
             
             <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%] bg-green-500 flex flex-col flex-wrap overflow-x-scroll">
                 {listImg.map(((item, index) => (
-                    <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  ">
+                    <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  ">
                         <img src={item} className="h-[100%]!" alt="" />
                     </div>
                 )))}
@@ -83,6 +83,12 @@ const ImageAdvert = () => {
             </div>
             <div className={`${state.conter <= 0 ? "hidden!" : "flex!"} absolute top-[50%] left-[52%] max-lg:left-3! max-sm:hidden! hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
                 <i onClick={LeftButton} className="bi bi-caret-left  text-2xl"></i>
+            </div>
+            
+            <div className="">
+                {listImg.map((_, index)=> (
+                    <div key = {index} className="w-10 h-10 bg-red-600"></div>
+                ))}
             </div>
         </div>     
 
