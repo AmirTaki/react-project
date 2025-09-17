@@ -84,10 +84,10 @@ const ImageAdvert = () => {
             <div className={`${state.conter <= 0 ? "hidden!" : "flex!"} absolute top-[50%] left-[52%] max-lg:left-3! max-sm:hidden! hover:scale-150 duration-300 text-white hover:text-gray-400 cursor-pointer`}>
                 <i onClick={LeftButton} className="bi bi-caret-left  text-2xl"></i>
             </div>
-            
-            <div className="">
+
+            <div className="absolute flex gap-3 items-center justify-center  w-[100%] bottom-30">
                 {listImg.map((_, index)=> (
-                    <div key = {index} className="w-10 h-10 bg-red-600"></div>
+                    <div key = {index} className="w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl bg-red-600"></div>
                 ))}
             </div>
         </div>     
