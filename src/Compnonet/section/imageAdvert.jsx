@@ -51,7 +51,18 @@ const ImageAdvert = () => {
     },[state.conter])
     
     return(
-        <div className="flex h-[500px] w-[100%] bg-gray-300"></div>     
+        <>
+
+        <div className="flex h-[500px] w-[100%] bg-gray-300">
+            <div className="h-[500px] w-[50%] bg-red-500 max-lg:hidden"></div>
+            <div className="h-[500px] w-[50%] bg-green-500"></div>
+        </div>     
+
+
+
+        <div className="h-[300px] w-[100%]"></div>
+        </>
+      
     )
 }
 
