@@ -18,6 +18,8 @@ const Section = () => {
             <ImageAdvert />
             <Popular />
             <ResourcesImage />
+        
+ 
         </section>
 
     )

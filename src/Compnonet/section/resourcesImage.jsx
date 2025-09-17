@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import img1 from "../../assets/resurse1.avif"
 import img2 from "../../assets/resurse2.avif"
 import img3 from "../../assets/resurse3.avif"
@@ -8,10 +9,13 @@ import img7 from "../../assets/resurse7.avif"
 
 const ResourcesImage = () => {
     const listImg = [img1, img2, img3, img4, img5, img6, img7]
+    const refResource =  useRef()
+
+
     return(
         <>
            <div className="w-[90%] h-[700px] bg-blue-500  mx-auto">
-                <div className="[&::-webkit-scrollbar]:opacity-0 w-[100%] h-[350px] bg-white flex items-center   flex-col flex-wrap    overflow-y-hidden   justify-center">
+                <div ref = {refResource} className="[&::-webkit-scrollbar]:opacity-0 w-[100%] h-[350px] bg-white flex items-center   flex-col flex-wrap    overflow-y-hidden   justify-center">
                     {listImg.map((img, key) => (
                         <div key = {key} className="w-[365px] h-[100%]  flex justify-center relative">
                             <img src={img} alt=""  className="w-[350px] h-[300px]!" />
