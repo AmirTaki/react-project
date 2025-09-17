@@ -93,10 +93,13 @@ const ImageAdvert = () => {
                 <i onClick={LeftButton} className="bi bi-caret-left  text-2xl"></i>
             </div>
 
-            <div className="absolute flex gap-3 items-center justify-center  w-[100%] bottom-30 sm:hidden">
-                {listImg.map((_, index)=> (
-                    <div onClick={() => {changeItem(index)}} key = {index} className="w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl bg-red-600"></div>
-                ))}
+            <div className="absolute flex items-center justify-center  w-[100%] bottom-30 sm:hidden">
+                <div className="bg-gray-500 flex items-center justify-center  w-[40%] rounded-4xl">
+                    {listImg.map((_, index)=> (
+                        <div onClick={() => {changeItem(index)}} key = {index} className="w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl bg-red-600"></div>
+                    ))}
+                </div>
+             
             </div>
         </div>     
 
