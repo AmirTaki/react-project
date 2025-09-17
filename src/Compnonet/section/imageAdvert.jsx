@@ -50,6 +50,17 @@ const ImageAdvert = () => {
         dispatch({type : 'slide'})
     },[state.conter])
     
+    useEffect(() => {
+        const handlerSlide = () => {
+            dispatch({type : "conter"})
+        }
+
+        window.addEventListener("resize", handlerSlide)
+        return() => {
+            window.addEventListener('resize', handlerSlide)
+        }
+    })
+
     return(
         <>
 
@@ -58,7 +69,7 @@ const ImageAdvert = () => {
             
             <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%] bg-green-500 flex flex-col flex-wrap overflow-x-scroll">
                 {listImg.map(((item, index) => (
-                    <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  bg-yellow-500">
+                    <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  ">
                         <img src={item} className="h-[100%]!" alt="" />
                     </div>
                 )))}
