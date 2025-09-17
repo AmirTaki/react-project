@@ -106,7 +106,7 @@ const ImageAdvert = () => {
             <div className="absolute flex items-center justify-center  w-[100%] bottom-30 sm:hidden">
                 <div className="bg-gray-500 flex items-center justify-center  w-[40%] rounded-4xl">
                     {listImg.map((_, index)=> (
-                        <div onClick={() => {changeItem(index)}} key = {index} className="w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl "></div>
+                        <div onClick={() => {changeItem(index)}} key = {index} className={`${state.colorButton[index] ?  "bg-red-500":"bg-gray-500"} w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl `}></div>
                     ))}
                 </div>
              
