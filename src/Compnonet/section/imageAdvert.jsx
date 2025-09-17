@@ -58,7 +58,9 @@ const ImageAdvert = () => {
             
             <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%] bg-green-500 flex flex-col flex-wrap overflow-x-scroll">
                 {listImg.map(((item, index) => (
-                    <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  bg-yellow-500"></div>
+                    <div className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%]  bg-yellow-500">
+                        <img src={item} className="h-[100%]!" alt="" />
+                    </div>
                 )))}
    
             </div>
