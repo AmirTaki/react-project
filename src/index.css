@@ -84,6 +84,3 @@ body::-webkit-scrollbar-thumb:hover {
     transition:    background-color .5s;
     cursor: pointer;
 }
-.resourcesImg::-webkit-scrollbar{
-    opacity: 0;
-}
