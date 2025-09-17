@@ -1,9 +1,9 @@
 import { useEffect, useReducer, useRef } from "react"
-import img1 from "../../assets/advert1.jpg"
-import img2 from "../../assets/advert2.jpg"
-import img3 from "../../assets/advert3.jpg"
-import img4 from "../../assets/advert4.jpg"
-import img5 from "../../assets/advert5.jpg"
+import img1 from "../../assets/img1.webp"
+import img2 from "../../assets/img2.jpg"
+import img3 from "../../assets/img3.jpg"
+import img4 from "../../assets/img4.jpg"
+import img5 from "../../assets/img5.jpg"
 import img6 from  "../../assets/img2.jpg"
 import img7 from  "../../assets/img3.jpg"
 import img8 from  "../../assets/img4.jpg"
@@ -12,7 +12,7 @@ import img10 from  "../../assets/img7.jpg"
 import img11 from  "../../assets/img9.jpg"
 
 const ImageAdvert = () => {
-    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10, img11]
+    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10, img2]
     const refSlider = useRef()
   
 
@@ -51,18 +51,21 @@ const ImageAdvert = () => {
     
     return(
         <>
-        <div className="relative flex h-[500px] w-[100%] bg-blue-400">
-            <div className="bg-red-500 h-[500px] w-[50%] max-lg:hidden! p-1 ">
+        <div className="relative flex h-[500px] w-[100]! bg-blue-400">
+            <div className="bg-white h-[500px] w-[50%] max-lg:hidden!  ">
                 <img src={img1} className="w-[100%] h-[100%]!" alt="" />
             </div>
-            <div ref = {refSlider} className="w-[50%] h-[500px] max-lg:w-[100%] bg-white flex flex-col flex-wrap overflow-x-scroll  ">
+            <div ref = {refSlider} className="w-[50%] h-[500px] max-lg:w-[100%]! bg-white flex flex-col flex-wrap  overflow-hidden ">
                 {listImg.map((item, index) => (
-                    <div key = {index} className="w-[50%] h-[50%]   max-lg:w-[50%] max-lg:h-[100%] max-sm:w-[100%] max-sm:h-[100%] relative p-1 max-sm:p-0!">
-                        <img src={item} className="w-[100%] h-[100%]! object-fill" alt="" />
-                        <div className="bg-black bg-opacity-20 absolute bottom-1 text-white p-3 w-[98%] max-sm:w-[100%]!  " >
-                            <h4 className="text-gray-400">{index + 1}-The ROG Pelta wireless gaming headset :</h4>
+                <div key = {index} className="w-[50%] bg-blue-500 h-[50%]  max-lg:h-[99%] max-sm:w-[100%]! max-sm:h-[100%]!   hover:scale-105 duration-300 max-lg:[&:not(:hover)]:scale-105!   max-lg:cursor-default! cursor-pointer  relative! ">
+                        <div className={`bg-amber-200 w-[100%] h-[100%]`}></div>
+
+                        
+                        {/* <img src={item} className="w-[100%]! h-[100%]! object-" alt="" /> */}
+                        {/* <div className="bg-red-500 bg-opacity-100 absolute! bottom-2 text-white p-6 max-lg:w-[300px] max-lg:m-3! left-0! right-0 max-sm:w-[95.5%] " >
+                            <h4 className="text-gray-400">{index + 1}-The ROG Pelta wireless gaming headset :</h4> 
                             <p className="text-gray-200 text-sm">The ROG Pelta's ergomomic, comfort-focused design, high-end audio spaecs, and stunning battery life make it an ideal match for any gamer.</p>
-                        </div>
+                        </div> */}
                     </div>
                 ))}
                
