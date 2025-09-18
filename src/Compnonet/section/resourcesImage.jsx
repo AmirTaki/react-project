@@ -14,7 +14,7 @@ const ResourcesImage = () => {
 
     return(
         <>
-           <div className="w-[90%] h-[400px]   mx-auto">
+           <div className="w-[90%] h-[400px]   mx-auto ">
                 <div ref = {refResource} className="[&::-webkit-scrollbar]:opacity-0 w-[100%] h-[350px] bg-white flex items-center   flex-col flex-wrap    overflow-y-hidden   justify-center">
                     {listImg.map((img, key) => (
                         <div key = {key} className="w-[365px] h-[100%]  flex justify-center relative">
