@@ -115,9 +115,9 @@ const SliderPage = () => {
                     <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-gray-300!": "scale-100 bg-red-500" } w-[25px] h-[10px] bg-red-500 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
-            <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-25">
+            <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-17">
                 {state.listImg.map((_, index) => (                    
-                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-gray-300!": "scale-100 bg-blue-500" } w-[25px] h-[10px] bg-blue-500 rounded-2xl cursor-pointer`}></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-blue-500  !": "scale-100 bg-gray-300" } w-[25px] h-[10px] bg-gray-300 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
         </div>
