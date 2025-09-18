@@ -1,5 +1,6 @@
 import AdvertYellow from "./advertYellow";
 import BlackBoard from "./blackBoard";
+import GrayBoard from "./grayBoard";
 import WhiteBoard from "./whiteBoard";
 
 const Footer = () => {
@@ -8,6 +9,7 @@ const Footer = () => {
             <AdvertYellow />
             <BlackBoard />
             <WhiteBoard />
+            <GrayBoard />
             
         </>
     )

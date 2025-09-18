@@ -6,7 +6,7 @@ const WhiteBoard = () => {
         <>
             <div className="w-[100%] h-[100%] bg-r max-md:hidden! flex items-start justify-center gap-10 ">
                 {Menus.map((menu, index) => (
-                    <div key = {index} className="w-[15%]     bg-white  my-20  flex flex-col   gap-6">
+                    <div key = {index} className="w-[15%]     bg-white  mt-20 mb-10  flex flex-col   gap-6">
                         <div className="text-xl font-bold  ">{menu}</div>
                         <div className="flex flex-col gap-5 text-gray-400 text-md ">                      
                             {Items.map((item, key) => (
