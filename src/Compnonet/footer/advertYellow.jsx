@@ -5,9 +5,9 @@ const AdvertYellow = () => {
                 <div className="text-2xl font-bold">
                     <h2>JOIN OUR ADICLUB & GET 15% OFF.</h2>
                 </div>
-                <div className=" bg-black text-white w-100 h-16 flex items-center p-2 cursor-pointer">
+                <div className=" bg-black text-white w-100 h-16 flex items-center p-2 cursor-pointer group ">
                     <div>SIGN UP FOR FREE</div>
-                    <div className=""><i className="bi bi-caret-right-fill"></i></div>
+                    <div className=" transform  group-hover:translate-x-28!  duration-500!"><i className="group-hover:text-red-500 text-white duration-200 bi bi-caret-right-fill"></i></div>
                 </div>
             </div>
         </>
