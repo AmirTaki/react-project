@@ -4,9 +4,9 @@ const WhiteBoard = () => {
     const Items = ['Help', 'Returns & Exchanges', 'Shipping', 'Order Tracker', 'Store Locator', 'Size Charts', 'Gift Card Balance', 'How to Clean Shoes', 'Bra Fit Guide', 'Breathing for Running', 'Promotions', 'Sitemap']
     return(
         <>
-            <div className="w-[100%] h-[100%] bg-r max-md:hidden! flex items-start justify-center gap-14 ">
+            <div className="w-[100%] h-[100%] bg-r max-md:hidden! flex items-start justify-center gap-10 ">
                 {Menus.map((menu, index) => (
-                    <div key = {index} className="w-[15%]     bg-white  my-20  flex flex-col   gap-5">
+                    <div key = {index} className="w-[15%]     bg-white  my-20  flex flex-col   gap-6">
                         <div className="text-xl font-bold  ">{menu}</div>
                         <div className="flex flex-col gap-5 text-gray-400 text-md ">                      
                             {Items.map((item, key) => (
