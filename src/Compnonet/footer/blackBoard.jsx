@@ -18,8 +18,6 @@ const BlackBoard = () => {
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Size Charts</div>
                 </div>
             </div>
-
-            <div className="w-[100%] h-[500px] bg-gray-500 max-lg:hidden"></div>
         </>
     )
 }
