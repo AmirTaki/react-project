@@ -1,8 +1,8 @@
 const BlackBoard = () => {
     return (
         <>
-            <div className="md:hidden! w-[100%] h-[330px] bg-black flex  items-center justify-evenly overflow-hidden">
-                <div className="w-[150px] h-[250px] bg-tra text-white flex flex-col  gap-5 ">
+            <div className="md:hidden! w-[100%] h-[330px] bg-black grid grid-cols-2 items-center justify-items-center overflow-hidden">
+                <div className="w-[170px] h-[250px] bg-tra text-white  items-center flex flex-col  gap-5 ">
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Help</div>
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Returns & Exchanges</div>
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Order Tracker</div>
@@ -10,7 +10,7 @@ const BlackBoard = () => {
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Promotions</div>
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Sitemap</div>
                 </div>
-                <div className="w-[150px] h-[250px] bg-tra text-white flex flex-col  gap-5 ">
+                <div className="w-[170px] h-[250px] bg-tra text-white items-center flex flex-col  gap-5 ">
                     <div className="hover:text-gray-400 cursor-pointer duration-300">adiClub</div>
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Store Finder</div>
                     <div className="hover:text-gray-400 cursor-pointer duration-300">Gift Cards</div>
