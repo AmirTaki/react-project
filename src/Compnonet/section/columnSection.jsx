@@ -51,7 +51,7 @@ const ColumnSection = () => {
   }, [])
   return (
     <>
-    <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[300px]  duration-300
+    <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[415px]  duration-300
       md:justify-center md:gap-3 md:border-b-1! border-b-gray-300! mb-10
     ">
       {menus.map((menu, index) => (
