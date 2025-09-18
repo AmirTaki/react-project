@@ -21,8 +21,8 @@ const ProductMegaMenu = ({loc, pr , ind}) => {
             <i onClick = {()=>{handlerProductMenu(`${loc}${ind}`)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}></i>
             
             <div className={`${navbar ? "bg-transparent h-[6%] w-full border-b-1! border-b-gray-100! fixed! flex justify-between items-center px-5": "hidden"}`}>
-                <div onClick={()=> {listHandler(`${loc}${ind}`)}} className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
-                <div onClick={()=>{exitNavbar(`${loc}${ind}`)}}  className="text-gray-100 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
+                <div onClick={()=> {listHandler(`${loc}${ind}`)}} className="text-gray-200 hover:scale-125 cursor-pointer duration-200 hover:text-gray-400"><i className="bi bi-chevron-left pr-2"></i>LEFT</div>
+                <div onClick={()=>{exitNavbar(`${loc}${ind}`)}}  className="text-gray-200 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
             </div>
             {/* category */}
             <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[35vw]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
