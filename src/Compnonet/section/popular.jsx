@@ -1,7 +1,7 @@
 const Popular = () => {
     const Items = ['ultraboost', 'samba', 'campus', 'gazelle', 'soccer', 'spezial']
     return(
-        <div className="flex justify-center flex-col  items-center my-20!  h-[250px] max-lg:h-[500px] w-[80%] m-auto  overflow-hidden ">
+        <div className="flex justify-center max-lg:justify-start! flex-col  items-center my-20! bg-red-400   h-[250px] max-lg:h-[500px] w-[80%] mx-auto  overflow-hidden ">
             <div className="flex flex-col gap-3 bg-transparent w-[100%]  h-[30px]">
                 <div className=" font-black text-2xl text-gray-300" >
                     <h1>Popular right now</h1>

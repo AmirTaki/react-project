@@ -1,7 +1,8 @@
 const AdvertBoard = () => {
     return(
         <>
-        advert Board</>
+            <div className="bg-black w-[100%] h-[500px]"></div>
+        </>
     )
 }
 
