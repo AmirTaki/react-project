@@ -4,6 +4,7 @@ import './App.css'
 import Header from "./Compnonet/header/header"
 import Test from './Compnonet/header/test'
 import Section from './Compnonet/section/section'
+import Footer from './Compnonet/footer/footer'
 
 
 
@@ -15,9 +16,10 @@ function App() {
   return (
     // <Test />
     <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
-      <div className='h-[2000px] bg-red-100'>
+      <div className=''>
         <Header />
         <Section />
+        <Footer />
       </div>
     </GlobalHearts.Provider>
   

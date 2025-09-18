@@ -10,7 +10,7 @@ import SliderPage from "./sliderPage";
 
 const Section = () => {
     return(
-        <section>
+        <section className="sizeWidth">
             <BackGroundSlider />
             <ImageSlider />
             <GridImageBox />

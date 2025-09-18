@@ -1,6 +1,18 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind utilities;
 
+@layer utilities {
+    @media screen and (min-width : 2080px) {
+        .sizeWidth {
+            width: 50%;
+            display: flex;
+            margin: auto;
+            align-items: center ;
+            flex-flow: column
+        }
+    }
+}
 
 @theme {
     --font-display :  "Dancing Script", cursive;
