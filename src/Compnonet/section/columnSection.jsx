@@ -52,12 +52,12 @@ const ColumnSection = () => {
   return (
     <>
     <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[300px]  duration-300
-      md:justify-center md:gap-3 md:border-b-1! border-b-gray-800! mb-10
+      md:justify-center md:gap-3 md:border-b-1! border-b-gray-300! mb-10
     ">
       {menus.map((menu, index) => (
         <div  
           className="max-md:w-[100%] w-[150px] bg-transparent menusControler flex flex-col  ">
-          <div  onClick={ () => {MenuHandler (index)}} className="flex items-center justify-between p-3 bg-transparent">
+          <div  onClick={ () => {MenuHandler (index)}} className="flex items-center justify-between p-3 bg-transparent max-md:cursor-pointer">
             <div className="text-gray-600">{menu}</div>
             <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 md:hidden `}></i>
           </div>
@@ -65,7 +65,7 @@ const ColumnSection = () => {
             style={{height : state.height[index]}}
             className="bg-transparent max-md:h-0  overflow-hidden  duration-300 flex flex-col  md:p-3  max-md:pl-9 gap-3 pt-2 max-md:gap-6!">
               {items.map((item, key) => (
-                <div key = {key} className="itemConterole text-gray-400 hover:underline hover:text-gray-800 duration-200 cursor-pointer">{item}</div>
+                <div key = {key} className="itemConterole w-fit  text-gray-400 hover:underline hover:text-gray-800 duration-200 cursor-pointer">{item}</div>
               ))}
           </div>
 
@@ -79,32 +79,3 @@ const ColumnSection = () => {
 }
 
 export default ColumnSection;
-
-
-/*
-  <div className="w-[100%] h-[200px] hover:h-[510px] duration-500 bg-red-500 overflow-hidden flex flex-row justify-center
-        max-md:flex-col! max-md:hover:h-auto  max-md:h-auto max-md:justify-start! 
-      ">
-        {menus.map((menu, index) => (
-          <div key = {index} className="bg-green-400 w-50 max-md:w-[100%]!  group ">
-            <ul className="flex flex-col  gap-3  items-center max-md:items-start! bg-amber-300   ">
-        
-              <div  className=" flex bg-red-400 w-[100%] md:w-auto justify-between items-center h-13 p-3">
-                <div className="text-gray-500">{menu}</div>
-                <i className="text-gray-500 bi bi-chevron-down md:hidden"></i>
-              </div>
-              
-              {items.map((item, key) => (
-                <div key = {key} className="flex flex-col gap-4    "> 
-                  <li className="text-gray-200 hover:text-gray-600 duration-300 cursor-pointer hover:underline">{item}</li>  
-                </div>
-              ))}
-      
-            </ul>
-          </div>
-        ))}
-      
-      
-      </div>
-
-*/
