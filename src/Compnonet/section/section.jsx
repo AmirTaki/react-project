@@ -1,3 +1,4 @@
+import AdvertBoard from "./advertBoard";
 import BackGroundSlider from "./backGroundSlider";
 import ColumnSection from "./columnSection";
 import GridImageBox from "./gridImageBox";
@@ -6,7 +7,6 @@ import ImageSlider from "./imageSlider";
 import Popular from "./popular";
 import ResourcesImage from "./resourcesImage";
 import SliderPage from "./sliderPage";
-
 
 const Section = () => {
     return(
@@ -19,6 +19,7 @@ const Section = () => {
             <Popular />
             <ResourcesImage />
             <ColumnSection />
+            <AdvertBoard />
         </section>
 
     )
