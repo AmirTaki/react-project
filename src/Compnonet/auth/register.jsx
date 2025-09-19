@@ -2,16 +2,25 @@ import { useReducer, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-    const [page, setPage] =  useState(false)
     const [moveInput, setMoveInput] = useState(false)
+
     const reducer = (state, action) => {
         switch (action.type){
-            case  '': 
-                return {...state}
+            case  'pageLogin': 
+                return {...state, page : action.payload}
+            case "moveLabel" : 
+                const {index} =  action.payload
+                const {bool}  = action.payload
+                return{...state,
+                    moveLabel : {
+                        [index] : bool
+                    }
+                }
         }
     } 
     const [state, dispatch] = useReducer(reducer, {
-
+        page : false,
+        moveLabel : {},
     })
     return (
         <div className=" flex justify-center items-center flex-col gap-30 ">
@@ -43,7 +52,7 @@ const Register = () => {
                 <div className="border-2 border-white px-8 py-3 text-xl
                     hover:text-black duration-500 cursor-pointer hover:bg-white 
                 "
-                    onClick={() => {setPage((prev) => (prev = true))}}
+                      onClick={()=>{dispatch({type: "pageLogin" , payload : true})}}
                 >
                     Login
                 </div>
@@ -52,14 +61,15 @@ const Register = () => {
 
             {/* section login */}
             <div className={`
-                ${page ? "scale-100 duration-300" : "scale-0 duration-300"}
+                ${state.page ? "scale-100 duration-300" : "scale-0 duration-300"}
                 relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
                 rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center!
                 justify-center! overflow-hidden 
                 `}
             >
                 <span
-                    onClick={()=>{setPage((prev) => (prev = false))}}
+                    // onClick={()=>{setPage((prev) => (prev = false))}}
+                    onClick={()=>{dispatch({type: "pageLogin" , payload : false})}}
                     className="absolute top-0 right-0 w-[45px] h-[45px] bg-[#162038] text-[2em] text-white  flex items-center
                     justify-center rounded-bl-[20px] cursor-pointer z-10" 
                 > 
@@ -80,15 +90,15 @@ const Register = () => {
                             </div>
                             <input
                                 onChange={(e)=>setMoveInput(e.target.value.length > 0 ? true : false)}
-                                onFocus={() => {setMoveInput(true)}}
-                                onBlur={() => setMoveInput(false)}
+                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : true}})}}
+                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : false}})}}
                                 type="email"  id  = 'email' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
                                 htmlFor="email"
-                                className={`${moveInput ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
+                                className={`${state.moveLabel[0] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Email
                             </label>                               
