@@ -60,7 +60,12 @@ const Register = () => {
                 </span>
 
                 <div className=" w-[100%] h-[100%] absolute! top-12">
-                    <h2 className="text-[2em] text-[#162938] text-center">Login</h2>
+                    <h2 className="text-3xl text-[#162938] text-center">Login</h2>
+                    <div className="bg-green-500 flex flex-col items-center justify-center">
+                        <label htmlFor="">Email</label>
+                        <input type="email"  className="outline-2 "/>
+                    </div>
+            
                 </div>
 {/* 
                 <div className="w-[100%] p-[40px]  transform translate-x-0">
