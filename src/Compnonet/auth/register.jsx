@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const Register = () => {
     const [page, setPage] =  useState(false)
     const [moveInput, setMoveInput] = useState(false)
@@ -68,12 +67,12 @@ const Register = () => {
                             border-b-[#162938]! mx-auto w-[90%] my-10"
                         >
                             <label htmlFor="email"
-                                onClick={()=> {setMoveInput(!moveInput)}}
-                                className={`${moveInput ? "top-10 duration-300" : "top-20 duration-300"} z-30 cursor-pointer absolute left-6 `}
+                                // 
+                                className={`  peer  top-10! transition-all  duration-300 z-30 cursor-pointer absolute left-6  `}
                             >Email</label>
                             <input
                                 type="email"  id  = 'email' 
-                                className=" w-[100%] h-9 outline-0 border-0 text-[1em] text-[#162038] "
+                                className="peer focus:text-teal-600! peer-focus:top-30!"
                             />
                         </div>
                     </form>
