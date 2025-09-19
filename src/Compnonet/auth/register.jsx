@@ -106,7 +106,7 @@ const Register = () => {
                         <div 
                          
                             className="bg-transparent flex flex-col items-center justify-center border-b-2! 
-                               border-b-[#162938]! mx-auto w-[90%] my-10 relative"
+                               border-b-[#162938]! mx-auto w-[90%] mt-10 relative"
                         >
                             <div className="absolute right-2">
                                 <span><i class="bi bi-lock"></i></span>
@@ -126,30 +126,29 @@ const Register = () => {
                                 Password
                             </label>                               
                         </div>
+                        {/* checkbox login */}
+                        <div 
+                            className="bg-amber-700 flex flex-row  justify-between border-b-2! 
+                               border-b-[#162938]! mx-auto w-[90%] my-3 relative px-1 "
+                        >
+                            <div className="flex gap-1">
+                                <input
+                                    type="checkbox"  id  = 'checkboxLogin' 
+                                    className="  "
+                                />
+
+                                <label 
+                                    htmlFor="checkboxLogin" className="text-[13px] font-thin!"
+                                >
+                                    Show Password
+                                </label>     
+                            </div>
+                            <div className=""></div>
+                                                     
+                        </div>
                     </form>
             
                 </div>
-{/* 
-                <div className="w-[100%] p-[40px]  transform translate-x-0">
-                    <h2 className="text-[2em] text-[#162938] text-center">Login</h2>
-                    <form action="#">
-                        <div className= "w-[100%] h-[50px] border-b!  border-b-[#162938]! mx-0 my-[30px] relative">
-                            <span><i class="bi bi-envelope"></i></span>
-                        </div>
-                        <input 
-                            className="w-[15] h-[10] bg-red-500 outline-0 border-0 text-[1em] text-[#162038] 
-                                font-medium p-0 pr-[35px] pl-[5px] 
-                            "
-                            type="email" id = "email"  
-                        />
-                        <label 
-                        className="absolute top-[50%] left-[5px] text-[1em] text-[#162038] 
-                            transform -translate-y-1/2 font-medium pointer-events-none 
-                        "
-                        htmlFor="email">Email</label>
-                    </form>
-                </div> */}
-
             </div>
         </div>
     )
