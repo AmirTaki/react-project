@@ -66,10 +66,15 @@ const Register = () => {
                             className="bg-transparent flex flex-col items-center justify-center border-b! 
                             border-b-[#162938]! mx-auto w-[90%] my-10"
                         >
+                            <div className="absolute right-6">
+                                <span><i class="bi bi-envelope"></i></span>
+                            </div>
                             <input
                                 type="email"  id  = 'email' 
                                 className=" outline-0 border-0 text-[1em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
+
+                            
                         </div>
                             <label 
                                 htmlFor="email"
