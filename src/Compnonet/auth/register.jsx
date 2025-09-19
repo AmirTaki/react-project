@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
     const [page, setPage] =  useState(false)
+    const [moveInput, setMoveInput] = useState(false)
     return (
         <div className=" flex justify-center items-center flex-col gap-30 ">
             <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
@@ -65,9 +66,9 @@ const Register = () => {
                         <div className="bg-green-500 flex flex-col items-center justify-center border-b! 
                          border-b-[#162938]! mx-auto w-[90%] my-10">
                             <label htmlFor="email"
-                                className="cursor-pointer absolute left-0"
+                                className="cursor-pointer absolute left-6 "
                             >Email</label>
-                            <input type="email"  id  = 'email' className="outline-2 "/>
+                            <input type="email"  id  = 'email' className="outline-2 w-[100%]"/>
                         </div>
                     </form>
             
