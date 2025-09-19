@@ -5,7 +5,7 @@ import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
 import { GlobalHearts } from "../../App";
-
+import { Link } from "react-router-dom";
 export const ContextHeaderBottom =  createContext();
 
 
@@ -111,7 +111,9 @@ const  HeaderBottom = () => {
           <div className="relative flex gap-4 z-1!">
             <input type="search" placeholder='search' className={state.search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
             <i className="bi bi-search hover:scale-130  text-gray-400 cursor-pointer text-lg  md:right-[115px] max-md:right-[80px] absolute hover:text-gray-900 duration-300"   onClick={()=>{dispatch({type : ACTIONTYPE.search})}}></i>
-            <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
+            <Link to = "/validation">
+              <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
+            </Link>
             <i className="bi bi-handbag text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             <i className={`${heartConter > 0 ? "text-red-500! bi bi-heart-fill!" : "text-gray-400! bi bi-heart!"} bi bi-heart max-md:hidden  md:block text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300 `} ></i>
             <div className={`   ${heartConter && (navbar === false) > 0 ? "flex" : "hidden"}  justify-center items-center text-white bg-red-600 w-5 h-5 rounded-full absolute bottom-[9px]! -right-[13px]!`}>{heartConter}</div>
