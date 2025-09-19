@@ -18,11 +18,9 @@ function App() {
   
   return (
     // <Test />
-    <BrowserRouter>
-
-
-       
+    <BrowserRouter> 
       <Routes>
+        <Route path = "/" element = {<Home />} ></Route>
         <Route path = "/validation" element = {<Validation />} ></Route>
       </Routes>
 
