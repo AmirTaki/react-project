@@ -41,9 +41,10 @@ const Register = () => {
 
 
             {/* section login */}
-            <div className="relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
-                rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)]
-            "></div>
+            <div className={`
+                ${page ? "scale-100 duration-300" : "scale-0 duration-300"}
+                relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
+                rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center overflow-hidden `}></div>
         </>
     )
 }
