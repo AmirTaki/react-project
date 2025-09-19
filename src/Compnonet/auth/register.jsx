@@ -63,13 +63,19 @@ const Register = () => {
                 <div className=" w-[100%] h-[100%] absolute! top-12">
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
-                        <div className="bg-green-500 flex flex-col items-center justify-center border-b! 
-                         border-b-[#162938]! mx-auto w-[90%] my-10">
+                    
+                        <div 
+                            onClick={()=> {setMoveInput(!moveInput)}}
+                            className="bg-green-500 flex flex-col items-center justify-center border-b! 
+                            border-b-[#162938]! mx-auto w-[90%] my-10"
+                        >
                             <label htmlFor="email"
                                 onClick={()=> {setMoveInput(!moveInput)}}
-                                className={`${moveInput ? "top-10 duration-300" : "top-19 duration-300"} cursor-pointer absolute left-6 `}
+                                className={`${moveInput ? "top-10 duration-300" : "top-19 duration-300"} z-30 cursor-pointer absolute left-6 `}
                             >Email</label>
-                            <input type="email"  id  = 'email' className="outline-2 w-[100%]"/>
+                            <input
+                                type="email"  id  = 'email' className="outline-2 w-[100%]"
+                            />
                         </div>
                     </form>
             
