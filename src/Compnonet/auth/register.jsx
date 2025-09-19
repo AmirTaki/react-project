@@ -68,7 +68,6 @@ const Register = () => {
                 `}
             >
                 <span
-                    // onClick={()=>{setPage((prev) => (prev = false))}}
                     onClick={()=>{dispatch({type: "pageLogin" , payload : false})}}
                     className="absolute top-0 right-0 w-[45px] h-[45px] bg-[#162038] text-[2em] text-white  flex items-center
                     justify-center rounded-bl-[20px] cursor-pointer z-10" 
@@ -89,7 +88,7 @@ const Register = () => {
                                 <span><i class="bi bi-envelope"></i></span>
                             </div>
                             <input
-                                onChange={(e)=>setMoveInput(e.target.value.length > 0 ? true : false)}
+                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 0, bool : e.target.value.length > 0 ? true : false }})}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : false}})}}
                                 type="email"  id  = 'email' 
