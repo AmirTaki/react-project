@@ -45,32 +45,43 @@ const Register = () => {
             <div className={`
                 ${page ? "scale-100 duration-300" : "scale-0 duration-300"}
                 relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
-                rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center overflow-hidden 
+                rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center!
+                justify-center!
+                overflow-hidden 
                    
                 `}
             >
                 <span
                     onClick={()=>{setPage((prev) => (prev = false))}}
                     className="absolute top-0 right-0 w-[45px] h-[45px] bg-[#162038] text-[2em] text-white  flex items-center
-                    justify-center rounded-bl-[20px] cursor-pointer z-10"
+                    justify-center rounded-bl-[20px] cursor-pointer z-10" 
                 > 
                    <i class="bi bi-x-lg"></i>
                 </span>
 
+                <div className=" w-[100%] h-[100%] absolute! top-12">
+                    <h2 className="text-[2em] text-[#162938] text-center">Login</h2>
+                </div>
+{/* 
                 <div className="w-[100%] p-[40px]  transform translate-x-0">
                     <h2 className="text-[2em] text-[#162938] text-center">Login</h2>
                     <form action="#">
                         <div className= "w-[100%] h-[50px] border-b!  border-b-[#162938]! mx-0 my-[30px] relative">
                             <span><i class="bi bi-envelope"></i></span>
                         </div>
-                        <input type="email" id = "email"  />
+                        <input 
+                            className="w-[15] h-[10] bg-red-500 outline-0 border-0 text-[1em] text-[#162038] 
+                                font-medium p-0 pr-[35px] pl-[5px] 
+                            "
+                            type="email" id = "email"  
+                        />
                         <label 
                         className="absolute top-[50%] left-[5px] text-[1em] text-[#162038] 
-                            transform -translate-y-1/2
+                            transform -translate-y-1/2 font-medium pointer-events-none 
                         "
                         htmlFor="email">Email</label>
                     </form>
-                </div>
+                </div> */}
 
             </div>
         </div>
