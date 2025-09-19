@@ -34,7 +34,9 @@ const Register = () => {
 
                 <div className="border-2 border-white px-8 py-3 text-xl
                     hover:text-black duration-500 cursor-pointer hover:bg-white 
-                ">
+                "
+                    onClick={() => {setPage((prev) => (prev = true))}}
+                >
                     Login
                 </div>
             </header>
