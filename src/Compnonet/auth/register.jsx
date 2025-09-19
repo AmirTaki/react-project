@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Register = () => {
     const [page, setPage] =  useState(false)
     const [moveInput, setMoveInput] = useState(false)
+    const reducer = (state, action) => {
+        switch (action.type){
+            case  '': 
+                return {...state}
+        }
+    } 
+    const [state, dispatch] = useReducer(reducer, {
+
+    })
     return (
         <div className=" flex justify-center items-center flex-col gap-30 ">
             <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
