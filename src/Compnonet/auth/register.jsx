@@ -50,7 +50,7 @@ const Register = () => {
             >
                 <span
                     className="absolute top-0 right-0 w-[45px] h-[45px] bg-[#162038] text-[2em] text-white  flex items-center
-                    justify-center "
+                    justify-center rounded-bl-[20px] cursor-pointer z-10"
                 > 
                    <i class="bi bi-x-lg"></i>
                 </span>
