@@ -5,7 +5,7 @@ import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
 import { GlobalHearts } from "../../App";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 export const ContextHeaderBottom =  createContext();
 
 
@@ -111,6 +111,8 @@ const  HeaderBottom = () => {
           <div className="relative flex gap-4 z-1!">
             <input type="search" placeholder='search' className={state.search ? 'w-[200px] duration-900 ease-in bg-gray-100 px-3 focus:outline-hidden rounded-md h-[30px]' : 'w-[0px] duration-900 ease-out'}    />
             <i className="bi bi-search hover:scale-130  text-gray-400 cursor-pointer text-lg  md:right-[115px] max-md:right-[80px] absolute hover:text-gray-900 duration-300"   onClick={()=>{dispatch({type : ACTIONTYPE.search})}}></i>
+            <BrowserRouter>
+            </BrowserRouter>
             <Link to = "/validation">
               <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             </Link>
