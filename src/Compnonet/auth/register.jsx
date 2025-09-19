@@ -61,7 +61,9 @@ const Register = () => {
                 <div className="w-[100%] p-[40px]  transform translate-x-0">
                     <h2 className="text-[2em] text-[#162938] text-center">Login</h2>
                     <form action="#">
-
+                        <div className= "w-[100%] h=[50px] border-b border-b-[#162938] mx-[30px] my-0 relative">
+                            <span></span>
+                        </div>
                     </form>
                 </div>
 
