@@ -1,7 +1,8 @@
 const Validation = () => {
     return (
         <>
-        Validation</>
+            Validation
+        </>
     )
 }
 
