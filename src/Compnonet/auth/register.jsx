@@ -68,12 +68,12 @@ const Register = () => {
                         >
                             <input
                                 type="email"  id  = 'email' 
-                                className=" focus:text-teal-600! "
+                                className=" outline-0 border-0 text-[1em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
                         </div>
-                            <label htmlFor="email"
-                                // 
-                                className={`${moveInput ? "top-10!" : "top-19!"} transition-all  duration-300 z-30 cursor-pointer absolute left-6  `}
+                            <label 
+                                htmlFor="email"
+                                className={`${moveInput ? "top-10!" : "top-21!"} transition-all  duration-300 z-30 cursor-pointer absolute left-6  `}
                             >
                                 Email
                             </label>
