@@ -58,10 +58,10 @@ const Register = () => {
                    <i class="bi bi-x-lg"></i>
                 </span>
 
-                <div className="">
+                <div className="w-[100%] p-[40px]  transform translate-x-0">
                     <h2>Login</h2>
                     <form action="#">
-                        
+
                     </form>
                 </div>
 
