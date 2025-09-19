@@ -5,6 +5,7 @@ import Header from "./Compnonet/header/header"
 import Test from './Compnonet/header/test'
 import Section from './Compnonet/section/section'
 import Footer from './Compnonet/footer/footer'
+import { BrowserRouter } from 'react-router-dom'
 
 
 
@@ -15,13 +16,15 @@ function App() {
   
   return (
     // <Test />
-    <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
-      <div className=''>
-        <Header />
-        <Section />
-        <Footer />
-      </div>
-    </GlobalHearts.Provider>
+    <BrowserRouter>
+      <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
+        <div className=''>
+          <Header />
+          <Section />
+          <Footer />
+        </div>
+      </GlobalHearts.Provider>
+    </BrowserRouter>
   
   )
 }

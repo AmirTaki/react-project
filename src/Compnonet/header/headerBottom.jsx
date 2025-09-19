@@ -5,7 +5,8 @@ import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
 import { GlobalHearts } from "../../App";
-import { BrowserRouter, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import Validation from "../auth/auth";
 export const ContextHeaderBottom =  createContext();
 
 
@@ -116,7 +117,7 @@ const  HeaderBottom = () => {
                 <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
               </Link>
               <Routes>
-                
+                <Route path = "/validation" element = {<Validation />} ></Route>
               </Routes>
             </BrowserRouter>
             <i className="bi bi-handbag text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
