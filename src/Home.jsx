@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
 import Header from "./Compnonet/header/header";
-import Section from "./Compnonet/header/test";
+
 import Footer from "./Compnonet/footer/footer";
+import Section from "./Compnonet/section/section";
 export const GlobalHearts = createContext()
 
 const Home = () => {

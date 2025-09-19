@@ -72,6 +72,7 @@ const Register = () => {
                             <input
                                 onChange={(e)=>setMoveInput(e.target.value.length > 0 ? true : false)}
                                 onFocus={() => {setMoveInput(true)}}
+                                onBlur={() => setMoveInput(false)}
                                 type="email"  id  = 'email' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />

@@ -26,7 +26,7 @@ function useInterval(callback, delay) {
     }, [delay]);
 }
 
-const Section = () => {
+const Test = () => {
     const sliderRef = useRef(null);
 
     const reducer = (state, action) => {
@@ -135,4 +135,4 @@ const Section = () => {
     )
 }
 
-export default Section;
+export default Test;
