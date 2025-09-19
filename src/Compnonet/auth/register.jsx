@@ -62,9 +62,10 @@ const Register = () => {
                 <div className=" w-[100%] h-[100%] absolute! top-12">
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
-                        <div className="bg-green-500 flex flex-col items-center justify-center border-b!  border-b-[#162938]! mx-0 my-[30px]">
+                        <div className="bg-green-500 flex flex-col items-center justify-center border-b! 
+                         border-b-[#162938]! mx-auto w-[90%] my-10">
                             <label htmlFor="email"
-                                className="cursor-pointer"
+                                className="cursor-pointer absolute left-0"
                             >Email</label>
                             <input type="email"  id  = 'email' className="outline-2 "/>
                         </div>
