@@ -49,6 +49,7 @@ const Register = () => {
                 rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center overflow-hidden `}
             >
                 <span
+                    onClick={()=>{setPage((prev) => (prev = false))}}
                     className="absolute top-0 right-0 w-[45px] h-[45px] bg-[#162038] text-[2em] text-white  flex items-center
                     justify-center rounded-bl-[20px] cursor-pointer z-10"
                 > 
