@@ -62,7 +62,7 @@ const Register = () => {
                     <form action = "#">
                     
                         <div 
-                            onClick={()=> {setMoveInput(!moveInput)}}
+                         
                             className="bg-transparent flex flex-col items-center justify-center border-b! 
                             border-b-[#162938]! mx-auto w-[90%] my-10"
                         >
@@ -70,8 +70,10 @@ const Register = () => {
                                 <span><i class="bi bi-envelope"></i></span>
                             </div>
                             <input
+                                onChange={(e)=>setMoveInput(e.target.value.length > 0 ? true : false)}
+                                onFocus={() => {setMoveInput(true)}}
                                 type="email"  id  = 'email' 
-                                className=" outline-0 border-0 text-[1em] text-[#162038] w-[100%] h-10 mb-1 "
+                                className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             
