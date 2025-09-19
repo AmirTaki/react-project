@@ -7,11 +7,12 @@ export const GlobalHearts = createContext()
 const Home = () => {
     const [heartConter, setHeartConter] = useState(0)
     return(
-        <>
+        <GlobalHearts.Provider value = {{heartConter, setHeartConter}}> 
+        
             <Header />
             <Section />
             <Footer />  
-        </>
+        </GlobalHearts.Provider>
     )
 }
 

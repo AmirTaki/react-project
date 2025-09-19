@@ -20,14 +20,12 @@ function App() {
     // <Test />
     <BrowserRouter>
 
-      <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
-        <div className=''>
 
-        </div>
+       
       <Routes>
         <Route path = "/validation" element = {<Validation />} ></Route>
       </Routes>
-      </GlobalHearts.Provider>
+
     </BrowserRouter>
   
   )
