@@ -9,8 +9,8 @@ const Register = () => {
             <header className="text-white flex flex-row justify-center items-center h-[50px] gap-10 bg-amber-700 ">
                 <Link to = "/">
                     <div
-                        className="after:content-[''] after:left-0 after:-bottom-6 after:absolute after:w-[100px] after:h-[3px] after:bg-white 
-                            after:origin-right after:transform
+                        className="relative after:content-[''] after:left-0 after:-bottom-6 after:absolute after:w-[100%] after:h-[3px] after:bg-white 
+                            after:origin-right! after:transform transform after:rounded-4xl after:scale-0 after:duration-300  hover:after:origin-left! hover:after:scale-100
                         "
                     >Home</div>
                 </Link>
