@@ -61,7 +61,7 @@ const Register = () => {
                     <h2 className="text-[2em] text-[#162938] text-center">Login</h2>
                     <form action="#">
                         <div className= "w-[100%] h-[50px] border-b!  border-b-[#162938]! mx-0 my-[30px] relative">
-                            <span></span>
+                            <span><i class="bi bi-envelope"></i></span>
                         </div>
                     </form>
                 </div>
