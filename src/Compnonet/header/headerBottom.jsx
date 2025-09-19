@@ -4,8 +4,8 @@ import { GlobalHeaderScroll } from "./header";
 import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
-import { GlobalHearts } from "../../App";
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import {  Link,  } from "react-router-dom";
+import { GlobalHearts } from "../../Home";
 export const ContextHeaderBottom =  createContext();
 
 

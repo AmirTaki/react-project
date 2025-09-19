@@ -1,6 +1,7 @@
 import { useContext, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
-import { GlobalHearts } from "../../App";
+import { GlobalHearts } from "../../Home";
+
 
 
 
