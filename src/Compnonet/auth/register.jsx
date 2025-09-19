@@ -9,7 +9,7 @@ const Register = () => {
             <header className="text-white flex flex-row justify-center items-center h-[50px] gap-10 bg-amber-700 ">
                 <Link to = "/">
                     <div
-                        className="after:content-[''] left-0 -bottom-6 absolute w-[100px] h-[3px]"
+                        className="after:content-[''] after:left-0 after:-bottom-6 after:absolute after:w-[100px] after:h-[3px] after:bg-white "
                     >Home</div>
                 </Link>
                 <div>About</div>
