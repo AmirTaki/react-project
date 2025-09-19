@@ -7,6 +7,7 @@ import Section from './Compnonet/section/section'
 import Footer from './Compnonet/footer/footer'
 import { BrowserRouter,  Route, Routes } from 'react-router-dom'
 import Validation from './Compnonet/auth/auth'
+import Home from './Home'
 
 
 
@@ -18,6 +19,7 @@ function App() {
   return (
     // <Test />
     <BrowserRouter>
+      <Home  />
       <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
         <div className=''>
           <Header />
