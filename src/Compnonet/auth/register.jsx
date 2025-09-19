@@ -10,7 +10,7 @@ const Register = () => {
                 <Link to = "/">
                     <div
                         className="relative after:content-[''] after:left-0 after:-bottom-[6px] after:absolute after:w-[100%] after:h-[3px] after:bg-white 
-                            after:origin-right!  after:rounded-4xl after:scale-0 after:duration-300  hover:after:origin-left! hover:after:scale-100
+                            after:origin-right!  after:rounded-4xl after:transition-transform duration-500 after:scale-0 after:duration-500! hover:after:duration-500! hover:after:origin-left! hover:after:scale-100
                         "
                     >Home</div>
                 </Link>
