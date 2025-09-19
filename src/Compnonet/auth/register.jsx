@@ -48,7 +48,9 @@ const Register = () => {
                 relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
                 rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center overflow-hidden `}
             >
-                <span> 
+                <span
+                    className="absolute top-0 right-0 w-[45px] h-[45px] bg-[#162038] font-[2em]"
+                > 
                    <i class="bi bi-x-lg"></i>
                 </span>
 
