@@ -75,7 +75,7 @@ const Register = () => {
                    <i className="bi bi-x-lg text-[22px]"></i>
                 </span>
 
-                <div className=" w-[100%] h-[100%] absolute! top-12 bg-red-400">
+                <div className=" w-[100%] h-[100%] absolute! top-12 ">
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
                         {/* email login */}
@@ -152,9 +152,9 @@ const Register = () => {
                         </div>
                         {/* move login to register */}
                         <div className="flex justify-center items-center mx-auto w-[80%] my-5">
-                            <div className="flex justify-center! items-center! text-sm">
+                            <div className="flex justify-center! items-center! text-[14px]">
                                 <p>Don't have an account? <span
-                                    className="text-lg pl-1 cursor-pointer hover:underline duration-100"
+                                    className="text-[16px] pl-1 cursor-pointer hover:underline duration-100 font-[600]!"
                                 >Register</span></p>
                             </div>
                         </div>
