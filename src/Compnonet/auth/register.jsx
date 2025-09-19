@@ -1,7 +1,12 @@
 const Register = () => {
     return (
         <>
-            register
+            <header>
+                <div>Home</div>
+                <div>About</div>
+                <div>Services</div>
+                <div>Contact</div>
+            </header>
         </>
     )
 }

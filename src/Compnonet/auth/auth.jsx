@@ -5,7 +5,6 @@ const Validation = () => {
     return (
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-            Validation
             <Register />
             
         </div>
