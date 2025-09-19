@@ -64,9 +64,9 @@ const Register = () => {
                         <div 
                          
                             className="bg-transparent flex flex-col items-center justify-center border-b-2! 
-                               border-b-[#162938]! mx-auto w-[90%] my-10"
+                               border-b-[#162938]! mx-auto w-[90%] my-10 relative"
                         >
-                            <div className="absolute right-6">
+                            <div className="absolute right-2">
                                 <span><i class="bi bi-envelope"></i></span>
                             </div>
                             <input
@@ -79,7 +79,7 @@ const Register = () => {
 
                             <label 
                                 htmlFor="email"
-                                className={`${moveInput ? "top-10!" : "top-21!"} transition-all  duration-300 z-30 cursor-pointer absolute left-6  `}
+                                className={`${moveInput ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Email
                             </label>                               
@@ -90,7 +90,7 @@ const Register = () => {
                             className="bg-transparent flex flex-col items-center justify-center border-b-2! 
                                border-b-[#162938]! mx-auto w-[90%] my-10 relative"
                         >
-                            <div className="absolute right-6">
+                            <div className="absolute right-2">
                                 <span><i class="bi bi-lock"></i></span>
                             </div>
                             <input
