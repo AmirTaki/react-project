@@ -57,14 +57,14 @@ const Register = () => {
                    <i class="bi bi-x-lg"></i>
                 </span>
 
-                <div className=" w-[100%] h-[100%] absolute! top-12">
+                <div className=" w-[100%] h-[100%] absolute! top-12 ">
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
                     
                         <div 
                          
-                            className="bg-transparent flex flex-col items-center justify-center border-b! 
-                            border-b-[#162938]! mx-auto w-[90%] my-10"
+                            className="bg-transparent flex flex-col items-center justify-center border-b-2! 
+                               border-b-[#162938]! mx-auto w-[90%] my-10"
                         >
                             <div className="absolute right-6">
                                 <span><i class="bi bi-envelope"></i></span>
@@ -77,14 +77,13 @@ const Register = () => {
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
-                            
-                        </div>
                             <label 
                                 htmlFor="email"
                                 className={`${moveInput ? "top-10!" : "top-21!"} transition-all  duration-300 z-30 cursor-pointer absolute left-6  `}
                             >
                                 Email
-                            </label>
+                            </label>                               
+                        </div>
                     </form>
             
                 </div>
