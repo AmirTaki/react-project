@@ -5,7 +5,7 @@ import Home from "../../Home";
 const Register = () => {
     return (
         <>
-            <header className="text-white">
+            <header className="text-white flex flex-col justify-center itmes-center h-[200px] bg-amber-700">
                 <Link to = "/">
                     <div>Home</div>
                 </Link>
