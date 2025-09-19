@@ -41,7 +41,9 @@ const Register = () => {
 
 
             {/* section login */}
-            <div className="relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]"></div>
+            <div className="relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
+                rounded-[20px] 
+            "></div>
         </>
     )
 }
