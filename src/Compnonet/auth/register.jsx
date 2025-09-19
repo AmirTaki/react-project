@@ -5,9 +5,12 @@ import Home from "../../Home";
 const Register = () => {
     return (
         <>
-            <header className="text-white flex flex-row justify-center items-center h-[20px] bg-amber-700">
+        {/* after:content-['★'] after:text-red-500 after:absolute after:top-0 after:right-0 */}
+            <header className="text-white flex flex-row justify-center items-center h-[50px] gap-10 bg-amber-700 ">
                 <Link to = "/">
-                    <div>Home</div>
+                    <div
+                        className="after:content-[''] left-0 -bottom-6 absolute w-[100px] h-[3px]"
+                    >Home</div>
                 </Link>
                 <div>About</div>
                 <div>Services</div>
