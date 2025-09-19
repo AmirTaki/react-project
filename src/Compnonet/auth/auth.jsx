@@ -4,7 +4,7 @@ import imgBackGround from "../../assets/background.jpg"
 const Validation = () => {
     return (
      
-        <div style={{backgroundImage: `url("../../assets/background.jpg")`, height: '300px', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             Validation
             <Register />
             
