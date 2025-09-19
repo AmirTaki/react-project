@@ -47,9 +47,7 @@ const Register = () => {
                 ${page ? "scale-100 duration-300" : "scale-0 duration-300"}
                 relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
                 rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center!
-                justify-center!
-                overflow-hidden 
-                   
+                justify-center! overflow-hidden 
                 `}
             >
                 <span
@@ -66,15 +64,16 @@ const Register = () => {
                     
                         <div 
                             onClick={()=> {setMoveInput(!moveInput)}}
-                            className="bg-green-500 flex flex-col items-center justify-center border-b! 
+                            className="bg-transparent flex flex-col items-center justify-center border-b! 
                             border-b-[#162938]! mx-auto w-[90%] my-10"
                         >
                             <label htmlFor="email"
                                 onClick={()=> {setMoveInput(!moveInput)}}
-                                className={`${moveInput ? "top-10 duration-300" : "top-19 duration-300"} z-30 cursor-pointer absolute left-6 `}
+                                className={`${moveInput ? "top-10 duration-300" : "top-20 duration-300"} z-30 cursor-pointer absolute left-6 `}
                             >Email</label>
                             <input
-                                type="email"  id  = 'email' className="outline-2 w-[100%]"
+                                type="email"  id  = 'email' 
+                                className=" w-[100%] h-9 outline-0 border-0 text-[1em] text-[#162038] "
                             />
                         </div>
                     </form>
