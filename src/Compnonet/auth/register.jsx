@@ -128,22 +128,22 @@ const Register = () => {
                         </div>
                         {/* checkbox login */}
                         <div 
-                            className="bg-amber-700 flex flex-row  justify-between border-b-2! 
-                               border-b-[#162938]! mx-auto w-[90%] my-3 relative px-1 "
+                            className="flex flex-row  justify-between 
+                             mx-auto w-[90%] my-3 relative p-1 "
                         >
-                            <div className="flex gap-1">
+                            <div className="flex gap-1  ">
                                 <input
                                     type="checkbox"  id  = 'checkboxLogin' 
-                                    className="  "
+                                    className="accent-[#162938]  "
                                 />
 
                                 <label 
-                                    htmlFor="checkboxLogin" className="text-[13px] font-thin!"
+                                    htmlFor="checkboxLogin" className="text-[13px] font-thin! "
                                 >
                                     Show Password
                                 </label>     
                             </div>
-                            <div className=""></div>
+                            <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>
                                                      
                         </div>
                     </form>
