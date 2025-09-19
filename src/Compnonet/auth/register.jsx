@@ -150,6 +150,14 @@ const Register = () => {
                             <input type="submig" value = 'Login' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
                             text-white cursor-pointer" />
                         </div>
+                        {/* move login to register */}
+                        <div className="flex justify-center items-center mx-auto w-[80%] text-sm  my-5">
+                            <div className="flex justify-center! items-center!">
+                                <p>Don't have an account? <span
+                                    className="text-lg"
+                                >Register</span></p>
+                            </div>
+                        </div>
                     </form>
             
                 </div>
