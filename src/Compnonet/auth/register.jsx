@@ -64,7 +64,11 @@ const Register = () => {
                             <span><i class="bi bi-envelope"></i></span>
                         </div>
                         <input type="email" id = "email"  />
-                        <label htmlFor="email">Email</label>
+                        <label 
+                        className="absolute top-[50%] left-[5px] text-[1em] text-[#162038] 
+                            transform -translate-y-1/2
+                        "
+                        htmlFor="email">Email</label>
                     </form>
                 </div>
 
