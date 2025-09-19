@@ -11,18 +11,18 @@ import Home from './Home'
 
 
 
-export const GlobalHearts = createContext()
+
 
 function App() {
-  const [heartConter, setHeartConter] = useState(0)
+
   
   return (
     // <Test />
     <BrowserRouter>
-      <Home  />
+
       <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
         <div className=''>
-        
+
         </div>
       <Routes>
         <Route path = "/validation" element = {<Validation />} ></Route>
