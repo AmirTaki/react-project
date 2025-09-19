@@ -66,7 +66,8 @@ const Register = () => {
                         <div className="bg-green-500 flex flex-col items-center justify-center border-b! 
                          border-b-[#162938]! mx-auto w-[90%] my-10">
                             <label htmlFor="email"
-                                className={`${moveInput ? "top-10" : "top-19"} cursor-pointer absolute left-6 `}
+                                onClick={()=> {setMoveInput(!moveInput)}}
+                                className={`${moveInput ? "top-10 duration-300" : "top-19 duration-300"} cursor-pointer absolute left-6 `}
                             >Email</label>
                             <input type="email"  id  = 'email' className="outline-2 w-[100%]"/>
                         </div>
