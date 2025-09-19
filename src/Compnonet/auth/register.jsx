@@ -42,7 +42,7 @@ const Register = () => {
 
             {/* section login */}
             <div className="relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
-                rounded-[20px]  backdrop-blur-[20px]
+                rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)]
             "></div>
         </>
     )
