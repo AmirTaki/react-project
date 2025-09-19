@@ -46,7 +46,9 @@ const Register = () => {
             <div className={`
                 ${page ? "scale-100 duration-300" : "scale-0 duration-300"}
                 relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
-                rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center overflow-hidden `}
+                rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center overflow-hidden 
+                
+                `}
             >
                 <span
                     onClick={()=>{setPage((prev) => (prev = false))}}
@@ -55,6 +57,13 @@ const Register = () => {
                 > 
                    <i class="bi bi-x-lg"></i>
                 </span>
+
+                <div className="">
+                    <h2>Login</h2>
+                    <form action="#">
+                        
+                    </form>
+                </div>
 
             </div>
         </>
