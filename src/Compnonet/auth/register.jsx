@@ -72,7 +72,7 @@ const Register = () => {
                     className="absolute top-0 right-0 w-[45px] h-[45px] bg-[#162038] text-[2em] text-white  flex items-center
                     justify-center rounded-bl-[20px] cursor-pointer z-10" 
                 > 
-                   <i class="bi bi-x-lg"></i>
+                   <i className="bi bi-x-lg text-[22px]"></i>
                 </span>
 
                 <div className=" w-[100%] h-[100%] absolute! top-12 ">
@@ -82,10 +82,10 @@ const Register = () => {
                         <div 
                          
                             className="bg-transparent flex flex-col items-center justify-center border-b-2! 
-                               border-b-[#162938]! mx-auto w-[90%] my-10 relative"
+                               border-b-[#162938]! mx-auto w-[80%] my-10 relative"
                         >
                             <div className="absolute right-2">
-                                <span><i class="bi bi-envelope"></i></span>
+                                <span><i className="bi bi-envelope"></i></span>
                             </div>
                             <input
                                 onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 0, bool : e.target.value.length > 0 ? true : false }})}}
@@ -106,10 +106,10 @@ const Register = () => {
                         <div 
                          
                             className="bg-transparent flex flex-col items-center justify-center border-b-2! 
-                               border-b-[#162938]! mx-auto w-[90%] mt-10 relative"
+                               border-b-[#162938]! mx-auto w-[80%] mt-10 relative"
                         >
                             <div className="absolute right-2">
-                                <span><i class="bi bi-lock"></i></span>
+                                <span><i className="bi bi-lock"></i></span>
                             </div>
                             <input
                                 onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 1, bool : e.target.value.length > 0 ? true : false }})}}
@@ -129,7 +129,7 @@ const Register = () => {
                         {/* checkbox login */}
                         <div 
                             className="flex flex-row  justify-between 
-                             mx-auto w-[90%] my-3 relative p-1 "
+                             mx-auto w-[80%] my-3 relative p-1 "
                         >
                             <div className="flex gap-1  ">
                                 <input
@@ -143,8 +143,12 @@ const Register = () => {
                                     Show Password
                                 </label>     
                             </div>
-                            <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>
-                                                     
+                            <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>                                                    
+                        </div>
+                        {/* button login */}
+                        <div className="flex justify-center items-center mx-auto w-[80%] ">
+                            <input type="submig" value = 'Login' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
+                            text-white cursor-pointer" />
                         </div>
                     </form>
             
