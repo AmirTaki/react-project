@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const Register = () => {
     const [page, setPage] =  useState(false)
     return (
-        <>
-
+        <div className=" flex justify-center items-center flex-col gap-30 ">
             <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
                 <Link to = "/">
                     <div
@@ -47,7 +46,7 @@ const Register = () => {
                 ${page ? "scale-100 duration-300" : "scale-0 duration-300"}
                 relative w-[400px] h-[440px] bg-transparent border-2 border-[rgba(255,255,255,.5)]
                 rounded-[20px]  backdrop-blur-[20px] shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center overflow-hidden 
-                
+                   
                 `}
             >
                 <span
@@ -68,7 +67,7 @@ const Register = () => {
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
 
