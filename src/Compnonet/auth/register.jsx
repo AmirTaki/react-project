@@ -66,15 +66,17 @@ const Register = () => {
                             className="bg-transparent flex flex-col items-center justify-center border-b! 
                             border-b-[#162938]! mx-auto w-[90%] my-10"
                         >
-                            <label htmlFor="email"
-                                // 
-                                className={`  peer  top-10! transition-all  duration-300 z-30 cursor-pointer absolute left-6  `}
-                            >Email</label>
                             <input
                                 type="email"  id  = 'email' 
-                                className="peer focus:text-teal-600! peer-focus:top-30!"
+                                className=" focus:text-teal-600! "
                             />
                         </div>
+                            <label htmlFor="email"
+                                // 
+                                className={`${moveInput ? "top-10!" : "top-19!"} transition-all  duration-300 z-30 cursor-pointer absolute left-6  `}
+                            >
+                                Email
+                            </label>
                     </form>
             
                 </div>
