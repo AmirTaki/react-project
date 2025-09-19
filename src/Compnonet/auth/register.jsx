@@ -63,6 +63,8 @@ const Register = () => {
                         <div className= "w-[100%] h-[50px] border-b!  border-b-[#162938]! mx-0 my-[30px] relative">
                             <span><i class="bi bi-envelope"></i></span>
                         </div>
+                        <input type="email" id = "email"  />
+                        <label htmlFor="email">Email</label>
                     </form>
                 </div>
 
