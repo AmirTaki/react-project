@@ -22,9 +22,7 @@ function App() {
       <Home  />
       <GlobalHearts.Provider value = {{heartConter, setHeartConter}}>
         <div className=''>
-          <Header />
-          <Section />
-          <Footer />
+        
         </div>
       <Routes>
         <Route path = "/validation" element = {<Validation />} ></Route>
