@@ -112,16 +112,16 @@ const Register = () => {
                                 <span><i class="bi bi-lock"></i></span>
                             </div>
                             <input
-                                onChange={(e)=>setMoveInput(e.target.value.length > 0 ? true : false)}
-                                onFocus={() => {setMoveInput(true)}}
-                                onBlur={() => setMoveInput(false)}
+                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 1, bool : e.target.value.length > 0 ? true : false }})}}
+                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : true}})}}
+                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : false}})}}
                                 type="password"  id  = 'password' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
                                 htmlFor="password"
-                                className={`${moveInput ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
+                                className={`${state.moveLabel[1] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Password
                             </label>                               
