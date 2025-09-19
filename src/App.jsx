@@ -6,6 +6,7 @@ import Test from './Compnonet/header/test'
 import Section from './Compnonet/section/section'
 import Footer from './Compnonet/footer/footer'
 import { BrowserRouter } from 'react-router-dom'
+import Validation from './Compnonet/auth/auth'
 
 
 
@@ -24,6 +25,9 @@ function App() {
           <Footer />
         </div>
       </GlobalHearts.Provider>
+      <Routes>
+        <Route path = "/validation" element = {<Validation />} ></Route>
+      </Routes>
     </BrowserRouter>
   
   )
