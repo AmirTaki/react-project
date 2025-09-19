@@ -59,7 +59,7 @@ const Register = () => {
                 </span>
 
                 <div className="w-[100%] p-[40px]  transform translate-x-0">
-                    <h2>Login</h2>
+                    <h2 className="text-[2em] text-[#162938] text-center">Login</h2>
                     <form action="#">
 
                     </form>
