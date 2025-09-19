@@ -62,7 +62,7 @@ const Register = () => {
                 <div className=" w-[100%] h-[100%] absolute! top-12">
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
-                        <div className="bg-green-500 flex flex-col items-center justify-center">
+                        <div className="bg-green-500 flex flex-col items-center justify-center border-b!  border-b-[#162938]! mx-0 my-[30px]">
                             <label htmlFor="email"
                                 className="cursor-pointer"
                             >Email</label>
