@@ -6,7 +6,7 @@ const Register = () => {
     return (
         <>
 
-            <header className="text-white flex flex-row justify-center items-center h-[50px] gap-10  ">
+            <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
                 <Link to = "/">
                     <div
                         className="relative after:content-[''] after:left-0 after:-bottom-[6px] after:absolute after:w-[100%] after:h-[3px] after:bg-white 
@@ -29,6 +29,11 @@ const Register = () => {
                         after:origin-right!  after:rounded-4xl after:transition-transform duration-500 after:scale-0 after:duration-500! hover:after:duration-500! hover:after:origin-left! hover:after:scale-100
                         "
                 >Contact</div>
+
+
+                <div className="border-2 border-white px-8 py-3 text-xl">
+                    Login
+                </div>
             </header>
         </>
     )
