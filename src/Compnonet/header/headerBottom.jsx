@@ -5,7 +5,7 @@ import { initialStateHeader, reducerHeader } from "./reducerHeader";
 import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
 import { GlobalHearts } from "../../App";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Link, Routes } from "react-router-dom";
 export const ContextHeaderBottom =  createContext();
 
 
@@ -115,7 +115,9 @@ const  HeaderBottom = () => {
               <Link to = "/validation">
                 <i className="bi bi-person text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
               </Link>
-              
+              <Routes>
+                
+              </Routes>
             </BrowserRouter>
             <i className="bi bi-handbag text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300"></i>
             <i className={`${heartConter > 0 ? "text-red-500! bi bi-heart-fill!" : "text-gray-400! bi bi-heart!"} bi bi-heart max-md:hidden  md:block text-gray-400 cursor-pointer text-lg hover:text-gray-900 duration-300 `} ></i>
