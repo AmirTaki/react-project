@@ -21,52 +21,43 @@ const Register = () => {
                 const {flag}  = action.payload
                 return {...state, checkBox : {[number] :flag } }
            
-            case "inputValue" : 
-
+            case "inputValue" :
                 return{...state, inputValue : {[action.payload.index] : action.payload.value}}
             
-            case "checkUsername":
-                
+            // check username
+            case "checkUsername": 
                 if(state.inputValue[action.payload]){
-
                     if(!state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
-    
                         return{...state, inputWarning : {[action.payload] : 'Write full Name'}, inputStatus : {[action.payload] : false}}
                     }
                     else {
                         return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
                     }
                 }
-                return {...state}
-
-
+            return {...state}
+            // check email
             case "checkEmail" : 
                 if(state.inputValue[action.payload]){
-
-                        if(!state.inputValue[action.payload].match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-        
-                            return{...state, inputWarning : {[action.payload] : 'Write full Email'}, inputStatus : {[action.payload] : false}}
-                        }
-                        else {
-                            return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
-                        }
+                    if(!state.inputValue[action.payload].match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+                        return{...state, inputWarning : {[action.payload] : 'Write full Email'}, inputStatus : {[action.payload] : false}}
                     }
+                    else {
+                        return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                    }
+                }
 
-                return {...state}
-                
-                case "checkPassword" : 
-                    if(state.inputValue[action.payload]){
-
-                            if(!state.inputValue[action.payload].match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)){
-            
-                                return{...state, inputWarning : {[action.payload] : 'Password should contain'}, inputStatus : {[action.payload] : false}}
-                            }
-                            else {
-                                return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
-                            }
-                        }
-
-                    return {...state}
+            return {...state}
+            // check password
+            case "checkPassword" : 
+                if(state.inputValue[action.payload]){
+                    if(!state.inputValue[action.payload].match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)){
+                        return{...state, inputWarning : {[action.payload] : 'Password should contain'}, inputStatus : {[action.payload] : false}}
+                    }
+                    else {
+                        return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                    }
+                }
+            return {...state}
                     
         }
     } 
