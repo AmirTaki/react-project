@@ -6,8 +6,31 @@ import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
 
 
+
 const Register = () => {
-    const {state, dispatch, submitRegiser} =  useContext(ValidationForm)
+
+    const submitRegiser = (e) => {
+        if(state.inputStatus[2]){
+            if(state.inputStatus[3]){
+                if(state.inputStatus[4]){
+                    dispatch({ type : "Successful", payload : true })
+                }
+                else {
+                    dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
+                }
+            }
+            else {
+                dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})
+            }
+        }
+        else {
+            dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
+        }
+        e.preventDefault()
+                
+    }
+    
+    const {state, dispatch,} =  useContext(ValidationForm)
     return(
         <div className={`${state.registerPage ? "left-0! duration-500 scale-100! opacity-100!" : " opacity-0! scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
             <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
@@ -63,7 +86,7 @@ const Register = () => {
                 />
                 {/* button register */}
                 <ButtonComponent 
-                    onClick={(e) => {submitRegiser(e)}}
+                    onClick={(e) => {submitRegiser()(e)}}
                     value = {'Register'}
                 />
                 {/* move register to login */}

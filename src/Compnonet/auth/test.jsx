@@ -50,4 +50,22 @@
                     </label>       
                     {/* warning password */}
                     {/* <span className="text-red-500 absolute right-0 -top-5">{state.warningPassword}</span>                         */}
-                </div>
+                </div>const submitRegiser = (e) => {
+        if(state.inputStatus[2]){
+            if(state.inputStatus[3]){
+                if(state.inputStatus[4]){
+                    dispatch({ type : "Successful", payload : true })
+                }
+                else {
+                    dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
+                }
+            }
+            else {
+                dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})
+            }
+        }
+        else {
+            dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
+        }
+        e.preventDefault()
+                
