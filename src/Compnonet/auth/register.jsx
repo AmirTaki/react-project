@@ -57,8 +57,9 @@ const Register = () => {
 
     const submitLogin = (e) => {
         e.preventDefault()
-        state.warningEmail.length === 0 && state.emailLogin.length !== 0 ?  dispatch({type : 'warningEmail', payload : ''}) :  dispatch({type : 'warningEmail', payload : 'complete Email'}) 
-
+        state.warningEmail.length === 0 && state.emailLogin.length !== 0 ?  dispatch({type : 'warningEmail', payload : ''}) :  dispatch({type : 'warningEmail', payload : 'complete Email'})
+        state.warningPassword.length === 0 && state.passwordLogin.length !== 0  ? dispatch({type : "warningPassword", payload : ''}) : dispatch ({type : "warningPassword" , payload : 'complete password'} )  
+        
     }
     useEffect(() => {
         checkEmail()
