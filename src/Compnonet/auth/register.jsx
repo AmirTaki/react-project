@@ -39,16 +39,20 @@ const Register = () => {
                 }
                 return {...state}
 
-            //     return {...state, emailLogin : action.payload}
-            
-            // case 'warningEmail':
-            //     return {...state, warningEmail : action.payload }
-                
-            // case "passwordLogin" : 
-            //     return {...state, passwordLogin : action.payload}
-            // case 'warningPassword':
-            //     return {...state, warningPassword : action.payload}
 
+            case "checkEmail" : 
+                if(state.inputValue[action.payload]){
+
+                        if(!state.inputValue[action.payload].match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+        
+                            return{...state, inputWarning : {[action.payload] : 'Write full Email'}, inputStatus : {[action.payload] : false}}
+                        }
+                        else {
+                            return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                        }
+                    }
+
+                return {...state}
         }
     } 
     const [state, dispatch] = useReducer(reducer, {
@@ -59,15 +63,12 @@ const Register = () => {
         inputValue : {},
         inputWarning : {},
         inputStatus : {}
-        // emailLogin : "",
-        // warningEmail : '',
-        // passwordLogin : '',
-        // warningPassword : '',
     })
 
 
     useEffect(() => {
         dispatch({type : 'checkUsername', payload : 2})
+        dispatch({type : 'checkEmail', payload : 3})
     }, [state.inputValue])
 
     // const checkEmail = () => {
@@ -198,7 +199,7 @@ const Register = () => {
                                 <span><i className="bi bi-envelope"></i></span>
                             </div>
                             <input
-                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 3, bool : e.target.value.length > 0 ? true : false }})}}
+                                onChange={(e)=> {dispatch({type : 'inputValue', payload : {index : 3, value : e.target.value} })}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : false}})}}
                                 type="email"  id  = 'emailRegister' 
@@ -210,7 +211,9 @@ const Register = () => {
                                 className={`${state.moveLabel[3] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Email
-                            </label>                               
+                            </label> 
+                            {/* warning email */}
+                            <span className="text-red-500 absolute right-0 -top-5">{state.inputWarning[3]}</span>                              
                         </div>
                         {/*  password Registration */}
                         <div 
@@ -234,7 +237,8 @@ const Register = () => {
                                 className={`${state.moveLabel[4] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Password
-                            </label>                               
+                            </label>      
+                           
                         </div>
                         {/* checkbox Registration */}
                         <div 
