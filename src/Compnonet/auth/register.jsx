@@ -135,6 +135,7 @@ const Register = () => {
                         >
                             <div className="flex gap-1  ">
                                 <input
+                                    onChange={(e) => {console.log(e.checked)}}
                                     type="checkbox"  id  = 'checkboxLogin' 
                                     className="accent-[#162938]  "
                                 />
