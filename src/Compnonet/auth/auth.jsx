@@ -51,15 +51,17 @@ const Validation = () => {
             dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
         }
         e.preventDefault()
-        
+               
+    }
+    const submitLogin = (e) => {
+        e.preventDefault()
 
-       
     }
     return (
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             <div className=" flex justify-center! items-center! flex-col gap-10 ">
-                <ValidationForm.Provider value = {{state, dispatch, submitRegiser}} >
+                <ValidationForm.Provider value = {{state, dispatch, submitRegiser, submitLogin}} >
                     <Nav />
                     <SectionValidation />
                 </ValidationForm.Provider>
