@@ -40,18 +40,19 @@ const Register = () => {
     })
 
     const checkEmail = () => {
-        // if (state.emailLogin.length <= 0){
-        //     dispatch({type : 'warningEmail', payload : 'Email is required'})
-        //     return false;
-        // }
         if (state.emailLogin.length > 0  && !state.emailLogin.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
             dispatch({type : 'warningEmail', payload : 'Write full Email'})
-            return false; 
+
         }
         else {
-            dispatch({type : 'warningEmail', payload : ''})
-            return true 
+            dispatch({type : 'warningEmail', payload : ''}) 
         }
+    }
+
+    const submitLogin = (e) => {
+        e.preventDefault()
+        state.warningEmail.length === 0 && state.emailLogin.length !== 0 ?  dispatch({type : 'warningEmail', payload : 'ok'}) :  dispatch({type : 'warningEmail', payload : 'complete Email'}) 
+
     }
     useEffect(() => {
         checkEmail()
@@ -188,7 +189,7 @@ const Register = () => {
                         {/* button login */}
                         <div className="flex justify-center items-center mx-auto w-[80%] ">
                             <input
-                                onClick={()=>{dispatch({type : "login"})}} 
+                                onClick={submitLogin} 
                                 type="submit" value = 'Login' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
                                 text-white cursor-pointer" 
                             />
