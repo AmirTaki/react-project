@@ -56,7 +56,7 @@ const Validation = () => {
     const submitLogin = (e) => {
         if(state.inputStatus[0]){
             if(state.inputStatus[1]){
-
+                dispatch({ type : "PanelAdmin", payload : true })
             }
             else {
                 dispatch({type : 'warning', payload : {index : 1, warning : "Password is requierd" }})

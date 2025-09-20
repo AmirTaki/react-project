@@ -79,6 +79,12 @@ export const reducer = (state, action) => {
         
         case "Successful" : 
             return{ ...state, Successful : action.payload}
+        
+        case "PanelAdmin" : 
+            return {...state, PanelAdmin : action.payload}
+
+        default : 
+            return{...state}
 
     }
 } 
