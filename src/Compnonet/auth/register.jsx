@@ -30,7 +30,7 @@ const Register = () => {
                     if(state.inputValue[action.payload].length === 0){
                         return{...state, inputWarning : {[action.payload] : 'username is requaired!'}, inputStatus : {[action.payload] : false}}
                     }
-                    if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+                    else if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
                         return{...state, inputWarning : {[action.payload] : 'Write full Name'}, inputStatus : {[action.payload] : false}}
                     }
                     else {
@@ -91,7 +91,7 @@ const Register = () => {
 
     const submitRegiser = (e) => {
         e.preventDefault()
-        if(inputStatus[2] && inputStatus[3] && inputStatus[4]){
+        if(state.inputStatus[2] && state.inputStatus[3] && state.inputStatus[4]){
             // dispatch({type : 'submit', payload : true})
             console.log("ok")
         }
@@ -158,8 +158,8 @@ const Register = () => {
                 
 
 
-                     {/* register */}
-                <div className={`${state.registerPage ? "left-0 duration-500 scale-100!" : " scale-0! left-100 duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
+                    {/* register */}
+                <div className={`${state.registerPage ? "left-0! duration-500 scale-100!" : " scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
                     <form action = "#">
                         {/* username Registration */}
