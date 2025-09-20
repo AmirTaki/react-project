@@ -6,7 +6,7 @@ const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel,
             
                 className="bg-transparent flex flex-col items-center justify-center border-b-2! 
                 border-b-[#162938]! mx-auto w-[80%] mt-6 mb-10 relative
-                    bg-red-600
+                    
                 "
             >
                 <div className="absolute right-2">
