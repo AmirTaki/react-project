@@ -1,4 +1,4 @@
-import { useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Register = () => {
@@ -21,6 +21,11 @@ const Register = () => {
                 const {flag}  = action.payload
                 return {...state, checkBox : {[number] :flag } }
             
+            case "emailLogin":
+                return {...state, emailLogin : action.payload}
+            
+            case 'warningEmail':
+                return {...state, warningEmail : action.payload }
                 
 
         }
@@ -31,12 +36,26 @@ const Register = () => {
         registerPage  : false,
         checkBox : {},
         emailLogin : "",
+        warningEmail : ''
     })
 
-    const checkEmail = (e) => {
-        if ()
+    const checkEmail = () => {
+        // if (state.emailLogin.length <= 0){
+        //     dispatch({type : 'warningEmail', payload : 'Email is required'})
+        //     return false;
+        // }
+        if (state.emailLogin.length > 0  && !state.emailLogin.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+            dispatch({type : 'warningEmail', payload : 'Write full Email'})
+            return false; 
+        }
+        else {
+            dispatch({type : 'warningEmail', payload : ''})
+            return true 
+        }
     }
-
+    useEffect(() => {
+        checkEmail()
+    },[state.emailLogin])
     return (
     <div className=" flex justify-center! items-center! flex-col gap-10 ">
             <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
@@ -117,7 +136,9 @@ const Register = () => {
                                 className={`${state.moveLabel[0] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Email
-                            </label>                               
+                            </label>   
+                            {/* warning email */}
+                            <span className="text-red-500 absolute right-0 -top-5">{state.warningEmail}</span>
                         </div>
                         {/*  password login */}
                         <div 
