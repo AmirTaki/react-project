@@ -25,8 +25,10 @@ const Validation = () => {
         dispatch({ type : "Successful", payload : false })
         dispatch({ type : "PanelAdmin", payload : false })
         // login
-        dispatch({type : 'checkEmail', payload : 0})
-        dispatch({type : 'checkPassword', payload : 1})
+        // dispatch({type : 'checkEmail', payload : 0})
+        // dispatch({type : 'checkPassword', payload : 1})
+        dispatch({type : "checkInputLogin", payload : 0})
+        dispatch({type : "checkInputLogin", payload : 1})
 
 
         // register
