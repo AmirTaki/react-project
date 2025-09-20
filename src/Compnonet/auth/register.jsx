@@ -1,5 +1,9 @@
+import { useContext } from "react"
+import { ValidationForm } from "./auth"
+
 
 const Register = () => {
+    const {state, dispatch, submitRegiser} =  useContext(ValidationForm)
     return(
         <div className={`${state.registerPage ? "left-0! duration-500 scale-100! opacity-100!" : " opacity-0! scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
             <h2 className="text-3xl text-[#162938] text-center">Registration</h2>

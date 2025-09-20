@@ -5,7 +5,7 @@ import { reducer } from "./reducer";
 import Nav from "./nav";
 import Register from "./register";
 import Login from "./login";
-const ValidationForm =  createContext()
+export const ValidationForm =  createContext()
 
 const Validation = () => {
 
