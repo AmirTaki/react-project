@@ -27,7 +27,10 @@ const Register = () => {
             // check username
             case "checkUsername": 
                 if(state.inputValue[action.payload]){
-                    if(!state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+                    if(state.inputValue[action.payload].length === 0){
+                        return{...state, inputWarning : {[action.payload] : 'username is requaired!'}, inputStatus : {[action.payload] : false}}
+                    }
+                    if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
                         return{...state, inputWarning : {[action.payload] : 'Write full Name'}, inputStatus : {[action.payload] : false}}
                     }
                     else {
@@ -59,12 +62,12 @@ const Register = () => {
                 }
             return {...state}
             // submit 
-            case "submit" : 
-                const newStatus = Object.keys(state.inputStatus).reduce((a,b)=>{
-                    a[b] = true
-                    return a
-                })
-            return{...state, inputStatus : {newStatus}}
+            // case "submit" : 
+            //     const newStatus = Object.keys(state.inputStatus).reduce((a,b)=>{
+            //         a[b] = true
+            //         return a
+            //     })
+            // return{...state, inputStatus : {newStatus}}
                     
         }
     } 
@@ -79,6 +82,7 @@ const Register = () => {
     })
 
 
+
     useEffect(() => {
         dispatch({type : 'checkUsername', payload : 2})
         dispatch({type : 'checkEmail', payload : 3})
@@ -86,9 +90,16 @@ const Register = () => {
     }, [state.inputValue])
 
     const submitRegiser = (e) => {
-        e.perventDefault()
+        e.preventDefault()
         if(inputStatus[2] && inputStatus[3] && inputStatus[4]){
-            dispatch({type : 'submit', payload : true})
+            // dispatch({type : 'submit', payload : true})
+            console.log("ok")
+        }
+        else {
+            console.log('not')
+            dispatch({type : 'checkUsername', payload : 2})
+            dispatch({type : 'checkEmail', payload : 3})
+            dispatch({type : 'checkPassword', payload : 4})
         }
     }
     return (
@@ -175,7 +186,7 @@ const Register = () => {
                                 Username
                             </label>      
                             {/* warning username */}
-                            <span className="text-red-500 absolute right-0 -top-5">{state.inputWarning[2]}</span>
+                            <span className={`${state.inputStatus[2] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[2] || state.inputStatus[2] && "ok"}</span>
                         </div>
                         {/* email Registration */}
                         <div 
