@@ -18,23 +18,8 @@ const Validation = () => {
         inputStatus : {},
         Successful : false,
         PanelAdmin : false
-     })
+    })
 
-    const submitLogin = (e) => {
-        if(state.inputStatus[0]){
-            if(state.inputStatus[1]){
-                dispatch({ type : "PanelAdmin", payload : true })
-            }
-            else {
-                dispatch({type : 'warning', payload : {index : 1, warning : "Password is requierd" }})
-            }
-        }
-        else {
-            dispatch({type : 'warning', payload : {index : 0, warning : "Email is requierd" }})
-        }
-        e.preventDefault()
-
-    }
     useEffect(() => {
         
         dispatch({ type : "Successful", payload : false })
@@ -58,7 +43,7 @@ const Validation = () => {
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             <div className=" flex justify-center! items-center! flex-col gap-10 ">    
-                <ValidationForm.Provider value = {{ state, dispatch, submitLogin }} >
+                <ValidationForm.Provider value = {{ state, dispatch, }} >
                     <Nav />
                     <SectionValidation />
                 </ValidationForm.Provider>
