@@ -1,13 +1,12 @@
 
 import imgBackGround from "../../assets/background.jpg"
 import { createContext, useEffect, useReducer, useRef, useState } from "react";
-import { reducer } from "./reducer";
 import Nav from "./nav";
 import SectionValidation from "./sectionValidation";
+import {submitLogin, submitRegiser } from "./sotre";
+import { reducer } from "./reducer";
 export const ValidationForm =  createContext()
-
 const Validation = () => {
-
 
     const [state, dispatch] = useReducer(reducer, {
         page : false,
@@ -22,8 +21,10 @@ const Validation = () => {
     })
 
     useEffect(() => {
+        
         dispatch({ type : "Successful", payload : false })
         dispatch({ type : "PanelAdmin", payload : false })
+        
         // login
         // dispatch({type : 'checkEmail', payload : 0})
         // dispatch({type : 'checkPassword', payload : 1})
@@ -37,41 +38,7 @@ const Validation = () => {
         dispatch({type : 'checkPassword', payload : 4})
     }, [state.inputValue])
 
-    const submitRegiser = (e) => {
-        if(state.inputStatus[2]){
-            if(state.inputStatus[3]){
-                if(state.inputStatus[4]){
-                    dispatch({ type : "Successful", payload : true })
-                }
-                else {
-                    dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
-                }
-            }
-            else {
-                dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})
-            }
-        }
-        else {
-            dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
-        }
-        e.preventDefault()
-               
-    }
-    const submitLogin = (e) => {
-        if(state.inputStatus[0]){
-            if(state.inputStatus[1]){
-                dispatch({ type : "PanelAdmin", payload : true })
-            }
-            else {
-                dispatch({type : 'warning', payload : {index : 1, warning : "Password is requierd" }})
-            }
-        }
-        else {
-            dispatch({type : 'warning', payload : {index : 0, warning : "Email is requierd" }})
-        }
-        e.preventDefault()
 
-    }
     return (
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
