@@ -3,6 +3,7 @@ import { ValidationForm } from "./auth"
 import InputComponent from "./inputComponent"
 import CheckComponent from "./checkBoxComponent"
 import ButtonComponent from "./buttonComponent"
+import MessageTransfer from "./messageTransfer"
 
 const Login = () => {
     const {state, dispatch, submitRegiser, submitLogin} =  useContext(ValidationForm)
@@ -54,18 +55,12 @@ const Login = () => {
                 />
             
                 {/* move login to register */}
-                <div className="flex justify-center items-center mx-auto w-[80%] my-5">
-                    <div className="flex justify-center! items-center! text-[14px]">
-                        <p>Don't have an account? 
-                            <span
-                                className="text-[16px] pl-1 cursor-pointer hover:underline duration-100 font-[600]!"
-                                onClick={()=>{dispatch({type :"registerPage", payload : true})}}
-                            >Register</span>
-                        </p>
-                    </div>
-                </div>
+                <MessageTransfer 
+                    message={"Don't have an account?  "}
+                    onClick={()=>{dispatch({type :"registerPage", payload : true})}}
+                    page = {'Register'}
+                />
             </form>
-            
         </div>
     )
 }
