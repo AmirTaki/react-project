@@ -104,7 +104,7 @@ const Register = () => {
         if(state.inputStatus[2]){
             if(state.inputStatus[3]){
                 if(state.inputStatus[4]){
-                    console.log('ok')
+
                 }
                 else {
                     dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
@@ -182,6 +182,9 @@ const Register = () => {
                 <div className={`${state.registerPage ? "left-0! duration-500 scale-100! opacity-100!" : " opacity-0! scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
                     <form action = "#">
+                        {/* answer Registration */}
+                        <div className={ `absolute text-green-600 bg-[#162038] px-3 py-2 text-center  -top-10 left-21`}>Registration was successful.</div>
+
                         {/* username Registration */}
                         <div 
                          
