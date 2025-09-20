@@ -38,8 +38,7 @@ const Register = () => {
                     <span className={`${state.inputStatus[2] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[2]}</span>
                 </div>
                 {/* email Registration */}
-                <div 
-                
+                <div                
                     className="bg-transparent flex flex-col items-center justify-center border-b-2! 
                     border-b-[#162938]! mx-auto w-[80%] mt-6 mb-10 relative"
                 >
