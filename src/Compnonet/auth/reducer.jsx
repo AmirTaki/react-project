@@ -77,7 +77,9 @@ export const reducer = (state, action) => {
         case "checkInputLogin" :
             if(state.inputValue[action.payload]){
                 if(state.inputValue[action.payload].length > 0 ){
-                    return { ...state, inputStatus : { ...state.inputStatus, [action.payload] : true}}
+                    return { ...state,
+                        inputWarning : { ...state.inputWarning ,[action.payload] : ''},
+                        inputStatus : { ...state.inputStatus, [action.payload] : true}}
                 }
                 else {
                     return { ...state, inputStatus : { ...state.inputStatus, [action.payload] : false}}
