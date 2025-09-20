@@ -1,15 +1,9 @@
 
+const Register = () => {
+    return(
+        <>
+        </>
+    )
+}
 
-// const Register = () => {
-
-
-
-
-
-
-//     return (
-    
-//     )
-// }
-
-// export default Register;
+export default Register;
