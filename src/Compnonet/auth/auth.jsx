@@ -3,12 +3,11 @@ import imgBackGround from "../../assets/background.jpg"
 import { createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
 import Nav from "./nav";
 import SectionValidation from "./sectionValidation";
-import { submitLogin, submitRegiser } from "./sotre";
 import { reducer } from "./reducer";
 export const ValidationForm =  createContext()
 
 const Validation = () => {
-   
+    
     const [state, dispatch] = useReducer(reducer, {
         page : false,
         moveLabel : {},
@@ -19,8 +18,42 @@ const Validation = () => {
         inputStatus : {},
         Successful : false,
         PanelAdmin : false
-    })
+     })
+    const submitRegiser = (e) => {
+        if(state.inputStatus[2]){
+            if(state.inputStatus[3]){
+                if(state.inputStatus[4]){
+                    dispatch({ type : "Successful", payload : true })
+                }
+                else {
+                    dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
+                }
+            }
+            else {
+                dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})
+            }
+        }
+        else {
+            dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
+        }
+        e.preventDefault()
+                
+    }
+    const submitLogin = (e) => {
+        if(state.inputStatus[0]){
+            if(state.inputStatus[1]){
+                dispatch({ type : "PanelAdmin", payload : true })
+            }
+            else {
+                dispatch({type : 'warning', payload : {index : 1, warning : "Password is requierd" }})
+            }
+        }
+        else {
+            dispatch({type : 'warning', payload : {index : 0, warning : "Email is requierd" }})
+        }
+        e.preventDefault()
 
+    }
     useEffect(() => {
         
         dispatch({ type : "Successful", payload : false })
@@ -44,7 +77,7 @@ const Validation = () => {
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             <div className=" flex justify-center! items-center! flex-col gap-10 ">    
-                <ValidationForm.Provider value = {{ state, dispatch,submitRegiser, submitLogin}} >
+                <ValidationForm.Provider value = {{ state, dispatch, submitLogin, submitRegiser }} >
                     <Nav />
                     <SectionValidation />
                 </ValidationForm.Provider>

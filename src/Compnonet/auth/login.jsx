@@ -5,8 +5,9 @@ import CheckComponent from "./checkBoxComponent"
 import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
 
+
 const Login = () => {
-    const {state, dispatch, submitRegiser, submitLogin, } =  useContext(ValidationForm)
+    const {state, dispatch, submitLogin,  } =  useContext(ValidationForm)
     return(
         <div className={`${state.registerPage ? " right-100!  duration-500! scale-0! opacity-0!" : " opacity-100! scale-100!  right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
             <h2 className="text-3xl text-[#162938] text-center">Login</h2>
