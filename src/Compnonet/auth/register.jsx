@@ -27,6 +27,10 @@ const Register = () => {
             case 'warningEmail':
                 return {...state, warningEmail : action.payload }
                 
+            case "passwordLogin" : 
+                return {...state, passwordLogin : action.payload}
+            case 'warningPassword':
+                return {...state, warningPassword : action.payload}
 
         }
     } 
@@ -36,7 +40,9 @@ const Register = () => {
         registerPage  : false,
         checkBox : {},
         emailLogin : "",
-        warningEmail : ''
+        warningEmail : '',
+        passwordLogin : '',
+        warningPassword : '',
     })
 
     const checkEmail = () => {
@@ -57,6 +63,19 @@ const Register = () => {
     useEffect(() => {
         checkEmail()
     },[state.emailLogin])
+
+    const checkPassword = () => {
+        if(state.passwordLogin.length > 0 && !state.passwordLogin.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)){
+            dispatch({type : 'warningPassword', payload : 'Password should contain' })
+        }
+        else {
+             dispatch({type : 'warningPassword', payload : ''}) 
+        }
+    }
+
+    useEffect(() => {
+        checkPassword()
+    },[state.passwordLogin])
     return (
     <div className=" flex justify-center! items-center! flex-col gap-10 ">
             <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
@@ -151,8 +170,7 @@ const Register = () => {
                                 <span><i className="bi bi-lock"></i></span>
                             </div>
                             <input
-                                // onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 1, bool : e.target.value.length > 0 ? true : false }})}}
-                               
+                                onChange={(e) => {dispatch({type : "passwordLogin", payload : e.target.value})}}                               
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : false}})}}
                                 type={`${state.checkBox[0] ? "text" : "password"}`}  id  = 'password' 
@@ -164,7 +182,9 @@ const Register = () => {
                                 className={`${state.moveLabel[1] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Password
-                            </label>                               
+                            </label>       
+                            {/* warning password */}
+                            <span className="text-red-500 absolute right-0 -top-5">{state.warningPassword}</span>                        
                         </div>
                         {/* checkbox login */}
                         <div 
