@@ -38,34 +38,19 @@ const Register = () => {
                     inputWarning={state.inputWarning[3]}               
 
                 />
-             
                 {/*  password Registration */}
-                <div 
-                
-                    className="bg-transparent flex flex-col items-center justify-center border-b-2! 
-                    border-b-[#162938]! mx-auto w-[80%] mt-10 relative"
-                >
-                    <div className="absolute right-2">
-                        <span><i className="bi bi-lock"></i></span>
-                    </div>
-                    <input
-                        onChange={(e)=> {dispatch({type : 'inputValue', payload : {index : 4, value : e.target.value} })}}
-                        onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
-                        onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}
-                        type={`${state.checkBox[1] ? "text" : "password"}`}  id  = 'passwordRegister' 
-                        className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
-                    />
+                <InputComponent 
+                    icon = {"bi bi-lock"} 
+                    onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 4, value : e.target.value} })}}
+                    onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
+                    onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}
+                    type={state.checkBox[1] ? "text" : "password"}
+                    id = {"passwordRegister"}
+                    MoveLabel={state.moveLabel[4]}
+                    inputStatus={state.inputStatus[4]}     
+                    inputWarning={state.inputWarning[4]}               
 
-                    <label 
-                        htmlFor="passwordRegister"
-                        className={`${state.moveLabel[4] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
-                    >
-                        Password
-                    </label>     
-                    {/* warning password */}
-                    <span className={`${state.inputStatus[4] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[4] }</span>
-                
-                </div>
+                />
                 {/* checkbox Registration */}
                 <div 
                     className="flex flex-row  justify-between 
