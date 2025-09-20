@@ -58,6 +58,13 @@ const Register = () => {
                     }
                 }
             return {...state}
+            // submit 
+            case "submit" : 
+                const newStatus = Object.keys(state.inputStatus).reduce((a,b)=>{
+                    a[b] = true
+                    return a
+                })
+            return{...state, inputStatus : {newStatus}}
                     
         }
     } 
@@ -78,38 +85,12 @@ const Register = () => {
         dispatch({type : 'checkPassword', payload : 4})
     }, [state.inputValue])
 
-    // const checkEmail = () => {
-    //     if (state.emailLogin.length > 0  && !state.emailLogin.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-    //         dispatch({type : 'warningEmail', payload : 'Write full Email'})
-
-    //     }
-    //     else {
-    //         dispatch({type : 'warningEmail', payload : ''}) 
-    //     }
-    // }
-
-    // const submitLogin = (e) => {
-    //     e.preventDefault()
-    //     state.warningEmail.length === 0 && state.emailLogin.length !== 0 ?  dispatch({type : 'warningEmail', payload : ''}) :  dispatch({type : 'warningEmail', payload : 'complete Email'})
-    //     state.warningPassword.length === 0 && state.passwordLogin.length !== 0  ? dispatch({type : "warningPassword", payload : ''}) : dispatch ({type : "warningPassword" , payload : 'complete password'} )  
-
-    // }
-    // useEffect(() => {
-    //     checkEmail()
-    // },[state.emailLogin])
-
-    // const checkPassword = () => {
-    //     if(state.passwordLogin.length > 0 && !state.passwordLogin.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)){
-    //         dispatch({type : 'warningPassword', payload : 'Password should contain' })
-    //     }
-    //     else {
-    //          dispatch({type : 'warningPassword', payload : ''}) 
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     checkPassword()
-    // },[state.passwordLogin])
+    const submitRegiser = (e) => {
+        e.perventDefault()
+        if(inputStatus[2] && inputStatus[3] && inputStatus[4]){
+            dispatch({type : 'submit', payload : true})
+        }
+    }
     return (
     <div className=" flex justify-center! items-center! flex-col gap-10 ">
             <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
@@ -184,7 +165,7 @@ const Register = () => {
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
                                 type="text"  id  = 'textRegister' 
-                                className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
+                                className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 bg-transparent! "
                             />
 
                             <label 
@@ -267,12 +248,14 @@ const Register = () => {
                                     Show Password
                                 </label>     
                             </div>
-                            {/* <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>                                                     */}
                         </div>
                         {/* button register */}
                         <div className="flex justify-center items-center mx-auto w-[80%] ">
-                            <input type="submit" value = 'Register' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
-                            text-white cursor-pointer" />
+                            <input 
+                                onClick={(e) => {submitRegiser(e)}}
+                                type="submit" value = 'Register' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
+                                text-white cursor-pointer" 
+                            />
                         </div>
                         {/* move register to login */}
                         <div className="flex justify-center items-center mx-auto w-[80%] my-5">
