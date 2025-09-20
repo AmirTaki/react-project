@@ -1,7 +1,7 @@
 
 import imgBackGround from "../../assets/background.jpg"
 import { useEffect, useReducer, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+
 
 const Validation = () => {
 
@@ -132,40 +132,7 @@ const Validation = () => {
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             <div className=" flex justify-center! items-center! flex-col gap-10 ">
-                <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
-                    <Link to = "/">
-                        <div
-                            className="relative after:content-[''] after:left-0 after:-bottom-[6px] after:absolute after:w-[100%] after:h-[3px] after:bg-white 
-                                after:origin-right!  after:rounded-4xl after:transition-transform duration-500 after:scale-0 after:duration-500! hover:after:duration-500! hover:after:origin-left! hover:after:scale-100
-                            "
-                        >Home</div>
-                    </Link>
-                    <div
-                        className="relative after:content-[''] after:left-0 after:-bottom-[6px] after:absolute after:w-[100%] after:h-[3px] after:bg-white 
-                            after:origin-right!  after:rounded-4xl after:transition-transform duration-500 after:scale-0 after:duration-500! hover:after:duration-500! hover:after:origin-left! hover:after:scale-100
-                            "
-                    >About</div>
-                    <div
-                        className="relative after:content-[''] after:left-0 after:-bottom-[6px] after:absolute after:w-[100%] after:h-[3px] after:bg-white 
-                            after:origin-right!  after:rounded-4xl after:transition-transform duration-500 after:scale-0 after:duration-500! hover:after:duration-500! hover:after:origin-left! hover:after:scale-100
-                            "
-                    >Services</div>
-                    <div
-                        className="relative after:content-[''] after:left-0 after:-bottom-[6px] after:absolute after:w-[100%] after:h-[3px] after:bg-white 
-                            after:origin-right!  after:rounded-4xl after:transition-transform duration-500 after:scale-0 after:duration-500! hover:after:duration-500! hover:after:origin-left! hover:after:scale-100
-                            "
-                    >Contact</div>
-
-
-                    <div className="border-2 border-white px-8 py-3 text-xl
-                        hover:text-black duration-500 cursor-pointer hover:bg-white 
-                    "
-                        onClick={()=>{dispatch({type: "pageLogin" , payload : true})}}
-                    >
-                        Login
-                    </div>
-                </header>
-
+           
 
                 {/* section login */}
                 <div className={`
