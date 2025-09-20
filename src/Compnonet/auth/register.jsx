@@ -101,7 +101,12 @@ const Register = () => {
     }, [state.inputValue])
 
     const submitRegiser = (e) => {
-        console.log(state)
+        if(state.inputStatus[2]){
+            
+        }
+        else {
+            dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
+        }
         e.preventDefault()
         
 
