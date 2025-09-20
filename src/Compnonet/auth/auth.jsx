@@ -53,7 +53,7 @@ const Validation = () => {
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             <div className=" flex justify-center! items-center! flex-col gap-10 ">
-                <ValidationForm.Provider value = {{}} >
+                <ValidationForm.Provider value = {{state, dispatch, submitRegiser}} >
                     <Nav />
                     {/* section login */}
                     <div className={`
