@@ -193,12 +193,12 @@ const Register = () => {
                                 onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 2, bool : e.target.value.length > 0 ? true : false }})}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
-                                type="text"  id  = 'text' 
+                                type="text"  id  = 'textRegister' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
-                                htmlFor="text"
+                                htmlFor="textRegister"
                                 className={`${state.moveLabel[2] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Username
@@ -217,12 +217,12 @@ const Register = () => {
                                 onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 3, bool : e.target.value.length > 0 ? true : false }})}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : false}})}}
-                                type="email"  id  = 'email' 
+                                type="email"  id  = 'emailRegister' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
-                                htmlFor="email"
+                                htmlFor="emailRegister"
                                 className={`${state.moveLabel[3] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Email
@@ -241,12 +241,12 @@ const Register = () => {
                                 onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 4, bool : e.target.value.length > 0 ? true : false }})}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}
-                                type={`${state.checkBox ? "text" : "password"}`}  id  = 'password' 
+                                type={`${state.checkBox[1] ? "text" : "password"}`}  id  = 'passwordRegister' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
-                                htmlFor="password"
+                                htmlFor="passwordRegister"
                                 className={`${state.moveLabel[4] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Password
@@ -259,7 +259,7 @@ const Register = () => {
                         >
                             <div className="flex gap-1  ">
                                 <input
-                                    onChange={(e) => {dispatch({type : "checkBox", payload : e.target.checked})}}
+                                    onChange={(e) => {dispatch({type : "checkBox", payload : {number : 1 , flag : e.target.checked}})}}
                                     type="checkbox"  id  = 'checkboxLogin' 
                                     className="accent-[#162938]  "
                                 />
