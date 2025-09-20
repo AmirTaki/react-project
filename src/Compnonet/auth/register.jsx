@@ -27,14 +27,11 @@ const Register = () => {
             // check username
             case "checkUsername": 
                 if(state.inputValue[action.payload]){
-                    if(state.inputValue[action.payload].length === 0){
-                        return{...state, inputWarning : {[action.payload] : 'username is requaired!'}, inputStatus : {[action.payload] : false}}
-                    }
-                    else if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+                    if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
                         return{...state, inputWarning : {[action.payload] : 'Write full Name'}, inputStatus : {[action.payload] : false}}
                     }
                     else {
-                        return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                        return{...state, inputWarning : {[action.payload] : 'ok'}, inputStatus : {[action.payload] : true}}
                     }
                 }
             return {...state}
@@ -45,7 +42,7 @@ const Register = () => {
                         return{...state, inputWarning : {[action.payload] : 'Write full Email'}, inputStatus : {[action.payload] : false}}
                     }
                     else {
-                        return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                        return{...state, inputWarning : {[action.payload] : 'ok'}, inputStatus : {[action.payload] : true}}
                     }
                 }
 
@@ -57,18 +54,12 @@ const Register = () => {
                         return{...state, inputWarning : {[action.payload] : 'Password should contain'}, inputStatus : {[action.payload] : false}}
                     }
                     else {
-                        return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                        return{...state, inputWarning : {[action.payload] : 'ok'}, inputStatus : {[action.payload] : true}}
                     }
                 }
             return {...state}
-            // submit 
-            // case "submit" : 
-            //     const newStatus = Object.keys(state.inputStatus).reduce((a,b)=>{
-            //         a[b] = true
-            //         return a
-            //     })
-            // return{...state, inputStatus : {newStatus}}
-                    
+            case "warning" :
+                return{...state, inputWarning : {[action.payload.index] : action.payload.warning}, inputStatus : {[action.payload.index] : false}}
         }
     } 
     const [state, dispatch] = useReducer(reducer, {
@@ -91,16 +82,24 @@ const Register = () => {
 
     const submitRegiser = (e) => {
         e.preventDefault()
-        if(state.inputStatus[2] && state.inputStatus[3] && state.inputStatus[4]){
-            // dispatch({type : 'submit', payload : true})
-            console.log("ok")
+        
+        if(state.inputStatus[2]){
+            if(state.inputStatus[3]){
+                if(state.inputStatus[4]){
+                    console.log(ok)
+                }
+                else {
+                    dispatch({type : 'warning' , payload : {  index : 4 , warning : 'password is requierd'}})
+                }
+            }
+            else {
+                dispatch({type : 'warning' , payload : {  index : 3 , warning : 'email is requierd'}})
+            }
         }
         else {
-            console.log('not')
-            dispatch({type : 'checkUsername', payload : 2})
-            dispatch({type : 'checkEmail', payload : 3})
-            dispatch({type : 'checkPassword', payload : 4})
+            dispatch({type : 'warning' , payload : {  index : 2 , warning : 'username is requierd'}})
         }
+       
     }
     return (
     <div className=" flex justify-center! items-center! flex-col gap-10 ">
@@ -159,7 +158,7 @@ const Register = () => {
 
 
                     {/* register */}
-                <div className={`${state.registerPage ? "left-0! duration-500 scale-100!" : " scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
+                <div className={`${state.registerPage ? "left-0! duration-500 scale-100! opacity-100!" : " opacity-0! scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
                     <form action = "#">
                         {/* username Registration */}
@@ -186,7 +185,7 @@ const Register = () => {
                                 Username
                             </label>      
                             {/* warning username */}
-                            <span className={`${state.inputStatus[2] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[2] || state.inputStatus[2] && "ok"}</span>
+                            <span className={`${state.inputStatus[2] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[2]}</span>
                         </div>
                         {/* email Registration */}
                         <div 
@@ -212,7 +211,7 @@ const Register = () => {
                                 Email
                             </label> 
                             {/* warning email */}
-                            <span className="text-red-500 absolute right-0 -top-5">{state.inputWarning[3]}</span>                              
+                            <span className={`${state.inputStatus[3] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[3]}</span>
                         </div>
                         {/*  password Registration */}
                         <div 
@@ -238,7 +237,7 @@ const Register = () => {
                                 Password
                             </label>     
                             {/* warning password */}
-                            <span className="text-red-500 absolute right-0 -top-5">{state.inputWarning[4]}</span>                               
+                            <span className={`${state.inputStatus[4] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[4] }</span>
                            
                         </div>
                         {/* checkbox Registration */}
@@ -283,7 +282,7 @@ const Register = () => {
             
                 </div>
                 {/* login */}
-                <div className={`${state.registerPage ? " right-100!  duration-500! scale-0!" : " scale-100!  right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
+                <div className={`${state.registerPage ? " right-100!  duration-500! scale-0! opacity-0!" : " opacity-100! scale-100!  right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
                         {/* email login */}
