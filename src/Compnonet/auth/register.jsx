@@ -71,16 +71,6 @@ const Register = () => {
                     onClick={()=>{dispatch({type :"registerPage", payload : false})}}
                     page = {'Login'}
                 />
-                {/* <div className="flex justify-center items-center mx-auto w-[80%] my-5">
-                    <div className="flex justify-center! items-center! text-[14px]">
-                        <p>Already have an account? 
-                            <span
-                                className="text-[16px] pl-1 cursor-pointer hover:underline duration-100 font-[600]!"
-                                onClick={()=>{dispatch({type :"registerPage", payload : false})}}
-                            >Login</span>
-                        </p>
-                    </div>
-                </div> */}
             </form>
     
         </div>
