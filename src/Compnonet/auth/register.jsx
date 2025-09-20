@@ -18,7 +18,9 @@ const Register = () => {
                 return {...state, registerPage : action.payload }
 
             case "checkBox":
-                return {...state, checkBox : action.payload}
+                const {number} =  action.payload
+                const {flag}  = action.payload
+                return {...state, checkBox : {[number] :flag } }
 
         }
     } 
@@ -26,7 +28,7 @@ const Register = () => {
         page : false,
         moveLabel : {},
         registerPage  : false,
-        checkBox : false
+        checkBox : {}
     })
     return (
         <div className=" flex justify-center items-center flex-col gap-30 ">
@@ -123,7 +125,7 @@ const Register = () => {
                                 onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 1, bool : e.target.value.length > 0 ? true : false }})}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : false}})}}
-                                type={`${state.checkBox ? "text" : "password"}`}  id  = 'password' 
+                                type={`${state.checkBox[0] ? "text" : "password"}`}  id  = 'password' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
@@ -141,7 +143,7 @@ const Register = () => {
                         >
                             <div className="flex gap-1  ">
                                 <input
-                                    onChange={(e) => {dispatch({type : "checkBox", payload : e.target.checked})}}
+                                    onChange={(e) => {dispatch({type : "checkBox", payload : {number : 0 , flag : e.target.checked}})}}
                                     type="checkbox"  id  = 'checkboxLogin' 
                                     className="accent-[#162938]  "
                                 />
@@ -185,21 +187,21 @@ const Register = () => {
                                border-b-[#162938]! mx-auto w-[80%] mt-6 mb-10 relative"
                         >
                             <div className="absolute right-2">
-                                <span><i className="bi bi-envelope"></i></span>
+                                <span><i className="bi bi-person"></i></span>
                             </div>
                             <input
-                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 0, bool : e.target.value.length > 0 ? true : false }})}}
-                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : true}})}}
-                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : false}})}}
-                                type="email"  id  = 'email' 
+                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 2, bool : e.target.value.length > 0 ? true : false }})}}
+                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
+                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
+                                type="text"  id  = 'text' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
-                                htmlFor="email"
-                                className={`${state.moveLabel[0] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
+                                htmlFor="text"
+                                className={`${state.moveLabel[2] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
-                                Email
+                                Username
                             </label>                               
                         </div>
                         {/* email Registration */}
@@ -212,21 +214,21 @@ const Register = () => {
                                 <span><i className="bi bi-envelope"></i></span>
                             </div>
                             <input
-                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 0, bool : e.target.value.length > 0 ? true : false }})}}
-                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : true}})}}
-                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : false}})}}
+                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 3, bool : e.target.value.length > 0 ? true : false }})}}
+                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : true}})}}
+                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : false}})}}
                                 type="email"  id  = 'email' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
                                 htmlFor="email"
-                                className={`${state.moveLabel[0] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
+                                className={`${state.moveLabel[3] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Email
                             </label>                               
                         </div>
-                        {/*  password login */}
+                        {/*  password Registration */}
                         <div 
                          
                             className="bg-transparent flex flex-col items-center justify-center border-b-2! 
@@ -236,21 +238,21 @@ const Register = () => {
                                 <span><i className="bi bi-lock"></i></span>
                             </div>
                             <input
-                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 1, bool : e.target.value.length > 0 ? true : false }})}}
-                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : true}})}}
-                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : false}})}}
+                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 4, bool : e.target.value.length > 0 ? true : false }})}}
+                                onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
+                                onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}
                                 type={`${state.checkBox ? "text" : "password"}`}  id  = 'password' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
                             <label 
                                 htmlFor="password"
-                                className={`${state.moveLabel[1] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
+                                className={`${state.moveLabel[4] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Password
                             </label>                               
                         </div>
-                        {/* checkbox login */}
+                        {/* checkbox Registration */}
                         <div 
                             className="flex flex-row  justify-between 
                              mx-auto w-[80%] my-3 relative p-1 "
@@ -268,7 +270,7 @@ const Register = () => {
                                     Show Password
                                 </label>     
                             </div>
-                            <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>                                                    
+                            {/* <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>                                                     */}
                         </div>
                         {/* button login */}
                         <div className="flex justify-center items-center mx-auto w-[80%] ">
