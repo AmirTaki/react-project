@@ -53,6 +53,21 @@ const Register = () => {
                     }
 
                 return {...state}
+                
+                case "checkPassword" : 
+                    if(state.inputValue[action.payload]){
+
+                            if(!state.inputValue[action.payload].match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)){
+            
+                                return{...state, inputWarning : {[action.payload] : 'Password should contain'}, inputStatus : {[action.payload] : false}}
+                            }
+                            else {
+                                return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                            }
+                        }
+
+                    return {...state}
+                    
         }
     } 
     const [state, dispatch] = useReducer(reducer, {
@@ -69,6 +84,7 @@ const Register = () => {
     useEffect(() => {
         dispatch({type : 'checkUsername', payload : 2})
         dispatch({type : 'checkEmail', payload : 3})
+        dispatch({type : 'checkPassword', payload : 4})
     }, [state.inputValue])
 
     // const checkEmail = () => {
@@ -225,7 +241,7 @@ const Register = () => {
                                 <span><i className="bi bi-lock"></i></span>
                             </div>
                             <input
-                                onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 4, bool : e.target.value.length > 0 ? true : false }})}}
+                                onChange={(e)=> {dispatch({type : 'inputValue', payload : {index : 4, value : e.target.value} })}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}
                                 type={`${state.checkBox[1] ? "text" : "password"}`}  id  = 'passwordRegister' 
@@ -237,7 +253,9 @@ const Register = () => {
                                 className={`${state.moveLabel[4] ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                             >
                                 Password
-                            </label>      
+                            </label>     
+                            {/* warning password */}
+                            <span className="text-red-500 absolute right-0 -top-5">{state.inputWarning[4]}</span>                               
                            
                         </div>
                         {/* checkbox Registration */}
