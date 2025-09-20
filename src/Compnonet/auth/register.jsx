@@ -29,8 +29,13 @@ const Register = () => {
         page : false,
         moveLabel : {},
         registerPage  : false,
-        checkBox : {}
+        checkBox : {},
+        emailLogin : "",
     })
+
+    const checkEmail = (e) => {
+        if ()
+    }
 
     return (
     <div className=" flex justify-center! items-center! flex-col gap-10 ">
@@ -100,8 +105,7 @@ const Register = () => {
                                 <span><i className="bi bi-envelope"></i></span>
                             </div>
                             <input
-                                // onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 0, bool : e.target.value.length > 0 ? true : false }})}}
-                                onChange={(e)=>{dispatch({type : "checkEmail", payload : {email : e.target.value} })}}
+                                onChange = {(e) => {dispatch({type : 'emailLogin', payload : e.target.value})}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : false}})}}
                                 type="email"  id  = 'email' 
