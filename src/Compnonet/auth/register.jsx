@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { ValidationForm } from "./auth"
 import InputComponent from "./inputComponent"
 import CheckComponent from "./checkBoxComponent"
+import ButtonComponent from "./buttonComponent"
 
 
 const Register = () => {
@@ -58,15 +59,11 @@ const Register = () => {
                     onChange = {(e) => {dispatch({type : "checkBox", payload : {number : 1 , flag : e.target.checked}})}} 
                     label  = {'Show Password'}
                 />
-          
                 {/* button register */}
-                <div className="flex justify-center items-center mx-auto w-[80%] ">
-                    <input 
-                        onClick={(e) => {submitRegiser(e)}}
-                        type="submit" value = 'Register' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
-                        text-white cursor-pointer" 
-                    />
-                </div>
+                <ButtonComponent 
+                    onClick={(e) => {submitRegiser(e)}}
+                    value = {'Register'}
+                />
                 {/* move register to login */}
                 <div className="flex justify-center items-center mx-auto w-[80%] my-5">
                     <div className="flex justify-center! items-center! text-[14px]">
