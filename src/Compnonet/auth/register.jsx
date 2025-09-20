@@ -85,7 +85,7 @@ const Register = () => {
                 </span>
                 
                 {/* login */}
-                <div className={`${state.registerPage ? "left-100 duration-500" : "left-0 duration-500"} bg-red-500  w-[100%] h-[100%] absolute! top-12`}>
+                <div className={`${state.registerPage ? " right-100!  duration-500!" : "   right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
                         {/* email login */}
@@ -158,7 +158,7 @@ const Register = () => {
                         </div>
                         {/* button login */}
                         <div className="flex justify-center items-center mx-auto w-[80%] ">
-                            <input type="submig" value = 'Login' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
+                            <input type="submit" value = 'Login' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
                             text-white cursor-pointer" />
                         </div>
                         {/* move login to register */}
@@ -177,7 +177,7 @@ const Register = () => {
                 </div>
                 {/* ----- */}
                 {/* register */}
-                <div className={`${state.registerPage ? "left-0 duration-500" : "left-100 duration-500"} bg-green-500  w-[100%] h-[100%] absolute! top-12`}>
+                <div className={`${state.registerPage ? "left-0 duration-500" : " left-100 duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
                     <form action = "#">
                         {/* username Registration */}
@@ -272,19 +272,19 @@ const Register = () => {
                             </div>
                             {/* <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>                                                     */}
                         </div>
-                        {/* button login */}
+                        {/* button register */}
                         <div className="flex justify-center items-center mx-auto w-[80%] ">
-                            <input type="submig" value = 'Login' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
+                            <input type="submit" value = 'Register' className="border-0 outline-0 bg-[#162938] text-center h-12 w-[100%] rounded-lg
                             text-white cursor-pointer" />
                         </div>
-                        {/* move login to register */}
+                        {/* move register to login */}
                         <div className="flex justify-center items-center mx-auto w-[80%] my-5">
                             <div className="flex justify-center! items-center! text-[14px]">
-                                <p>Don't have an account? 
+                                <p>Already have an account? 
                                     <span
                                         className="text-[16px] pl-1 cursor-pointer hover:underline duration-100 font-[600]!"
-                                        onClick={()=>{dispatch({type :"registerPage", payload : true})}}
-                                    >Register</span>
+                                        onClick={()=>{dispatch({type :"registerPage", payload : false})}}
+                                    >Login</span>
                                 </p>
                             </div>
                         </div>
