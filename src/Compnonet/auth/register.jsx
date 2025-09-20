@@ -102,7 +102,17 @@ const Register = () => {
 
     const submitRegiser = (e) => {
         if(state.inputStatus[2]){
-            
+            if(state.inputStatus[3]){
+                if(state.inputStatus[4]){
+                    console.log('ok')
+                }
+                else {
+                    dispatch({type : 'warning', payload : {index : 3, warning : "Password is requierd" }})
+                }
+            }
+            else {
+                dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})
+            }
         }
         else {
             dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
