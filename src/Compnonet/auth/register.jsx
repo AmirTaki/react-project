@@ -18,6 +18,7 @@ const Register = () => {
                 return {...state, registerPage : action.payload }
 
             case "checkBox":
+                return {...state, checkBox : action.payload}
 
         }
     } 
@@ -120,7 +121,7 @@ const Register = () => {
                                 onChange={(e)=>{dispatch({type : "moveLabel", payload : {index : 1, bool : e.target.value.length > 0 ? true : false }})}}
                                 onFocus={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : true}})}}
                                 onBlur={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : false}})}}
-                                type="password"  id  = 'password' 
+                                type={`${state.checkBox ? "text" : "password"}`}  id  = 'password' 
                                 className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 "
                             />
 
