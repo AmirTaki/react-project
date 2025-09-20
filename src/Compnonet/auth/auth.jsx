@@ -1,13 +1,14 @@
 
 import imgBackGround from "../../assets/background.jpg"
-import { createContext, useEffect, useReducer, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
 import Nav from "./nav";
 import SectionValidation from "./sectionValidation";
-import {submitLogin, submitRegiser } from "./sotre";
+import { submitLogin, submitRegiser } from "./sotre";
 import { reducer } from "./reducer";
 export const ValidationForm =  createContext()
-const Validation = () => {
 
+const Validation = () => {
+   
     const [state, dispatch] = useReducer(reducer, {
         page : false,
         moveLabel : {},
@@ -42,12 +43,11 @@ const Validation = () => {
     return (
      
         <div style={{backgroundImage: `url("${imgBackGround}")`, height : '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-            <div className=" flex justify-center! items-center! flex-col gap-10 ">
-                <ValidationForm.Provider value = {{state, dispatch, submitRegiser, submitLogin}} >
+            <div className=" flex justify-center! items-center! flex-col gap-10 ">    
+                <ValidationForm.Provider value = {{ state, dispatch,submitRegiser, submitLogin}} >
                     <Nav />
                     <SectionValidation />
                 </ValidationForm.Provider>
-              
             </div>
         </div>
     )

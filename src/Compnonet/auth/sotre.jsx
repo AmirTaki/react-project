@@ -1,6 +1,18 @@
-import { useReducer } from "react"
+import { createContext, useReducer } from "react"
 import { reducer } from "./reducer"
 
+export const AuthReducer = createContext()
+const [state, dispatch] = useReducer(reducer, {
+    page : false,
+    moveLabel : {},
+    registerPage  : false,
+    checkBox : {},
+    inputValue : {},
+    inputWarning : {},
+    inputStatus : {},
+    Successful : false,
+    PanelAdmin : false
+})
 export const submitRegiser = (e) => {
     if(state.inputStatus[2]){
         if(state.inputStatus[3]){
