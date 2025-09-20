@@ -17,12 +17,15 @@ const Register = () => {
             case "registerPage" : 
                 return {...state, registerPage : action.payload }
 
+            case "checkBox":
+
         }
     } 
     const [state, dispatch] = useReducer(reducer, {
         page : false,
         moveLabel : {},
-        registerPage  : false
+        registerPage  : false,
+        checkBox : false
     })
     return (
         <div className=" flex justify-center items-center flex-col gap-30 ">
@@ -135,7 +138,7 @@ const Register = () => {
                         >
                             <div className="flex gap-1  ">
                                 <input
-                                    onChange={(e) => {console.log(e.checked)}}
+                                    onChange={(e) => {dispatch({type : "checkBox", payload : e.target.checked})}}
                                     type="checkbox"  id  = 'checkboxLogin' 
                                     className="accent-[#162938]  "
                                 />
