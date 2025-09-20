@@ -24,6 +24,8 @@ const Validation = () => {
     useEffect(() => {
         // login
         dispatch({type : 'checkEmail', payload : 0})
+        dispatch({type : 'checkPassword', payload : 1})
+
 
         // register
         dispatch({type : 'checkUsername', payload : 2})
