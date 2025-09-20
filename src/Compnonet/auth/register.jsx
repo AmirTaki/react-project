@@ -80,6 +80,12 @@ const Register = () => {
                 return{...state, 
                     inputWarning : { ...state.inputWarning, [action.payload.index] : action.payload.warning}, 
                     inputStatus : {...state.inputStatus, [action.payload.index] : false}}
+            
+            case "Successful" : 
+                    return{
+                        ...state, Successful : action.payload
+                    }
+
         }
     } 
     const [state, dispatch] = useReducer(reducer, {
@@ -89,7 +95,8 @@ const Register = () => {
         checkBox : {},
         inputValue : {},
         inputWarning : {},
-        inputStatus : {}
+        inputStatus : {},
+        Successful : false
     })
 
 
@@ -104,7 +111,7 @@ const Register = () => {
         if(state.inputStatus[2]){
             if(state.inputStatus[3]){
                 if(state.inputStatus[4]){
-
+                    dispatch({ type : "Successful", payload : true })
                 }
                 else {
                     dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
@@ -183,7 +190,7 @@ const Register = () => {
                     <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
                     <form action = "#">
                         {/* answer Registration */}
-                        <div className={ `absolute text-green-600 bg-[#162038] px-3 py-2 text-center  -top-10 left-21`}>Registration was successful.</div>
+                        <div className={ `${state.Successful ? "flex!" : "hidden!"} absolute text-green-600 bg-[#162038] px-3 py-2 text-center  -top-10 left-21`}>Registration was successful</div>
 
                         {/* username Registration */}
                         <div 
