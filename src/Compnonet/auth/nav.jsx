@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react"
+import { ValidationForm } from "./auth"
+
 const Nav = () => {
+    const { dispatch,} =  useContext(ValidationForm)
     return(
         <header className="text-white flex flex-row justify-center items-center h-[80px] gap-10  ">
                 <Link to = "/">
