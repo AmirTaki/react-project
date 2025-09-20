@@ -107,7 +107,7 @@ const Register = () => {
                     console.log('ok')
                 }
                 else {
-                    dispatch({type : 'warning', payload : {index : 3, warning : "Password is requierd" }})
+                    dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
                 }
             }
             else {
