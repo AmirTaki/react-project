@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ValidationForm } from "./auth"
 import InputComponent from "./inputComponent"
+import CheckComponent from "./checkBoxComponent"
 
 
 const Register = () => {
@@ -52,24 +53,12 @@ const Register = () => {
                     inputWarning={state.inputWarning[4]}               
                 />
                 {/* checkbox Registration */}
-                <div 
-                    className="flex flex-row  justify-between 
-                    mx-auto w-[80%] my-3 relative p-1 "
-                >
-                    <div className="flex gap-1  ">
-                        <input
-                            onChange={(e) => {dispatch({type : "checkBox", payload : {number : 1 , flag : e.target.checked}})}}
-                            type="checkbox"  id  = 'checkboxLogin' 
-                            className="accent-[#162938]  "
-                        />
-
-                        <label 
-                            htmlFor="checkboxLogin" className="text-[13px] font-thin! "
-                        >
-                            Show Password
-                        </label>     
-                    </div>
-                </div>
+                <CheckComponent 
+                    id = {"checkboxLogin"}
+                    onChange = {(e) => {dispatch({type : "checkBox", payload : {number : 1 , flag : e.target.checked}})}} 
+                    label  = {'Show Password'}
+                />
+          
                 {/* button register */}
                 <div className="flex justify-center items-center mx-auto w-[80%] ">
                     <input 
