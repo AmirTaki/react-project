@@ -42,7 +42,10 @@ const Register = () => {
                         return{...state, inputWarning : {[action.payload] : 'Write full Email'}, inputStatus : {[action.payload] : false}}
                     }
                     else {
-                        return{...state, inputWarning : {[action.payload] : 'ok'}, inputStatus : {[action.payload] : true}}
+                        return{...state, 
+                            inputWarning : {[action.payload] : 'ok'}, 
+                            inputStatus : {[action.payload] : true}
+                        }
                     }
                 }
 
@@ -51,15 +54,23 @@ const Register = () => {
             case "checkPassword" : 
                 if(state.inputValue[action.payload]){
                     if(!state.inputValue[action.payload].match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)){
-                        return{...state, inputWarning : {[action.payload] : 'Password should contain'}, inputStatus : {[action.payload] : false}}
+                        return{...state,     
+                        inputWarning : { ...state.inputWarning ,[action.payload] : 'Password should contain'},
+                        inputStatus : {...state.inputStatus ,[action.payload] : false}
+                    }
                     }
                     else {
-                        return{...state, inputWarning : {[action.payload] : 'ok'}, inputStatus : {[action.payload] : true}}
+                        return{...state, 
+                            inputWarning : {...state.inputWarning, [action.payload] : 'ok'}, 
+                            inputStatus : {...state.inputStatus ,[action.payload] : true}
+                        }
                     }
                 }
             return {...state}
             case "warning" :
-                return{...state, inputWarning : {[action.payload.index] : action.payload.warning}, inputStatus : {[action.payload.index] : false}}
+                return{...state, 
+                    inputWarning : { ...state.inputWarning, [action.payload.index] : action.payload.warning}, 
+                    inputStatus : {...state.inputStatus, [action.payload.index] : false}}
         }
     } 
     const [state, dispatch] = useReducer(reducer, {
@@ -81,9 +92,10 @@ const Register = () => {
     }, [state.inputValue])
 
     const submitRegiser = (e) => {
+        console.log(state)
         e.preventDefault()
         
-        }
+
        
     }
     return (
