@@ -11,7 +11,7 @@ const Register = () => {
             case "moveLabel" : 
                 const {index} =  action.payload
                 const {bool}  = action.payload
-                return{...state, moveLabel : {[index] : bool}}
+                return{...state, moveLabel : {...state.moveLabel, [index] : bool}}
             
             case "registerPage" : 
                 return {...state, registerPage : action.payload }
@@ -19,19 +19,25 @@ const Register = () => {
             case "checkBox":
                 const {number} =  action.payload
                 const {flag}  = action.payload
-                return {...state, checkBox : {[number] :flag } }
+                return {...state, checkBox : {...state.checkBox, [number] :flag } }
            
             case "inputValue" :
-                return{...state, inputValue : {[action.payload.index] : action.payload.value}}
+                return{...state, inputValue : { ...state.inputValue ,[action.payload.index] : action.payload.value}}
             
             // check username
             case "checkUsername": 
                 if(state.inputValue[action.payload]){
                     if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
-                        return{...state, inputWarning : {[action.payload] : 'Write full Name'}, inputStatus : {[action.payload] : false}}
+                        return{...state, 
+                            inputWarning : {...state.inputWarning, [action.payload] : 'Write full Name'}, 
+                            inputStatus : {...state.inputStatus , [action.payload] : false}
+                        }
                     }
                     else {
-                        return{...state, inputWarning : {[action.payload] : 'ok'}, inputStatus : {[action.payload] : true}}
+                        return{...state,
+                            inputWarning : {...state.inputWarning, [action.payload] : 'ok'},
+                            inputStatus : { ...state.inputStatus ,[action.payload] : true}
+                        }
                     }
                 }
             return {...state}
@@ -39,12 +45,15 @@ const Register = () => {
             case "checkEmail" : 
                 if(state.inputValue[action.payload]){
                     if(!state.inputValue[action.payload].match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-                        return{...state, inputWarning : {[action.payload] : 'Write full Email'}, inputStatus : {[action.payload] : false}}
+                        return{...state, 
+                            inputWarning : {...state.inputWarning, [action.payload] : 'Write full Email'}, 
+                            inputStatus : {...state.inputStatus ,[action.payload] : false}
+                        }
                     }
                     else {
                         return{...state, 
-                            inputWarning : {[action.payload] : 'ok'}, 
-                            inputStatus : {[action.payload] : true}
+                            inputWarning : {...state.inputWarning ,[action.payload] : 'ok'}, 
+                            inputStatus : {...state.inputStatus ,[action.payload] : true}
                         }
                     }
                 }
