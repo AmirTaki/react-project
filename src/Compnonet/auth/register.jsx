@@ -3,6 +3,7 @@ import { ValidationForm } from "./auth"
 import InputComponent from "./inputComponent"
 import CheckComponent from "./checkBoxComponent"
 import ButtonComponent from "./buttonComponent"
+import MessageTransfer from "./messageTransfer"
 
 
 const Register = () => {
@@ -65,7 +66,12 @@ const Register = () => {
                     value = {'Register'}
                 />
                 {/* move register to login */}
-                <div className="flex justify-center items-center mx-auto w-[80%] my-5">
+                <MessageTransfer 
+                    message={'Already have an account? '}
+                    onClick={()=>{dispatch({type :"registerPage", payload : false})}}
+                    page = {'Login'}
+                />
+                {/* <div className="flex justify-center items-center mx-auto w-[80%] my-5">
                     <div className="flex justify-center! items-center! text-[14px]">
                         <p>Already have an account? 
                             <span
@@ -74,7 +80,7 @@ const Register = () => {
                             >Login</span>
                         </p>
                     </div>
-                </div>
+                </div> */}
             </form>
     
         </div>
