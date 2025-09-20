@@ -25,7 +25,20 @@ const Register = () => {
 
                 return{...state, inputValue : {[action.payload.index] : action.payload.value}}
             
-            // case "emailLogin":
+            case "checkUsername":
+                
+                if(state.inputValue[action.payload]){
+
+                    if(!state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+    
+                        return{...state, inputWarning : {[action.payload] : 'Write full Name'}, inputStatus : {[action.payload] : false}}
+                    }
+                    else {
+                        return{...state, inputWarning : {[action.payload] : ''}, inputStatus : {[action.payload] : true}}
+                    }
+                }
+                return {...state}
+
             //     return {...state, emailLogin : action.payload}
             
             // case 'warningEmail':
@@ -52,9 +65,10 @@ const Register = () => {
         // warningPassword : '',
     })
 
-    useEffect({
 
-    },[state.inputValue])
+    useEffect(() => {
+        dispatch({type : 'checkUsername', payload : 2})
+    }, [state.inputValue])
 
     // const checkEmail = () => {
     //     if (state.emailLogin.length > 0  && !state.emailLogin.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
