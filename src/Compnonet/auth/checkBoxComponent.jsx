@@ -1,4 +1,4 @@
-const CheckComponent = ({id, onChange, label}) => {
+const CheckComponent = ({id, onChange, label, forgetPassword }) => {
     return (
         <>
             {/* checkbox Registration */}
@@ -19,6 +19,9 @@ const CheckComponent = ({id, onChange, label}) => {
                        {label}
                     </label>     
                 </div>
+                {forgetPassword && 
+                    <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>                                                    
+                }   
             </div>
         </>    
    

@@ -44,8 +44,8 @@ const Login = () => {
                     id = {"checkboxLogin"}
                     onChange = {(e) => {dispatch({type : "checkBox", payload : {number : 0 , flag : e.target.checked}})}} 
                     label  = {'Show Password'}
+                    forgetPassword = {true}
                 />
-     
                 {/* button login */}
                 <div className="flex justify-center items-center mx-auto w-[80%] ">
                     <input

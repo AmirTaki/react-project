@@ -59,6 +59,7 @@ const Register = () => {
                     id = {"checkboxRegister"}
                     onChange = {(e) => {dispatch({type : "checkBox", payload : {number : 1 , flag : e.target.checked}})}} 
                     label  = {'Show Password'}
+                    forgetPassword = {false}
                 />
                 {/* button register */}
                 <ButtonComponent 
