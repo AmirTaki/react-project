@@ -83,21 +83,6 @@ const Register = () => {
     const submitRegiser = (e) => {
         e.preventDefault()
         
-        if(state.inputStatus[2]){
-            if(state.inputStatus[3]){
-                if(state.inputStatus[4]){
-                    console.log(ok)
-                }
-                else {
-                    dispatch({type : 'warning' , payload : {  index : 4 , warning : 'password is requierd'}})
-                }
-            }
-            else {
-                dispatch({type : 'warning' , payload : {  index : 3 , warning : 'email is requierd'}})
-            }
-        }
-        else {
-            dispatch({type : 'warning' , payload : {  index : 2 , warning : 'username is requierd'}})
         }
        
     }
