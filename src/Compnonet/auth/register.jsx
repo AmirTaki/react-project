@@ -15,6 +15,7 @@ const Register = () => {
                 {/* username Registration */}
                 <InputComponent 
                     icon = {"bi bi-person"} 
+                    label = {'Username'}
                     onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 2, value : e.target.value} })}}
                     onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
                     onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
@@ -27,6 +28,7 @@ const Register = () => {
                 {/* email Registration */}
                 <InputComponent 
                     icon = {"bi bi-envelope"} 
+                    label = {'Email'}
                     onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 3, value : e.target.value} })}}
                     onFocus={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : true}})}}
                     onBlur={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : false}})}}
@@ -39,6 +41,7 @@ const Register = () => {
                 {/*  password Registration */}
                 <InputComponent 
                     icon = {"bi bi-lock"} 
+                    label = {'Password'}
                     onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 4, value : e.target.value} })}}
                     onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
                     onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}

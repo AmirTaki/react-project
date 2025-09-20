@@ -1,4 +1,4 @@
-const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel, inputStatus, inputWarning }) => {
+const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel, inputStatus, inputWarning, label}) => {
     return (
         <>
         {/* username Registration */}
@@ -22,7 +22,7 @@ const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel,
                     htmlFor={id}
                     className={`${MoveLabel ? "-top-5!" : "top-2!"} transition-all  duration-300 z-30 cursor-pointer absolute left-1  `}
                 >
-                    Username
+                    {label}
                 </label>      
                 {/* warning username */}
                 <span className={`${inputStatus ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ inputWarning}</span>
