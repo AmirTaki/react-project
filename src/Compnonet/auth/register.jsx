@@ -39,10 +39,13 @@ const Register = () => {
         moveLabel : {},
         registerPage  : false,
         checkBox : {},
-        emailLogin : "",
-        warningEmail : '',
-        passwordLogin : '',
-        warningPassword : '',
+        inputValue : {},
+        inputWarning : {},
+        inputStatus : {}
+        // emailLogin : "",
+        // warningEmail : '',
+        // passwordLogin : '',
+        // warningPassword : '',
     })
 
     const checkEmail = () => {
@@ -59,7 +62,7 @@ const Register = () => {
         e.preventDefault()
         state.warningEmail.length === 0 && state.emailLogin.length !== 0 ?  dispatch({type : 'warningEmail', payload : ''}) :  dispatch({type : 'warningEmail', payload : 'complete Email'})
         state.warningPassword.length === 0 && state.passwordLogin.length !== 0  ? dispatch({type : "warningPassword", payload : ''}) : dispatch ({type : "warningPassword" , payload : 'complete password'} )  
-        
+
     }
     useEffect(() => {
         checkEmail()
@@ -132,7 +135,7 @@ const Register = () => {
                 </span>
                 
                 {/* login */}
-                <div className={`${state.registerPage ? " right-100!  duration-500!" : "   right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
+                <div className={`${state.registerPage ? " right-100!  duration-500! scale-0!" : " scale-100!  right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Login</h2>
                     <form action = "#">
                         {/* email login */}
@@ -231,7 +234,7 @@ const Register = () => {
                 </div>
                 {/* ----- */}
                 {/* register */}
-                <div className={`${state.registerPage ? "left-0 duration-500" : " left-100 duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
+                <div className={`${state.registerPage ? "left-0 duration-500 scale-100!" : " scale-0! left-100 duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
                     <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
                     <form action = "#">
                         {/* username Registration */}
