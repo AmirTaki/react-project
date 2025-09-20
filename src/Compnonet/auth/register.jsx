@@ -23,7 +23,6 @@ const Register = () => {
                     MoveLabel={state.moveLabel[2]}
                     inputStatus={state.inputStatus[2]}     
                     inputWarning={state.inputWarning[2]}               
-
                 />
                 {/* email Registration */}
                 <InputComponent 
@@ -35,8 +34,7 @@ const Register = () => {
                     id = {"emailRegister"}
                     MoveLabel={state.moveLabel[3]}
                     inputStatus={state.inputStatus[3]}     
-                    inputWarning={state.inputWarning[3]}               
-
+                    inputWarning={state.inputWarning[3]}              
                 />
                 {/*  password Registration */}
                 <InputComponent 
@@ -49,7 +47,6 @@ const Register = () => {
                     MoveLabel={state.moveLabel[4]}
                     inputStatus={state.inputStatus[4]}     
                     inputWarning={state.inputWarning[4]}               
-
                 />
                 {/* checkbox Registration */}
                 <div 
