@@ -56,7 +56,7 @@ const Register = () => {
                 />
                 {/* checkbox Registration */}
                 <CheckComponent 
-                    id = {"checkboxLogin"}
+                    id = {"checkboxRegister"}
                     onChange = {(e) => {dispatch({type : "checkBox", payload : {number : 1 , flag : e.target.checked}})}} 
                     label  = {'Show Password'}
                 />

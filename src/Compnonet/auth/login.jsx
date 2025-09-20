@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ValidationForm } from "./auth"
 import InputComponent from "./inputComponent"
+import CheckComponent from "./checkBoxComponent"
 
 const Login = () => {
     const {state, dispatch, submitRegiser} =  useContext(ValidationForm)
@@ -39,25 +40,12 @@ const Login = () => {
                     inputWarning={state.inputWarning[1]}               
                 />
                 {/* checkbox login */}
-                <div 
-                    className="flex flex-row  justify-between 
-                    mx-auto w-[80%] my-3 relative p-1 "
-                >
-                    <div className="flex gap-1  ">
-                        <input
-                            onChange={(e) => {dispatch({type : "checkBox", payload : {number : 0 , flag : e.target.checked}})}}
-                            type="checkbox"  id  = 'checkboxLogin' 
-                            className="accent-[#162938]  "
-                        />
-
-                        <label 
-                            htmlFor="checkboxLogin" className="text-[13px] font-thin! "
-                        >
-                            Show Password
-                        </label>     
-                    </div>
-                    <div className="text-sm cursor-pointer hover:underline">Forget Passwrod ?</div>                                                    
-                </div>
+                <CheckComponent 
+                    id = {"checkboxLogin"}
+                    onChange = {(e) => {dispatch({type : "checkBox", payload : {number : 0 , flag : e.target.checked}})}} 
+                    label  = {'Show Password'}
+                />
+     
                 {/* button login */}
                 <div className="flex justify-center items-center mx-auto w-[80%] ">
                     <input
