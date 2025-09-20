@@ -54,6 +54,17 @@ const Validation = () => {
                
     }
     const submitLogin = (e) => {
+        if(state.inputStatus[0]){
+            if(state.inputStatus[1]){
+
+            }
+            else {
+                dispatch({type : 'warning', payload : {index : 1, warning : "Password is requierd" }})
+            }
+        }
+        else {
+            dispatch({type : 'warning', payload : {index : 0, warning : "Email is requierd" }})
+        }
         e.preventDefault()
 
     }
