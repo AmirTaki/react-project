@@ -22,6 +22,8 @@ const Validation = () => {
     })
 
     useEffect(() => {
+        dispatch({ type : "Successful", payload : false })
+        dispatch({ type : "PanelAdmin", payload : false })
         // login
         dispatch({type : 'checkEmail', payload : 0})
         dispatch({type : 'checkPassword', payload : 1})
