@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { ValidationForm } from "./auth"
+import InputComponent from "./inputComponent"
 
 
 const Register = () => {
@@ -11,8 +12,20 @@ const Register = () => {
                 {/* answer Registration */}
                 <div className={ `${state.Successful ? "flex!" : "hidden!"} absolute text-green-600 bg-[#162038] px-3 py-2 text-center  -top-10 left-21`}>Registration was successful</div>
 
+                <InputComponent 
+                    icon = {"bi bi-person"} 
+                    onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 2, value : e.target.value} })}}
+                    onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
+                    onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
+                    type={'text'}
+                    id = {"textRegister"}
+                    MoveLabel={state.moveLabel[2]}
+                    inputStatus={state.inputStatus[2]}     
+                    inputWarning={state.inputWarning[2]}               
+
+                />
                 {/* username Registration */}
-                <div 
+                {/* <div 
                 
                     className="bg-transparent flex flex-col items-center justify-center border-b-2! 
                     border-b-[#162938]! mx-auto w-[80%] mt-6 mb-10 relative"
@@ -34,9 +47,9 @@ const Register = () => {
                     >
                         Username
                     </label>      
-                    {/* warning username */}
+                    
                     <span className={`${state.inputStatus[2] ? 'text-blue-500' : "text-red-500"} absolute right-0 -top-5`}>{ state.inputWarning[2]}</span>
-                </div>
+                </div> */}
                 {/* email Registration */}
                 <div                
                     className="bg-transparent flex flex-col items-center justify-center border-b-2! 

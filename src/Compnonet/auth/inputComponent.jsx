@@ -32,3 +32,4 @@ const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel,
 }
 
 export default InputComponent;
+
