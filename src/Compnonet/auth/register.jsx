@@ -10,6 +10,7 @@ import MessageTransfer from "./messageTransfer"
 const Register = () => {
 
     const submitRegiser = (e) => {
+
         if(state.inputStatus[2]){
             if(state.inputStatus[3]){
                 if(state.inputStatus[4]){
@@ -26,12 +27,11 @@ const Register = () => {
         else {
             dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
         }
-      
+        e.preventDefault()
         // state.inputStatus[2] ? (state.inputStatus[3]  ? (state.inputStatus[4] ? ( dispatch({ type : "Successful", payload : true })) 
         // : (dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})))
         // : (dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})) )
         // : (dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }}))
-        e.preventDefault()
                 
     }
     
@@ -91,7 +91,7 @@ const Register = () => {
                 />
                 {/* button register */}
                 <ButtonComponent 
-                    onClick={(e) => {submitRegiser()(e)}}
+                    onClick={(e) => {submitRegiser(e)}}
                     value = {'Register'}
                 />
                 {/* move register to login */}
