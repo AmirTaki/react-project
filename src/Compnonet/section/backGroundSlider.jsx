@@ -170,8 +170,8 @@ const BackGroundSlider = () => {
                     onMouseUp = {() => {dispatch({type: 'handlerMouseUp', })}}
                     onMouseLeave = {() => {if(state.isDrag) {dispatch({type: 'handlerMouseUp',})}}}
 
-                    onTouchStart={(event) => {dispatch({type: 'handlerMouseDown', payload: {client: event.clientX, slider: sliderRef.current}})}}
-                    onTouchMove = {(event) => {dispatch({type: 'handlerMouseMove', payload: {client: event.clientX, slider: sliderRef.current}})}}
+                    onTouchStart={(event) => {dispatch({type: 'handlerMouseDown', payload: {client: event.touches[0].clientX, slider: sliderRef.current}})}}
+                    onTouchMove = {(event) => {dispatch({type: 'handlerMouseMove', payload: {client:  event.touches[0].clientX, slider: sliderRef.current}})}}
                     onTouchEnd = {() => {dispatch({type: 'handlerMouseUp', })}}
                 >
                     {state.items?.map((item) => {
