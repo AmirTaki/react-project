@@ -38,6 +38,18 @@ const ImageSlider = () => {
                 const {slider} = action.payload
                 slider.style.scrollBehavior = 'auto'
                 return {...state, isDrag: true, startX: client, startScroll: slider.current.scrollLeft}
+            
+            case "handlerMouseMove":
+                if(state.isDrag){
+                    const {client} = action.payload
+                    const {slider} = action.payload
+
+                    const walk  = client - state.startX
+                    slider.scrollLeft = state.scrollLeft - walk
+                    return {...state, diff: walk}
+                }
+                return{...state, }
+
             default : {
                 return {...state}
             }
@@ -47,7 +59,8 @@ const ImageSlider = () => {
         heart : {},
         isDrag: false,
         startX: 0,
-        startScroll: 0
+        startScroll: 0,
+        diff: 0
 
     })
   
@@ -83,6 +96,7 @@ const ImageSlider = () => {
             <div
                 ref = {imgSlider}
                 onMouseDown={(event)=> {dispatch({type: 'handlerMouseDown', payload: {client: event.clientX, slider: imgSlider.current}})}}
+                onMouseMove={(event) => {dispatch({type: 'handlerMouseMove', payload: {client: event.clientX, slider: imgSlider.current}})}}
                 className="
                     sliderImage
                     w-[90%] h-[520px] bg-white
