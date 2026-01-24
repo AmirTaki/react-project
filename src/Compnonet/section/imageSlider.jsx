@@ -32,6 +32,12 @@ const ImageSlider = () => {
                         imgSlider.current.scrollLeft += action.payload
                     }
                 return{...state}
+
+            case "handlerMouseDown":
+                const {client} = action.payload
+                const {slider} = action.payload
+                slider.style.scrollBehavior = 'auto'
+                return {...state, isDrag: true, startX: client, startScroll: slider.current.scrollLeft}
             default : {
                 return {...state}
             }
@@ -39,6 +45,9 @@ const ImageSlider = () => {
     }
     const [state, dispatch] = useReducer(reducer, {
         heart : {},
+        isDrag: false,
+        startX: 0,
+        startScroll: 0
 
     })
   
@@ -73,6 +82,7 @@ const ImageSlider = () => {
        <div className="w-[100%] h-[600px] bg-white flex items-center justify-center relative">
             <div
                 ref = {imgSlider}
+                onMouseDown={(event)=> {dispatch({type: 'handlerMouseDown', payload: {client: event.clientX, slider: imgSlider.current}})}}
                 className="
                     sliderImage
                     w-[90%] h-[520px] bg-white
