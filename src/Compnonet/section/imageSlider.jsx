@@ -50,6 +50,15 @@ const ImageSlider = () => {
                 }
                 return{...state, }
 
+            case "handlerMouseUp": 
+                if(state.isDrag) {
+                    const {slider} = action.payload
+
+                    return {...state, isDrag: false, diff: 0, startScroll: 0,  startX: 0}
+                }
+                return {...state}
+
+
             default : {
                 return {...state}
             }
@@ -97,6 +106,7 @@ const ImageSlider = () => {
                 ref = {imgSlider}
                 onMouseDown={(event)=> {dispatch({type: 'handlerMouseDown', payload: {client: event.clientX, slider: imgSlider.current}})}}
                 onMouseMove={(event) => {dispatch({type: 'handlerMouseMove', payload: {client: event.clientX, slider: imgSlider.current}})}}
+               onMouseUp = {() => {dispatch({type: 'handlerMouseUp', payload: {slider: imgSlider.current} })}}
                 className="
                     sliderImage
                     w-[90%] h-[520px] bg-white
