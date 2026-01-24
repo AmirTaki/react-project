@@ -1,4 +1,4 @@
-import { act, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react"
+import {  useEffect,  useReducer, useRef,  } from "react"
 import img1 from "../../assets/img1.webp"
 import img2 from "../../assets/img2.jpg"
 import img3 from "../../assets/img3.jpg"
@@ -71,6 +71,7 @@ const BackGroundSlider = () => {
     const [state, dispatch] =  useReducer(reducer ,{
         conter : 0,
         changeColor : {},
+        items: [img1, img2, img3, img4, img5]
 
     })
 
@@ -120,15 +121,18 @@ const BackGroundSlider = () => {
 
     }, 4000)
   
- 
     return(
-        <div className={` mt-[101px]  h-[600px]`}>
-            
-            <div className=" relative!">
-                <div ref = {sliderRef} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative!  ">
+        <div className={` mt-[101px]  h-[600px] `}>           
+            <div className=" relative!"    >
+                <div ref = {sliderRef} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative! select-none touch-pan-y ">
+                    {}
+                    
                     <div   className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
-                        <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" />
+                        <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" 
+                            draggable = {false}
+                        />
                     </div>
+
                     <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
                         <img src={img2} className="w-[100%]! h-[100%]! object-cover" alt="" />
                     </div>
