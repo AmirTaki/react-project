@@ -70,6 +70,33 @@ const BackGroundSlider = () => {
                 slider.style.scrollBehavior = 'auto'
                 return {...state, isDrag: true, startX: client, startScroll: slider.scrollLeft}
             }
+
+            case "handlerMouseMove": {
+                const {client} = action.payload
+                const {slider} = action.payload
+                if(state.isDrag){
+                    const walk = client - state.startX
+                    slider.startScroll = state.startScroll - walk
+                    console.log(walk)
+                    return{...state, diff: walk}
+                }
+                return{...state,}
+            }
+
+            case "handlerMouseUp": {
+                const {slider} = action.payload
+                if(state.isDrag){
+                    if(state.diff < 0){
+                        var slideMove = state.conter >=  (document.querySelectorAll('.itemImg').length ) - 1 ? 0 :  state.conter + 1             
+
+                    }
+                    else if (state.diff > 0) {
+                        var slideMove = state.conter <= 0 ? (document.querySelectorAll('.itemImg').length ) - 1 :  state.conter -1 ;
+                    }
+                    return {...state, isDrag: false, conter: slideMove, startX: 0, startScroll: 0, diff: 0 }
+                }
+                return {...state}
+            }
         
             default :{
                 return {...state}
@@ -83,7 +110,8 @@ const BackGroundSlider = () => {
         items: [img1, img2, img3, img4, img5], 
         isDrag: false,
         startX: 0,
-        startScroll: 0
+        startScroll: 0,
+        diff: 0,
 
     })
 
@@ -126,20 +154,20 @@ const BackGroundSlider = () => {
     //     }
     // },)
    
-    useInterval(() => {
-        dispatch({type : "nextSlide"  })
+    // useInterval(() => {
+    //     dispatch({type : "nextSlide"  })
 
-    }, 4000)
+    // }, 4000)
   
     return(
         <div className={` mt-[101px]  h-[600px] `}>           
-            <div className=" relative!"    >
+            <div className=" relative! "    >
                 <div 
                     ref = {sliderRef} 
-                    className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative! select-none touch-pan-y "
+                    className="bg-blue-400 w-[100%] h-[600px]   sliderImage   overflow-hidden flex flex-col flex-wrap  relative! select-none touch-pan-y cursor-grab active:cursor-grabbing"
                     onMouseDown={(event) => {dispatch({type : 'handlerMouseDown', payload: {client: event.clientX, slider: sliderRef.current}})}}
-                    onMouseMove = {() => {}}
-                    onMouseUp = {() => {}}
+                    onMouseMove = {(event) => {dispatch({type: 'handlerMouseMove', payload: {client: event.clientX, slider: sliderRef.current}})}}
+                    onMouseUp = {() => {dispatch({type: 'handlerMouseUp', payload: {slider: sliderRef.current}})}}
                     onMouseLeave = {() => {}}
                 >
                     {state.items?.map((item) => {
