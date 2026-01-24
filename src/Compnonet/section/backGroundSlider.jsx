@@ -75,8 +75,6 @@ const BackGroundSlider = () => {
 
     })
 
-    const imgList = [0, 1, 2, 3, 4]
-
     const handleClickItem = (index) => {
         dispatch({type : 'conter', payload : index})
     }
@@ -125,27 +123,16 @@ const BackGroundSlider = () => {
         <div className={` mt-[101px]  h-[600px] `}>           
             <div className=" relative!"    >
                 <div ref = {sliderRef} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative! select-none touch-pan-y ">
-                    {}
-                    
-                    <div   className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
-                        <img src={img1} className="w-[100%]! h-[100%]! object-cover" alt="" 
-                            draggable = {false}
-                        />
-                    </div>
-
-                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
-                        <img src={img2} className="w-[100%]! h-[100%]! object-cover" alt="" />
-                    </div>
-                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
-                        <img src={img3} className="w-[100%]! h-[100%]! object-cover" alt="" />
-                    </div>
-                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
-                        <img src={img4} className="w-[100%]! h-[100%]! object-cover" alt="" />
-                    </div>
-                    <div  className="bg-green-200 w-[100%]! h-[600px]! itemImg ">
-                        <img src={img5} className="w-[100%]! h-[100%]! object-cover" alt="" />
-                    </div>
-               
+                    {state.items?.map((item) => {
+                        return(
+                            <div   className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
+                                <img src={item} className="w-[100%]! h-[100%]! object-cover" alt="" 
+                                    draggable = {false}
+                                />
+                            </div>
+                        )
+                    })}
+ 
                 </div>
                 <div onClick = {handlerRight} className="bg-transparent absolute! top-[50%] right-[4%]">
                     <i className="bi bi-arrow-right-circle cursor-pointer! text-3xl text-red-200 hover:text-red-800! duration-300"></i>
@@ -155,7 +142,7 @@ const BackGroundSlider = () => {
                 </div>
 
                 <div className=" w-[100%] h-10 flex gap-5 absolute bottom-[5%] bg-transparent  items-center justify-center">
-                    {imgList.map((item, index) => (
+                    {state.items.map((item, index) => (
                         
                         <div onClick = {() => {handleClickItem(index)}} 
                         className={`clickImgItem rounded-2xl w-[20px] h-[10px]  bg-sky-300 hover:bg-blue-500! cursor-pointer! duration-300! ${state.changeColor[index] ? "bg-red-800! scale-150! w-10!" : "bg-gray-300! scale-100!"}`} key  = {index}> </div>
