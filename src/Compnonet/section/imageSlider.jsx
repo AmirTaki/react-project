@@ -109,6 +109,10 @@ const ImageSlider = () => {
                 onMouseUp = {() => {dispatch({type: 'handlerMouseUp', payload: {slider: imgSlider.current} })}}
                 onMouseLeave={() => {if(isDrag) {dispatch({type: 'handlerMouseUp', payload: {slider: imgSlider.current} })}}}
 
+                onTouchStart={(event)=> {dispatch({type: 'handlerMouseDown', payload: {client: event.clientX, slider: imgSlider.current}})}}
+                onTouchMove={(event) => {dispatch({type: 'handlerMouseMove', payload: {client: event.clientX, slider: imgSlider.current}})}}
+                onTouchEnd = {() => {dispatch({type: 'handlerMouseUp', payload: {slider: imgSlider.current} })}}
+
                 className="
                     sliderImage
                     w-[90%] h-[520px] bg-white
