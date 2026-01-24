@@ -76,22 +76,22 @@ const BackGroundSlider = () => {
                 const {slider} = action.payload
                 if(state.isDrag){
                     const walk = client - state.startX
-                    slider.startScroll = state.startScroll - walk
-                    console.log(walk)
+                    slider.scrollLeft = state.startScroll - walk
                     return{...state, diff: walk}
                 }
                 return{...state,}
             }
 
             case "handlerMouseUp": {
-                const {slider} = action.payload
                 if(state.isDrag){
                     if(state.diff < 0){
                         var slideMove = state.conter >=  (document.querySelectorAll('.itemImg').length ) - 1 ? 0 :  state.conter + 1             
-
                     }
                     else if (state.diff > 0) {
                         var slideMove = state.conter <= 0 ? (document.querySelectorAll('.itemImg').length ) - 1 :  state.conter -1 ;
+                    }
+                    else {
+                        return {...state}
                     }
                     return {...state, isDrag: false, conter: slideMove, startX: 0, startScroll: 0, diff: 0 }
                 }
@@ -154,10 +154,10 @@ const BackGroundSlider = () => {
     //     }
     // },)
    
-    // useInterval(() => {
-    //     dispatch({type : "nextSlide"  })
+    useInterval(() => {
+        dispatch({type : "nextSlide"  })
 
-    // }, 4000)
+    }, 4000)
   
     return(
         <div className={` mt-[101px]  h-[600px] `}>           
@@ -167,8 +167,12 @@ const BackGroundSlider = () => {
                     className="bg-blue-400 w-[100%] h-[600px]   sliderImage   overflow-hidden flex flex-col flex-wrap  relative! select-none touch-pan-y cursor-grab active:cursor-grabbing"
                     onMouseDown={(event) => {dispatch({type : 'handlerMouseDown', payload: {client: event.clientX, slider: sliderRef.current}})}}
                     onMouseMove = {(event) => {dispatch({type: 'handlerMouseMove', payload: {client: event.clientX, slider: sliderRef.current}})}}
-                    onMouseUp = {() => {dispatch({type: 'handlerMouseUp', payload: {slider: sliderRef.current}})}}
-                    onMouseLeave = {() => {}}
+                    onMouseUp = {() => {dispatch({type: 'handlerMouseUp', })}}
+                    onMouseLeave = {() => {if(state.isDrag) {dispatch({type: 'handlerMouseUp',})}}}
+
+                    onTouchStart={(event) => {dispatch({type: 'handlerMouseDown', payload: {client: event.clientX, slider: sliderRef.current}})}}
+                    onTouchMove = {(event) => {dispatch({type: 'handlerMouseMove', payload: {client: event.clientX, slider: sliderRef.current}})}}
+                    onTouchEnd = {() => {dispatch({type: 'handlerMouseUp', })}}
                 >
                     {state.items?.map((item) => {
                         return(
