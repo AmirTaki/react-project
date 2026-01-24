@@ -62,6 +62,15 @@ const BackGroundSlider = () => {
                 const prevCounter = state.conter <= 0 ? (document.querySelectorAll('.itemImg').length ) - 1 :  state.conter -1 ;
                 return {...state, conter : prevCounter}
             }
+
+
+            case "handlerMouseDown": {
+                const {client} = action.payload
+                const {slider} = action.payload
+                slider.style.scrollBehavior = 'auto'
+                return {...state, isDrag: true, startX: client, startScroll: slider.scrollLeft}
+            }
+        
             default :{
                 return {...state}
             }
@@ -71,7 +80,10 @@ const BackGroundSlider = () => {
     const [state, dispatch] =  useReducer(reducer ,{
         conter : 0,
         changeColor : {},
-        items: [img1, img2, img3, img4, img5]
+        items: [img1, img2, img3, img4, img5], 
+        isDrag: false,
+        startX: 0,
+        startScroll: 0
 
     })
 
@@ -122,7 +134,14 @@ const BackGroundSlider = () => {
     return(
         <div className={` mt-[101px]  h-[600px] `}>           
             <div className=" relative!"    >
-                <div ref = {sliderRef} className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative! select-none touch-pan-y ">
+                <div 
+                    ref = {sliderRef} 
+                    className="bg-blue-400 w-[100%] h-[600px]   sliderImage  overflow-hidden! flex  flex-col flex-wrap  relative! select-none touch-pan-y "
+                    onMouseDown={(event) => {dispatch({type : 'handlerMouseDown', payload: {client: event.clientX, slider: sliderRef.current}})}}
+                    onMouseMove = {() => {}}
+                    onMouseUp = {() => {}}
+                    onMouseLeave = {() => {}}
+                >
                     {state.items?.map((item) => {
                         return(
                             <div   className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
