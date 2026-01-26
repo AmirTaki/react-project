@@ -66,9 +66,11 @@ const SliderPage = () => {
                 if(state.isDrag){
                     state.isDrag = false
                     if(state.diff < 0){
+                        // if (state.conter >= checkInnerWidth())return;
                         state.conter += 1
                     }
                     else if (state.diff > 0){
+                        if(state.conter <= 0) return;
                         state.conter -= 1
                     }
                     else {
@@ -116,8 +118,22 @@ const SliderPage = () => {
         dispatch({type : 'changeColor'})
     },[state.conter])
 
+    const checkInnerWidth  = () => {
+            if(window.innerWidth < 640 ){
+                return state.listImg.length - 1
+            }
+            else if (window.innerWidth < 1024 & window.innerWidth >= 640 ) {
+                return Math.ceil(state.listImg.length / 2)
+            }   
+            else {
+                return Math.ceil(state.listImg.length / 3)
+            }
+        } 
+
     useEffect(() => {
+       
         const  handleImage = () => {
+            console.log(checkInnerWidth())
             dispatch({type : 'conter'})
         }
 
@@ -138,8 +154,12 @@ const SliderPage = () => {
                 onMouseMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.clientX, slider: refSlide.current}})}}
                 onMouseUp={() => {dispatch({type: 'mouseUp', })}}
                 onMouseLeave={() => {if(state.isDrag) {dispatch({type: 'mouseUp'})}}}
-            >
         
+                onTouchStart = {(e) => {dispatch({type: 'mouseDown', payload: {client: e.clientX, slider: refSlide.current}})}}
+                onTouchMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.clientX, slider: refSlide.current}})}}
+                onTouchEnd={() => {dispatch({type: 'mouseUp', })}}
+            >
+                {/* max-sm: 640px -> max-lg: 1024px -> */}
                 {state.listImg.map((item, index) => (
                     <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  ">
                         <img draggable = {false} src={item} className="w-[100%] h-[100%]" alt="" />
