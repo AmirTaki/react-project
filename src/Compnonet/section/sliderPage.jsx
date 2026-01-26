@@ -44,6 +44,13 @@ const SliderPage = () => {
                 }, {})
             
                 return {...state, changeColor : {[state.conter] : true} }
+
+            case "mouseDown" : 
+                const {event} = action.payload
+                const {slider} = action.payload
+                slider.style.scrollBehavior = 'auto'
+                return {...state, isDrag: true,  startX: event, startScroll: slider.scrollLeft}
+
             default :
                 return {...state}
         }    
@@ -51,7 +58,10 @@ const SliderPage = () => {
         const [state, dispatch] = useReducer (reduce, {
             conter : 0,
             listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9 , slide10, slide11, slide12, slide13, slide14],
-            changeColor : {}
+            changeColor : {},
+            isDrag: false,
+            startX: 0, 
+            startScroll: 0
         })
 
         const listItemsTwo = Array.from({length : Math.round (state.listImg.length / 2) }, (_) => `${_}`)
@@ -91,10 +101,14 @@ const SliderPage = () => {
 
     return(
         <div  className="w-[100%] h-[600px] bg-white flex flex-col items-center justify-center relative">
-            <div ref = {refSlide} className="w-[80%] h-[500px] bg-white flex flex-col flex-wrap  overflow-hidden! ">
+            <div 
+                ref = {refSlide} 
+                className="w-[80%] h-[500px] bg-[blue] flex flex-col flex-wrap  overflow-hidden! select-none touch-pan-y "
+                onMouseDown = {(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlide}})}}
+            >
 
                 {state.listImg.map((item, index) => (
-                    <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  bg-white">
+                    <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  ">
                         <img src={item} className="w-[100%] h-[100%]" alt="" />
                         <div className="bg-gray-300 h-[60px]  flex justify-center items-center text-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
                     </div>
