@@ -17,6 +17,19 @@ import slide14 from "../../assets/slide14.webp"
 const SliderPage = () => {
     const refSlide =    useRef()
     const reduce = (state, action) => {
+        
+        const checkInnerWidth  = () => {
+            if(window.innerWidth < 640 ){
+                return state.listImg.length - 1
+            }
+            else if (window.innerWidth < 1024 & window.innerWidth >= 640 ) {
+                return Math.ceil((state.listImg.length  / 2) - 1) 
+            }   
+            else {
+                return Math.ceil((state.listImg.length  / 3) - 1)
+            }
+        } 
+        
         switch(action.type){
             case 'conter' : 
                 return {...state, conter : 0}
@@ -63,10 +76,11 @@ const SliderPage = () => {
                 return {...state}
 
             case "mouseUp":
+                
                 if(state.isDrag){
                     state.isDrag = false
                     if(state.diff < 0){
-                        // if (state.conter >= checkInnerWidth())return;
+                        if (state.conter >= checkInnerWidth()){return};
                         state.conter += 1
                     }
                     else if (state.diff > 0){
@@ -118,22 +132,11 @@ const SliderPage = () => {
         dispatch({type : 'changeColor'})
     },[state.conter])
 
-    const checkInnerWidth  = () => {
-            if(window.innerWidth < 640 ){
-                return state.listImg.length - 1
-            }
-            else if (window.innerWidth < 1024 & window.innerWidth >= 640 ) {
-                return Math.ceil(state.listImg.length / 2)
-            }   
-            else {
-                return Math.ceil(state.listImg.length / 3)
-            }
-        } 
+
 
     useEffect(() => {
        
         const  handleImage = () => {
-            console.log(checkInnerWidth())
             dispatch({type : 'conter'})
         }
 
@@ -155,8 +158,8 @@ const SliderPage = () => {
                 onMouseUp={() => {dispatch({type: 'mouseUp', })}}
                 onMouseLeave={() => {if(state.isDrag) {dispatch({type: 'mouseUp'})}}}
         
-                onTouchStart = {(e) => {dispatch({type: 'mouseDown', payload: {client: e.clientX, slider: refSlide.current}})}}
-                onTouchMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.clientX, slider: refSlide.current}})}}
+                onTouchStart = {(e) => {dispatch({type: 'mouseDown', payload: {client: e.touches[0].clientX, slider: refSlide.current}})}}
+                onTouchMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.touches[0].clientX, slider: refSlide.current}})}}
                 onTouchEnd={() => {dispatch({type: 'mouseUp', })}}
             >
                 {/* max-sm: 640px -> max-lg: 1024px -> */}
