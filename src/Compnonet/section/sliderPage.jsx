@@ -46,20 +46,38 @@ const SliderPage = () => {
                 return {...state, changeColor : {[state.conter] : true} }
 
             case "mouseDown" : 
-                const {event} = action.payload
+                const {client} = action.payload
                 const {slider} = action.payload
                 slider.style.scrollBehavior = 'auto'
-                return {...state, isDrag: true,  startX: event, startScroll: slider.scrollLeft}
+                return {...state, isDrag: true,  startX: client, startScroll: slider.scrollLeft}
 
             case "mosueMove": 
                 if(state.isDrag){
-                    const {event} = action.payload
+                    const {client} = action.payload
                     const {slider} = action.payload
-                    const walk = event - state.startX                    
+                   
+                    const walk = client - state.startX                    
                     slider.scrollLeft = state.startScroll - walk
                     return{...state, diff: walk}
                 }
                 return {...state}
+
+            case "mouseUp":
+                if(state.isDrag){
+                    state.isDrag = false
+                    if(state.diff < 0){
+                        state.conter += 1
+                    }
+                    else if (state.diff > 0){
+                        state.conter -= 1
+                    }
+                    else {
+                        
+                    }
+                    return {...state, isDrag: false, diff: 0, startX: 0, startScroll: 0}
+                }
+                return {...state}
+
 
             default :
                 return {...state}
@@ -112,17 +130,18 @@ const SliderPage = () => {
 
 
     return(
-        <div  className="w-[100%] h-[600px] bg-white flex flex-col items-center justify-center relative">
+        <div  className="w-[100%] h-[600px] bg-white flex flex-col items-center justify-center relative cursor-grab active:cursor-grabbing">
             <div 
                 ref = {refSlide} 
-                className="w-[80%] h-[500px] bg-[blue] flex flex-col flex-wrap  overflow-hidden! select-none touch-pan-y "
-                onMouseDown = {(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlide}})}}
-                onMouseMove={(e) => {dispatch({type: 'mosueMove', payload: {event: e.clientX, slider: refSlide}})}}
+                className="w-[80%] h-[500px] bg-[blue] flex flex-col flex-wrap  overflow-hidden! select-none touch-pan-y  "
+                onMouseDown = {(e) => {dispatch({type: 'mouseDown', payload: {client: e.clientX, slider: refSlide.current}})}}
+                onMouseMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.clientX, slider: refSlide.current}})}}
+                onMouseUp={() => {dispatch({type: 'mouseUp', })}}
             >
         
                 {state.listImg.map((item, index) => (
                     <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  ">
-                        <img src={item} className="w-[100%] h-[100%]" alt="" />
+                        <img draggable = {false} src={item} className="w-[100%] h-[100%]" alt="" />
                         <div className="bg-gray-300 h-[60px]  flex justify-center items-center text-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
                     </div>
                 ))}
