@@ -133,10 +133,11 @@ const SliderPage = () => {
         <div  className="w-[100%] h-[600px] bg-white flex flex-col items-center justify-center relative cursor-grab active:cursor-grabbing">
             <div 
                 ref = {refSlide} 
-                className="w-[80%] h-[500px] bg-[blue] flex flex-col flex-wrap  overflow-hidden! select-none touch-pan-y  "
+                className="w-[80%] h-[500px]  flex flex-col flex-wrap  overflow-hidden! select-none touch-pan-y  "
                 onMouseDown = {(e) => {dispatch({type: 'mouseDown', payload: {client: e.clientX, slider: refSlide.current}})}}
                 onMouseMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.clientX, slider: refSlide.current}})}}
                 onMouseUp={() => {dispatch({type: 'mouseUp', })}}
+                onMouseLeave={() => {if(state.isDrag) {dispatch({type: 'mouseUp'})}}}
             >
         
                 {state.listImg.map((item, index) => (
