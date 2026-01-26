@@ -51,6 +51,16 @@ const SliderPage = () => {
                 slider.style.scrollBehavior = 'auto'
                 return {...state, isDrag: true,  startX: event, startScroll: slider.scrollLeft}
 
+            case "mosueMove": 
+                if(state.isDrag){
+                    const {event} = action.payload
+                    const {slider} = action.payload
+                    const walk = event - state.startX                    
+                    slider.scrollLeft = state.startScroll - walk
+                    return{...state, diff: walk}
+                }
+                return {...state}
+
             default :
                 return {...state}
         }    
@@ -61,7 +71,9 @@ const SliderPage = () => {
             changeColor : {},
             isDrag: false,
             startX: 0, 
-            startScroll: 0
+            startScroll: 0,
+            diff: 0
+
         })
 
         const listItemsTwo = Array.from({length : Math.round (state.listImg.length / 2) }, (_) => `${_}`)
@@ -105,8 +117,9 @@ const SliderPage = () => {
                 ref = {refSlide} 
                 className="w-[80%] h-[500px] bg-[blue] flex flex-col flex-wrap  overflow-hidden! select-none touch-pan-y "
                 onMouseDown = {(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlide}})}}
+                onMouseMove={(e) => {dispatch({type: 'mosueMove', payload: {event: e.clientX, slider: refSlide}})}}
             >
-
+        
                 {state.listImg.map((item, index) => (
                     <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  ">
                         <img src={item} className="w-[100%] h-[100%]" alt="" />
