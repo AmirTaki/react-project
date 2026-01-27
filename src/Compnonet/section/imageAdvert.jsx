@@ -53,6 +53,17 @@ const ImageAdvert = () => {
                 slider.style.scrollBehavior = 'auto'
 
                 return {...state, startX: event, isDrag: true, startScroll: slider.scrollLeft }
+       
+            case "mouseMove": 
+                if(state.isDrag){
+                    const {event} = action.payload
+                    const {slider} = action.payload
+                    
+                    const walk = event - state.startX
+                    slider.scrollLeft = state.scrollLeft - walk
+                    return {...state, diff: walk}
+                }
+                return {...state}
         }
     }
     const [state, dispatch] = useReducer(reducer, {
@@ -63,7 +74,8 @@ const ImageAdvert = () => {
         colorButton : {}, 
         isDrag: false,
         startX: 0,
-        startScroll: 0
+        startScroll: 0, 
+        diff: 0
     })
     
     const RightButton = () => {
@@ -108,6 +120,7 @@ const ImageAdvert = () => {
             
             <div 
                 onMouseDown={(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlider.current}})}}
+                onMouseMove={(e) => {dispatch({type: 'mouseMove', payload: {event: e.clientX, slider: refSlider.current}})}}
                 ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%]  flex flex-col flex-wrap overflow-hidden"
             >
                 {listImg.map(((item, index) => (
