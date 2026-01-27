@@ -46,6 +46,13 @@ const ImageAdvert = () => {
                     refSlider.current.scrollLeft = refSlider.current.offsetWidth * state.conter
                     return {...state}
                 }
+
+            case "mouseDown":
+                const {event} = action.payload
+                const {slider} = action.payload
+                slider.style.scrollBehavior = 'auto'
+
+                return {...state, startX: event, isDrag: true, startScroll: slider.scrollLeft }
         }
     }
     const [state, dispatch] = useReducer(reducer, {
@@ -53,7 +60,10 @@ const ImageAdvert = () => {
         imgSelect : 0,
         maxConterLg : Math.ceil(listImg.length /  2 ) , 
         maxConter : Math.ceil(listImg.length /  4 ) ,
-        colorButton : {}
+        colorButton : {}, 
+        isDrag: false,
+        startX: 0,
+        startScroll: 0
     })
     
     const RightButton = () => {
@@ -96,7 +106,10 @@ const ImageAdvert = () => {
                 <img src={listImg[state.imgSelect]} className="h-[100%]! duration-200 w-[100%]" alt="" />
             </div>
             
-            <div ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%]  flex flex-col flex-wrap overflow-hidden">
+            <div 
+                onMouseDown={(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlider.current}})}}
+                ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%]  flex flex-col flex-wrap overflow-hidden"
+            >
                 {listImg.map(((item, index) => (
                     <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] relative p-[2px] max-sm:p-0  ">
                         <img onClick={()=>{clickImage(index)}}  src={item} className="h-[100%]! w-[100%] lg:hover:grayscale-75 lg:hover:scale-110 lg:cursor-pointer cursor-default duration-500 " alt="" />
