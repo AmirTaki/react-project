@@ -64,6 +64,23 @@ const ImageAdvert = () => {
                     return {...state, diff: walk}
                 }
                 return {...state}
+
+            case "mouseUp": 
+                if(state.isDrag){
+                    if(diff < 0){
+                        state.conter += 1
+                    }
+                    else if (diff > 0){
+                        state.conter -= 1
+                    }
+                    else {
+
+                    }
+
+
+                    return {...state, isDrag: false, diff: 0, startScroll: 0, startX: 0}
+                }
+                return {...state}
         }
     }
     const [state, dispatch] = useReducer(reducer, {
@@ -121,6 +138,7 @@ const ImageAdvert = () => {
             <div 
                 onMouseDown={(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlider.current}})}}
                 onMouseMove={(e) => {dispatch({type: 'mouseMove', payload: {event: e.clientX, slider: refSlider.current}})}}
+                onMouseUp = {() => {dispatch({type: 'mouseUp'})}}
                 ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%]  flex flex-col flex-wrap overflow-hidden"
             >
                 {listImg.map(((item, index) => (
