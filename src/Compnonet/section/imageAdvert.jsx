@@ -52,7 +52,7 @@ const ImageAdvert = () => {
                 const {slider} = action.payload
                 slider.style.scrollBehavior = 'auto'
 
-                return {...state, startX: event, isDrag: true, startScroll: slider.scrollLeft }
+                return {...state, startX: event, isDrag: true, startScroll: slider.scrollLeft   }
        
             case "mouseMove": 
                 if(state.isDrag){
@@ -60,23 +60,20 @@ const ImageAdvert = () => {
                     const {slider} = action.payload
                     
                     const walk = event - state.startX
-                    slider.scrollLeft = state.scrollLeft - walk
+                    slider.scrollLeft = state.startScroll - walk
                     return {...state, diff: walk}
                 }
                 return {...state}
 
             case "mouseUp": 
                 if(state.isDrag){
-                    if(diff < 0){
-                        state.conter += 1
+                    console.log(state.diff)
+                    if(state.diff < 0){
+                        state.conter += .5
                     }
-                    else if (diff > 0){
-                        state.conter -= 1
+                    else if (state.diff > 0){
+                        state.conter -= .5
                     }
-                    else {
-
-                    }
-
 
                     return {...state, isDrag: false, diff: 0, startScroll: 0, startX: 0}
                 }
@@ -136,14 +133,16 @@ const ImageAdvert = () => {
             </div>
             
             <div 
+                ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%]  flex flex-col flex-wrap overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
+              
                 onMouseDown={(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlider.current}})}}
                 onMouseMove={(e) => {dispatch({type: 'mouseMove', payload: {event: e.clientX, slider: refSlider.current}})}}
                 onMouseUp = {() => {dispatch({type: 'mouseUp'})}}
-                ref = {refSlider} className="h-[500px] w-[50%] max-lg:w-[100%]  flex flex-col flex-wrap overflow-hidden"
+                onMouseLeave = {() => {if(state.isDrag) {dispatch({type: 'mouseUp'})}}}
             >
                 {listImg.map(((item, index) => (
                     <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] relative p-[2px] max-sm:p-0  ">
-                        <img onClick={()=>{clickImage(index)}}  src={item} className="h-[100%]! w-[100%] lg:hover:grayscale-75 lg:hover:scale-110 lg:cursor-pointer cursor-default duration-500 " alt="" />
+                        <img draggable = {false} onClick={()=>{clickImage(index)}}  src={item} className="h-[100%]! w-[100%] lg:hover:grayscale-75 lg:hover:scale-110 lg:cursor-pointer cursor-default duration-500 " alt="" />
                         <div className=" absolute  bg-[rgba(0,0,0,0.2)]  bottom-0 left-0 p-3 flex flex-col m-[3px] max-sm:m-0 ">
                             <h6 className="text-sm text-gray-400">{index + 1}-ROG Travel books another killer vacation</h6>
                             <p className="text-sm text-gray-200">Troy Baker and Ned Luke team up to offer a killer vacation plan in a post-apocalyptic paradise.</p>
