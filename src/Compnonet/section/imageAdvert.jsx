@@ -74,7 +74,7 @@ const ImageAdvert = () => {
                     else if (state.diff > 0){
                         state.conter -= .5
                     }
-
+                    console.log(state.conter)
                     return {...state, isDrag: false, diff: 0, startScroll: 0, startX: 0}
                 }
                 return {...state}
@@ -139,6 +139,11 @@ const ImageAdvert = () => {
                 onMouseMove={(e) => {dispatch({type: 'mouseMove', payload: {event: e.clientX, slider: refSlider.current}})}}
                 onMouseUp = {() => {dispatch({type: 'mouseUp'})}}
                 onMouseLeave = {() => {if(state.isDrag) {dispatch({type: 'mouseUp'})}}}
+                
+                onTouchStart={(e) => {dispatch({type: 'mouseDown', payload: {event: e.touches[0].clientX, slider: refSlider.current}})}}
+                onTouchMove={(e) => {dispatch({type: 'mouseMove', payload: {event: e.touches[0].clientX, slider: refSlider.current}})}}
+                onTouchEnd = {() => {dispatch({type: 'mouseUp'})}}
+
             >
                 {listImg.map(((item, index) => (
                     <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] relative p-[2px] max-sm:p-0  ">
