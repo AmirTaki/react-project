@@ -28,21 +28,30 @@ const ResourcesImage = () => {
                     slider.style.scrollBehavior = 'smooth'
                     slider.scrollLeft -= 300
                 }
-                    return {...state}
+                    return {...state, }
 
+            case "mosueDown":
+                var {slider} = action.payload
+                const {client} = action.payload
+                slider.style.scrollBehavior = 'auto'
+                return {...state, isDrag: true, startX: client, startScroll: slider.scrollLeft}
             default: 
                 return state
         }
     }
 
     const [state, dispatch] =  useReducer(reducer, {
+
+        isDrag: false, 
+        startX: 0,
+        startScroll: 0
     })
     return(
         <>
            <div className="w-[90%] h-[400px]   mx-auto relative ">
             {/* [&::-webkit-scrollbar]:opacity-0 */}
                 <div 
-                    onMouseDown={(e) => {}}
+                    onMouseDown={(e) => {dispatch({type: 'mosueDown', payload : {client: e.clientX, slider: refResource.current}})}}
                     ref = {refResource} className=" w-[100%] h-[350px] bg-red-500 flex items-center   flex-col flex-wrap    overflow-x-scroll   justify-center"
                     >
                     {listImg.map((img, key) => (
