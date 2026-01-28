@@ -70,18 +70,19 @@ const ResourcesImage = () => {
     })
     return(
         <>
-           <div className="w-[90%] h-[400px]   mx-auto relative ">
+           <div className="w-[90%] h-[400px]   mx-auto relative cursor-grab active:cursor-grabbing ">
             {/* [&::-webkit-scrollbar]:opacity-0 */}
                 <div 
                     onMouseDown={(e) => {dispatch({type: 'mosueDown', payload : {client: e.clientX, slider: refResource.current}})}}
                     onMouseMove={(e) =>  {dispatch({type: 'mouseMove', payload: {client: e.clientX, slider: refResource.current}})}}
                     onMouseUp={() => {dispatch({type: 'mouseUp', payload: {slider: refResource.current}})}}
+                    onMouseLeave={() => {if(state.isDrag) {dispatch({type: 'mouseUp', payload: {slider: refResource.current}})}}}
                     
                     ref = {refResource} className=" w-[100%] h-[350px] bg-red-500 flex items-center   flex-col flex-wrap    overflow-x-scroll   justify-center"
                     >
                     {listImg.map((img, key) => (
                         <div key = {key} className="w-[365px] h-[100%]  flex justify-center relative">
-                            <img src={img} alt=""  className="w-[350px] h-[300px]!" />
+                            <img draggable = {false} src={img} alt=""  className="w-[350px] h-[300px]!" />
                             <div className="bg-white w-[310px] h-[110px] flex flex-col px-3 justify-center  absolute right-1 bottom-8">
                                 <h4 className="text-lg mb-2">How To Clean Shoes</h4>
                                 <p className="text-[12px]">Get down and dirty with adidas and learn how to clean your sneakers the right way.</p>
@@ -93,13 +94,13 @@ const ResourcesImage = () => {
 
                 <button  
                     onClick={() => {dispatch({type: "leftHandler", payload: {slider: refResource.current}})}}
-                    className="border-2 absolute top-50 -left-8 hover:bg-[blue]!"
+                    className="border-2 absolute top-50 -left-8 hover:bg-[blue]! hidden"
                 >
                     left
                 </button>
                 <button 
                     onClick={() => {dispatch({type: "rightHandler", payload: {slider: refResource.current}})}}
-                    className="border-2 absolute top-50 -right-8 hover:bg-[blue]!"
+                    className="border-2 absolute top-50 -right-8 hover:bg-[blue]! hidden"
                 >
                     right
                 </button>
