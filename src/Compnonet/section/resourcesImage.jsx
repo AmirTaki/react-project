@@ -35,6 +35,16 @@ const ResourcesImage = () => {
                 const {client} = action.payload
                 slider.style.scrollBehavior = 'auto'
                 return {...state, isDrag: true, startX: client, startScroll: slider.scrollLeft}
+         
+            case "mouseMove":
+                if(state.isDrag){
+                    const {slider} = action.payload
+                    const {client} = action.payload
+                    const walk = client - state.startX
+                    slider.scrollLeft = state.startScroll -  walk
+                    return {...state, diff: walk}
+                }
+                return {...state}
             default: 
                 return state
         }
@@ -44,7 +54,8 @@ const ResourcesImage = () => {
 
         isDrag: false, 
         startX: 0,
-        startScroll: 0
+        startScroll: 0,
+        diff: 0
     })
     return(
         <>
@@ -52,6 +63,8 @@ const ResourcesImage = () => {
             {/* [&::-webkit-scrollbar]:opacity-0 */}
                 <div 
                     onMouseDown={(e) => {dispatch({type: 'mosueDown', payload : {client: e.clientX, slider: refResource.current}})}}
+                    onMouseMove={(e) =>  {dispatch({type: 'mouseMove', payload: {client: e.clientX, slider: refResource.current}})}}
+                    
                     ref = {refResource} className=" w-[100%] h-[350px] bg-red-500 flex items-center   flex-col flex-wrap    overflow-x-scroll   justify-center"
                     >
                     {listImg.map((img, key) => (
