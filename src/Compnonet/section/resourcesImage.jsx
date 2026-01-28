@@ -45,6 +45,17 @@ const ResourcesImage = () => {
                     return {...state, diff: walk}
                 }
                 return {...state}
+
+            case "mouseUp": 
+                if(state.isDrag){
+                    const {slider} = action.payload
+                    slider.style.scrollBehavior = 'smooth'
+                    slider.scrollLeft -= state.diff
+
+                    return {...state, isDrag: false, diff: 0, startScroll: 0, startX: 0}
+                }
+                return {...state}
+            
             default: 
                 return state
         }
@@ -64,6 +75,7 @@ const ResourcesImage = () => {
                 <div 
                     onMouseDown={(e) => {dispatch({type: 'mosueDown', payload : {client: e.clientX, slider: refResource.current}})}}
                     onMouseMove={(e) =>  {dispatch({type: 'mouseMove', payload: {client: e.clientX, slider: refResource.current}})}}
+                    onMouseUp={() => {dispatch({type: 'mouseUp', payload: {slider: refResource.current}})}}
                     
                     ref = {refResource} className=" w-[100%] h-[350px] bg-red-500 flex items-center   flex-col flex-wrap    overflow-x-scroll   justify-center"
                     >
