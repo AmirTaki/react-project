@@ -27,6 +27,9 @@ const ImageAdvert = () => {
           else if (window.innerWidth >= 1204){
             return  Math.ceil(listImg.length /  4 ) - 1
           }
+          else {
+            return Math.ceil(listImg.length /  4 ) - 1
+          }
     }
     
         switch(action.type) {
@@ -74,12 +77,14 @@ const ImageAdvert = () => {
                     
                     const walk = event - state.startX
                     slider.scrollLeft = state.startScroll - walk
+
                     return {...state, diff: walk}
                 }
                 return {...state}
 
             case "mouseUp": 
                 if(state.isDrag){
+
                     if(state.diff < 0){
                         if(state.conter < checkResize() ){
                             state.conter += .5
@@ -89,6 +94,9 @@ const ImageAdvert = () => {
                         if(state.conter > 0){
                             state.conter -= .5
                         } 
+                    }
+                    else {
+                        return {...state}
                     }
                     return {...state, isDrag: false, diff: 0, startScroll: 0, startX: 0}
                 }
@@ -154,12 +162,12 @@ const ImageAdvert = () => {
               
                 onMouseDown={(e) => {dispatch({type: 'mouseDown', payload: {event: e.clientX, slider: refSlider.current}})}}
                 onMouseMove={(e) => {dispatch({type: 'mouseMove', payload: {event: e.clientX, slider: refSlider.current}})}}
-                onMouseUp = {() => {dispatch({type: 'mouseUp'})}}
-                onMouseLeave = {() => {if(state.isDrag) {dispatch({type: 'mouseUp'})}}}
+                onMouseUp = {() => {dispatch({type: 'mouseUp', payload: {slider: refSlider.current}})}}
+                onMouseLeave = {() => {if(state.isDrag) {dispatch({type: 'mouseUp', payload: {slider: refSlider.current}})}}}
                 
                 onTouchStart={(e) => {dispatch({type: 'mouseDown', payload: {event: e.touches[0].clientX, slider: refSlider.current}})}}
                 onTouchMove={(e) => {dispatch({type: 'mouseMove', payload: {event: e.touches[0].clientX, slider: refSlider.current}})}}
-                onTouchEnd = {() => {dispatch({type: 'mouseUp'})}}
+                onTouchEnd = {() => {dispatch({type: 'mouseUp', payload: {slider: refSlider.current}})}}
 
             >
                 {listImg.map(((item, index) => (
