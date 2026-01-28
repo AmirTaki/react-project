@@ -14,12 +14,21 @@ const ResourcesImage = () => {
     const reducer = (state, action) => {
         switch(action.type){
             case"rightHandler" :
-                const {slider} = action.payload
+              
+                var {slider} = action.payload
                 if(slider){
                     slider.style.scrollBehavior = 'smooth'
                     slider.scrollLeft += 300
                 }
                 return {...state}
+
+            case "leftHandler": 
+                var {slider} = action.payload
+                if(slider){
+                    slider.style.scrollBehavior = 'smooth'
+                    slider.scrollLeft -= 300
+                }
+                    return {...state}
 
             default: 
                 return state
@@ -49,6 +58,7 @@ const ResourcesImage = () => {
 
 
                 <button  
+                    onClick={() => {dispatch({type: "leftHandler", payload: {slider: refResource.current}})}}
                     className="border-2 absolute top-50 -left-8 hover:bg-[blue]!"
                 >
                     left
