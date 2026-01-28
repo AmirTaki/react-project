@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useReducer, useRef } from "react"
 import img1 from "../../assets/resurse1.avif"
 import img2 from "../../assets/resurse2.avif"
 import img3 from "../../assets/resurse3.avif"
@@ -11,11 +11,27 @@ const ResourcesImage = () => {
     const listImg = [img1, img2, img3, img4, img5, img6, img7]
     const refResource =  useRef()
 
+    const reducer = (state, action) => {
+        switch(action.type){
+            case"" :
+                return {...state}
 
+            default: 
+                return state
+        }
+    }
+
+    const [state, dispatch] =  useReducer(reducer, {
+
+    })
     return(
         <>
            <div className="w-[90%] h-[400px]   mx-auto ">
-                <div ref = {refResource} className="[&::-webkit-scrollbar]:opacity-0 w-[100%] h-[350px] bg-white flex items-center   flex-col flex-wrap    overflow-y-hidden   justify-center">
+            {/* [&::-webkit-scrollbar]:opacity-0 */}
+                <div 
+                    onMouseDown={(e) => {}}
+                    ref = {refResource} className=" w-[100%] h-[350px] bg-red-500 flex items-center   flex-col flex-wrap    overflow-x-scroll   justify-center"
+                    >
                     {listImg.map((img, key) => (
                         <div key = {key} className="w-[365px] h-[100%]  flex justify-center relative">
                             <img src={img} alt=""  className="w-[350px] h-[300px]!" />
