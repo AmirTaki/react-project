@@ -13,7 +13,12 @@ const ResourcesImage = () => {
 
     const reducer = (state, action) => {
         switch(action.type){
-            case"" :
+            case"rightHandler" :
+                const {slider} = action.payload
+                if(slider){
+                    slider.style.scrollBehavior = 'smooth'
+                    slider.scrollLeft += 300
+                }
                 return {...state}
 
             default: 
@@ -22,11 +27,10 @@ const ResourcesImage = () => {
     }
 
     const [state, dispatch] =  useReducer(reducer, {
-
     })
     return(
         <>
-           <div className="w-[90%] h-[400px]   mx-auto ">
+           <div className="w-[90%] h-[400px]   mx-auto relative ">
             {/* [&::-webkit-scrollbar]:opacity-0 */}
                 <div 
                     onMouseDown={(e) => {}}
@@ -40,10 +44,21 @@ const ResourcesImage = () => {
                                 <p className="text-[12px]">Get down and dirty with adidas and learn how to clean your sneakers the right way.</p>
                             </div>
                         </div>
-                    ))}
-              
-               
+                    ))} 
                 </div>
+
+
+                <button  
+                    className="border-2 absolute top-50 -left-8 hover:bg-[blue]!"
+                >
+                    left
+                </button>
+                <button 
+                    onClick={() => {dispatch({type: "rightHandler", payload: {slider: refResource.current}})}}
+                    className="border-2 absolute top-50 -right-8 hover:bg-[blue]!"
+                >
+                    right
+                </button>
             </div> 
 
 
