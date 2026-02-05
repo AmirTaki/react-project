@@ -21,12 +21,15 @@ const ImageAdvert = () => {
           if(window.innerWidth < 640){
             return listImg.length - 1
           }
+        
           else if(window.innerWidth >= 640 && window.innerWidth < 1024){
             return Math.ceil(listImg.length /  2 ) - 1
           }
+        
           else if (window.innerWidth >= 1204){
             return  Math.ceil(listImg.length /  4 ) - 1
           }
+        
           else {
             return Math.ceil(listImg.length /  4 ) - 1
           }
@@ -56,6 +59,7 @@ const ImageAdvert = () => {
                 return{...state,
                     colorButton : Colors
                 }
+            
             case 'slide' : 
                 if(refSlider.current){
                     refSlider.current.style.scrollBehavior = "smooth";     
@@ -63,42 +67,43 @@ const ImageAdvert = () => {
                     return {...state}
                 }
 
-            case "mouseDown":
+            case "mouseDown": 
                 const {event} = action.payload
                 const {slider} = action.payload
-                slider.style.scrollBehavior = 'auto'
+                if(slider){
+                    slider.style.scrollBehavior = 'auto'
+                    return{...state, startX: event, startScroll: slider.scrollLeft, isDrag: true }
+                }
+                return{...state}
 
-                return {...state, startX: event, isDrag: true, startScroll: slider.scrollLeft   }
-       
-            case "mouseMove": 
+            case "mouseMove":
                 if(state.isDrag){
                     const {event} = action.payload
-                    const {slider} = action.payload
-                    
+                    const {slider} = action.payload  
                     const walk = event - state.startX
                     slider.scrollLeft = state.startScroll - walk
 
-                    return {...state, diff: walk}
+                    return {...state, currentX: event, diff: walk}
                 }
                 return {...state}
-
+            
             case "mouseUp": 
                 if(state.isDrag){
-
                     if(state.diff < 0){
-                        if(state.conter < checkResize() ){
+                        if(state.conter < checkResize()){
                             state.conter += .5
                         }
                     }
-                    else if (state.diff > 0){
+                    else if (state.diff  > 0){
                         if(state.conter > 0){
                             state.conter -= .5
-                        } 
+                        }
                     }
                     else {
-                        return {...state}
+                        
                     }
-                    return {...state, isDrag: false, diff: 0, startScroll: 0, startX: 0}
+
+                    return {...state, isDrag : false, startX: 0, currentX: 0 , diff: 0, startScroll: 0}
                 }
                 return {...state}
         }
@@ -110,9 +115,11 @@ const ImageAdvert = () => {
         maxConter : Math.ceil(listImg.length /  4 ) ,
         colorButton : {}, 
         isDrag: false,
-        startX: 0,
-        startScroll: 0, 
+        startX: 0, 
+        startScroll: 0,
+        currentX: 0,
         diff: 0
+      
     })
     
     const RightButton = () => {

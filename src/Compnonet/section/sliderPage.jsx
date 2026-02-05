@@ -61,7 +61,7 @@ const SliderPage = () => {
             case "mouseDown" : 
                 const {client} = action.payload
                 const {slider} = action.payload
-                slider.style.scrollBehavior = 'auto'
+                // slider.style.scrollBehavior = 'auto'
                 return {...state, isDrag: true,  startX: client, startScroll: slider.scrollLeft}
 
             case "mosueMove": 
