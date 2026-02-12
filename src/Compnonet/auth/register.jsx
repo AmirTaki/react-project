@@ -4,17 +4,24 @@ import InputComponent from "./inputComponent"
 import CheckComponent from "./checkBoxComponent"
 import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
-
-
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
+    const navigate = useNavigate();
 
-    const submitRegiser = (e) => {
-
+    const submitRegiser =  async (e) => {
+        e.preventDefault();
+      
         if(state.inputStatus[2]){
             if(state.inputStatus[3]){
                 if(state.inputStatus[4]){
                     dispatch({ type : "Successful", payload : true })
+              
+                    await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputValue).then((response) => {
+                        response;
+                        // navigate('/');
+                    })
                 }
                 else {
                     dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
@@ -27,14 +34,15 @@ const Register = () => {
         else {
             dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
         }
-        e.preventDefault()
+       
         // state.inputStatus[2] ? (state.inputStatus[3]  ? (state.inputStatus[4] ? ( dispatch({ type : "Successful", payload : true })) 
         // : (dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})))
         // : (dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})) )
         // : (dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }}))
                 
     }
-    
+
+
     const {state, dispatch,} =  useContext(ValidationForm)
     return(
         <div className={`${state.registerPage ? "left-0! duration-500 scale-100! opacity-100!" : " opacity-0! scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
