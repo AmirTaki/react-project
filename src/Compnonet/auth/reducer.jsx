@@ -14,14 +14,12 @@ export const reducer = (state, action) => {
             const {value} = action.payload.target;
             return {...state, 
                 inputRegister : {...state.inputRegister, [name]: value},
-                // moveLabel: {...state.moveLabel, [name] : value.length > 0 ? true : false}
             }
         // focus
         case "focus": 
             return {...state, moveLabel: {...state.moveLabel, [action.payload.name]: true}}
         
         case "blur": 
-            console.log(state.inputRegister[action.payload.name].length)
             return {...state,  moveLabel: {...state.moveLabel,  [action.payload.name]: state.inputRegister[action.payload.name].length > 0 ? true : false}}
 
         // username register
@@ -41,8 +39,25 @@ export const reducer = (state, action) => {
                     inputStatus : {...state.inputStatus , ['username'] : true}
                 }
             }
-
-
+        
+        // email register
+        case "emailCheck":
+            const  email = state.inputRegister['email']
+            if(!email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['email'] : 'Write full Email'}, 
+                    inputStatus : {...state.inputStatus , ['email'] : false}
+                } 
+            }
+            else { 
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['email'] : 'ok'}, 
+                    inputStatus : {...state.inputStatus , ['email'] : true}
+                }
+                
+            }
     
         // case "moveLabel" : 
         //     const {index} =  action.payload
@@ -76,23 +91,23 @@ export const reducer = (state, action) => {
             }
         return {...state}
         // // check email
-        // case "checkEmail" : 
-        //     if(state.inputValue[action.payload]){
-        //         if(!state.inputValue[action.payload].match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-        //             return{...state, 
-        //                 inputWarning : {...state.inputWarning, [action.payload] : 'Write full Email'}, 
-        //                 inputStatus : {...state.inputStatus ,[action.payload] : false}
-        //             }
-        //         }
-        //         else {
-        //             return{...state, 
-        //                 inputWarning : {...state.inputWarning ,[action.payload] : 'ok'}, 
-        //                 inputStatus : {...state.inputStatus ,[action.payload] : true}
-        //             }
-        //         }
-        //     }
+        case "checkEmail" : 
+            if(state.inputValue[action.payload]){
+                if(!state.inputValue[action.payload].match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+                    return{...state, 
+                        inputWarning : {...state.inputWarning, [action.payload] : 'Write full Email'}, 
+                        inputStatus : {...state.inputStatus ,[action.payload] : false}
+                    }
+                }
+                else {
+                    return{...state, 
+                        inputWarning : {...state.inputWarning ,[action.payload] : 'ok'}, 
+                        inputStatus : {...state.inputStatus ,[action.payload] : true}
+                    }
+                }
+            }
 
-        // return {...state}
+        return {...state}
         // // check password
         // case "checkPassword" : 
         //     if(state.inputValue[action.payload]){

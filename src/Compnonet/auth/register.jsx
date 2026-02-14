@@ -55,16 +55,15 @@ const Register = () => {
                 <InputComponent 
                     icon = {"bi bi-person"} 
                     label = {'Username'}
-                   
+    
                     onChange = {(event)=> {
                         dispatch({type : 'inputRegister', payload: event });
                         dispatch({type: 'usernameCheck', payload: event})
                     }}
-                   
-                    onFocus={() => {dispatch({type : "focus", payload : {name: 'username'}})}}
-                    
+                    onFocus={() => {dispatch({type : "focus", payload : {name: 'username'}})}} 
+    
                     onBlur={() => {dispatch({type : "blur", payload : {name: 'username'}})}}
-                   
+    
                     type={'text'}
                     id = {"textRegister"}
                     name = {'username'}
@@ -77,14 +76,20 @@ const Register = () => {
                     icon = {"bi bi-envelope"} 
                     label = {'Email'}
                     name = {"email"}
-                    onChange = {(event)=> {dispatch({type : 'inputRegister', payload : event })}}
-                    onFocus={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : true}})}}
-                    onBlur={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : false}})}}
+                    
+                    onChange = {(event)=> {
+                        dispatch({type : 'inputRegister', payload: event });
+                        dispatch({type: 'emailCheck', payload: event})
+                    }}
+                    onFocus={() => {dispatch({type : "focus", payload : {name: 'email'}})}} 
+    
+                    onBlur={() => {dispatch({type : "blur", payload : {name: 'email'}})}}
+                   
                     type={'email'}
                     id = {"emailRegister"}
-                    MoveLabel={state.moveLabel[3]}
-                    inputStatus={state.inputStatus[3]}     
-                    inputWarning={state.inputWarning[3]}              
+                    MoveLabel={state.moveLabel['email']}
+                    inputStatus={state.inputStatus['email']}     
+                    inputWarning={state.inputWarning['email']}              
                 />
                 {/*  password Registration */}
                 <InputComponent 
