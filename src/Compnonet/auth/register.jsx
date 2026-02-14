@@ -96,16 +96,23 @@ const Register = () => {
                     icon = {"bi bi-lock"} 
                     label = {'Password'}
                     name = {'password'}
-                    onChange = {(event)=> {dispatch({type : 'inputRegister', payload : event })}}
-                    onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
-                    onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}
+                    
+                    onChange = {(event)=> {
+                        dispatch({type : 'inputRegister', payload: event });
+                        dispatch({type: 'passwordCheck', payload: event})
+                    }}
+                    onFocus={() => {dispatch({type : "focus", payload : {name: 'password'}})}} 
+    
+                    onBlur={() => {dispatch({type : "blur", payload : {name: 'password'}})}}
+                   
                     type={state.checkBox[1] ? "text" : "password"}
                     id = {"passwordRegister"}
-                    MoveLabel={state.moveLabel[4]}
-                    inputStatus={state.inputStatus[4]}     
-                    inputWarning={state.inputWarning[4]}               
+                    MoveLabel={state.moveLabel['password']}
+                    inputStatus={state.inputStatus['password']}     
+                    inputWarning={state.inputWarning['password']}               
                 />
                 {/* checkbox Registration */}
+
                 <CheckComponent 
                     id = {"checkboxRegister"}
                     onChange = {(e) => {dispatch({type : "checkBox", payload : {number : 1 , flag : e.target.checked}})}} 
