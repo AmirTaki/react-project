@@ -55,11 +55,12 @@ const Register = () => {
                 <InputComponent 
                     icon = {"bi bi-person"} 
                     label = {'Username'}
-                    onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 2, value : e.target.value} })}}
+                    onChange = {(event)=> {dispatch({type : 'inputRegister', payload : event })}}
                     onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
                     onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
                     type={'text'}
                     id = {"textRegister"}
+                    name = {'username'}
                     MoveLabel={state.moveLabel[2]}
                     inputStatus={state.inputStatus[2]}     
                     inputWarning={state.inputWarning[2]}               
@@ -68,7 +69,8 @@ const Register = () => {
                 <InputComponent 
                     icon = {"bi bi-envelope"} 
                     label = {'Email'}
-                    onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 3, value : e.target.value} })}}
+                    name = {"email"}
+                    onChange = {(event)=> {dispatch({type : 'inputRegister', payload : event })}}
                     onFocus={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : true}})}}
                     onBlur={() => {dispatch({type : "moveLabel", payload : {index : 3, bool : false}})}}
                     type={'email'}
@@ -81,7 +83,8 @@ const Register = () => {
                 <InputComponent 
                     icon = {"bi bi-lock"} 
                     label = {'Password'}
-                    onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 4, value : e.target.value} })}}
+                    name = {'password'}
+                    onChange = {(event)=> {dispatch({type : 'inputRegister', payload : event })}}
                     onFocus={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : true}})}}
                     onBlur={() => {dispatch({type : "moveLabel", payload : {index : 4, bool : false}})}}
                     type={state.checkBox[1] ? "text" : "password"}

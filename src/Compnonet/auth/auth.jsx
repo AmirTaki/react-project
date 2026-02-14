@@ -10,16 +10,18 @@ const Validation = () => {
     
     const [state, dispatch] = useReducer(reducer, {
         page : false,
-        moveLabel : {},
         registerPage  : false,
+        inputRegister : {},
+        
+        moveLabel : {},
         checkBox : {},
-        inputValue : {},
+        // inputValue : {},
         inputWarning : {},
         inputStatus : {},
         Successful : false,
         PanelAdmin : false
     })
-
+    console.log(state.inputRegister)
     useEffect(() => {
         
         dispatch({ type : "Successful", payload : false })

@@ -1,4 +1,4 @@
-const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel, inputStatus, inputWarning, label}) => {
+const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel, inputStatus, inputWarning, label, name}) => {
     return (
         <>
         {/* username Registration */}
@@ -13,10 +13,12 @@ const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel,
                     <span><i className={icon}></i></span>
                 </div>
                 <input
+                    name = {name}
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
-                    type={type}  id  = {id} 
+                    type={type}  
+                    id  = {id} 
                     className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 bg-transparent! "
                 />
 
