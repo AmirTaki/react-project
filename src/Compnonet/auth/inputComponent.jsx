@@ -13,6 +13,7 @@ const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel,
                     <span><i className={icon}></i></span>
                 </div>
                 <input
+                    
                     name = {name}
                     onChange={onChange}
                     onFocus={onFocus}

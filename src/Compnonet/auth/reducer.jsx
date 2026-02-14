@@ -14,8 +14,16 @@ export const reducer = (state, action) => {
             const {value} = action.payload.target;
             return {...state, 
                 inputRegister : {...state.inputRegister, [name]: value},
-                moveLabel: {...state.moveLabel, [name] : value.length > 0 ? true : false}
+                // moveLabel: {...state.moveLabel, [name] : value.length > 0 ? true : false}
             }
+        // focus
+        case "focus": 
+            return {...state, moveLabel: {...state.moveLabel, [action.payload.name]: true}}
+        
+        case "blur": 
+            console.log(state.inputRegister[action.payload.name].length)
+            return {...state,  moveLabel: {...state.moveLabel,  [action.payload.name]: state.inputRegister[action.payload.name].length > 0 ? true : false}}
+
         // username register
         case "usernameCheck": 
             const  username = state.inputRegister['username']
@@ -36,10 +44,10 @@ export const reducer = (state, action) => {
 
 
     
-        case "moveLabel" : 
-            const {index} =  action.payload
-            const {bool}  = action.payload
-            return{...state, moveLabel : {...state.moveLabel, [index] : bool}}
+        // case "moveLabel" : 
+        //     const {index} =  action.payload
+        //     const {bool}  = action.payload
+        //     return{...state, moveLabel : {...state.moveLabel, [index] : bool}}
         
 
         case "checkBox":

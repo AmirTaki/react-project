@@ -61,9 +61,9 @@ const Register = () => {
                         dispatch({type: 'usernameCheck', payload: event})
                     }}
                    
-                    onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
-                   
-                    onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
+                    onFocus={() => {dispatch({type : "focus", payload : {name: 'username'}})}}
+                    
+                    onBlur={() => {dispatch({type : "blur", payload : {name: 'username'}})}}
                    
                     type={'text'}
                     id = {"textRegister"}
