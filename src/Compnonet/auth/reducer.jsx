@@ -20,7 +20,7 @@ export const reducer = (state, action) => {
             return {...state, moveLabel: {...state.moveLabel, [action.payload.name]: true}}
         
         case "blur": 
-            return {...state,  moveLabel: {...state.moveLabel,  [action.payload.name]: state.inputRegister[action.payload.name].length > 0 ? true : false}}
+            return {...state,  moveLabel: {...state.moveLabel,  [action.payload.name]: state.inputRegister[action.payload.name]?.length > 0 ? true : false}}
 
         // username register
         case "usernameCheck": 
@@ -75,19 +75,33 @@ export const reducer = (state, action) => {
                     inputStatus : {...state.inputStatus , ['password'] : true}
                 }
             }
-    
-        // case "moveLabel" : 
-        //     const {index} =  action.payload
-        //     const {bool}  = action.payload
-        //     return{...state, moveLabel : {...state.moveLabel, [index] : bool}}
-        
-
+        // checkBox
         case "checkBox":
             const {number} =  action.payload
             const {flag}  = action.payload
             return {...state, checkBox : {...state.checkBox, [number] :flag } }
         
+        // submit register
+        case "submitRegister": 
+            const event = action.payload;
+            event.preventDefault();
+            if(state.inputStatus['username']){
 
+            }
+            else {
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['username']: "Username is requierd"},
+                    inputStatus : {...state.inputStatus , ['username'] : false}
+   
+                }
+            }
+
+
+           return {...state}
+
+
+        
 
         // case "checkInputLogin" :
         //     if(state.inputValue[action.payload]){

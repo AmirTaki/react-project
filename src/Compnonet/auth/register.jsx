@@ -121,7 +121,8 @@ const Register = () => {
                 />
                 {/* button register */}
                 <ButtonComponent 
-                    onClick={(e) => {submitRegiser(e)}}
+                    onClick={(event) => {dispatch({type: 'submitRegister', payload: event})}}
+                    // onClick={(e) => {submitRegiser(e)}}
                     value = {'Register'}
                 />
                 {/* move register to login */}

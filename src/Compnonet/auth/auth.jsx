@@ -12,12 +12,12 @@ const Validation = () => {
         page : false,
         registerPage  : false,
         inputRegister : {},
-        
         moveLabel : {},
         checkBox : {},
-        // inputValue : {},
         inputWarning : {},
         inputStatus : {},
+        
+        // inputValue : {},
         Successful : false,
         PanelAdmin : false
     })
