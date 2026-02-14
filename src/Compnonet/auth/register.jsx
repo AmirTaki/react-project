@@ -43,7 +43,7 @@ const Register = () => {
     }
 
 
-    const {state, dispatch,} =  useContext(ValidationForm)
+    const {state, dispatch} =  useContext(ValidationForm)
     return(
         <div className={`${state.registerPage ? "left-0! duration-500 scale-100! opacity-100!" : " opacity-0! scale-0! left-100! duration-500"}  w-[100%] h-[100%] absolute! top-12`}>
             <h2 className="text-3xl text-[#162938] text-center">Registration</h2>
@@ -55,15 +55,22 @@ const Register = () => {
                 <InputComponent 
                     icon = {"bi bi-person"} 
                     label = {'Username'}
-                    onChange = {(event)=> {dispatch({type : 'inputRegister', payload : event })}}
+                   
+                    onChange = {(event)=> {
+                        dispatch({type : 'inputRegister', payload: event });
+                        dispatch({type: 'usernameCheck', payload: event})
+                    }}
+                   
                     onFocus={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : true}})}}
+                   
                     onBlur={() => {dispatch({type : "moveLabel", payload : {index : 2, bool : false}})}}
+                   
                     type={'text'}
                     id = {"textRegister"}
                     name = {'username'}
                     MoveLabel={state.moveLabel[2]}
-                    inputStatus={state.inputStatus[2]}     
-                    inputWarning={state.inputWarning[2]}               
+                    inputStatus={state.inputStatus['username']}     
+                    inputWarning={state.inputWarning['username']}               
                 />
                 {/* email Registration */}
                 <InputComponent 

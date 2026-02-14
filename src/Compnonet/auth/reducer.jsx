@@ -15,7 +15,26 @@ export const reducer = (state, action) => {
             return {...state, 
                 inputRegister : {...state.inputRegister, [name]: value}
             }
+        // username register
+        case "usernameCheck": 
+            const  username = state.inputRegister['username']
+            if(!username.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['username'] : 'Write full Name'}, 
+                    inputStatus : {...state.inputStatus , ['username'] : false}
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['username'] : 'ok'}, 
+                    inputStatus : {...state.inputStatus , ['username'] : true}
+                }
+            }
 
+
+    
         case "moveLabel" : 
             const {index} =  action.payload
             const {bool}  = action.payload
@@ -27,24 +46,26 @@ export const reducer = (state, action) => {
             const {flag}  = action.payload
             return {...state, checkBox : {...state.checkBox, [number] :flag } }
         
-  
         // check username
-        // case "checkUsername": 
-        //     if(state.inputValue[action.payload]){
-        //         if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
-        //             return{...state, 
-        //                 inputWarning : {...state.inputWarning, [action.payload] : 'Write full Name'}, 
-        //                 inputStatus : {...state.inputStatus , [action.payload] : false}
-        //             }
-        //         }
-        //         else {
-        //             return{...state,
-        //                 inputWarning : {...state.inputWarning, [action.payload] : 'ok'},
-        //                 inputStatus : { ...state.inputStatus ,[action.payload] : true}
-        //             }
-        //         }
-        //     }
-        // return {...state}
+        case "55": 
+
+
+
+            if(state.inputValue[action.payload]){
+                if( !state.inputValue[action.payload].match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+                    return{...state, 
+                        inputWarning : {...state.inputWarning, [action.payload] : 'Write full Name'}, 
+                        inputStatus : {...state.inputStatus , [action.payload] : false}
+                    }
+                }
+                else {
+                    return{...state,
+                        inputWarning : {...state.inputWarning, [action.payload] : 'ok'},
+                        inputStatus : { ...state.inputStatus ,[action.payload] : true}
+                    }
+                }
+            }
+        return {...state}
         // // check email
         // case "checkEmail" : 
         //     if(state.inputValue[action.payload]){

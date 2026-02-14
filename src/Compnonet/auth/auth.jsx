@@ -21,24 +21,24 @@ const Validation = () => {
         Successful : false,
         PanelAdmin : false
     })
-    console.log(state.inputRegister)
-    useEffect(() => {
+  
+    // useEffect(() => {
         
-        dispatch({ type : "Successful", payload : false })
-        dispatch({ type : "PanelAdmin", payload : false })
+    //     dispatch({ type : "Successful", payload : false })
+    //     dispatch({ type : "PanelAdmin", payload : false })
         
-        // login
-        // dispatch({type : 'checkEmail', payload : 0})
-        // dispatch({type : 'checkPassword', payload : 1})
-        dispatch({type : "checkInputLogin", payload : 0})
-        dispatch({type : "checkInputLogin", payload : 1})
+    //     // login
+    //     // dispatch({type : 'checkEmail', payload : 0})
+    //     // dispatch({type : 'checkPassword', payload : 1})
+    //     dispatch({type : "checkInputLogin", payload : 0})
+    //     dispatch({type : "checkInputLogin", payload : 1})
 
 
-        // register
-        dispatch({type : 'checkUsername', payload : 2})
-        dispatch({type : 'checkEmail', payload : 3})
-        dispatch({type : 'checkPassword', payload : 4})
-    }, [state.inputValue])
+    //     // register
+    //     dispatch({type : 'checkUsername', payload : 2})
+    //     dispatch({type : 'checkEmail', payload : 3})
+    //     dispatch({type : 'checkPassword', payload : 4})
+    // }, [state.inputValue])
 
 
     return (
