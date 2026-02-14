@@ -10,12 +10,12 @@ import { useNavigate } from "react-router-dom"
 const Register = () => {
     const navigate = useNavigate();
 
-    const submitRegiser =  async (e) => {
-        e.preventDefault();
+    const submitRegiser =  async (event) => {
+        event.preventDefault();
       
-        if(state.inputStatus[2]){
-            if(state.inputStatus[3]){
-                if(state.inputStatus[4]){
+        if(state.inputStatus['username']){
+            if(state.inputStatus['email']){
+                if(state.inputStatus['password']){
                     dispatch({ type : "Successful", payload : true })
               
                     await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputValue).then((response) => {
@@ -24,22 +24,16 @@ const Register = () => {
                     })
                 }
                 else {
-                    dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})
+                    dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
                 }
             }
             else {
-                dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})
+                dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
             }
         }
         else {
-            dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }})
-        }
-       
-        // state.inputStatus[2] ? (state.inputStatus[3]  ? (state.inputStatus[4] ? ( dispatch({ type : "Successful", payload : true })) 
-        // : (dispatch({type : 'warning', payload : {index : 4, warning : "Password is requierd" }})))
-        // : (dispatch({type : 'warning', payload : {index : 3, warning : "Email is requierd" }})) )
-        // : (dispatch({type : 'warning', payload : {index : 2, warning : "Username is requierd" }}))
-                
+            dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
+        }                
     }
 
 
@@ -121,8 +115,8 @@ const Register = () => {
                 />
                 {/* button register */}
                 <ButtonComponent 
-                    onClick={(event) => {dispatch({type: 'submitRegister', payload: event})}}
-                    // onClick={(e) => {submitRegiser(e)}}
+                    // onClick={(event) => {dispatch({type: 'submitRegister', payload: event})}}
+                    onClick={(event) => {submitRegiser(event)}}
                     value = {'Register'}
                 />
                 {/* move register to login */}

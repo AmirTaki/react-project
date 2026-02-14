@@ -86,7 +86,25 @@ export const reducer = (state, action) => {
             const event = action.payload;
             event.preventDefault();
             if(state.inputStatus['username']){
+                if(state.inputStatus['email']){
+                    if(state.inputStatus['password']){
 
+                    }
+                    else {
+                        return {
+                            ...state,
+                            inputWarning : {...state.inputWarning, ['password']: "Password is requierd"},
+                            inputStatus : {...state.inputStatus , ['password'] : false}
+                        }
+                    }
+                }
+                else {
+                    return {
+                        ...state,
+                        inputWarning : {...state.inputWarning, ['email']: "Email is requierd"},
+                        inputStatus : {...state.inputStatus , ['email'] : false}
+                    }
+                }
             }
             else {
                 return {
@@ -118,9 +136,11 @@ export const reducer = (state, action) => {
 
 
         case "warning" :
+            const {nameForm} = action.payload 
+            const {message} = action.payload
             return{...state, 
-                inputWarning : { ...state.inputWarning, [action.payload.index] : action.payload.warning}, 
-                inputStatus : {...state.inputStatus, [action.payload.index] : false}}
+                inputWarning : { ...state.inputWarning, [nameForm] : message}, 
+                inputStatus : {...state.inputStatus, [nameForm] : false}}
         
         case "Successful" : 
             return{ ...state, Successful : action.payload}
