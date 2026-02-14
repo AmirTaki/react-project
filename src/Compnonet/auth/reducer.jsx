@@ -13,7 +13,8 @@ export const reducer = (state, action) => {
             const {name} = action.payload.target;
             const {value} = action.payload.target;
             return {...state, 
-                inputRegister : {...state.inputRegister, [name]: value}
+                inputRegister : {...state.inputRegister, [name]: value},
+                moveLabel: {...state.moveLabel, [name] : value.length > 0 ? true : false}
             }
         // username register
         case "usernameCheck": 

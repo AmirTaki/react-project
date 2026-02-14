@@ -68,7 +68,7 @@ const Register = () => {
                     type={'text'}
                     id = {"textRegister"}
                     name = {'username'}
-                    MoveLabel={state.moveLabel[2]}
+                    MoveLabel={state.moveLabel['username']}
                     inputStatus={state.inputStatus['username']}     
                     inputWarning={state.inputWarning['username']}               
                 />
