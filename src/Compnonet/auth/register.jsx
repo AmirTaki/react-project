@@ -16,56 +16,70 @@ const Register = () => {
     
 
    
-    // const submitRegiser =  async (event) => {
-    //     event.preventDefault();
-      
-    //     if(state.inputStatus['username']){
-    //         if(state.inputStatus['email']){
-    //             if(state.inputStatus['password']){
-    //                 dispatch({ type : "Successful", payload : true })
-              
-    //                 await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
-    //                     response;
-    //                     // navigate('/');
-    //                 })
-    //             }
-    //             else {
-    //                 dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
-    //             }
-    //         }
-    //         else {
-    //             dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
-    //         }
-    //     }
-    //     else {
-    //         dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
-    //     }                
-    // }
-
-    
     const submitRegiser =  async (event) => {
         event.preventDefault();
-        try{
-            await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
-                response;
-                // navigate('/');
-            })
-        }
-        catch(error){
-            if(error.message == "Request failed with status code 422"){
-                dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
+      
+        if(state.inputStatus['username']){
+            if(state.inputStatus['email']){
+                if(state.inputStatus['password']){
+                 
+                    try{
+                            await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
+                                response;
+                                // navigate('/');
+                            })
+                            dispatch({ type : "Successful", payload : true })
+                        }
+                        catch(error){
+                            if(error.message == "Request failed with status code 422"){
+                                dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
+                                dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
+                                dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
+                            }
+                            else if (error.message == "Request failed with status code 500"){
+                                dispatch({type : 'warning', payload : {nameForm : 'email', message : "The email is duplicate." }})
+                            }
+                            console.error("خطا در شبکه یا CORS:", error.message);
+                        }
+          
+                }
+                else {
+                    dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
+                }
+            }
+            else {
                 dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
-                dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
             }
-            else if (error.message == "Request failed with status code 500"){
-                dispatch({type : 'warning', payload : {nameForm : 'email', message : "The email is duplicate." }})
-            }
-            console.error("خطا در شبکه یا CORS:", error.message);
         }
+        else {
+            dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
+        }                
+    }
+
+    
+    // const submitRegiser =  async (event) => {
+    //     event.preventDefault();
+    //     try{
+    //         await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
+    //             response;
+    //             // navigate('/');
+    //         })
+    //     }
+    //     catch(error){
+    //         if(error.message == "Request failed with status code 422"){
+    //             dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
+    //             dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
+    //             dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
+    //         }
+    //         else if (error.message == "Request failed with status code 500"){
+    //             dispatch({type : 'warning', payload : {nameForm : 'email', message : "The email is duplicate." }})
+    //         }
+    //         console.error("خطا در شبکه یا CORS:", error.message);
+    //     }
    
 
 
-    }
+    // }
 
 
 
