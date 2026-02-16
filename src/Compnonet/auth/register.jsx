@@ -9,13 +9,12 @@ import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
 
 const Register = () => {
     const navigate = useNavigate();
+    
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const error = queryParams.get("error");
 
-    
-
-   
+     
     const submitRegiser =  async (event) => {
         event.preventDefault();
       

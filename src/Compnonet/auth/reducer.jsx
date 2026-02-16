@@ -59,7 +59,7 @@ export const reducer = (state, action) => {
                 
             }
         // passwor register
-        case "passwordCheck": 
+        case "passwordCheck":          
             const  password = state.inputRegister['password']
             if(!password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)){
                 return {
@@ -75,6 +75,7 @@ export const reducer = (state, action) => {
                     inputStatus : {...state.inputStatus , ['password'] : true}
                 }
             }
+
         // checkBox
         case "checkBox":
             const {number} =  action.payload
