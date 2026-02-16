@@ -5,36 +5,61 @@ import CheckComponent from "./checkBoxComponent"
 import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
 
 const Register = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const error = queryParams.get("error");
 
+    
+
+   
+    // const submitRegiser =  async (event) => {
+    //     event.preventDefault();
+      
+    //     if(state.inputStatus['username']){
+    //         if(state.inputStatus['email']){
+    //             if(state.inputStatus['password']){
+    //                 dispatch({ type : "Successful", payload : true })
+              
+    //                 await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
+    //                     response;
+    //                     // navigate('/');
+    //                 })
+    //             }
+    //             else {
+    //                 dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
+    //             }
+    //         }
+    //         else {
+    //             dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
+    //         }
+    //     }
+    //     else {
+    //         dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
+    //     }                
+    // }
+
+    
     const submitRegiser =  async (event) => {
         event.preventDefault();
-      
-        if(state.inputStatus['username']){
-            if(state.inputStatus['email']){
-                if(state.inputStatus['password']){
-                    dispatch({ type : "Successful", payload : true })
-              
-                    await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputValue).then((response) => {
-                        response;
-                        // navigate('/');
-                    })
-                }
-                else {
-                    dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
-                }
-            }
-            else {
-                dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
-            }
+        try{
+            await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
+                response;
+                // navigate('/');
+            })
         }
-        else {
-            dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
-        }                
+        catch(error){
+            
+            console.error("خطا در شبکه یا CORS:", error.message);
+        }
+   
+
+
     }
+
 
 
     const {state, dispatch} =  useContext(ValidationForm)

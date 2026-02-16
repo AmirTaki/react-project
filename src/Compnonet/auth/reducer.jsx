@@ -81,44 +81,17 @@ export const reducer = (state, action) => {
             const {flag}  = action.payload
             return {...state, checkBox : {...state.checkBox, [number] :flag } }
         
-        // submit register
-        case "submitRegister": 
-            const event = action.payload;
-            event.preventDefault();
-            if(state.inputStatus['username']){
-                if(state.inputStatus['email']){
-                    if(state.inputStatus['password']){
-
-                    }
-                    else {
-                        return {
-                            ...state,
-                            inputWarning : {...state.inputWarning, ['password']: "Password is requierd"},
-                            inputStatus : {...state.inputStatus , ['password'] : false}
-                        }
-                    }
-                }
-                else {
-                    return {
-                        ...state,
-                        inputWarning : {...state.inputWarning, ['email']: "Email is requierd"},
-                        inputStatus : {...state.inputStatus , ['email'] : false}
-                    }
-                }
-            }
-            else {
-                return {
-                    ...state,
-                    inputWarning : {...state.inputWarning, ['username']: "Username is requierd"},
-                    inputStatus : {...state.inputStatus , ['username'] : false}
-   
-                }
-            }
-
-
-           return {...state}
-
-
+        //  warning message
+        case "warning" :
+            const {nameForm} = action.payload 
+            const {message} = action.payload
+            return{...state, 
+                inputWarning : { ...state.inputWarning, [nameForm] : message}, 
+                inputStatus : {...state.inputStatus, [nameForm] : false}}
+        
+        //  successful in register
+        case "Successful" : 
+            return{ ...state, Successful : action.payload}
         
 
         // case "checkInputLogin" :
@@ -129,22 +102,12 @@ export const reducer = (state, action) => {
         //                 inputStatus : { ...state.inputStatus, [action.payload] : true}}
         //         }
         //         else {
-        //             return { ...state, inputStatus : { ...state.inputStatus, [action.payload] : false}}
-        //         }
+            //             return { ...state, inputStatus : { ...state.inputStatus, [action.payload] : false}}
+            //         }
         //     }
         //     return {...state, }
 
 
-        case "warning" :
-            const {nameForm} = action.payload 
-            const {message} = action.payload
-            return{...state, 
-                inputWarning : { ...state.inputWarning, [nameForm] : message}, 
-                inputStatus : {...state.inputStatus, [nameForm] : false}}
-        
-        case "Successful" : 
-            return{ ...state, Successful : action.payload}
-        
         case "PanelAdmin" : 
             return {...state, PanelAdmin : action.payload}
 
