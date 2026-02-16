@@ -52,13 +52,14 @@ const Register = () => {
             })
         }
         catch(error){
-            console.log(error.message);
             if(error.message == "Request failed with status code 422"){
                 dispatch({type : 'warning', payload : { nameForm: 'password', message : "Password is requierd" }})
                 dispatch({type : 'warning', payload : {nameForm : 'email', message : "Email is requierd" }})
                 dispatch({type : 'warning', payload : {nameForm : 'username', message : "Username is requierd" }})
             }
-            
+            else if (error.message == "Request failed with status code 500"){
+                dispatch({type : 'warning', payload : {nameForm : 'email', message : "The email is duplicate." }})
+            }
             console.error("خطا در شبکه یا CORS:", error.message);
         }
    
