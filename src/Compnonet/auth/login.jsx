@@ -39,12 +39,11 @@ const Login = () => {
                   
                     onChange={(event) => {
                         dispatch({type: 'inputRegister', payload: event});
+                        dispatch({type: 'checkEmailLogin', payload: event})
                     }}
                     onFocus={() => {dispatch({type : "focus", payload : {name: 'emailLogin'}})}} 
     
                     onBlur={() => {dispatch({type : "blur", payload : {name: 'emailLogin'}})}}
-
-                    
 
                     name = {'emailLogin'}
                     type={'email'}

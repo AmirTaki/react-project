@@ -94,8 +94,25 @@ export const reducer = (state, action) => {
         case "Successful" : 
             return{ ...state, Successful : action.payload}
         
-        
+        // email login
+        case "checkEmailLogin": 
+            const  emailLog = state.inputRegister['emailLogin']
+            if(emailLog.length < 1){
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['emailLogin'] : 'Email is requierd'}, 
+                    inputStatus : {...state.inputStatus , ['emailLogin'] : false}
+                } 
+            }
+            else {
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['emailLogin'] : 'ok'}, 
+                    inputStatus : {...state.inputStatus , ['emailLogin'] : true}
+                }
+            }
 
+            
 
         // case "checkInputLogin" :
         //     if(state.inputValue[action.payload]){
