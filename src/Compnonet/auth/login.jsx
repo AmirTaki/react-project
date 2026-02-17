@@ -7,24 +7,25 @@ import MessageTransfer from "./messageTransfer"
 
 
 const Login = () => {
+    const {state, dispatch} =  useContext(ValidationForm)
+    
     const submitLogin = (e) => {
-        if(state.inputStatus[0]){
-            if(state.inputStatus[1]){
+        console.log('ok')
+        e.preventDefault()
+
+        if(state.inputStatus["emailLogin"]){
+            if(state.inputStatus["passwordLogin"]){
                 dispatch({ type : "PanelAdmin", payload : true })
             }
             else {
-                dispatch({type : 'warning', payload : {index : 1, warning : "Password is requierd" }})
+                dispatch({type : 'warning', payload : {nameForm : "passwordLogin", message : "Password is requierd" }})
             }
         }
         else {
-            dispatch({type : 'warning', payload : {index : 0, warning : "Email is requierd" }})
+            dispatch({type : 'warning', payload : {nameForm : "emailLogin", message : "Email is requierd" }})
         }
-        e.preventDefault()
-
-
     }
-    const {state, dispatch,   } =  useContext(ValidationForm)
-    console.log(state.inputRegister)
+    
     return(
         <div className={`${state.registerPage ? " right-100!  duration-500! scale-0! opacity-0!" : " opacity-100! scale-100!  right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
             <h2 className="text-3xl text-[#162938] text-center">Login</h2>
