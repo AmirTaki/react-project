@@ -33,6 +33,7 @@ const Login = () => {
         try{
             await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
                 response;
+                dispatch({ type : "PanelAdmin", payload : true })
             })
         }
         catch(error){
@@ -43,6 +44,11 @@ const Login = () => {
             else if (error.message == "Request failed with status code 500"){
                 dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "The email entered is incorrect." }})
                 dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+            }
+            else if(error.message == "Request failed with status code 300"){
+                dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Your account is blocked." }})
+                // dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+
             }
             console.error("خطا در شبکه یا CORS:", error.message);
         }
