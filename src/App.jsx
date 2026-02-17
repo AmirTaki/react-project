@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter,  Route, Routes } from 'react-router-dom'
 import Validation from './Compnonet/auth/auth'
 import Home from './Home'
-
+import PanelAdmin from './Compnonet/panelAdmin'
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path = "/" element = {<Home />} ></Route>
         <Route path = "/validation" element = {<Validation />} ></Route>
+        <Route path = "/PanelAdmin" element = {<PanelAdmin />} ></Route>
       </Routes>
 
     </BrowserRouter>

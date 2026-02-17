@@ -3,6 +3,7 @@ import Header from "./Compnonet/header/header";
 
 import Footer from "./Compnonet/footer/footer";
 import Section from "./Compnonet/section/section";
+import PanelAdmin from "./Compnonet/panelAdmin";
 export const GlobalHearts = createContext()
 
 const Home = () => {

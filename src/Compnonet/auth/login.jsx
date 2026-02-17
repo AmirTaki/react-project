@@ -5,11 +5,13 @@ import CheckComponent from "./checkBoxComponent"
 import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
 import axios from "axios"
-
-
+import { useNavigate } from "react-router-dom"
+import PanelAdmin from "../panelAdmin"
+;
 const Login = () => {
     const {state, dispatch} =  useContext(ValidationForm)
-    
+    const navigate =  useNavigate()
+
     // const submitLogin = (e) => {
     //     console.log('ok')
     //     e.preventDefault()
@@ -34,6 +36,7 @@ const Login = () => {
             await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
                 response;
                 dispatch({ type : "PanelAdmin", payload : true })
+                navigate('/PanelAdmin')
             })
         }
         catch(error){
