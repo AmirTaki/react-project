@@ -111,22 +111,24 @@ export const reducer = (state, action) => {
                     inputStatus : {...state.inputStatus , ['emailLogin'] : true}
                 }
             }
-
-            
-
-        // case "checkInputLogin" :
-        //     if(state.inputValue[action.payload]){
-        //         if(state.inputValue[action.payload].length > 0 ){
-        //             return { ...state,
-        //                 inputWarning : { ...state.inputWarning ,[action.payload] : ''},
-        //                 inputStatus : { ...state.inputStatus, [action.payload] : true}}
-        //         }
-        //         else {
-            //             return { ...state, inputStatus : { ...state.inputStatus, [action.payload] : false}}
-            //         }
-        //     }
-        //     return {...state, }
-
+        
+        // password Login 
+        case "checkPasswordLogin":
+            const passwordLog = state.inputRegister['passwordLogin']
+            if(passwordLog.length < 1){
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['passwordLogin'] : 'Password is requierd'}, 
+                    inputStatus : {...state.inputStatus , ['passwordLogin'] : false}
+                } 
+            }
+            else {
+                return {
+                    ...state,
+                    inputWarning : {...state.inputWarning, ['passwordLogin'] : 'ok'}, 
+                    inputStatus : {...state.inputStatus , ['passwordLogin'] : true}
+                }
+            }
 
         case "PanelAdmin" : 
             return {...state, PanelAdmin : action.payload}

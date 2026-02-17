@@ -57,14 +57,21 @@ const Login = () => {
                 <InputComponent 
                     icon = {"bi bi-lock"} 
                     label = {'Password'}
-                    onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 1, value : e.target.value} })}}
-                    onFocus={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : true}})}}
-                    onBlur={() => {dispatch({type : "moveLabel", payload : {index : 1, bool : false}})}}
+                   
+                    onChange = {(event)=> {
+                        dispatch({type : 'inputRegister', payload: event });
+                        dispatch({type: 'checkPasswordLogin', payload: event})
+                    }}
+                    onFocus={() => {dispatch({type : "focus", payload : {name: 'passwordLogin'}})}} 
+    
+                    onBlur={() => {dispatch({type : "blur", payload : {name: 'passwordLogin'}})}}
+                    
+                    name = {'passwordLogin'}
                     type={state.checkBox[0] ? "text" : "password"}
                     id = {"passwordLogin"}
-                    MoveLabel={state.moveLabel[1]}
-                    inputStatus={state.inputStatus[1]}     
-                    inputWarning={state.inputWarning[1]}               
+                    MoveLabel={state.moveLabel['passwordLogin']}
+                    inputStatus={state.inputStatus['passwordLogin']}     
+                    inputWarning={state.inputWarning['passwordLogin']}               
                 />
                 {/* checkbox login */}
                 <CheckComponent 
