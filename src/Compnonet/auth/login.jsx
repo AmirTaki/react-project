@@ -4,25 +4,43 @@ import InputComponent from "./inputComponent"
 import CheckComponent from "./checkBoxComponent"
 import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
+import axios from "axios"
 
 
 const Login = () => {
     const {state, dispatch} =  useContext(ValidationForm)
     
-    const submitLogin = (e) => {
-        console.log('ok')
-        e.preventDefault()
+    // const submitLogin = (e) => {
+    //     console.log('ok')
+    //     e.preventDefault()
 
-        if(state.inputStatus["emailLogin"]){
-            if(state.inputStatus["passwordLogin"]){
-                dispatch({ type : "PanelAdmin", payload : true })
-            }
-            else {
-                dispatch({type : 'warning', payload : {nameForm : "passwordLogin", message : "Password is requierd" }})
-            }
+    //     if(state.inputStatus["emailLogin"]){
+    //         if(state.inputStatus["passwordLogin"]){
+    //             dispatch({ type : "PanelAdmin", payload : true })
+    //         }
+    //         else {
+    //             dispatch({type : 'warning', payload : {nameForm : "passwordLogin", message : "Password is requierd" }})
+    //         }
+    //     }
+    //     else {
+    //         dispatch({type : 'warning', payload : {nameForm : "emailLogin", message : "Email is requierd" }})
+    //     }
+    // }
+
+    const submitLogin = async (e) => {
+        e.preventDefault();
+
+        try{
+            await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
+                response;
+            })
         }
-        else {
-            dispatch({type : 'warning', payload : {nameForm : "emailLogin", message : "Email is requierd" }})
+        catch(error){
+            if(error.message == "Request failed with status code 422"){
+                dispatch({type : 'warning', payload : { nameForm: 'passwordLogin', message : "Password is requierd" }})
+                dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Email is requierd" }})
+            }
+            console.error("خطا در شبکه یا CORS:", error.message);
         }
     }
     
