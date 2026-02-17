@@ -40,6 +40,10 @@ const Login = () => {
                 dispatch({type : 'warning', payload : { nameForm: 'passwordLogin', message : "Password is requierd" }})
                 dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Email is requierd" }})
             }
+            else if (error.message == "Request failed with status code 500"){
+                dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "The email entered is incorrect." }})
+                dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+            }
             console.error("خطا در شبکه یا CORS:", error.message);
         }
     }
