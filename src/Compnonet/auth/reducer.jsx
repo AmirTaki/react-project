@@ -94,6 +94,8 @@ export const reducer = (state, action) => {
         case "Successful" : 
             return{ ...state, Successful : action.payload}
         
+        
+
 
         // case "checkInputLogin" :
         //     if(state.inputValue[action.payload]){

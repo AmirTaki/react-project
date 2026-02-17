@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { ValidationForm } from "./auth"
 
 const SectionValidation = () => {
-      const {state, dispatch} =  useContext(ValidationForm)
+    const {state, dispatch} =  useContext(ValidationForm)
     return (<>
       {/* section login */}
         <div className={`

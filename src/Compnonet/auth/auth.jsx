@@ -16,10 +16,8 @@ const Validation = () => {
         checkBox : {},
         inputWarning : {},
         inputStatus : {},
-        
-        // inputValue : {},
         Successful : false,
-        PanelAdmin : false
+        PanelAdmin : false,        
     })
   
 

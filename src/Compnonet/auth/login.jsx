@@ -24,6 +24,7 @@ const Login = () => {
 
     }
     const {state, dispatch,   } =  useContext(ValidationForm)
+    console.log(state.inputRegister)
     return(
         <div className={`${state.registerPage ? " right-100!  duration-500! scale-0! opacity-0!" : " opacity-100! scale-100!  right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
             <h2 className="text-3xl text-[#162938] text-center">Login</h2>
@@ -35,14 +36,22 @@ const Login = () => {
                 <InputComponent 
                     icon = {"bi bi-envelope"} 
                     label = {'Email'}
-                    onChange = {(e)=> {dispatch({type : 'inputValue', payload : {index : 0, value : e.target.value} })}}
-                    onFocus={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : true}})}}
-                    onBlur={() => {dispatch({type : "moveLabel", payload : {index : 0, bool : false}})}}
+                  
+                    onChange={(event) => {
+                        dispatch({type: 'inputRegister', payload: event});
+                    }}
+                    onFocus={() => {dispatch({type : "focus", payload : {name: 'emailLogin'}})}} 
+    
+                    onBlur={() => {dispatch({type : "blur", payload : {name: 'emailLogin'}})}}
+
+                    
+
+                    name = {'emailLogin'}
                     type={'email'}
                     id = {"emailLogin"}
-                    MoveLabel={state.moveLabel[0]}
-                    inputStatus={state.inputStatus[0]}     
-                    inputWarning={state.inputWarning[0]}    
+                    MoveLabel={state.moveLabel['emailLogin']}
+                    inputStatus={state.inputStatus['emailLogin']}     
+                    inputWarning={state.inputWarning['emailLogin']}    
                 />
             
                 {/*  password login */}
