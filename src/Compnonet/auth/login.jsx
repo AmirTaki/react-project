@@ -12,50 +12,72 @@ const Login = () => {
     const {state, dispatch} =  useContext(ValidationForm)
     const navigate =  useNavigate()
 
-    // const submitLogin = (e) => {
-    //     console.log('ok')
-    //     e.preventDefault()
-
-    //     if(state.inputStatus["emailLogin"]){
-    //         if(state.inputStatus["passwordLogin"]){
-    //             dispatch({ type : "PanelAdmin", payload : true })
-    //         }
-    //         else {
-    //             dispatch({type : 'warning', payload : {nameForm : "passwordLogin", message : "Password is requierd" }})
-    //         }
-    //     }
-    //     else {
-    //         dispatch({type : 'warning', payload : {nameForm : "emailLogin", message : "Email is requierd" }})
-    //     }
-    // }
-
     const submitLogin = async (e) => {
-        e.preventDefault();
+        console.log('ok')
+        e.preventDefault()
 
-        try{
-            await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
-                response;
-                dispatch({ type : "PanelAdmin", payload : true })
-                navigate('/PanelAdmin')
-            })
+        if(state.inputStatus["emailLogin"]){
+            if(state.inputStatus["passwordLogin"]){
+                try{
+                    await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
+                        response;
+                        dispatch({ type : "PanelAdmin", payload : true })
+                        navigate('/PanelAdmin')       
+                    })
+                }
+                catch(error){
+                    if(error.message == "Request failed with status code 422"){
+                        dispatch({type : 'warning', payload : { nameForm: 'passwordLogin', message : "Password is requierd" }})
+                        dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Email is requierd" }})
+                    }
+                    else if (error.message == "Request failed with status code 500"){
+                        dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "The email entered is incorrect." }})
+                        dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+                    }
+                    else if(error.message == "Request failed with status code 300"){
+                        dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Your account is blocked." }})
+                        // dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+
+                    }
+                    console.error("خطا در شبکه یا CORS:", error.message);
+                }
+            }
+            else {
+                dispatch({type : 'warning', payload : {nameForm : "passwordLogin", message : "Password is requierd" }})
+            }
         }
-        catch(error){
-            if(error.message == "Request failed with status code 422"){
-                dispatch({type : 'warning', payload : { nameForm: 'passwordLogin', message : "Password is requierd" }})
-                dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Email is requierd" }})
-            }
-            else if (error.message == "Request failed with status code 500"){
-                dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "The email entered is incorrect." }})
-                dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
-            }
-            else if(error.message == "Request failed with status code 300"){
-                dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Your account is blocked." }})
-                // dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
-
-            }
-            console.error("خطا در شبکه یا CORS:", error.message);
+        else {
+            dispatch({type : 'warning', payload : {nameForm : "emailLogin", message : "Email is requierd" }})
         }
     }
+
+    // const submitLogin = async (e) => {
+    //     e.preventDefault();
+    
+    //     try{
+    //         await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
+    //             response;
+    //             dispatch({ type : "PanelAdmin", payload : true })
+    //             navigate('/PanelAdmin')
+    //         })
+    //     }
+    //     catch(error){
+    //         if(error.message == "Request failed with status code 422"){
+    //             dispatch({type : 'warning', payload : { nameForm: 'passwordLogin', message : "Password is requierd" }})
+    //             dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Email is requierd" }})
+    //         }
+    //         else if (error.message == "Request failed with status code 500"){
+    //             dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "The email entered is incorrect." }})
+    //             dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+    //         }
+    //         else if(error.message == "Request failed with status code 300"){
+    //             dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Your account is blocked." }})
+    //             // dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+
+    //         }
+    //         console.error("خطا در شبکه یا CORS:", error.message);
+    //     }
+    // }
     
     return(
         <div className={`${state.registerPage ? " right-100!  duration-500! scale-0! opacity-0!" : " opacity-100! scale-100!  right-0! duration-500"}   w-[100%] h-[100%] absolute! top-12`}>
