@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ValidationForm } from "./auth"
 import InputComponent from "./inputComponent"
 import CheckComponent from "./checkBoxComponent"
@@ -6,18 +6,17 @@ import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import PanelAdmin from "../panelAdmin"
-;
+
 const Login = () => {
     const {state, dispatch} =  useContext(ValidationForm)
     const navigate =  useNavigate()
 
     const submitLogin = async (e) => {
-        console.log('ok')
         e.preventDefault()
 
         if(state.inputStatus["emailLogin"]){
             if(state.inputStatus["passwordLogin"]){
+
                 try{
                     await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
                         response;
@@ -33,6 +32,8 @@ const Login = () => {
                     else if (error.message == "Request failed with status code 500"){
                         dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "The email entered is incorrect." }})
                         dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+                        dispatch({type: 'inputRegister', payload: {target : {name: "emailLogin" , value: ""}}});
+                        dispatch({type: 'inputRegister', payload: {target : {name: "passwordLogin" , value: ""}}});
                     }
                     else if(error.message == "Request failed with status code 300"){
                         dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Your account is blocked." }})
@@ -90,13 +91,13 @@ const Login = () => {
                 <InputComponent 
                     icon = {"bi bi-envelope"} 
                     label = {'Email'}
-                  
+                    value = {state.inputRegister.emailLogin}
                     onChange={(event) => {
                         dispatch({type: 'inputRegister', payload: event});
                         dispatch({type: 'checkEmailLogin', payload: event})
                     }}
                     onFocus={() => {dispatch({type : "focus", payload : {name: 'emailLogin'}})}} 
-    
+                    
                     onBlur={() => {dispatch({type : "blur", payload : {name: 'emailLogin'}})}}
 
                     name = {'emailLogin'}
@@ -111,7 +112,7 @@ const Login = () => {
                 <InputComponent 
                     icon = {"bi bi-lock"} 
                     label = {'Password'}
-                   
+                    value = {state.inputRegister.passwordLogin}
                     onChange = {(event)=> {
                         dispatch({type : 'inputRegister', payload: event });
                         dispatch({type: 'checkPasswordLogin', payload: event})

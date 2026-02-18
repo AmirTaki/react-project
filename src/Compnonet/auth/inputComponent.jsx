@@ -1,4 +1,4 @@
-const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel, inputStatus, inputWarning, label, name}) => {
+const InputComponent = ({value,icon ,onChange, onFocus, onBlur,  type, id , MoveLabel, inputStatus, inputWarning, label, name}) => {
     return (
         <>
         {/* username Registration */}
@@ -20,6 +20,7 @@ const InputComponent = ({icon ,onChange, onFocus, onBlur,  type, id , MoveLabel,
                     onBlur={onBlur}
                     type={type}  
                     id  = {id} 
+                    value = {value}
                     className=" outline-0 border-0 text-[1.5em] text-[#162038] w-[100%] h-10 mb-1 bg-transparent! "
                 />
 
