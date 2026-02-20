@@ -7,7 +7,7 @@ const UsersPanelAdmin = () => {
         <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">users table</h1> 
 
-            <div className="border-2 w-[90%] h-[500px] mx-auto flex flex-col">
+            <div className="w-[90%]  mx-auto flex flex-col">
                 <table className="w-full">
                     <thead>
                         <tr>
@@ -23,11 +23,11 @@ const UsersPanelAdmin = () => {
                             <th>1</th>
                             <th>amirtaki</th>
                             <th>amirtaki@gmail.com</th>
-                            <th>enable</th>
+                            <th className="text-green-400">enable</th>
 
-                            <th className="flex gap-3 justify-center items-center">
-                                <div className="">delete</div>
-                                <div className="">edit</div>
+                            <th className="flex gap-3 justify-center items-center border-b-0">
+                                <div className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!">delete</div>
+                                <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700">edit</div>
                             </th>
                         </tr>
                     </tbody>
