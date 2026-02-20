@@ -6,6 +6,7 @@ import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import api from "../../axiosConfig"
 
 const Login = () => {
     const {state, dispatch} =  useContext(ValidationForm)
@@ -17,17 +18,30 @@ const Login = () => {
         if(state.inputStatus["emailLogin"]){
             if(state.inputStatus["passwordLogin"]){
 
-                try{
-                    await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', 
-                        state.inputRegister ,
-                        {withCredentials: true}
+                // try{
+                //     await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', 
+                //         state.inputRegister ,
+                //         {withCredentials: true}
 
-                    ).then((response)=> {
+                //     ).then((response)=> {
+                //         response;
+                //         dispatch({ type : "PanelAdmin", payload : true })
+                //         navigate('/PanelAdmin')       
+                //     })
+                // }
+
+                try{
+                    await api.post('auth/login.php',
+                        state.inputRegister,
+                        {withCredentials: true}
+                    ).then((response) => {
                         response;
                         dispatch({ type : "PanelAdmin", payload : true })
-                        navigate('/PanelAdmin')       
+                        navigate('/PanelAdmin')  
                     })
                 }
+
+
                 catch(error){
                     if(error.message == "Request failed with status code 422"){
                         dispatch({type : 'warning', payload : { nameForm: 'passwordLogin', message : "Password is requierd" }})

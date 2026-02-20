@@ -6,6 +6,7 @@ import ButtonComponent from "./buttonComponent"
 import MessageTransfer from "./messageTransfer"
 import axios from "axios"
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
+import api from "../../axiosConfig"
 
 const Register = () => {
     const navigate = useNavigate();
@@ -23,9 +24,13 @@ const Register = () => {
                 if(state.inputStatus['password']){
                  
                     try{
-                            await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
+                            // await axios.post('http://localhost/project-react-Combination/back-end/auth/register.php', state.inputRegister).then((response) => {
+                            //     response;
+                            //     // navigate('/');
+                            // })
+
+                            await api.post("auth/register.php",state.inputRegister).then((response)  => {
                                 response;
-                                // navigate('/');
                             })
                             dispatch({ type : "Successful", payload : true })
                         }

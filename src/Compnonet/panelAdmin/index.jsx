@@ -25,8 +25,10 @@ const PanelAdmin = () => {
             //         navigate('/validation');
             //     }
             // })
-
-            await api.get('functions//check_session.php', {withCredentials: true},).then((res) => {
+            
+            await api.get('functions//check_session.php', 
+                {withCredentials: true},
+            ).then((res) => {
                 setSession(res.data.loggedIn);
                 if(!res.data.loggedIn){
                     navigate('/validation');
