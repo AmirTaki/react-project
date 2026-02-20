@@ -23,7 +23,7 @@ const Login = () => {
                         {withCredentials: true}
 
                     ).then((response)=> {
-                        console.log(response)
+                        response;
                         dispatch({ type : "PanelAdmin", payload : true })
                         navigate('/PanelAdmin')       
                     })
