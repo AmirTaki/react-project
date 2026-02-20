@@ -1,6 +1,6 @@
 const NavbarPanelAdmin = () => {
     return(
-        <div className=""></div>
+        <div className="w-100 min-h-screen bg-amber-500 "></div>
     )
 }
 

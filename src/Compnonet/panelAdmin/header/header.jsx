@@ -8,9 +8,10 @@ import { ImExit } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { RiMenuFoldFill } from "react-icons/ri";
 import NavbarPanelAdmin from "./navbar";
+import { useState } from "react";
 
 const HeaderPanelAdmin = () => {
-    
+    const [navbar, setNavbar] = useState(false)
     return (
         <div className=" h-20 flex items-center border-b border-b-[#7c7c7c]! text-4xl justify-between px-8">
             <div className="flex gap-4 group  ">
@@ -42,11 +43,16 @@ const HeaderPanelAdmin = () => {
                     <ImExit title = "exit" className="hover:text-rose-600 duration-300 cursor-pointer"/>
                 </Link>
 
-                <RiMenuFoldFill className="text-3xl hover:text-[silver] duration-200 cursor-pointer"/>
+                <div 
+                    className=""
+                    onClick={() => {setNavbar(true)}}
+                >
+                    <RiMenuFoldFill className="text-3xl hover:text-[silver] duration-200 cursor-pointer"/>
+                </div>
 
             </div>
 
-            <div className="fixed">
+            <div className={`${navbar ? "fixed right-0 top-20": "fixed -right-100 top-20"} duration-400`}>
                 <NavbarPanelAdmin />
             </div>
         </div>
