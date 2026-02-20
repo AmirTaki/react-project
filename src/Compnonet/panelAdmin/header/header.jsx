@@ -53,7 +53,7 @@ const HeaderPanelAdmin = () => {
             </div>
 
             <div className={`${navbar ? "fixed right-0 top-20": "fixed -right-100 top-20"} duration-400`}>
-                <NavbarPanelAdmin />
+                <NavbarPanelAdmin setNavbar = {setNavbar} />
             </div>
         </div>
     )
