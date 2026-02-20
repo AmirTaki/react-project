@@ -1,6 +1,8 @@
 const HeaderPanelAdmin = () => {
     return (
-        <div className="">header</div>
+        <div className="bg-[blue] h-20 flex items-center">
+            header
+        </div>
     )
 }
 
