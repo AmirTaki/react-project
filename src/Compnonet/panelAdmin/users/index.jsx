@@ -4,7 +4,7 @@ const UsersPanelAdmin = () => {
     return(
        <>
        <PanelAdmin />
-       <div className=" top-20 absolute w-full  h-[10000px] bg-[#252525]!  text-white z-10">
+       <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             user panelAdmin
        </div>
       
