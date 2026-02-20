@@ -18,8 +18,12 @@ const Login = () => {
             if(state.inputStatus["passwordLogin"]){
 
                 try{
-                    await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', state.inputRegister).then((response)=> {
-                        response;
+                    await axios.post('http://localhost/project-react-Combination/back-end/auth/login.php', 
+                        state.inputRegister ,
+                        {withCredentials: true}
+
+                    ).then((response)=> {
+                        console.log(response)
                         dispatch({ type : "PanelAdmin", payload : true })
                         navigate('/PanelAdmin')       
                     })
@@ -38,6 +42,11 @@ const Login = () => {
                     else if(error.message == "Request failed with status code 300"){
                         dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "Your account is blocked." }})
                         // dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "The password entered is incorrect." }})
+
+                    }
+                    else {
+                        dispatch({type : 'warning', payload : {nameForm : 'emailLogin', message : "network warning." }})
+                        dispatch({type : 'warning', payload : {nameForm : 'passwordLogin', message : "network warning" }})
 
                     }
                     console.error("خطا در شبکه یا CORS:", error.message);
