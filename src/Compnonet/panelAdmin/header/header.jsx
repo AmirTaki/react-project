@@ -13,7 +13,7 @@ import { useState } from "react";
 const HeaderPanelAdmin = () => {
     const [navbar, setNavbar] = useState(false)
     return (
-        <div className=" h-20 flex items-center border-b border-b-[#7c7c7c]! text-4xl justify-between px-8">
+        <div className="bg-[#252525]! fixed w-full h-20 flex items-center border-b border-b-[#7c7c7c]! text-4xl justify-between px-8 z-50">
             <div className="flex gap-4 group  ">
                 <FaReact className="group-hover:text-rose-400  duration-1000" />
                 <FaPhp className="group-hover:text-sky-400 duration-1000"/>
@@ -52,7 +52,7 @@ const HeaderPanelAdmin = () => {
 
             </div>
 
-            <div className={`${navbar ? "fixed right-0 top-20": "fixed -right-100 top-20"} duration-400`}>
+            <div className={`${navbar ? "fixed bg-[#252525]! w-full  border-l-2 right-0 top-20 bottom-0": "absolute -right-100 top-20"} max-lg:w-[10%] w-[20%]!   duration-400 z-50!`}>
                 <NavbarPanelAdmin setNavbar = {setNavbar} />
             </div>
         </div>
