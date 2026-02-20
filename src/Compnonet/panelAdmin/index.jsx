@@ -32,7 +32,7 @@ const PanelAdmin = () => {
 
     return(
         
-        <div className="bg-[#252525]! h-20 text-white">
+        <div className="bg-[#252525]! min-h-screen ">
             {/* header */}
             <HeaderPanelAdmin />
             
