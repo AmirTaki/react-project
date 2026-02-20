@@ -12,10 +12,9 @@ function App() {
     <BrowserRouter> 
       <Routes>
         <Route path = "/" element = {<Home />} ></Route>
+        <Route path = "/home" element = {<Home />} ></Route>
         <Route path = "/validation" element = {<Validation />} ></Route>
         <Route path = "/PanelAdmin" element = {<PanelAdmin />} ></Route>
-        <Route path = "/PanelAdmin" element = {<PanelAdmin />} ></Route>
-        <Route path = "/LogOut" element = {<Logout />} ></Route>
         <Route path = "/LogOut" element = {<Logout />} ></Route>
         <Route path = "/PanelAdmin/UsersPanelAdmin" element = {<UsersPanelAdmin />} ></Route>
         

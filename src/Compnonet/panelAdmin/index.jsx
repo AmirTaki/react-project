@@ -1,12 +1,15 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import HeaderPanelAdmin from "./header/header";
+import api from "../../axiosConfig";
+
 
 
 const PanelAdmin = () => {
-    const navigate = useNavigate();
     const [session, setSession] =  useState(false)
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         getSections()
@@ -14,9 +17,16 @@ const PanelAdmin = () => {
 
     const getSections = async () => {
         try {
-            await axios.get('http://localhost/project-react-Combination/back-end//functions//check_session.php',
-                {withCredentials: true},
-            ).then((res)=> {
+            // await axios.get('http://localhost/project-react-Combination/back-end//functions//check_session.php',
+            //     {withCredentials: true},
+            // ).then((res)=> {
+            //     setSession(res.data.loggedIn);
+            //     if(!res.data.loggedIn){
+            //         navigate('/validation');
+            //     }
+            // })
+
+            await api.get('functions//check_session.php', {withCredentials: true},).then((res) => {
                 setSession(res.data.loggedIn);
                 if(!res.data.loggedIn){
                     navigate('/validation');
@@ -34,8 +44,7 @@ const PanelAdmin = () => {
         
         <div className="bg-[#252525]! min-h-screen ">
             {/* header */}
-            <HeaderPanelAdmin />
-            
+            <HeaderPanelAdmin />            
         </div>
     )
 }
