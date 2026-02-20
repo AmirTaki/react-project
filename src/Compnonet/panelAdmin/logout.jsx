@@ -14,7 +14,7 @@ const Logout = () => {
             await axios.get('http://localhost/project-react-Combination/back-end/auth/logout.php',
                 {withCredentials: true},
             ).then((res) => {
-                console.log(res)
+                res
                 navigate('/');
             })
         }

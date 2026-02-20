@@ -6,8 +6,11 @@ import { CiLogin } from "react-icons/ci";
 import { LiaCpanel } from "react-icons/lia";
 import { ImExit } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { RiMenuFoldFill } from "react-icons/ri";
+import NavbarPanelAdmin from "./navbar";
 
 const HeaderPanelAdmin = () => {
+    
     return (
         <div className=" h-20 flex items-center border-b border-b-[#7c7c7c]! text-4xl justify-between px-8">
             <div className="flex gap-4 group  ">
@@ -38,9 +41,14 @@ const HeaderPanelAdmin = () => {
                 <Link to = "/">
                     <ImExit title = "exit" className="hover:text-rose-600 duration-300 cursor-pointer"/>
                 </Link>
+
+                <RiMenuFoldFill className="text-3xl hover:text-[silver] duration-200 cursor-pointer"/>
+
             </div>
 
-
+            <div className="fixed">
+                <NavbarPanelAdmin />
+            </div>
         </div>
     )
 }
