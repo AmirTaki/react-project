@@ -1,10 +1,9 @@
 import axios from "axios"
 import { useEffect, useReducer, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import {useNavigate } from "react-router-dom"
 import HeaderPanelAdmin from "./header/header";
 import api from "../../axiosConfig";
-
-
+import CheckSession from "./checkSession";
 
 const PanelAdmin = () => {
     const [session, setSession] =  useState(false)
