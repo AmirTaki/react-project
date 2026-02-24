@@ -11,6 +11,7 @@ const UsersPanelAdmin = () => {
         getUsers();
     }, [])
 
+    // readTable 
     const getUsers = async () => {
         try{
             await api.get('tables/users/userList.php').then((res) => {
@@ -24,6 +25,33 @@ const UsersPanelAdmin = () => {
             console.error('message: ', err );
         }
     }
+
+    // status
+    const chageStatus =  (user) => {
+        try{
+            api.put(`tables/users/status.php/${user.id}/changeStatus`, user).then((res) => {
+                res.data;
+                getUsers();
+            })
+        }
+        catch(err){
+            console.error('message: ', err );
+        }
+    }
+
+    // delete 
+    const deleteUser = (user) => {
+        try{
+            api.delete(`tables/users/delete.php/${user.id}/delete`).then((res) => {
+                res.data;
+                getUsers();
+            })
+        }
+        catch(err){
+            console.error('message: ', err );
+        }
+    }
+
 
     return(
        <>
@@ -49,19 +77,26 @@ const UsersPanelAdmin = () => {
                                     <th>{user.id}</th>
                                     <th>{user.name}</th>
                                     <th>{user.email}</th>
-                                    <th className="text-green-400">
-                                        {user.status === 10 ? 'enable' : 'disable'}
+                                    <th className = {`${user.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
+                                        {user.status == 10 ? 'enable' : 'disable'}
                                     </th>
 
                                     <th className="flex justify-center items-center gap-7! max-md:flex-col max-md:gap-1!" >
                                         
-                                        <div className="text-rose-500 cursor-pointer duration-200 hover:text-red-700! ">delete</div>
-                                        <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                         <div 
-                                            // onClick={() => {}}
+                                            onClick={() => {chageStatus(user)}}
                                             className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                         >
                                             change status
+                                        </div>
+                                       
+                                        <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
+                                       
+                                        <div 
+                                            onClick={() => {deleteUser(user)}}
+                                            className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
+                                        >
+                                            delete
                                         </div>
                                     </th>
                                 </tr>
