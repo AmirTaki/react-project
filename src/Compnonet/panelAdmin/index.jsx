@@ -11,7 +11,7 @@ const PanelAdmin = () => {
 
 
     useEffect(() => {
-        getSections()
+        // getSections()
     }, [])
 
     const getSections = async () => {
