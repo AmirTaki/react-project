@@ -7,6 +7,15 @@ const CreateUsers = () => {
             case "showPassword":
                 return {...state, showPassowrd : action.payload.target.checked}
 
+            case "name": 
+                return {...state, name : action.payload}
+            
+            case "email": 
+                return {...state, email : action.payload}
+           
+            case "password": 
+                return {...state, password : action.payload}
+
             default: 
                 return state
         }
@@ -29,7 +38,10 @@ const CreateUsers = () => {
                         {/* name */}
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="name" className="text-blue-500">name</label>
-                            <input value={state.name} type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <input 
+                                value={state.name} type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                onChange={(e) => {dispatch({type: 'name', payload: e.target.value})}}
+                            ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:</div>
 
@@ -38,7 +50,10 @@ const CreateUsers = () => {
                         {/* email */}
                         <div className="flex gap-5 items-center justify-center ">
                             <label htmlFor="email" className="text-yellow-500">email</label>
-                            <input type="email" value={state.email} id = "email" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <input 
+                                onChange={(e) => {dispatch({type: 'email', payload: e.target.value})}}
+                                type="email" value={state.email} id = "email" className="border-2 w-[300px] rounded-md h-10 p-2"
+                            ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:</div>
                 
@@ -46,7 +61,11 @@ const CreateUsers = () => {
                         {/* passowrd */}
                         <div className="flex gap-5 items-center justify-center ">
                             <label htmlFor="password" className="text-red-500">password</label>
-                            <input value={state.password} type = {state.showPassowrd ? 'text' : 'password'} id = "password" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <input 
+                                value={state.password} type = {state.showPassowrd ? 'text' : 'password'} id = "password" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                onChange={(e) => {dispatch({type: 'password', payload: e.target.value})}}
+                            >        
+                            </input>
                         </div>
                         {/* checkbox show hidden password */}
                         <div className="flex gap-2 items-center justify-left  pt-8">
