@@ -1,7 +1,9 @@
+import HeaderPanelAdmin from "../header/header";
+
 const CreateUsers = () => {
     return(
         <div className="">
-            CreateUsers
+            <HeaderPanelAdmin />
         </div>
     )
 }

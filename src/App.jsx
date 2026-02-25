@@ -5,6 +5,7 @@ import Home from './Home'
 import PanelAdmin from './Compnonet/panelAdmin'
 import Logout from './Compnonet/panelAdmin/logout'
 import UsersPanelAdmin from './Compnonet/panelAdmin/users'
+import CreateUsers from './Compnonet/panelAdmin/users/create'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path = "/PanelAdmin" element = {<PanelAdmin />} ></Route>
         <Route path = "/LogOut" element = {<Logout />} ></Route>
         <Route path = "/PanelAdmin/UsersPanelAdmin" element = {<UsersPanelAdmin />} ></Route>
+        <Route path = "/PanelAdmin/createuser" element = {<CreateUsers />} ></Route>
       </Routes>
     </BrowserRouter>
   
