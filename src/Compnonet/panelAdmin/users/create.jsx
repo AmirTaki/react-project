@@ -4,14 +4,16 @@ import HeaderPanelAdmin from "../header/header";
 const CreateUsers = () => {
     const reducer = (state, action ) => {
         switch(action.type){
-            case "":
-                return {...state}
+            case "showPassword":
+                return {...state, showPassowrd : action.payload.target.checked}
 
             default: 
                 return state
         }
     }
-    const [state, dispatch] = useReducer(reducer, {})
+    const [state, dispatch] = useReducer(reducer, {
+        showPassowrd: false
+    })
 
     return(
         <div className="">
@@ -29,18 +31,18 @@ const CreateUsers = () => {
                         <hr className="my-8"/>
                         <div className="flex gap-5 items-center justify-center ">
                             <label htmlFor="email" className="text-yellow-500">email</label>
-                            <input type="email" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <input type="email" id = "email" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
                         </div>
                         <div className="text-gray-500 py-5">message:</div>
                 
                         <hr className="my-8"/>
                         <div className="flex gap-5 items-center justify-center ">
-                            <label htmlFor="email" className="text-red-500">password</label>
-                            <input type="password" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <label htmlFor="password" className="text-red-500">password</label>
+                            <input type = {state.showPassowrd ? 'text' : 'password'} id = "password" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
                         </div>
                         <div className="flex gap-2 items-center justify-left  pt-8">
-                            <label htmlFor = "showpass">show password</label>
-                            <input id = "showpass" type="checkbox"/>
+                            <label htmlFor = "showpass"> {state.showPassowrd ? "hidden password" : "show password"} </label>
+                            <input id = "showpass" type="checkbox" onChange={(e) => {dispatch({type: "showPassword", payload: e})}}/>
                         </div>
 
                         <div className="text-gray-500 py-5">message:</div>
