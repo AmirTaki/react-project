@@ -31,7 +31,7 @@ const UsersPanelAdmin = () => {
     // status
     const chageStatus = async (user) => {
         try{
-            await api.put(`tables/users/status.php/${user.id}/changeStatus`,user).then((res) => {
+            await api.get(`tables/users/status.php/${user.id}/changeStatus`,{withCredentials: true}).then((res) => {
                 res.data;
                 getUsers();
             })
