@@ -15,9 +15,10 @@ const UsersPanelAdmin = () => {
     // readTable 
     const getUsers = async () => {
         try{
-            await api.get('tables/users/userList.php').then((res) => {
+            await api.get('tables/users/userList.php',{withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setUsers(data);
+                console.log(res.data)
             })
         
         }   
@@ -28,9 +29,9 @@ const UsersPanelAdmin = () => {
     }
 
     // status
-    const chageStatus =  (user) => {
+    const chageStatus = async (user) => {
         try{
-            api.put(`tables/users/status.php/${user.id}/changeStatus`, user).then((res) => {
+            await api.put(`tables/users/status.php/${user.id}/changeStatus`,user).then((res) => {
                 res.data;
                 getUsers();
             })
@@ -53,7 +54,7 @@ const UsersPanelAdmin = () => {
         }
     }
 
-    console.log(users)
+
     return(
        <>
         <HeaderPanelAdmin />
