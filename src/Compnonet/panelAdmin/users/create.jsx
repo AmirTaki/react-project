@@ -12,7 +12,10 @@ const CreateUsers = () => {
         }
     }
     const [state, dispatch] = useReducer(reducer, {
-        showPassowrd: false
+        showPassowrd: false, 
+        name : '',
+        email : '', 
+        password: ''
     })
 
     return(
@@ -22,30 +25,43 @@ const CreateUsers = () => {
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD USER</h1>
                     <form>
+
+                        {/* name */}
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="name" className="text-blue-500">name</label>
-                            <input type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <input value={state.name} type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
                         </div>
                         <div className="text-gray-500 py-5">message:</div>
 
                         <hr className="my-8"/>
+
+                        {/* email */}
                         <div className="flex gap-5 items-center justify-center ">
                             <label htmlFor="email" className="text-yellow-500">email</label>
-                            <input type="email" id = "email" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <input type="email" value={state.email} id = "email" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
                         </div>
                         <div className="text-gray-500 py-5">message:</div>
                 
                         <hr className="my-8"/>
+                        {/* passowrd */}
                         <div className="flex gap-5 items-center justify-center ">
                             <label htmlFor="password" className="text-red-500">password</label>
-                            <input type = {state.showPassowrd ? 'text' : 'password'} id = "password" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
+                            <input value={state.password} type = {state.showPassowrd ? 'text' : 'password'} id = "password" className="border-2 w-[300px] rounded-md h-10 p-2"></input>
                         </div>
+                        {/* checkbox show hidden password */}
                         <div className="flex gap-2 items-center justify-left  pt-8">
                             <label htmlFor = "showpass"> {state.showPassowrd ? "hidden password" : "show password"} </label>
-                            <input id = "showpass" type="checkbox" onChange={(e) => {dispatch({type: "showPassword", payload: e})}}/>
+                            <input  id = "showpass" type="checkbox" onChange={(e) => {dispatch({type: "showPassword", payload: e})}}/>
                         </div>
 
                         <div className="text-gray-500 py-5">message:</div>
+
+
+                        <hr className="my-8"/>
+
+                        <div className="flex justify-center items-center">
+                            <input type="submit" className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" />
+                        </div>
                 
                     </form>
                 
