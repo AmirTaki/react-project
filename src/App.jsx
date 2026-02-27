@@ -20,7 +20,7 @@ function App() {
         <Route path = "/LogOut" element = {<Logout />} ></Route>
         <Route path = "/PanelAdmin/UsersPanelAdmin" element = {<UsersPanelAdmin />} ></Route>
         <Route path = "/PanelAdmin/createuser" element = {<CreateUsers />} ></Route>
-        <Route path = "/PanelAdmin/editUser/:id/edit" element = {<EditUsers />} ></Route>
+        <Route path = "/PanelAdmin/users/editUser/:id/edit" element = {<EditUsers />} ></Route>
       </Routes>
     </BrowserRouter>
   

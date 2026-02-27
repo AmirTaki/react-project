@@ -1,6 +1,29 @@
+import { useEffect, useState } from "react";
 import HeaderPanelAdmin from "../header/header";
+import api from "../../../axiosConfig";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditUsers = () => {
+    const [users, setUsers] =  useState([])
+    const {id} = useParams();
+    const navigate =  useNavigate()
+    const getUsers = async () => {
+        // 
+        try{
+            await api.get(`tables/users/edit.php/${id}`, {withCredentials: true}).then((res) => {
+                // const data = Array.isArray(res.data) ? res.data : [];
+                setUsers(res.data);
+            }) 
+        }
+        catch(err){
+            
+            console.error("message: ", err.message);
+            navigate('/PanelAdmin/UsersPanelAdmin')
+        }
+    }
+
+    useEffect(() => {getUsers()}, [])
+
     return(
         <div className="">
             <HeaderPanelAdmin />
@@ -16,7 +39,7 @@ const EditUsers = () => {
                             <label htmlFor="name" className="text-blue-500">name</label>
                             <input 
                                type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
-                              
+                                value={users.name}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -29,7 +52,7 @@ const EditUsers = () => {
                         <div className="flex gap-5 items-center justify-center ">
                             <label htmlFor="email" className="text-yellow-500">email</label>
                             <input 
-                                
+                                value={users.email}
                                 type="email"  id = "email" className="border-2 w-[300px] rounded-md h-10 p-2"
                             ></input>
                         </div>

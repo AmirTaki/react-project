@@ -18,7 +18,6 @@ const UsersPanelAdmin = () => {
             await api.get('tables/users/userList.php',{withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setUsers(data);
-                console.log(res.data)
             })
         
         }   
@@ -99,8 +98,8 @@ const UsersPanelAdmin = () => {
                                         >
                                             change status
                                         </div>
-                                       
-                                        <Link to = {`/PanelAdmin/editUser/${user.id}/edit`}>
+
+                                        <Link to = {`/PanelAdmin/users/editUser/${user.id}/edit`}>
                                             <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                         </Link>
                                        
