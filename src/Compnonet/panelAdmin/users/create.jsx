@@ -1,9 +1,12 @@
 import { useReducer } from "react";
 import HeaderPanelAdmin from "../header/header";
 import api from "../../../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 const CreateUsers = () => {
-    const reducer = (state, action ) => {
+    const navigate =  useNavigate()
+   
+    const reducer = (state, action) => {
         switch(action.type){
             case "showPassword":
                 return {...state, showPassowrd : action.payload.target.checked}
@@ -16,24 +19,49 @@ const CreateUsers = () => {
            
             case "password": 
                 return {...state, password : action.payload}
-
+            
+            case "warning": 
+                return {...state, 
+                    usernameWarning : action.payload.name , 
+                    emailWarning : action.payload.email  ,
+                    passwordWarning : action.payload.password  
+                }
+            
             default: 
                 return state
         }
     }
 
-
     const sumbitRegister = async (event) => {
         event.preventDefault();
+     
+        dispatch({type : 'warning', payload: {
+            name: 'name  is requierd',
+            email: 'email  is requierd', 
+            password: 'password  is requierd'
+        }})
 
         try {
             await api.post('auth/register.php', state).then((response) => {
                 response;
+                navigate('/PanelAdmin/UsersPanelAdmin')
             })
         }
         catch(error){
             if(error.message == "Request failed with status code 422"){
+                dispatch({type : 'warning', payload: {
+                    name: 'Write full Name',
+                    email: 'Write full Email', 
+                    password: 'Password should contain'
+                }})
+            }
 
+            else if (error.message == "Request failed with status code 500"){
+                dispatch({type : 'warning', payload: {
+                    name: '',
+                    email: 'The email is duplicate.', 
+                    password: ''
+                }})
             }
             console.error("خطا در شبکه یا CORS:", error.message);
         }
@@ -44,9 +72,9 @@ const CreateUsers = () => {
         username : '',
         email : '', 
         password: '',
-        usernameWarning: 'username',
-        emailWarning: 'email',
-        passwordWarning: 'password'
+        usernameWarning: '',
+        emailWarning: '',
+        passwordWarning: ''
     })
 
     return(
