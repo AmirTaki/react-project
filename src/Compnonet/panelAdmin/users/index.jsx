@@ -100,7 +100,9 @@ const UsersPanelAdmin = () => {
                                             change status
                                         </div>
                                        
-                                        <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
+                                        <Link to = {`/PanelAdmin/editUser/${user.id}/edit`}>
+                                            <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
+                                        </Link>
                                        
                                         <div 
                                             onClick={() => {deleteUser(user)}}
