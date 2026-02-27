@@ -20,6 +20,19 @@ const CreateUsers = () => {
                 return state
         }
     }
+
+
+    const sumbitRegister = async (event) => {
+        event.preventDefault();
+
+        try {
+
+        }
+        catch(error){
+            console.error("خطا در شبکه یا CORS:", error.message);
+        }
+    }
+
     const [state, dispatch] = useReducer(reducer, {
         showPassowrd: false, 
         name : '',
@@ -79,7 +92,11 @@ const CreateUsers = () => {
                         <hr className="my-8"/>
 
                         <div className="flex justify-center items-center">
-                            <input type="submit" className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" />
+                            <input 
+                                onClick={(event) => {sumbitRegister(event)}}
+                                type="submit" 
+                                className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
+                            />
                         </div>
                 
                     </form>
