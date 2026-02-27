@@ -32,6 +32,9 @@ const CreateUsers = () => {
             })
         }
         catch(error){
+            if(error.message == "Request failed with status code 422"){
+
+            }
             console.error("خطا در شبکه یا CORS:", error.message);
         }
     }
@@ -40,7 +43,10 @@ const CreateUsers = () => {
         showPassowrd: false, 
         username : '',
         email : '', 
-        password: ''
+        password: '',
+        usernameWarning: 'username',
+        emailWarning: 'email',
+        passwordWarning: 'password'
     })
 
     return(
@@ -59,7 +65,9 @@ const CreateUsers = () => {
                                 onChange={(e) => {dispatch({type: 'username', payload: e.target.value})}}
                             ></input>
                         </div>
-                        <div className="text-gray-500 py-5">message:</div>
+                        <div className="text-gray-500 py-5">message:
+                            <span className="text-red-600 px-2">{state.usernameWarning}</span>
+                        </div>
 
                         <hr className="my-8"/>
 
@@ -71,7 +79,9 @@ const CreateUsers = () => {
                                 type="email" value={state.email} id = "email" className="border-2 w-[300px] rounded-md h-10 p-2"
                             ></input>
                         </div>
-                        <div className="text-gray-500 py-5">message:</div>
+                        <div className="text-gray-500 py-5">message:
+                            <span className="text-red-600 px-2">{state.emailWarning}</span>
+                        </div>
                 
                         <hr className="my-8"/>
                         {/* passowrd */}
@@ -89,7 +99,9 @@ const CreateUsers = () => {
                             <input  id = "showpass" type="checkbox" onChange={(e) => {dispatch({type: "showPassword", payload: e})}}/>
                         </div>
 
-                        <div className="text-gray-500 py-5">message:</div>
+                        <div className="text-gray-500 py-5">message:
+                            <span className="text-red-600 px-2">{state.passwordWarning}</span>
+                        </div>
 
 
                         <hr className="my-8"/>
