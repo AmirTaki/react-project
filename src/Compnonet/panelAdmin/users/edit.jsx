@@ -61,7 +61,7 @@ const EditUsers = () => {
     const getUsers = async () => {
         // 
         try{
-            await api.get(`tables/users/reading.php/${id}`, {withCredentials: true}).then((res) => {
+            await api.get(`tables/users/userList.php/${id}`, {withCredentials: true}).then((res) => {
                 // const data = Array.isArray(res.data) ? res.data : [];
                 dispatch({type : 'GetUsers', payload: {name : res.data.name, email : res.data.email, password: res.data.password}})
             }) 
