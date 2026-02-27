@@ -72,8 +72,16 @@ const EditUsers = () => {
 
     useEffect(() => {getUsers()}, [])
 
-    const editAccount = () => {
-        
+    const editAccount = async (event) => {
+        event.preventDefault();
+        try{
+            await api.put(`tables/users/edit.php/${id}`, state).then((res) =>{
+                res.data
+            })
+        }
+        catch(error){
+            console.error("خطا در شبکه یا CORS:", error.message);
+        }
     }
 
 
