@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import HeaderPanelAdmin from "../header/header";
+import api from "../../../axiosConfig";
 
 const CreateUsers = () => {
     const reducer = (state, action ) => {
@@ -7,8 +8,8 @@ const CreateUsers = () => {
             case "showPassword":
                 return {...state, showPassowrd : action.payload.target.checked}
 
-            case "name": 
-                return {...state, name : action.payload}
+            case "username": 
+                return {...state, username : action.payload}
             
             case "email": 
                 return {...state, email : action.payload}
@@ -26,7 +27,9 @@ const CreateUsers = () => {
         event.preventDefault();
 
         try {
-
+            await api.post('auth/register.php', state).then((response) => {
+                response;
+            })
         }
         catch(error){
             console.error("خطا در شبکه یا CORS:", error.message);
@@ -35,7 +38,7 @@ const CreateUsers = () => {
 
     const [state, dispatch] = useReducer(reducer, {
         showPassowrd: false, 
-        name : '',
+        username : '',
         email : '', 
         password: ''
     })
@@ -52,8 +55,8 @@ const CreateUsers = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="name" className="text-blue-500">name</label>
                             <input 
-                                value={state.name} type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                onChange={(e) => {dispatch({type: 'name', payload: e.target.value})}}
+                                value={state.username} type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                onChange={(e) => {dispatch({type: 'username', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:</div>
