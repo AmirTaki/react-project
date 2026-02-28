@@ -56,7 +56,7 @@ const UsersPanelAdmin = () => {
 
     return(
        <>
-        <HeaderPanelAdmin />
+        <HeaderPanelAdmin id = {1}/>
 
         <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             <div className="flex flex-col items-center justify-around ">

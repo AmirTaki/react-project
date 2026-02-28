@@ -11,7 +11,7 @@ import NavbarPanelAdmin from "./navbar";
 import { useState } from "react";
 import CheckSession from "../checkSession";
 
-const HeaderPanelAdmin = () => {
+const HeaderPanelAdmin = ({id}) => {
     const [navbar, setNavbar] = useState(false)
 
     return (
@@ -57,7 +57,7 @@ const HeaderPanelAdmin = () => {
                 </div>
 
                 <div className={`${navbar ? "fixed bg-[#252525]! w-full  border-l-2 right-0 top-20 bottom-0": "absolute -right-300 top-20"}  w-[17%]!  max-lg:w-[35%]! duration-400 z-50!`}>
-                    <NavbarPanelAdmin setNavbar = {setNavbar} />
+                    <NavbarPanelAdmin setNavbar = {setNavbar} id = {id} />
                 </div>
             </div>
         </>

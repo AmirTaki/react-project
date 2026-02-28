@@ -113,7 +113,7 @@ const EditUsers = () => {
 
     return(
         <div className="">
-            <HeaderPanelAdmin />
+            <HeaderPanelAdmin  id = {1}/>
         
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex justify-center items-center flex-col ">

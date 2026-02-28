@@ -1,17 +1,28 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { BiSolidExit } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const NavbarPanelAdmin = ({setNavbar}) => {
+const NavbarPanelAdmin = ({setNavbar, id}) => {
 
+    useEffect(() =>{
+        dispatch({type : "clickLink", payload: {id : id}})
+    }, [])
+
+    console.log(id)
     const reducer = (state, action) => {
         switch(action.type){
-            case "":
-                return {...state}
+            case "clickLink":
+                const {id} = action.payload
+          
+                const newList = state.list.map((item) => ({...item, flag : item.id === id ? true : false}));
+              
+                return {...state, list: newList}
+                
 
             default :
                 return state
         }
+    
     }
     const [state, dispatch] =  useReducer(reducer, {
         list: [
@@ -35,7 +46,6 @@ const NavbarPanelAdmin = ({setNavbar}) => {
             },
         ]
     })
-
     // const list = ['users ', 'table2', 'table3', 'table4']
     return(
         <div className=" flex flex-col items-left gap-4 ">
@@ -51,10 +61,18 @@ const NavbarPanelAdmin = ({setNavbar}) => {
             {state.list?.map((item) => {
                 return(           
                     <div key = {item.id} className=" text-[20px] px-4 "
-                        onClick={() => {handlerClick(item.id)}}
+                        
                     >
-                        <Link to = {item.link}>
-                            <div className={`cursor-pointer  hover:scale-90 hover:text-[silver] duration-400 ${item.flag ? "text-red-500 scale-90 " : ""}`}>  {item.name}</div>  
+                        <Link to = {item.link}
+     
+                        >
+                            <div 
+                                // onClick={() => {dispatch({type: 'clickLink', payload: {id: item.id}})}}
+                              className={`cursor-pointer  hover:scale-90 hover:text-[silver] duration-400 ${item.flag ? "text-red-500 scale-90 " : ""}`}
+                            >
+                                {item.name} 
+                            </div>
+        
                         </Link>
                     </div>
                 )

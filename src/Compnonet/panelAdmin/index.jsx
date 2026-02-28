@@ -4,6 +4,7 @@ import {useNavigate } from "react-router-dom"
 import HeaderPanelAdmin from "./header/header";
 import api from "../../axiosConfig";
 import CheckSession from "./checkSession";
+import UsersPanelAdmin from "./users";
 
 const PanelAdmin = () => {
     const [session, setSession] =  useState(false)
@@ -45,7 +46,7 @@ const PanelAdmin = () => {
         
         <div className="bg-[#252525]! min-h-screen ">
             {/* header */}
-            <HeaderPanelAdmin />            
+            <HeaderPanelAdmin id = {0}/>
         </div>
     )
 }

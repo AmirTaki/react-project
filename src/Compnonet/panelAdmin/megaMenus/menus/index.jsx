@@ -45,7 +45,7 @@ const MenuHeaderPanelAdmin = () => {
 
     return(
         <>
-            <HeaderPanelAdmin />
+            <HeaderPanelAdmin id = {2} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             <div className="flex flex-col items-center justify-around ">
                 <Link to = "/PanelAdmin/header/AddMenu">
