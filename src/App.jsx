@@ -8,6 +8,7 @@ import UsersPanelAdmin from './Compnonet/panelAdmin/users'
 import CreateUsers from './Compnonet/panelAdmin/users/create'
 import EditUsers from './Compnonet/panelAdmin/users/edit'
 import MenuHeaderPanelAdmin from './Compnonet/panelAdmin/megaMenus/menus'
+import CreateMenuHeaders from './Compnonet/panelAdmin/megaMenus/menus/create'
 
 function App() {
   return (
@@ -17,12 +18,15 @@ function App() {
         <Route path = "/" element = {<Home />} ></Route>
         <Route path = "/home" element = {<Home />} ></Route>
         <Route path = "/validation" element = {<Validation />} ></Route>
+
+        {/* panelAdmin */}
         <Route path = "/PanelAdmin" element = {<PanelAdmin />} ></Route>
         <Route path = "/LogOut" element = {<Logout />} ></Route>
         <Route path = "/PanelAdmin/UsersPanelAdmin" element = {<UsersPanelAdmin />} ></Route>
         <Route path = "/PanelAdmin/createuser" element = {<CreateUsers />} ></Route>
         <Route path = "/PanelAdmin/users/editUser/:id/edit" element = {<EditUsers />} ></Route>
         <Route path = "/PanelAdmin/header/menus" element = {<MenuHeaderPanelAdmin />} ></Route>
+        <Route path = "/PanelAdmin/header/AddMenu" element = {<CreateMenuHeaders />} ></Route>
       </Routes>
     </BrowserRouter>
   
