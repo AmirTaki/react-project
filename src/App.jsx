@@ -9,6 +9,7 @@ import CreateUsers from './Compnonet/panelAdmin/users/create'
 import EditUsers from './Compnonet/panelAdmin/users/edit'
 import MenuHeaderPanelAdmin from './Compnonet/panelAdmin/megaMenus/menus'
 import CreateMenuHeaders from './Compnonet/panelAdmin/megaMenus/menus/create'
+import EditMenuHeaders from './Compnonet/panelAdmin/megaMenus/menus/edit'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path = "/PanelAdmin/users/editUser/:id/edit" element = {<EditUsers />} ></Route>
         <Route path = "/PanelAdmin/header/menus" element = {<MenuHeaderPanelAdmin />} ></Route>
         <Route path = "/PanelAdmin/header/AddMenu" element = {<CreateMenuHeaders />} ></Route>
+        <Route path = "/PanelAdmin/header/EditMenu/:id/edit" element = {<EditMenuHeaders />} ></Route>
       </Routes>
     </BrowserRouter>
   

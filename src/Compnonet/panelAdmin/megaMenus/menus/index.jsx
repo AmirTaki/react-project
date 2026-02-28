@@ -85,7 +85,7 @@ const MenuHeaderPanelAdmin = () => {
                                         change status
                                     </div>
 
-                                    <Link to = {`/PanelAdmin/users/editUser/${menu.id}/edit`}>
+                                    <Link to = {`/PanelAdmin/header/EditMenu/${menu.id}/edit`}>
                                         <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                     </Link>
                                     
