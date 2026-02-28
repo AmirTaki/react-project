@@ -16,6 +16,8 @@ const EditMenuHeaders = () => {
             case "title":
                 return {...state, title : action.payload}
             
+            case "warning": 
+                return {...state, warning: action.payload}
             default: 
                 return state;
         }
@@ -25,10 +27,10 @@ const EditMenuHeaders = () => {
         titleOld: '',
         warning: ''
     })
-
-    const getMenus =  (id) => {
+  
+    const getMenus =  async (id) => {
         try{
-            api.get(`tables/megaMenu/menus/menu.php/${id}` ,{withCredentials: true}).then((res) => {
+            await api.get(`tables/megaMenu/menus/menu.php/${id}` ,{withCredentials: true}).then((res) => {
                 dispatch({type: 'GetRequest', payload : res.data.title})
             })
         }
@@ -41,6 +43,24 @@ const EditMenuHeaders = () => {
     useEffect(() => {
         getMenus(id);
     }, [])
+
+    const editItems = async (event, id) => {
+        event.preventDefault();
+        dispatch({type : "warning", payload: ''})
+
+        try{
+            await api.put(`tables/megaMenu/menus/edit.php/${id}`, state).then((res) => {
+                res.data;
+            })
+        }
+        catch(err) {
+            if(err.message == "Request failed with status code 400"){
+                dispatch({type : "warning", payload: 'empty title !!!'})
+            }
+            console.error(err.message);
+        }
+    }
+
     return(
         <div className="">
             <HeaderPanelAdmin />
@@ -69,7 +89,7 @@ const EditMenuHeaders = () => {
 
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {editAccount(event)}}
+                                onClick={(event) => {editItems(event, id)}}
                                 type="submit"
                                 value = "update" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
