@@ -17,6 +17,20 @@ const MenuHeaderPanelAdmin = () => {
         }
     }
     useEffect(() => {getMenus()}, [])
+
+
+    const chageStatus = async (id) => {
+        try {
+            await api.get(`/tables/megaMenu/menus/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+                res;
+                getMenus();
+            })
+        }
+        catch(err){
+            console.error("message: ", err);
+        }
+    }
+
     return(
         <>
             <HeaderPanelAdmin />
@@ -53,7 +67,7 @@ const MenuHeaderPanelAdmin = () => {
                                 <th className="flex justify-center items-center gap-7! max-md:flex-col max-md:gap-1!" >
                                     
                                     <div 
-                                        // onClick={() => {chageStatus(user)}}
+                                        onClick={() => {chageStatus(menu.id)}}
                                         className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                     >
                                         change status
