@@ -51,7 +51,7 @@ const EditMenuHeaders = () => {
         try{
             await api.put(`tables/megaMenu/menus/edit.php/${id}`, state).then((res) => {
                 res.data;
-                // navigate('/PanelAdmin/header/menus')
+                navigate('/PanelAdmin/header/menus')
             })
         }
         catch(err) {
