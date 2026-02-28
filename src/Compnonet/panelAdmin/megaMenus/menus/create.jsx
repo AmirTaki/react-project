@@ -1,8 +1,10 @@
 import { useReducer } from "react"
 import HeaderPanelAdmin from "../../header/header"
 import api from "../../../../axiosConfig"
+import { useNavigate } from "react-router-dom"
 
 const CreateMenuHeaders = () => {
+    const navigate = useNavigate()
     const reducer = (state, action) => {
         switch(action.type){
             case "title":
@@ -27,15 +29,19 @@ const CreateMenuHeaders = () => {
         event.preventDefault();
 
         dispatch({type: 'warning', payload: ''})
-        
+
         try{
-            await api.post("", state).then((res) => {
+            await api.post("tables/megaMenu/menus/add.php", state, {withCredentials: true}).then((res) => {
                 res;
-                
+                navigate('/PanelAdmin/header/menus')
             })
         }
 
         catch(err){
+
+            if(err.message == "Request failed with status code 409"){
+                   dispatch({type: 'warning', payload: 'title repeat change name title ?'})
+            }
             console.error(err.message);
         }
     }
