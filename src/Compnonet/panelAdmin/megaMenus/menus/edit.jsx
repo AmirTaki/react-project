@@ -1,15 +1,16 @@
 import { useEffect, useReducer } from "react";
 import HeaderPanelAdmin from "../../header/header";
-import { reducer } from "../../../auth/reducer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import api from "../../../../axiosConfig";
 
 const EditMenuHeaders = () => {
     const {id} =  useParams()
+    const navigate =  useNavigate()
 
     const reducer = (state, action) => {
         switch(action.type){
 
-            case "GetUsers":
+            case "GetRequest":
                 return {...state, titleOld: action.payload, title : action.payload}
 
             case "title":
@@ -25,18 +26,21 @@ const EditMenuHeaders = () => {
         warning: ''
     })
 
-    const getMenus = async (id) => {
+    const getMenus =  (id) => {
         try{
-            await api.get(`tables/megaMenu/menus/menu.php/${id}`, {withCredentials: true}).then((res) => {
-                // const data = Array.isArray(res.data) ? res.data : [];
-                dispatch({type: 'GetUsers', payload : res.data.title})
+            api.get(`tables/megaMenu/menus/menu.php/${id}` ,{withCredentials: true}).then((res) => {
+                dispatch({type: 'GetRequest', payload : res.data.title})
             })
         }
         catch(err){
             console.error('message: ', err);
+            navigate('/PanelAdmin/header/menus')
+            
         }
     }
-    useEffect(() => {getMenus(id)}, [])
+    useEffect(() => {
+        getMenus(id);
+    }, [])
     return(
         <div className="">
             <HeaderPanelAdmin />
