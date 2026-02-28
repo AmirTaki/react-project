@@ -28,7 +28,9 @@ const NavbarPanelAdmin = ({setNavbar}) => {
             </div>
             
             <div className=" text-[20px] px-4  ">
-                <div className=" cursor-pointer  hover:scale-90 hover:text-[silver] duration-400">  table 2</div>  
+                <Link to = "/PanelAdmin/header/menus">
+                    <div className=" cursor-pointer  hover:scale-90 hover:text-[silver] duration-400"> Header menus</div>  
+                </Link>
             </div>
              
 

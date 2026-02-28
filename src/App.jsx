@@ -7,6 +7,7 @@ import Logout from './Compnonet/panelAdmin/logout'
 import UsersPanelAdmin from './Compnonet/panelAdmin/users'
 import CreateUsers from './Compnonet/panelAdmin/users/create'
 import EditUsers from './Compnonet/panelAdmin/users/edit'
+import MenuHeaderPanelAdmin from './Compnonet/panelAdmin/megaMenus/menus'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path = "/PanelAdmin/UsersPanelAdmin" element = {<UsersPanelAdmin />} ></Route>
         <Route path = "/PanelAdmin/createuser" element = {<CreateUsers />} ></Route>
         <Route path = "/PanelAdmin/users/editUser/:id/edit" element = {<EditUsers />} ></Route>
+        <Route path = "/PanelAdmin/header/menus" element = {<MenuHeaderPanelAdmin />} ></Route>
       </Routes>
     </BrowserRouter>
   
