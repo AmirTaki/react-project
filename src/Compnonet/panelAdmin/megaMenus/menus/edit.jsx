@@ -57,6 +57,9 @@ const EditMenuHeaders = () => {
             if(err.message == "Request failed with status code 400"){
                 dispatch({type : "warning", payload: 'empty title !!!'})
             }
+            else if(err.message == "Request failed with status code 409"){
+                dispatch({type : "warning", payload: 'title repeat ~ please change name title !!'})
+            }
             console.error(err.message);
         }
     }
