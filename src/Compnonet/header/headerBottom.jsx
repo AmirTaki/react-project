@@ -6,12 +6,30 @@ import { ACTIONTYPE } from "./FactHeader";
 import MenuMegaMenu from "./menuMegaMenu";
 import {  Link,  } from "react-router-dom";
 import { GlobalHearts } from "../../Home";
+import api from "../../axiosConfig";
 export const ContextHeaderBottom =  createContext();
 
 
 const  HeaderBottom = () => {
   const {heartConter}  =  useContext(GlobalHearts)
-  const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
+
+    const [menus, setMenus] =  useState([]);
+    const getMenus = async () => {
+        try{
+            await api.get('tables/megaMenu/menus/reading.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setMenus(data);
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+    useEffect(() => {getMenus()}, [])
+
+
+
+  // const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
   const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
 
     const {scrollTop} = useContext(GlobalHeaderScroll);
