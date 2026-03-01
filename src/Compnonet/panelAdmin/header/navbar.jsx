@@ -29,7 +29,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             {      
                 id: 0, 
                 name: 'panelAdmin',
-                flag: true, 
+                flag: false, 
                 link: "/PanelAdmin"
             },
             {
@@ -43,6 +43,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 name: 'Header menus',
                 flag: false, 
                 link: "/PanelAdmin/header/menus"
+            },
+            {
+                id: 4, 
+                name: 'MegaMenu List',
+                flag: false, 
+                link: "/panelAdmin/megaMenu/list"
             },
         ]
     })
@@ -76,22 +82,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                         </Link>
                     </div>
                 )
-            })}
-            
-            {/* <div className=" text-[20px] px-4  ">
-                <Link to = "">
-                    <div className=" cursor-pointer  hover:scale-90 hover:text-[silver] duration-400">  users</div>  
-                </Link>            
-            </div>
-            
-            <div className=" text-[20px] px-4  ">
-                <Link to = "">
-                    <div className=" cursor-pointer  hover:scale-90 hover:text-[silver] duration-400"> Header menus</div>  
-                </Link>
-            </div>
-              */}
-
-            
+            })}    
         </div>
     )
 }

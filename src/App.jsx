@@ -10,6 +10,7 @@ import EditUsers from './Compnonet/panelAdmin/users/edit'
 import MenuHeaderPanelAdmin from './Compnonet/panelAdmin/megaMenus/menus'
 import CreateMenuHeaders from './Compnonet/panelAdmin/megaMenus/menus/create'
 import EditMenuHeaders from './Compnonet/panelAdmin/megaMenus/menus/edit'
+import MegaMenuListPanelAdmin from './Compnonet/panelAdmin/megaMenus/menuList'
 
 function App() {
   return (
@@ -23,12 +24,18 @@ function App() {
         {/* panelAdmin */}
         <Route path = "/PanelAdmin" element = {<PanelAdmin />} ></Route>
         <Route path = "/LogOut" element = {<Logout />} ></Route>
+        {/* panelAdmin -> user */}
         <Route path = "/PanelAdmin/UsersPanelAdmin" element = {<UsersPanelAdmin />} ></Route>
         <Route path = "/PanelAdmin/createuser" element = {<CreateUsers />} ></Route>
         <Route path = "/PanelAdmin/users/editUser/:id/edit" element = {<EditUsers />} ></Route>
+
+        {/* panelAdmin -> HEADRE : menu */}
         <Route path = "/PanelAdmin/header/menus" element = {<MenuHeaderPanelAdmin />} ></Route>
         <Route path = "/PanelAdmin/header/AddMenu" element = {<CreateMenuHeaders />} ></Route>
         <Route path = "/PanelAdmin/header/EditMenu/:id/edit" element = {<EditMenuHeaders />} ></Route>
+     
+        {/* panelAdmin -> megaMnue => list */}
+        <Route path = "/panelAdmin/megaMenu/list" element = {<MegaMenuListPanelAdmin />}></Route>
       </Routes>
     </BrowserRouter>
   

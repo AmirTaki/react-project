@@ -47,6 +47,11 @@ const PanelAdmin = () => {
         <div className="bg-[#252525]! min-h-screen ">
             {/* header */}
             <HeaderPanelAdmin id = {0}/>
+            <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
+                <div className="flex justify-center items-center min-h-screen text-sky-300 hover:tracking-[.2rem] duration-200">
+                    your wellcome to panelAdmin react + php + mysql
+                </div>
+            </div>
         </div>
     )
 }
