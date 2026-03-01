@@ -45,7 +45,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 link: "/PanelAdmin/header/menus"
             },
             {
-                id: 4, 
+                id: 3, 
                 name: 'MegaMenu List',
                 flag: false, 
                 link: "/panelAdmin/megaMenu/list"
