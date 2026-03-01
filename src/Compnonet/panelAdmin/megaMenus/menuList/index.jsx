@@ -7,7 +7,7 @@ const MegaMenuListPanelAdmin = () => {
     const [lists, setLists] = useState([]);
     const getListMegaMenu = async () => {
         try{
-            await api.get('', {withCredentials: true}).then((res) => {
+            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setLists(data);
             })   
@@ -50,25 +50,25 @@ const MegaMenuListPanelAdmin = () => {
                                         <th>{list.id}</th>
                                         <th>{list.list}</th>
                                         <th>{list.title}</th>
-                                        <th className = {`${menu.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
-                                            {menu.status == 10 ? 'enable' : 'disable'}
+                                        <th className = {`${list.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
+                                            {list.status == 10 ? 'enable' : 'disable'}
                                         </th>
 
                                         <th className="flex justify-center items-center gap-7! max-md:flex-col max-md:gap-1!" >
                                             
                                             <div 
-                                                onClick={() => {chageStatus(menu.id)}}
+                                                // onClick={() => {chageStatus(menu.id)}}
                                                 className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                             >
                                                 change status
                                             </div>
 
-                                            <Link to = {`/PanelAdmin/header/EditMenu/${menu.id}/edit`}>
+                                            <Link to = {`/PanelAdmin/header/EditMenu/${list.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
                                             <div 
-                                                onClick={() => {deleteItem(menu.id)}}
+                                                // onClick={() => {deleteItem(menu.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete
