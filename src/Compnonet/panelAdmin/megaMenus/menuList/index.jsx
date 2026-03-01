@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
+import { useEffect, useState } from "react";
+import api from "../../../../axiosConfig";
 
 const MegaMenuListPanelAdmin = () => {
+    const [lists, setLists] = useState([]);
+    const getListMegaMenu = async () => {
+        try{
+            await api.get('', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })   
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+
+    useEffect(() =>  {getListMegaMenu()}, [])
+
     return(
         <>
             <HeaderPanelAdmin id = {3} />
@@ -27,11 +44,12 @@ const MegaMenuListPanelAdmin = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {menus.map((menu, ind) => { 
+                            {lists.map((list, ind) => { 
                                 return(
                                     <tr key = {ind}>
-                                        <th>{menu.id}</th>
-                                        <th>{menu.title}</th>
+                                        <th>{list.id}</th>
+                                        <th>{list.list}</th>
+                                        <th>{list.title}</th>
                                         <th className = {`${menu.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
                                             {menu.status == 10 ? 'enable' : 'disable'}
                                         </th>
@@ -58,7 +76,7 @@ const MegaMenuListPanelAdmin = () => {
                                         </th>
                                     </tr>
                                 )
-                            })} */}
+                            })}
 
             
                         </tbody>
