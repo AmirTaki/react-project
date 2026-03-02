@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
 import { useEffect, useState } from "react";
 import api from "../../../../axiosConfig";
@@ -7,6 +7,7 @@ import { useReducer } from "react";
 const EditMegaMenuList = () => {
     const {id} = useParams()
     const [title, setTitle] =  useState([])
+    const navigate =  useNavigate()
     
     const getListMenu = async (id) => {
         try{
@@ -34,7 +35,9 @@ const EditMegaMenuList = () => {
                     title: action.payload.title, 
                     titleOld: action.payload.title,
                     list: action.payload.list, 
-                    listOld: action.payload.list
+                    listOld: action.payload.list,
+                    id: action.payload.id
+
                 }
 
             case "list":  
@@ -56,7 +59,8 @@ const EditMegaMenuList = () => {
         warningTitle: '', 
         warningList: '',
         titleOld: '',
-        listOld: ''
+        listOld: '',
+        id: 0
     })
     
     const editItems = async (event, id) => {
@@ -66,12 +70,18 @@ const EditMegaMenuList = () => {
         try{
             await api.put(`tables/megaMenu/menuList/edit.php/${id}`, state).then((res) => {
                 res.data;
-                
+                navigate("/panelAdmin/megaMenu/list");
             })
         }
         catch(err){
             if(err.message == "Request failed with status code 400"){
                 dispatch({type : "warning", payload: {title: 'empty title !!!', list: 'empty list !!!'}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 415'){
+                dispatch({type : "warning", payload: { list: 'repeat list  !!!  change name list ???'}})
             }
             console.error('message: ', err)
         }
@@ -116,7 +126,7 @@ const EditMegaMenuList = () => {
                                         <option  
                                             key = {t.id} 
                                             value={t.title}
-                                            defaultValue = {t.title === state.title}
+                                            selected = {t.title === state.title}
                                         >
                                             {t.title}
                                         </option>
