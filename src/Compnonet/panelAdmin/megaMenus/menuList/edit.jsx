@@ -3,7 +3,6 @@ import HeaderPanelAdmin from "../../header/header";
 import { useEffect } from "react";
 import api from "../../../../axiosConfig";
 import { useReducer } from "react";
-import { reducer } from "../../../auth/reducer";
 
 const EditMegaMenuList = () => {
     const {id} = useParams()
@@ -11,8 +10,7 @@ const EditMegaMenuList = () => {
     const getListMenu = async (id) => {
         try{
             await api.get(`tables/megaMenu/menuList/list.php/${id}`, {withCredentials: true}).then((res) => {
-                console.log(res.data)
-
+                dispatch({type: 'GetResquest', payload: res.data});
             })
         }
         catch(err){
@@ -24,8 +22,14 @@ const EditMegaMenuList = () => {
 
     const reducer = (state, action) => {
         switch(action.type){
-            case "": 
-                return {...state}
+            case "GetResquest": 
+                return {
+                    ...state, 
+                    title: action.payload.title, 
+                    titleOld: action.payload.title,
+                    list: action.payload.list, 
+                    listOld: action.payload.list
+                }
 
             default: 
                 return state;
