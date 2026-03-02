@@ -52,6 +52,7 @@ const CreateMegaMenuList = () => {
         try{
             await api.post('tables/megaMenu/menuList/add.php', state, {withCredentials: true}).then((res) => {
                 res;
+                navigate("/panelAdmin/megaMenu/list");
 
             })
         }
