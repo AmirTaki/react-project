@@ -1,16 +1,21 @@
 import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import api from "../../../../axiosConfig";
 import { useReducer } from "react";
 
 const EditMegaMenuList = () => {
     const {id} = useParams()
-
+    const [title, setTitle] =  useState([])
     const getListMenu = async (id) => {
         try{
             await api.get(`tables/megaMenu/menuList/list.php/${id}`, {withCredentials: true}).then((res) => {
                 dispatch({type: 'GetResquest', payload: res.data});
+            });
+
+            await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setTitle(data);
             })
         }
         catch(err){
@@ -43,7 +48,7 @@ const EditMegaMenuList = () => {
         titleOld: '',
         listOld: ''
     })
-
+    console.log(state)
     return(
         <div className="">
             <HeaderPanelAdmin  id = {3}/>
@@ -57,7 +62,7 @@ const EditMegaMenuList = () => {
                             <label htmlFor="name" className="text-blue-500">list</label>
                             <input 
                                 type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // value={state.title}
+                                value={state.list}
                                 // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
 
                             ></input>
