@@ -26,7 +26,7 @@ const CreateMegaMenuList = () => {
                 return {...state, list: action.payload}
             
             case "title":
-                console.log(action.payload)
+             
                 return {...state, title: action.payload}
 
             default: 
@@ -40,8 +40,7 @@ const CreateMegaMenuList = () => {
         warning: ''
     })
     console.log(state)
-
-
+    
 
     return (
         <div className="">
@@ -71,14 +70,18 @@ const CreateMegaMenuList = () => {
                         <div className="flex gap-5 items-center justify-center">
                             
                             <label htmlFor="title" className="text-blue-500">title</label>
-                            <select 
+                            <select
+                                // value = {'select me'}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
+                                <option value= "" className="hidden">select one option ?</option>
                                 {title?.map((t) => {
                                     return(
                                         <option 
-                                            
-                                            className="" key = {t.id}
+                                     
+                                            key = {t.id}
+                                            value={t.title}
                                         >
                                             {t.title}
                                         </option>
