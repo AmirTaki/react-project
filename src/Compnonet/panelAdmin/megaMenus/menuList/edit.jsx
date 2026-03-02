@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
 import { useEffect } from "react";
 import api from "../../../../axiosConfig";
+import { useReducer } from "react";
+import { reducer } from "../../../auth/reducer";
 
 const EditMegaMenuList = () => {
     const {id} = useParams()
@@ -19,6 +21,25 @@ const EditMegaMenuList = () => {
         }
     }
     useEffect(() => {getListMenu(id)}, [])
+
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "": 
+                return {...state}
+
+            default: 
+                return state;
+        }
+    }
+    const [state, dispatch] = useReducer(reducer, {
+        title: '', 
+        list: '',
+        warningTitle: '', 
+        warningList: '',
+        titleOld: '',
+        listOld: ''
+    })
+
     return(
         <div className="">
             <HeaderPanelAdmin  id = {3}/>
