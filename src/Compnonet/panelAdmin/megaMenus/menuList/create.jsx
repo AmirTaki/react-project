@@ -29,6 +29,9 @@ const CreateMegaMenuList = () => {
              
                 return {...state, title: action.payload}
 
+            case "warning":
+                return {...state, warningTitle : action.payload.title, warningList: action.payload.list}
+            
             default: 
                 return state;
         }
@@ -43,14 +46,18 @@ const CreateMegaMenuList = () => {
 
     const addList = async (event) => {
         event.preventDefault();
+        dispatch({type: 'warning', payload : {title: '', list : ''}})
 
         try{
-            await api.post('', state, {withCredentials: true}).then((res) => {
+            await api.post('tables/megaMenu/menuList/add.php', state, {withCredentials: true}).then((res) => {
                 res;
-                
+
             })
         }
         catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title not is emapty!', list : 'list not is empaty!'}})
+            }
             console.error('message: ', err)
         }
     }
