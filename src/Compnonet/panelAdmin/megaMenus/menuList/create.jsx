@@ -37,11 +37,23 @@ const CreateMegaMenuList = () => {
     const [state, dispatch] = useReducer(reducer, {
         title: '',
         list: '',
-        warning: ''
+        warningTitle: '',
+        warningList: ''
     })
-    console.log(state)
-    
 
+    const addList = async (event) => {
+        event.preventDefault();
+
+        try{
+            await api.post('', state, {withCredentials: true}).then((res) => {
+                res;
+                
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return (
         <div className="">
             <HeaderPanelAdmin  id = {3}/>
@@ -61,7 +73,7 @@ const CreateMegaMenuList = () => {
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {state.warning}
+                                {state.warningList}
                             </span>
                         </div>
 
@@ -71,18 +83,13 @@ const CreateMegaMenuList = () => {
                             
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <select
-                                // value = {'select me'}
                                 onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
                                 {title?.map((t) => {
                                     return(
-                                        <option 
-                                     
-                                            key = {t.id}
-                                            value={t.title}
-                                        >
+                                        <option  key = {t.id} value={t.title}>
                                             {t.title}
                                         </option>
                                     )
@@ -92,7 +99,7 @@ const CreateMegaMenuList = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warning} */}
+                                {state.warningTitle}
                             </span>
                         </div>
                      
@@ -100,7 +107,7 @@ const CreateMegaMenuList = () => {
                         <hr className="my-8"/>
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {saveTitle(event)}}
+                                onClick={(event) => {addList(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
