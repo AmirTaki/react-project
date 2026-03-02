@@ -32,6 +32,18 @@ const MegaMenuListPanelAdmin = () => {
         }
     }
 
+    const deleteItem = async (id) => {
+        try{
+            await api.delete(`tables/megaMenu/menuList/delete.php/${id}/delete`).then((res) => {
+                res.data;
+                getListMegaMenu();
+            })
+        }
+        catch(err){
+            confirm.error('message: ', err);
+        }
+    }
+
     return(
         <>
             <HeaderPanelAdmin id = {3} />
@@ -81,7 +93,7 @@ const MegaMenuListPanelAdmin = () => {
                                             </Link>
                                             
                                             <div 
-                                                // onClick={() => {deleteItem(menu.id)}}
+                                                onClick={() => {deleteItem(list.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete

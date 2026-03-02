@@ -41,11 +41,6 @@ const MenuMegaMenu = ({menu, loc}) => {
                             )
                         }
                     })}
-                    {/* {lists.map((pr, ind ) => (
-                        
-                        <ProductMegaMenu key = {ind} loc = {loc}  pr = {pr} ind = {ind} />
-        
-                    ))}       */}
                 </div>
             </div>
             </div>
