@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import HeaderPanelAdmin from "../../header/header";
 import api from "../../../../axiosConfig";
+import { useReducer } from "react";
 
 const CreateMegaMenuList = () => {
     const [title, setTitle] = useState([])
@@ -18,7 +19,30 @@ const CreateMegaMenuList = () => {
     }
     
     useEffect(() => {getTitle()}, [])
-    console.log(title)
+
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "list":
+                return {...state, list: action.payload}
+            
+            case "title":
+                console.log(action.payload)
+                return {...state, title: action.payload}
+
+            default: 
+                return state;
+        }
+    }
+
+    const [state, dispatch] = useReducer(reducer, {
+        title: '',
+        list: '',
+        warning: ''
+    })
+    console.log(state)
+
+
+
     return (
         <div className="">
             <HeaderPanelAdmin  id = {3}/>
@@ -27,29 +51,37 @@ const CreateMegaMenuList = () => {
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ITEM</h1>
 
                     <form>
-                        {/* title */}
+                        {/* list */}
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="name" className="text-blue-500">list</label>
                             <input 
-                                // value = {state.title}
+                                value = {state.list}
                                 type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warning} */}
+                                {state.warning}
                             </span>
                         </div>
 
                         <hr className="my-8"/>
+                        {/* title */}
                         <div className="flex gap-5 items-center justify-center">
                             
-                            <label htmlFor="name" className="text-blue-500">title</label>
-                            <select className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 ">
+                            <label htmlFor="title" className="text-blue-500">title</label>
+                            <select 
+                                id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
+                            >
                                 {title?.map((t) => {
                                     return(
-                                        <option className="" key = {t.id}>{t.title}</option>
+                                        <option 
+                                            
+                                            className="" key = {t.id}
+                                        >
+                                            {t.title}
+                                        </option>
                                     )
                                 })}
                             </select>
