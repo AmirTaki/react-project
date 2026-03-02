@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import HeaderPanelAdmin from "../../header/header";
 import api from "../../../../axiosConfig";
 import { useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreateMegaMenuList = () => {
     const [title, setTitle] = useState([])
-
+    const navigate =  useNavigate('')
     const getTitle = async() => {
         try{
             await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
@@ -58,6 +59,12 @@ const CreateMegaMenuList = () => {
             if(err.message == 'Request failed with status code 422'){
                 dispatch({type: 'warning', payload : {title: 'title not is emapty!', list : 'list not is empaty!'}})
             }
+            if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 415'){
+                dispatch({type: 'warning', payload : {title: '', list : 'name list repeat ??? change name list !!!'}})
+            }
             console.error('message: ', err)
         }
     }
@@ -94,6 +101,7 @@ const CreateMegaMenuList = () => {
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
+                
                                 {title?.map((t) => {
                                     return(
                                         <option  key = {t.id} value={t.title}>
