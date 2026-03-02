@@ -1,6 +1,24 @@
+import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
+import { useEffect } from "react";
+import api from "../../../../axiosConfig";
 
 const EditMegaMenuList = () => {
+    const {id} = useParams()
+
+    const getListMenu = async (id) => {
+        try{
+            await api.get(`tables/megaMenu/menuList/list.php/${id}`, {withCredentials: true}).then((res) => {
+                console.log(res.data)
+
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+
+        }
+    }
+    useEffect(() => {getListMenu(id)}, [])
     return(
         <div className="">
             <HeaderPanelAdmin  id = {3}/>
@@ -25,6 +43,35 @@ const EditMegaMenuList = () => {
                             </span>
                         </div>
 
+                        <hr className="my-8"/>
+
+                        {/* title */}
+                        <div className="flex gap-5 items-center justify-center">
+                            
+                            <label htmlFor="title" className="text-blue-500">title</label>
+                            <select
+                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
+                            >
+                                <option value= ""  className="hidden">select one option ?</option>
+                
+                                {/* {title?.map((t) => {
+                                    return(
+                                        <option  key = {t.id} value={t.title}>
+                                            {t.title}
+                                        </option>
+                                    )
+                                })} */}
+                            </select>
+                        </div> 
+                        
+                        <div className="text-gray-500 py-5">message:
+                            <span className="text-red-600 px-2">
+                                {/* {state.warningTitle} */}
+                            </span>
+                        </div>
+                     
+                            
                         <hr className="my-8"/>
 
                         <div className="flex justify-center items-center">
