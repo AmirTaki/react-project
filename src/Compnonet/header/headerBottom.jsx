@@ -14,11 +14,17 @@ const  HeaderBottom = () => {
   const {heartConter}  =  useContext(GlobalHearts)
 
     const [menus, setMenus] =  useState([]);
+    const [lists, setLists] =  useState([]);
     const getMenus = async () => {
         try{
             await api.get('tables/megaMenu/menus/reading.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setMenus(data);
+            });
+        
+            await api.get('tables/megaMenu/menuList/reading.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
             })
         }
         catch(err){
@@ -30,7 +36,7 @@ const  HeaderBottom = () => {
 
 
   // const menus = ['menu1', 'menu2', 'menu3', 'menu4', 'menu5', 'menu6', 'menu7'] 
-  const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
+  // const lists = ['list1', 'list2', 'list3','list4','list5','list1', 'list2', 'list3', 'list4']
 
     const {scrollTop} = useContext(GlobalHeaderScroll);
     const [navbar, setNavbar] = useState(false);   

@@ -10,7 +10,7 @@ const ProductMegaMenu = ({loc, pr , ind}) => {
         <div  key = {ind} className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[80%]  m-2"}`}>    
             {/* title List */}
             <div onClick = {()=> {listHandler(`${loc}${ind}`)}} className={`listContainer ${navbar ? "flex justify-between px-4 bg-transparent  text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-sky-100!  duration-150 h-[50px] items-center" : "   h-[40px]  justify-center  text-xl flex flex-col  pl-[10px] text-gray-600   hover:text-blue-600 cursor-pointer hover:bg-gray-100 duration-300  rounded-4xl!"}`}>
-                <div className={`${navbar ? "" : ""}`}>{pr}</div>
+                <div className={`${navbar ? "" : ""}`}>{pr.list}</div>
                 <div className={`${navbar ? "" : "hidden"}`}><i className="bi bi-chevron-right"></i></div>
             </div>
 

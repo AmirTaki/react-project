@@ -33,11 +33,19 @@ const MenuMegaMenu = ({menu, loc}) => {
                 {/* category */}
                     <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                     {/* container List  */}
-                
-                    {lists.map((pr, ind ) => (
+                    
+                    {lists.map((pr, ind) => {
+                        if(pr.title === menu.title){
+                            return(
+                                <ProductMegaMenu key = {ind} loc = {loc}  pr = {pr} ind = {ind} />
+                            )
+                        }
+                    })}
+                    {/* {lists.map((pr, ind ) => (
+                        
                         <ProductMegaMenu key = {ind} loc = {loc}  pr = {pr} ind = {ind} />
         
-                    ))}      
+                    ))}       */}
                 </div>
             </div>
             </div>
