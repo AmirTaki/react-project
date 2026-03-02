@@ -7,6 +7,7 @@ import { useReducer } from "react";
 const EditMegaMenuList = () => {
     const {id} = useParams()
     const [title, setTitle] =  useState([])
+    
     const getListMenu = async (id) => {
         try{
             await api.get(`tables/megaMenu/menuList/list.php/${id}`, {withCredentials: true}).then((res) => {
@@ -36,6 +37,12 @@ const EditMegaMenuList = () => {
                     listOld: action.payload.list
                 }
 
+            case "list":  
+                return {...state, list: action.payload}
+
+            case "title": 
+                return {...state, title: action.payload}
+
             default: 
                 return state;
         }
@@ -63,13 +70,13 @@ const EditMegaMenuList = () => {
                             <input 
                                 type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 value={state.list}
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
 
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warning} */}
+                                {state.warningList}
                             </span>
                         </div>
 
@@ -80,18 +87,22 @@ const EditMegaMenuList = () => {
                             
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
-                                <option value= ""  className="hidden">select one option ?</option>
+                                {/* <option va  className="hidden">select one option ?</option> */}
                 
-                                {/* {title?.map((t) => {
+                                {title?.map((t) => {
                                     return(
-                                        <option  key = {t.id} value={t.title}>
+                                        <option  
+                                            key = {t.id} 
+                                            value={t.title}
+                                            defaultValue = {t.title === state.title}
+                                        >
                                             {t.title}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
