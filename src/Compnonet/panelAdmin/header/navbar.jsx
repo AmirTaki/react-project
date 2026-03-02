@@ -8,7 +8,6 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
         dispatch({type : "clickLink", payload: {id : id}})
     }, [])
 
-    console.log(id)
     const reducer = (state, action) => {
         switch(action.type){
             case "clickLink":
