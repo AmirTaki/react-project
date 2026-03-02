@@ -1,6 +1,24 @@
+import { useEffect, useState } from "react";
 import HeaderPanelAdmin from "../../header/header";
+import api from "../../../../axiosConfig";
 
 const CreateMegaMenuList = () => {
+    const [title, setTitle] = useState([])
+
+    const getTitle = async() => {
+        try{
+            await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setTitle(data);
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+    
+    useEffect(() => {getTitle()}, [])
+    console.log(title)
     return (
         <div className="">
             <HeaderPanelAdmin  id = {3}/>
@@ -28,10 +46,12 @@ const CreateMegaMenuList = () => {
                         <div className="flex gap-5 items-center justify-center">
                             
                             <label htmlFor="name" className="text-blue-500">title</label>
-                            <select className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-10 p-2 ">
-                                <option>one</option>
-                                <option>two</option>
-                                <option>three</option>
+                            <select className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 ">
+                                {title?.map((t) => {
+                                    return(
+                                        <option className="" key = {t.id}>{t.title}</option>
+                                    )
+                                })}
                             </select>
                         </div> 
                         
