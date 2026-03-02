@@ -43,6 +43,9 @@ const EditMegaMenuList = () => {
             case "title": 
                 return {...state, title: action.payload}
 
+            case "warning": 
+                return {...state, warningTitle: action.payload.title, warningList: action.payload.list}
+            
             default: 
                 return state;
         }
@@ -55,7 +58,25 @@ const EditMegaMenuList = () => {
         titleOld: '',
         listOld: ''
     })
-    console.log(state)
+    
+    const editItems = async (event, id) => {
+        event.preventDefault();
+        dispatch({type : "warning", payload: {title: '', list: ''}})
+
+        try{
+            await api.put(`tables/megaMenu/menuList/edit.php/${id}`, state).then((res) => {
+                res.data;
+                
+            })
+        }
+        catch(err){
+            if(err.message == "Request failed with status code 400"){
+                dispatch({type : "warning", payload: {title: 'empty title !!!', list: 'empty list !!!'}})
+            }
+            console.error('message: ', err)
+        }
+    }
+
     return(
         <div className="">
             <HeaderPanelAdmin  id = {3}/>
@@ -90,8 +111,6 @@ const EditMegaMenuList = () => {
                                 onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
-                                {/* <option va  className="hidden">select one option ?</option> */}
-                
                                 {title?.map((t) => {
                                     return(
                                         <option  
@@ -108,7 +127,7 @@ const EditMegaMenuList = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.warningTitle}
                             </span>
                         </div>
                      
@@ -117,7 +136,7 @@ const EditMegaMenuList = () => {
 
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {editItems(event, id)}}
+                                onClick={(event) => {editItems(event, id)}}
                                 type="submit"
                                 value = "update" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
