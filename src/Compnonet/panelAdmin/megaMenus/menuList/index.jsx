@@ -20,7 +20,7 @@ const MegaMenuListPanelAdmin = () => {
     useEffect(() =>  {getListMegaMenu()}, [])
 
 
-    const chageStatus = async (id) => {
+    const changeStatus = async (id) => {
         try{
             await api.get(`tables/megaMenu/menuList/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
                 res;
@@ -82,7 +82,7 @@ const MegaMenuListPanelAdmin = () => {
                                         <th className="flex justify-center items-center gap-7! max-md:flex-col max-md:gap-1!" >
                                             
                                             <div 
-                                                onClick={() => {chageStatus(list.id)}}
+                                                onClick={() => {changeStatus(list.id)}}
                                                 className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                             >
                                                 change status
