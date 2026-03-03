@@ -1,15 +1,48 @@
 import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
-import { useEffect } from "react";
+import { useEffect, useReducer } from "react";
 import api from "../../../../axiosConfig";
+import { reducer } from "../../../auth/reducer";
 
 const EditMegaMenuCategory = () => {
+
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "GetRequest":
+                return {...state,
+                    title: action.payload.title, 
+                    titleOld: action.payload.title,
+                    list: action.payload.list,
+                    listOld: action.payload.list,
+                    category: action.payload.category,
+                    categoryOld: action.payload.category,
+                    id: action.payload.id
+                };
+
+            default:
+                return state;
+        }
+    }
+    const [state, dispatch] =  useReducer(reducer, {
+        category: '',
+        title: '',
+        list: '',
+        sign: '',
+        categoryOld: '',
+        titleOld: '',
+        listOld: '',
+        id: 0,
+        warningCategory: '',
+        warningTitle: '',
+        warningList: ''
+    })
+
     const {id} = useParams()
 
     const getCategoryListTitle = async (id)  => {
         try{
             await api.get(`tables/megaMenu/menuCategory/category.php/${id}`, {withCredentials: true}).then((res) => {
-
+                dispatch({type: 'GetRequest', payload: res.data});
             })
         }   
         catch(err){
