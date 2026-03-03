@@ -1,8 +1,10 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import HeaderPanelAdmin from "../../header/header";
-import { reducer } from "../../../auth/reducer";
+import api from "../../../../axiosConfig";
 
 const CreateMegaMenuCategory = () => {
+    const [title, setTitle] =  useState([])
+    const [lists, setLists] =  useState([])
 
     const reducer = (state, action) => {
         switch(action.type){
@@ -14,6 +16,9 @@ const CreateMegaMenuCategory = () => {
             
             case "list":
                 return {...state, list: action.payload}
+
+            case "sign":
+                return {...state, sign: action.payload}
 
             default :
                 return state
@@ -28,6 +33,29 @@ const CreateMegaMenuCategory = () => {
         warningList: '',
         warningTitle: ''
     })
+
+    const getTitleList = async () => {
+        try{
+            await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setTitle(data);
+            })
+            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })
+
+
+        
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
+    useEffect(() => {getTitleList()}, [])
+
+    console.log(state)
     return(
         <div className="">
             <HeaderPanelAdmin id = {4}/>
@@ -62,13 +90,13 @@ const CreateMegaMenuCategory = () => {
                             >
                                 <option value= "" className="hidden">select one option ?</option>
                 
-                                {/* {title?.map((t) => {
+                                {title?.map((t) => {
                                     return(
                                         <option  key = {t.id} value={t.title}>
                                             {t.title}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
@@ -89,13 +117,13 @@ const CreateMegaMenuCategory = () => {
                             >
                                 <option value= "" className="hidden">select one option ?</option>
                 
-                                {/* {title?.map((t) => {
+                                {lists?.map((li) => {
                                     return(
-                                        <option  key = {t.id} value={t.title}>
-                                            {t.title}
+                                        <option  key = {li.id} value={li.list}>
+                                            {li.list}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
@@ -111,14 +139,14 @@ const CreateMegaMenuCategory = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="sign" className="text-blue-500">sign</label>
                             <input 
-                                // value = {state.list}
+                                value = {state.sign}
                                 type="text" id = "sign" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'sign', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningList} */}
+                                {/* {state.w} */}
                             </span>
                         </div>              
                             
