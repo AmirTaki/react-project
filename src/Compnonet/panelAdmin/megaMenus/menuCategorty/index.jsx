@@ -12,7 +12,6 @@ const MegaMenuCategoryPanelAdmin = () => {
                const data =  Array.isArray(res.data) ? res.data : []
                setCategory(data);
             })
-
         }
         catch(err){
             console.error('message: ',err);
@@ -95,7 +94,7 @@ const MegaMenuCategoryPanelAdmin = () => {
                                                 change status
                                             </div>
 
-                                            <Link to = {`/panelAdmin/megaMenu/EditList/${cate.id}/edit`}>
+                                            <Link to = {`/panelAdmin/megaMenu/EditCategory/${cate.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
@@ -108,9 +107,7 @@ const MegaMenuCategoryPanelAdmin = () => {
                                         </th>
                                     </tr>
                                 )
-                            })}
-
-            
+                            })}            
                         </tbody>
                     </table>
                 </div>
