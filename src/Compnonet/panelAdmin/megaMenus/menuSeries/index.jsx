@@ -91,7 +91,7 @@ const MegaMenuSeriesPanelAdmin = () => {
                                                 change status
                                             </div>
 
-                                            <Link to = {`/panelAdmin/megaMenu/EditCategory/${ser.id}/edit`}>
+                                            <Link to = {`/panelAdmin/megaMenu/EditSeries/${ser.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
