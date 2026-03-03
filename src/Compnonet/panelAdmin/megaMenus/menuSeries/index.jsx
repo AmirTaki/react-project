@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import HeaderPanelAdmin from "../../header/header";
 import api from "../../../../axiosConfig";
+import { Link } from "react-router-dom";
 
 const MegaMenuSeriesPanelAdmin = () => {
 
@@ -19,6 +20,7 @@ const MegaMenuSeriesPanelAdmin = () => {
     }
     useEffect(() => {getSeriesMegaMenu()}, [])
 
+    
     return(
         <div className="">
             <HeaderPanelAdmin id = {5} />
@@ -41,39 +43,37 @@ const MegaMenuSeriesPanelAdmin = () => {
                                 <th>Series</th>
                                 <th>List</th>
                                 <th>Title</th>
-                                <th>sign</th>
                                 <th>status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {category.map((cate, ind) => { 
+                            {seriess.map((ser, ind) => { 
                                 return(
                                     <tr key = {ind}>
-                                        <th >{cate.id}</th>
-                                        <th>{cate.category}</th>
-                                        <th>{cate.list}</th>
-                                        <th>{cate.title}</th>
-                                        <th>{cate.sign}</th>
-                                        <th className = {`${cate.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
-                                            {cate.status == 10 ? 'enable' : 'disable'}
+                                        <th >{ser.id}</th>
+                                        <th>{ser.series}</th>
+                                        <th>{ser.list}</th>
+                                        <th>{ser.title}</th>
+                                        <th className = {`${ser.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
+                                            {ser.status == 10 ? 'enable' : 'disable'}
                                         </th>
 
                                         <th className="flex justify-center items-center gap-7! max-md:flex-col max-md:gap-1!" >
                                             
                                             <div 
-                                                onClick={() => {changeStatus(cate.id)}}
+                                                // onClick={() => {changeStatus(ser.id)}}
                                                 className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                             >
                                                 change status
                                             </div>
 
-                                            <Link to = {`/panelAdmin/megaMenu/EditCategory/${cate.id}/edit`}>
+                                            <Link to = {`/panelAdmin/megaMenu/EditCategory/${ser.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
                                             <div 
-                                                onClick={() => {deleteItem(cate.id)}}
+                                                // onClick={() => {deleteItem(ser.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete
