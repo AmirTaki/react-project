@@ -1,7 +1,33 @@
+import { useNavigate, useParams } from "react-router-dom"
 import HeaderPanelAdmin from "../../header/header"
-
+import { useEffect, useReducer, useState } from "react"
+import api from "../../../../axiosConfig"
 
 const EditMegaMenuSeries = () => {
+    const {id} = useParams()
+    const navigate = useNavigate()
+    const [titles, setTitles] =  useState([])
+    const [lists, setLists] = useState([])
+
+    const getTitleList = async () => {
+        try{
+            await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setTitles(data);
+            })
+            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })        
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
+    useEffect(() => {getTitleList()}, [])
+
+
     return(
         <div className="">
             <HeaderPanelAdmin  id = {5}/>
@@ -35,7 +61,7 @@ const EditMegaMenuSeries = () => {
                                 // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
-                                {/* {titles?.map((t) => {
+                                {titles?.map((t) => {
                                     return(
                                         <option  
                                             key = {t.id} 
@@ -45,7 +71,7 @@ const EditMegaMenuSeries = () => {
                                             {t.title}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
@@ -64,7 +90,7 @@ const EditMegaMenuSeries = () => {
                                 // onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
-                                {/* {lists?.map((li) => {
+                                {lists?.map((li) => {
                                     return(
                                         <option  
                                             key = {li.id} 
@@ -74,7 +100,7 @@ const EditMegaMenuSeries = () => {
                                             {li.list}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
