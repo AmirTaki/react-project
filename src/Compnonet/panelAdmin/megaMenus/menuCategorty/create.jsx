@@ -6,14 +6,28 @@ const CreateMegaMenuCategory = () => {
 
     const reducer = (state, action) => {
         switch(action.type){
-            case "":
-                return {...state}
+            case "category":
+                return {...state, category: action.payload}
+            
+            case "title":
+                return {...state, title: action.payload}
+            
+            case "list":
+                return {...state, list: action.payload}
 
             default :
                 return state
         }
     }
-    const [state, dispatch] =  useReducer(reducer, {})
+    const [state, dispatch] =  useReducer(reducer, {
+        category: '',
+        list: '',
+        title: '',
+        sign: '',
+        warningCategory:'',
+        warningList: '',
+        warningTitle: ''
+    })
     return(
         <div className="">
             <HeaderPanelAdmin id = {4}/>
@@ -26,14 +40,14 @@ const CreateMegaMenuCategory = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="category" className="text-blue-500">category</label>
                             <input 
-                                // value = {state.list}
+                                value = {state.category}
                                 type="text" id = "category" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningList} */}
+                                {state.warningCategory}
                             </span>
                         </div>
 
@@ -43,7 +57,7 @@ const CreateMegaMenuCategory = () => {
                             
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
@@ -60,7 +74,7 @@ const CreateMegaMenuCategory = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.warningTitle}
                             </span>
                         </div>
                        
@@ -70,7 +84,7 @@ const CreateMegaMenuCategory = () => {
                             
                             <label htmlFor="list" className="text-blue-500">list</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
@@ -87,7 +101,7 @@ const CreateMegaMenuCategory = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.warningList}
                             </span>
                         </div>
                         
