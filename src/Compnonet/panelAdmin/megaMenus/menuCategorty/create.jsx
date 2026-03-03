@@ -76,6 +76,12 @@ const CreateMegaMenuCategory = () => {
             if(err.message == 'Request failed with status code 422'){
                 dispatch({type: 'warning', payload : {title: 'title not is empty!', list : 'list not is empty!', category: "category not is empty"}})
             }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 415'){
+                dispatch({type: 'warning', payload : {title: '', category : 'name category repeat ??? change name category !!!', list: ''}})
+            }
             console.error('message: ', err)
         }
     }
@@ -112,6 +118,7 @@ const CreateMegaMenuCategory = () => {
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
+                                <option value= "test" className="">test</option>
                 
                                 {title?.map((t) => {
                                     return(
@@ -139,7 +146,8 @@ const CreateMegaMenuCategory = () => {
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
-                
+                                <option value= "test" className="">test</option>
+
                                 {lists?.map((li) => {
                                     return(
                                         <option  key = {li.id} value={li.list}>
