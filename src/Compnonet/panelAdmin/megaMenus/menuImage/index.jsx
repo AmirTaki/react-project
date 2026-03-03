@@ -1,7 +1,23 @@
 import { Link } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
+import api from "../../../../axiosConfig";
+import { useEffect, useState } from "react";
 
 const MegaMenuImagePanelAdmin = () => {
+    const [imgMenu, setImgMenu] =  useState([])
+    
+    const getImageMegaMenu = async() => {
+        try{
+            await api.get('', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data)?  res.data : [];
+                setImgMenu(data);
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+    useEffect(() => {getImageMegaMenu()}, [])
     return(
         <div className="">
             <HeaderPanelAdmin id = {6} />
@@ -31,33 +47,33 @@ const MegaMenuImagePanelAdmin = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {category.map((cate, ind) => { 
+                            {imgMenu.map((i, ind) => { 
                                 return(
                                     <tr key = {ind}>
-                                        <th >{cate.id}</th>
-                                        <th>{cate.category}</th>
-                                        <th>{cate.list}</th>
-                                        <th>{cate.title}</th>
-                                        <th>{cate.sign}</th>
-                                        <th className = {`${cate.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
-                                            {cate.status == 10 ? 'enable' : 'disable'}
+                                        <th >{i.id}</th>
+                                        <th>{i.image}</th>
+                                        <th>{i.list}</th>
+                                        <th>{i.title}</th>
+                                        <th>{i.body}</th>
+                                        <th className = {`${i.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
+                                            {i.status == 10 ? 'enable' : 'disable'}
                                         </th>
 
                                         <th className="flex justify-center items-center gap-7! max-md:flex-col max-md:gap-1!" >
                                             
                                             <div 
-                                                onClick={() => {changeStatus(cate.id)}}
+                                                // onClick={() => {changeStatus(i.id)}}
                                                 className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                             >
                                                 change status
                                             </div>
 
-                                            <Link to = {`/panelAdmin/megaMenu/EditCategory/${cate.id}/edit`}>
+                                            <Link to = {`/panelAdmin/megaMenu/EditCategory/${i.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
                                             <div 
-                                                onClick={() => {deleteItem(cate.id)}}
+                                                // onClick={() => {deleteItem(i.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete
@@ -65,7 +81,7 @@ const MegaMenuImagePanelAdmin = () => {
                                         </th>
                                     </tr>
                                 )
-                            })}             */}
+                            })}            
                         </tbody>
                     </table>
                 </div>
