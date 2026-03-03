@@ -1,6 +1,24 @@
+import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
+import { useEffect } from "react";
+import api from "../../../../axiosConfig";
 
 const EditMegaMenuCategory = () => {
+    const {id} = useParams()
+
+    const getCategoryListTitle = async (id)  => {
+        try{
+            await api.get(`tables/megaMenu/menuCategory/category.php/${id}`, {withCredentials: true}).then((res) => {
+
+            })
+        }   
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+
+    useEffect(() => {getCategoryListTitle(id)}, [])
+
     return (
         <div className="">
             <HeaderPanelAdmin  id = {4}/>
