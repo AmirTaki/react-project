@@ -9,8 +9,12 @@ const EditMegaMenuSeries = () => {
     const [titles, setTitles] =  useState([])
     const [lists, setLists] = useState([])
 
-    const getTitleList = async () => {
+    const getSeriesTitleList = async (id) => {
         try{
+            await api.get(`tables/megaMenu/menuSeries/series.php/${id}`, {withCredentials: true}).then((res) => {
+                dispatch({type: "GetRequest", payload: res.data})
+            })
+
             await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setTitles(data);
@@ -25,7 +29,7 @@ const EditMegaMenuSeries = () => {
         }
     }
 
-    useEffect(() => {getTitleList()}, [])
+    useEffect(() => {getSeriesTitleList(id)}, [])
 
 
     const reducer = (state, action) => {
@@ -71,6 +75,7 @@ const EditMegaMenuSeries = () => {
         warningList: ''
     })
 
+    
 
     return(
         <div className="">
@@ -83,16 +88,16 @@ const EditMegaMenuSeries = () => {
                     <form>
                         {/* series */}
                         <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="category" className="text-blue-500">series</label>
+                            <label htmlFor="series" className="text-blue-500">series</label>
                             <input 
-                                // value = {state.category}
-                                type="text" id = "category" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
+                                value = {state.series}
+                                type="text" id = "series" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                onChange={(e) => {dispatch({type: 'series', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningCategory} */}
+                                {state.warningSeries}
                             </span>
                         </div>
 
@@ -102,7 +107,7 @@ const EditMegaMenuSeries = () => {
                             
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 {titles?.map((t) => {
@@ -121,7 +126,7 @@ const EditMegaMenuSeries = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.warningTitle}
                             </span>
                         </div>
                        
@@ -131,7 +136,7 @@ const EditMegaMenuSeries = () => {
                             
                             <label htmlFor="list" className="text-blue-500">list</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 {lists?.map((li) => {
@@ -150,7 +155,7 @@ const EditMegaMenuSeries = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningList} */}
+                                {state.warningList}
                             </span>
                         </div>
                         
