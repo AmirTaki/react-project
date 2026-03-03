@@ -17,6 +17,7 @@ import MegaMenuCategoryPanelAdmin from './Compnonet/panelAdmin/megaMenus/menuCat
 import CreateMegaMenuCategory from './Compnonet/panelAdmin/megaMenus/menuCategorty/create'
 import EditMegaMenuCategory from './Compnonet/panelAdmin/megaMenus/menuCategorty/edit'
 import MegaMenuSeriesPanelAdmin from './Compnonet/panelAdmin/megaMenus/menuSeries'
+import CreateMegaMenuSeries from './Compnonet/panelAdmin/megaMenus/menuSeries/create'
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
 
         {/* panelAdmin -> megaMenu => series  */}
         <Route path = "/panelAdmin/megaMenu/series" element = {<MegaMenuSeriesPanelAdmin />}></Route>
+        <Route path = "/panelAdmin/megaMenu/AddSeries" element = {<CreateMegaMenuSeries />}></Route>
 
       </Routes>
     </BrowserRouter>
