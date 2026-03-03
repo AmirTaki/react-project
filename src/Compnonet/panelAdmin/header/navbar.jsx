@@ -49,6 +49,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/megaMenu/list"
             },
+            {
+                id: 4, 
+                name: 'MegaMenu Category',
+                flag: false, 
+                link: "/panelAdmin/megaMenu/category"
+            },
         ]
     })
     // const list = ['users ', 'table2', 'table3', 'table4']

@@ -13,6 +13,7 @@ import EditMenuHeaders from './Compnonet/panelAdmin/megaMenus/menus/edit'
 import MegaMenuListPanelAdmin from './Compnonet/panelAdmin/megaMenus/menuList'
 import CreateMegaMenuList from './Compnonet/panelAdmin/megaMenus/menuList/create'
 import EditMegaMenuList from './Compnonet/panelAdmin/megaMenus/menuList/edit'
+import MegaMenuCategoryPanelAdmin from './Compnonet/panelAdmin/megaMenus/menuCategorty'
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
         <Route path = "/panelAdmin/megaMenu/list" element = {<MegaMenuListPanelAdmin />}></Route>
         <Route path = "/panelAdmin/megaMenu/AddList" element = {<CreateMegaMenuList />}></Route>
         <Route path = "/panelAdmin/megaMenu/EditList/:id/edit" element = {<EditMegaMenuList />}></Route>
+
+        {/* panelAdmin -> megaMenu => category */}
+        <Route path = "/panelAdmin/megaMenu/category" element = {<MegaMenuCategoryPanelAdmin />}></Route>
+
 
       </Routes>
     </BrowserRouter>
