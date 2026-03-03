@@ -53,8 +53,31 @@ const CreateMegaMenuSeries = () => {
     }
 
     useEffect(() => {getTitleList()}, [])
+
+     const addSeries = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload : {title: '', list : '', series: ""}})
+
+        try{
+            await api.post("tables/megaMenu/menuSeries/add.php", state, {withCredentials: true}).then((res) => {
+                res;
+                navigate("/panelAdmin/megaMenu/series");
+            })
+        }
+        catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title not is empty!', list : 'list not is empty!', series: "series not is empty"}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 415'){
+                dispatch({type: 'warning', payload : {title: '', series : 'name series repeat ??? change name series !!!', list: ''}})
+            }
+            console.error('message: ', err)
+        }
+    }
     
-    console.log(state);
     return (
         <div className="">
             <HeaderPanelAdmin id = {5}/>
@@ -65,7 +88,7 @@ const CreateMegaMenuSeries = () => {
                     <form>
                         {/* series */}
                         <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="series" className="text-blue-500">category</label>
+                            <label htmlFor="series" className="text-blue-500">series</label>
                             <input 
                                 value = {state.series}
                                 type="text" id = "series" className="border-2 w-[300px] rounded-md h-10 p-2"
@@ -134,7 +157,7 @@ const CreateMegaMenuSeries = () => {
                         <hr className="my-8"/>
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addList(event)}}
+                                onClick={(event) => {addSeries(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
