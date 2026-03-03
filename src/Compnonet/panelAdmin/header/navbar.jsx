@@ -61,6 +61,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/megaMenu/series"
             },
+            {
+                id: 6, 
+                name: 'MegaMenu Image',
+                flag: false, 
+                link: "/panelAdmin/megaMenu/image"
+            },
         ]
     })
     return(
@@ -76,7 +82,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
 
             {state.list?.map((item) => {
                 return(           
-                    <div key = {item.id} className=" text-[20px] px-4 "
+                    <div key = {item.id} className=" text-[20px] px-4 my-2"
                         
                     >
                         <Link to = {item.link}
