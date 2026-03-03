@@ -104,7 +104,6 @@ const EditMegaMenuCategory = () => {
         }
     }
 
-    console.log(state)
 
     return (
         <div className="">

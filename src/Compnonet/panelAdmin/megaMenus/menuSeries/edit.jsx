@@ -75,6 +75,30 @@ const EditMegaMenuSeries = () => {
         warningList: ''
     })
 
+
+    const editSeries = async(event) => {
+        event.preventDefault();
+        dispatch({type : "warning", payload: {title: '', list: '', series: ''}})
+
+        try{
+            await api.put('tables/megaMenu/menuSeries/edit.php', state).then((res) => {
+                res.data;
+                navigate("/panelAdmin/megaMenu/series");
+            })
+        }
+        catch(err){
+            if(err.message == "Request failed with status code 400"){
+                dispatch({type : "warning", payload: {title: 'empty title !!!', list: 'empty list !!!', series: 'empty series !!!'}});
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 415'){
+                dispatch({type : "warning", payload: { series: 'repeat series  !!!  change name series ???'}})
+            }
+            console.error('message: ',err)
+        }
+    }
     
 
     return(
@@ -164,7 +188,7 @@ const EditMegaMenuSeries = () => {
                         <hr className="my-8"/>
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {editCategory(event)}}
+                                onClick={(event) => {editSeries(event)}}
                                 type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
