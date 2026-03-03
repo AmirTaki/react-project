@@ -8,11 +8,16 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
     const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
     
     const [category, setCategory] = useState([])
+    const [series, setSeries] = useState([])
     const getProducts = async () => {
         try{
             await api.get('tables/megaMenu/menuCategory/reading.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setCategory(data)
+            })
+            await api.get('tables/megaMenu/menuSeries/reading.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setSeries(data)
             })
         }
         catch(err){
@@ -61,9 +66,15 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
             <div className={`${navbar ? "flex flex-col w-[50%] h-[45%] bg-transparent overflow-hidden border-l-gray-100 border-r-1! border-t-gray-100 border-t-1!" :"flex flex-col  w-[35vw] overflow-hidden border-l-gray-100 border-r-1!"}`}>
                 <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY SERYS</div>
                 {/* serics item */}
-                <div className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
-                <div className="">serics</div>
-                </div>
+                {series?.map((ser) => {
+                    if(ser.list === pr.list && ser.title === menu.title){
+                        return (
+                            <div key = {ser.id} className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                                <div className="">{ser.series}</div>
+                            </div>
+                        )
+                    }
+                }) }
             </div>
             {/* image */}
             <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]   items-center gap-10 " : "flex flex-col w-[35vw]    overflow-hidden   justify-center! items-center! gap-5 "}`}>
