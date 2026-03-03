@@ -56,7 +56,7 @@ const MegaMenuCategoryPanelAdmin = () => {
                     </Link>
                     
 
-                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">MegaMenu: List table</h1> 
+                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">MegaMenu: Category table</h1> 
                 </div>
               
                 <div className="w-[90%]  mx-auto flex flex-col">
