@@ -18,9 +18,22 @@ const EditMegaMenuCategory = () => {
                     listOld: action.payload.list,
                     category: action.payload.category,
                     categoryOld: action.payload.category,
-                    id: action.payload.id
+                    id: action.payload.id,
+                    sign: action.payload.sign
                 };
 
+            case "category": 
+                return {...state, category: action.payload}
+
+            case "title":
+                return {...state, title: action.payload}
+
+            case "list":
+                return {...state, list: action.payload}
+            
+            case "sign":
+                return {...state, sign: action.payload}
+                
             default:
                 return state;
         }
@@ -63,6 +76,8 @@ const EditMegaMenuCategory = () => {
 
     useEffect(() => {getCategoryListTitle(id)}, [])
 
+    console.log(state)
+
     return (
         <div className="">
             <HeaderPanelAdmin  id = {4}/>
@@ -78,7 +93,7 @@ const EditMegaMenuCategory = () => {
                             <input 
                                 value = {state.category}
                                 type="text" id = "category" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -93,13 +108,16 @@ const EditMegaMenuCategory = () => {
                             
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
-                                <option value= "" className="hidden">select one option ?</option>
                                 {titles?.map((t) => {
                                     return(
-                                        <option  key = {t.id} value={t.title}>
+                                        <option  
+                                            key = {t.id} 
+                                            value={t.title}
+                                            selected = {t.title === state.title}
+                                        >
                                             {t.title}
                                         </option>
                                     )
@@ -119,13 +137,16 @@ const EditMegaMenuCategory = () => {
                             
                             <label htmlFor="list" className="text-blue-500">list</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
-                                <option value= "" className="hidden">select one option ?</option>
                                 {lists?.map((li) => {
                                     return(
-                                        <option  key = {li.id} value={li.list}>
+                                        <option  
+                                            key = {li.id} 
+                                            value={li.list}
+                                            selected = {li.list === state.list}
+                                        >
                                             {li.list}
                                         </option>
                                     )
@@ -145,9 +166,9 @@ const EditMegaMenuCategory = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="sign" className="text-blue-500">sign</label>
                             <input 
-                                // value = {state.sign}
+                                value = {state.sign}
                                 type="text" id = "sign" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'sign', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'sign', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -160,7 +181,7 @@ const EditMegaMenuCategory = () => {
                         <div className="flex justify-center items-center">
                             <input 
                                 // onClick={(event) => {addList(event)}}
-                                type="submit" value = "ADD" 
+                                type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
                         </div>
