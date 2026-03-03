@@ -1,8 +1,10 @@
 import { useEffect, useReducer, useState } from "react";
 import HeaderPanelAdmin from "../../header/header";
 import api from "../../../../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 const CreateMegaMenuCategory = () => {
+    const navigate =  useNavigate()
     const [title, setTitle] =  useState([])
     const [lists, setLists] =  useState([])
 
@@ -19,6 +21,9 @@ const CreateMegaMenuCategory = () => {
 
             case "sign":
                 return {...state, sign: action.payload}
+
+            case "warning": 
+                return {...state, warningCategory: action.payload.category, warningList: action.payload.list, warningTitle: action.payload.title }
 
             default :
                 return state
@@ -56,6 +61,18 @@ const CreateMegaMenuCategory = () => {
     useEffect(() => {getTitleList()}, [])
 
     console.log(state)
+
+    const addList = async () => {
+        try{
+            await api.post("", state, {withCredentials: true}).then((res) => {
+                res;
+                // navigate("/panelAdmin/megaMenu/category");
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {4}/>
@@ -153,7 +170,7 @@ const CreateMegaMenuCategory = () => {
                         <hr className="my-8"/>
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addList(event)}}
+                                onClick={(event) => {addList(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
