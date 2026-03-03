@@ -37,7 +37,7 @@ const MenuMegaMenu = ({menu, loc}) => {
                     {lists.map((pr, ind) => {
                         if(pr.title === menu.title){
                             return(
-                                <ProductMegaMenu key = {ind} loc = {loc}  pr = {pr} ind = {ind} />
+                                <ProductMegaMenu key = {ind} loc = {loc}  pr = {pr} ind = {ind}  menu = {menu}/>
                             )
                         }
                     })}

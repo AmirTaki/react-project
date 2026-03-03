@@ -57,7 +57,6 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             },
         ]
     })
-    // const list = ['users ', 'table2', 'table3', 'table4']
     return(
         <div className=" flex flex-col items-left gap-4 ">
             <div 

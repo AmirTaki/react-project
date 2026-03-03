@@ -1,10 +1,27 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { ContextHeaderBottom } from "./headerBottom"
 import labtop from "../../assets/fwebp.webp"
+import api from "../../axiosConfig"
 
 
-const ProductMegaMenu = ({loc, pr , ind}) => {
+const ProductMegaMenu = ({loc, pr , ind, menu}) => {
     const { lists, navbar,  state,  listHandler, handlerProductMenu , exitNavbar, EnterHandler, LeaverHandler}  = useContext(ContextHeaderBottom)
+    
+    const [category, setCategory] = useState([])
+    const getProducts = async () => {
+        try{
+            await api.get('tables/megaMenu/menuCategory/reading.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setCategory(data)
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+    
+    useEffect(() => {getProducts()}, [])
+
     
     return(
         <div  key = {ind} className={`${navbar ? "" : "    hover:bg-gray-100 duration-300  group/list w-[80%]  m-2"}`}>    
@@ -27,11 +44,18 @@ const ProductMegaMenu = ({loc, pr , ind}) => {
             {/* category */}
             <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[35vw]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
                 <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
+                
                 {/* category item */}
-                <div className=" flex bg-white h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
-                    <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i className="bi bi-anthropic"></i></div>
-                    <div className="">category</div>
-                </div>
+                {category?.map((cate) => {
+                    if (cate.list === pr.list && cate.title === menu.title){
+                        return(
+                            <div key = {cate.id} className=" flex bg-white h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
+                                <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i className={cate.sign}></i></div>
+                                <div className="">{cate.category}</div>
+                            </div>
+                        )
+                    }
+                })}
             </div>
             {/* serics */}
             <div className={`${navbar ? "flex flex-col w-[50%] h-[45%] bg-transparent overflow-hidden border-l-gray-100 border-r-1! border-t-gray-100 border-t-1!" :"flex flex-col  w-[35vw] overflow-hidden border-l-gray-100 border-r-1!"}`}>
