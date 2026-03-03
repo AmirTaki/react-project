@@ -60,8 +60,6 @@ const CreateMegaMenuCategory = () => {
 
     useEffect(() => {getTitleList()}, [])
 
-    console.log(state)
-
     const addList = async (event) => {
         event.preventDefault();
         dispatch({type: 'warning', payload : {title: '', list : '', category: ""}})
@@ -69,7 +67,7 @@ const CreateMegaMenuCategory = () => {
         try{
             await api.post("tables/megaMenu/menuCategory/add.php", state, {withCredentials: true}).then((res) => {
                 res;
-                // navigate("/panelAdmin/megaMenu/category");
+                navigate("/panelAdmin/megaMenu/category");
             })
         }
         catch(err){
@@ -118,8 +116,6 @@ const CreateMegaMenuCategory = () => {
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
-                                <option value= "test" className="">test</option>
-                
                                 {title?.map((t) => {
                                     return(
                                         <option  key = {t.id} value={t.title}>
@@ -146,8 +142,6 @@ const CreateMegaMenuCategory = () => {
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
-                                <option value= "test" className="">test</option>
-
                                 {lists?.map((li) => {
                                     return(
                                         <option  key = {li.id} value={li.list}>
