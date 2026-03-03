@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import api from "../../../../axiosConfig";
-import { reducer } from "../../../auth/reducer";
 
 const EditMegaMenuCategory = () => {
+    const {id} = useParams()
+    const [titles, setTitles] =  useState([])
+    const [lists, setLists] = useState([])
 
     const reducer = (state, action) => {
         switch(action.type){
@@ -37,13 +39,22 @@ const EditMegaMenuCategory = () => {
         warningList: ''
     })
 
-    const {id} = useParams()
 
     const getCategoryListTitle = async (id)  => {
         try{
             await api.get(`tables/megaMenu/menuCategory/category.php/${id}`, {withCredentials: true}).then((res) => {
                 dispatch({type: 'GetRequest', payload: res.data});
             })
+
+            await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setTitles(data);
+            })
+           
+            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })        
         }   
         catch(err){
             console.error('message: ', err);
@@ -65,7 +76,7 @@ const EditMegaMenuCategory = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="category" className="text-blue-500">category</label>
                             <input 
-                                // value = {state.category}
+                                value = {state.category}
                                 type="text" id = "category" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 // onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
                             ></input>
@@ -86,13 +97,13 @@ const EditMegaMenuCategory = () => {
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
-                                {/* {title?.map((t) => {
+                                {titles?.map((t) => {
                                     return(
                                         <option  key = {t.id} value={t.title}>
                                             {t.title}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
@@ -112,13 +123,13 @@ const EditMegaMenuCategory = () => {
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
-                                {/* {lists?.map((li) => {
+                                {lists?.map((li) => {
                                     return(
                                         <option  key = {li.id} value={li.list}>
                                             {li.list}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
