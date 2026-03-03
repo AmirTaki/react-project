@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
 import { useEffect, useReducer, useState } from "react";
 import api from "../../../../axiosConfig";
 
 const EditMegaMenuCategory = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
     const [titles, setTitles] =  useState([])
     const [lists, setLists] = useState([])
 
@@ -33,7 +34,10 @@ const EditMegaMenuCategory = () => {
             
             case "sign":
                 return {...state, sign: action.payload}
-                
+
+            case "warning":
+                return {...state, warningCategory: action.payload.category, warningTitle: action.payload.title, warningList: action.payload.list}
+
             default:
                 return state;
         }
@@ -76,6 +80,30 @@ const EditMegaMenuCategory = () => {
 
     useEffect(() => {getCategoryListTitle(id)}, [])
 
+    const editCategory = async (event) => {
+        event.preventDefault();
+        dispatch({type : "warning", payload: {title: '', list: '', category: ''}})
+
+        try{
+            await api.put('tables/megaMenu/menuCategory/edit.php', state).then((res) => {
+                res.data;
+                navigate("/panelAdmin/megaMenu/category");
+            })
+        }
+        catch(err){
+            if(err.message == "Request failed with status code 400"){
+                dispatch({type : "warning", payload: {title: 'empty title !!!', list: 'empty list !!!', category: 'empty category !!!'}});
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 415'){
+                dispatch({type : "warning", payload: { category: 'repeat categoryy  !!!  change name category ???'}})
+            }
+            console.error('message: ',err)
+        }
+    }
+
     console.log(state)
 
     return (
@@ -98,7 +126,7 @@ const EditMegaMenuCategory = () => {
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningCategory} */}
+                                {state.warningCategory}
                             </span>
                         </div>
 
@@ -127,7 +155,7 @@ const EditMegaMenuCategory = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.warningTitle}
                             </span>
                         </div>
                        
@@ -156,7 +184,7 @@ const EditMegaMenuCategory = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningList} */}
+                                {state.warningList}
                             </span>
                         </div>
                         
@@ -180,7 +208,7 @@ const EditMegaMenuCategory = () => {
                         <hr className="my-8"/>
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addList(event)}}
+                                onClick={(event) => {editCategory(event)}}
                                 type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
