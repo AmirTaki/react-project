@@ -28,6 +28,50 @@ const EditMegaMenuSeries = () => {
     useEffect(() => {getTitleList()}, [])
 
 
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "GetRequest":
+                return {...state,
+                    title: action.payload.title, 
+                    titleOld: action.payload.title,
+                    list: action.payload.list,
+                    listOld: action.payload.list,
+                    series: action.payload.series,
+                    seriesOld: action.payload.series,
+                    id: action.payload.id,
+                };
+
+            case "series": 
+                return {...state, series: action.payload}
+
+            case "title":
+                return {...state, title: action.payload}
+
+            case "list":
+                return {...state, list: action.payload}
+            
+         
+            case "warning":
+                return {...state, warningSeries: action.payload.series, warningTitle: action.payload.title, warningList: action.payload.list}
+
+            default:
+                return state;
+        }
+    }
+    const [state, dispatch] =  useReducer(reducer, {
+        series: '',
+        title: '',
+        list: '',
+        seriesOld: '',
+        titleOld: '',
+        listOld: '',
+        id: 0,
+        warningSeries: '',
+        warningTitle: '',
+        warningList: ''
+    })
+
+
     return(
         <div className="">
             <HeaderPanelAdmin  id = {5}/>
