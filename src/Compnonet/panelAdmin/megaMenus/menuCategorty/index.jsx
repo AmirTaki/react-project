@@ -33,6 +33,18 @@ const MegaMenuCategoryPanelAdmin = () => {
         }
     }
 
+    const deleteItem = async (id) => {
+        try{
+            await api.delete(`tables/megaMenu/menuCategory/delete.php/${id}/delete`).then((res) => {
+                res.data;
+                getCategoryMegaMenu();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
 
     return(
         <div className="">
@@ -88,7 +100,7 @@ const MegaMenuCategoryPanelAdmin = () => {
                                             </Link>
                                             
                                             <div 
-                                                // onClick={() => {deleteItem(list.id)}}
+                                                onClick={() => {deleteItem(cate.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete
