@@ -58,7 +58,7 @@ const CreateMegaMenuList = () => {
         }
         catch(err){
             if(err.message == 'Request failed with status code 422'){
-                dispatch({type: 'warning', payload : {title: 'title not is emapty!', list : 'list not is empaty!'}})
+                dispatch({type: 'warning', payload : {title: 'title not is empty!', list : 'list not is empty!'}})
             }
             if(err.message == 'Request failed with status code 405'){
                 navigate('/');

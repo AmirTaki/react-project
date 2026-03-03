@@ -62,14 +62,20 @@ const CreateMegaMenuCategory = () => {
 
     console.log(state)
 
-    const addList = async () => {
+    const addList = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload : {title: '', list : '', category: ""}})
+
         try{
-            await api.post("", state, {withCredentials: true}).then((res) => {
+            await api.post("tables/megaMenu/menuCategory/add.php", state, {withCredentials: true}).then((res) => {
                 res;
                 // navigate("/panelAdmin/megaMenu/category");
             })
         }
         catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title not is empty!', list : 'list not is empty!', category: "category not is empty"}})
+            }
             console.error('message: ', err)
         }
     }
