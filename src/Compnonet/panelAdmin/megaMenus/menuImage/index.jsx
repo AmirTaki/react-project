@@ -8,7 +8,7 @@ const MegaMenuImagePanelAdmin = () => {
     
     const getImageMegaMenu = async() => {
         try{
-            await api.get('', {withCredentials: true}).then((res) => {
+            await api.get('tables/megaMenu/menuImage/image.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data)?  res.data : [];
                 setImgMenu(data);
             })
@@ -25,7 +25,7 @@ const MegaMenuImagePanelAdmin = () => {
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex flex-col items-center justify-around ">
                   
-                    <Link to = "/panelAdmin/megaMenu/AddCategory">
+                    <Link to = "/panelAdmin/megaMenu/AddImage">
                         <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create Image</button>
                     </Link>
                     
@@ -51,7 +51,9 @@ const MegaMenuImagePanelAdmin = () => {
                                 return(
                                     <tr key = {ind}>
                                         <th >{i.id}</th>
-                                        <th>{i.image}</th>
+                                        <th>
+                                            <img src={i.image} alt="" />
+                                        </th>
                                         <th>{i.list}</th>
                                         <th>{i.title}</th>
                                         <th>{i.body}</th>
