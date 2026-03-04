@@ -1,7 +1,28 @@
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
 import HeaderPanelAdmin from "../../header/header"
+import api from "../../../../axiosConfig"
 
 const CreateMegaMenuImage = () => {
+    const [title, setTitle] =  useState([])
+    const [lists, setLists] =  useState([])
+    
+    const getTitleList = async () => {
+        try{
+            await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setTitle(data);
+            })
+            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })        
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
+    useEffect(() => {getTitleList()}, [])
     return (
         <div className="">
             <HeaderPanelAdmin id = {6} />
@@ -59,13 +80,13 @@ const CreateMegaMenuImage = () => {
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
-                                {/* {title?.map((t) => {
+                                {title?.map((t) => {
                                     return(
                                         <option  key = {t.id} value={t.title}>
                                             {t.title}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
@@ -85,13 +106,13 @@ const CreateMegaMenuImage = () => {
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
-                                {/* {lists?.map((li) => {
+                                {lists?.map((li) => {
                                     return(
                                         <option  key = {li.id} value={li.list}>
                                             {li.list}
                                         </option>
                                     )
-                                })} */}
+                                })}
                             </select>
                         </div> 
                         
