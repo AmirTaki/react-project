@@ -1,8 +1,10 @@
 import { useEffect, useReducer, useState } from "react"
 import HeaderPanelAdmin from "../../header/header"
 import api from "../../../../axiosConfig"
+import { useNavigate } from "react-router-dom"
 
 const CreateMegaMenuImage = () => {
+    const navigate =  useNavigate()
     const [title, setTitle] =  useState([])
     const [lists, setLists] =  useState([])
     
@@ -38,6 +40,9 @@ const CreateMegaMenuImage = () => {
             case "list": 
                 return {...state, list: action.payload}
 
+            case "warning":
+                return {...state, imageWarning: action.payload.image, bodyWarning: action.payload.body, titleWarning: action.payload.title}
+
             default : 
                 return state
         }
@@ -52,6 +57,22 @@ const CreateMegaMenuImage = () => {
         list: '',
         listWarning: ''
     })
+
+    const addImage = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
+
+        try{
+            await api.post('', state, {withCredentials: true}).then((res) => {
+                res;
+                // navigate('');
+            })
+        }
+        catch(err){
+            
+            console.error('message: ', err);
+        }
+    }
 
     return (
         <div className="">
@@ -155,7 +176,7 @@ const CreateMegaMenuImage = () => {
                         <hr className="my-8"/>
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addList(event)}}
+                                onClick={(event) => {addImage(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
