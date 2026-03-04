@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useState } from "react"
 import HeaderPanelAdmin from "../../header/header"
 import api from "../../../../axiosConfig"
 
@@ -23,50 +23,80 @@ const CreateMegaMenuImage = () => {
     }
 
     useEffect(() => {getTitleList()}, [])
+
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "image":
+                return {...state, image: action.payload}
+
+            case "caption":
+                return {...state, body: action.payload}   
+                
+            case 'title':
+                return {...state, title: action.payload}
+
+            case "list": 
+                return {...state, list: action.payload}
+
+            default : 
+                return state
+        }
+    }
+    const [state, dispatch] =  useReducer(reducer, {
+        image: '',
+        imageWarning: '',
+        body: '',
+        bodyWarning: '',
+        title: '',
+        titleWarning: '',
+        list: '',
+        listWarning: ''
+    })
+
     return (
         <div className="">
             <HeaderPanelAdmin id = {6} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ITEM</h1>
-
+                    {state.image}
                     <form>
 
                         <div className="flex flex-col justify-center items-center my-10 ">
-                            <img src="" alt="" />
+                            {/* <img src={state.image} alt="" /> */}
                             view image
                         </div>
                         {/* image */}
                         <div className="flex gap-5 items-center justify-center">
                             
                             <label htmlFor="image" className="text-blue-500">image</label>
-
                             <input 
-                                // value = {state.category}
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...."
-                                // onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
+                                onChange={(event) => {dispatch({type: 'image', payload: event.target.value})}}
+                            
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningCategory} */}
+                                {state.imageWarning}
                             </span>
                         </div>
                         
                         <hr className="my-8"/>
-                        {/*---- */}
+
+                         {/* caption -> body*/} 
                         <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="category" className="text-blue-500">category</label>
+                            <label htmlFor="caption" className="text-blue-500">caption</label>
                             <input 
-                                // value = {state.category}
-                                type="text" id = "category" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
+                                value = {state.body}
+                                type="text" id = "caption" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                onChange={(e) => {dispatch({type: 'caption', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningCategory} */}
+                                {state.bodyWarning}
                             </span>
                         </div>
 
@@ -76,7 +106,7 @@ const CreateMegaMenuImage = () => {
                             
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
@@ -92,7 +122,7 @@ const CreateMegaMenuImage = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.titleWarning}
                             </span>
                         </div>
                        
@@ -102,7 +132,7 @@ const CreateMegaMenuImage = () => {
                             
                             <label htmlFor="list" className="text-blue-500">list</label>
                             <select
-                                // onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
                                 <option value= "" className="hidden">select one option ?</option>
@@ -118,7 +148,7 @@ const CreateMegaMenuImage = () => {
                         
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningList} */}
+                                {state.listWarning}
                             </span>
                         </div>
                                           
