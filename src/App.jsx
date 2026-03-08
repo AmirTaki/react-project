@@ -66,6 +66,8 @@ function App() {
         <Route path = "/panelAdmin/megaMenu/AddImage" element = {<CreateMegaMenuImage />}></Route>
         <Route path = "/panelAdmin/megaMenu/EditImage/:id/edit" element = {<EditMegaMenuImage />}></Route>
 
+      {/* testing */}
+
         <Route path='/testing' element = {<TESTIMG />}></Route>
       </Routes>
     </BrowserRouter>
