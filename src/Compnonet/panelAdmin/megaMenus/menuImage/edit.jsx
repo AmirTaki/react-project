@@ -37,10 +37,15 @@ const EditMegaMenuImage = () => {
                     title: action.payload.title,
                     list: action.payload.list,
                     id: action.payload.id,
-                    urlImage: action.payload.image,
+                    image: action.payload.image,
                     body: action.payload.body
-
                 }
+
+            case "image": 
+                return {...state, image: action.payload}
+
+            case "SET_IMG_URL":
+                return {...state, urlImage: action.payload}
 
             default :
                 return state;
@@ -59,6 +64,21 @@ const EditMegaMenuImage = () => {
     })
 
     console.log(state)
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+
+        if(file){
+            dispatch({type: 'image', payload: file});
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                dispatch({type: 'SET_IMG_URL', payload: reader.result});
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
     return (
         <div className="">
             <HeaderPanelAdmin id = {6} />
@@ -70,20 +90,17 @@ const EditMegaMenuImage = () => {
                     <form>
                         {/* image view */}
                         <div className="flex gap-5 items-center justify-center m-4">
-                            {state.urlImage && (
-                                <img src={baseURL + state.urlImage} style={{width: 150}}></img>
-                            )}
+                            <img src={state.urlImage === "" ? baseURL + state.image : state.urlImage} style={{width: 150}}></img>
                         </div>
 
                         {/* image */}
                         <div className="flex gap-5 items-center justify-center">
                             
-
                             <label htmlFor="image" className="text-blue-500">image</label>
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...." 
-                                // onChange={(event) => {handleImageChange(event)}}
+                                onChange={(event) => {handleImageChange(event)}}
                                 accept="image/*"
                             ></input>
                         </div>
