@@ -47,6 +47,18 @@ const EditMegaMenuImage = () => {
             case "SET_IMG_URL":
                 return {...state, urlImage: action.payload}
 
+            case "caption":
+                return {...state, body: action.payload}   
+                
+            case 'title':
+                return {...state, title: action.payload}
+
+            case "list": 
+                return {...state, list: action.payload}
+
+            case "warning":
+                return {...state, imageWarning: action}
+
             default :
                 return state;
         }
@@ -63,8 +75,6 @@ const EditMegaMenuImage = () => {
         listWarning: '',
     })
 
-    console.log(state)
-
     const handleImageChange = (event) => {
         const file = event.target.files[0];
 
@@ -77,6 +87,13 @@ const EditMegaMenuImage = () => {
             }
             reader.readAsDataURL(file);
         }
+    }
+
+    const editImage = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
+
+
     }
 
     return (
@@ -107,7 +124,7 @@ const EditMegaMenuImage = () => {
 
                                 <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.imageWarning} */}
+                                {state.imageWarning}
                             </span>
                         </div>
                         <hr className="my-8"/>
@@ -189,7 +206,7 @@ const EditMegaMenuImage = () => {
                         {/* edit button -> submit */}
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {editCategory(event)}}
+                                onClick={(event) => {editImage(event)}}
                                 type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
