@@ -52,7 +52,7 @@ const MegaMenuImagePanelAdmin = () => {
                                     <tr key = {ind}>
                                         <th >{i.id}</th>
                                         <th>
-                                            <img src={i.image} alt="" />
+                                            <img src={i} alt="" />
                                         </th>
                                         <th>{i.list}</th>
                                         <th>{i.title}</th>

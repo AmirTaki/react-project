@@ -30,7 +30,7 @@ const CreateMegaMenuImage = () => {
         switch(action.type){
             case "image":
                 return {...state, image: action.payload}
-
+                
             case "caption":
                 return {...state, body: action.payload}   
                 
@@ -41,7 +41,7 @@ const CreateMegaMenuImage = () => {
                 return {...state, list: action.payload}
 
             case "warning":
-                return {...state, imageWarning: action.payload.image, bodyWarning: action.payload.body, titleWarning: action.payload.title}
+                return {...state, imageWarning: action.payload.image, bodyWarning: action.payload.body, titleWarning: action.payload.title, listWarning: action.payload.list}
 
             default : 
                 return state
@@ -55,47 +55,57 @@ const CreateMegaMenuImage = () => {
         title: '',
         titleWarning: '',
         list: '',
-        listWarning: ''
+        listWarning: '',
     })
 
     const addImage = async (event) => {
         event.preventDefault();
+        
         dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
 
+
+        const reader = new FileReader();
+        reader.onload = async () => {
+            const base64String = reader.result;
+            dispatch({type : 'image', payload: base64String} )
+
+        }
+        reader.readAsDataURL(state.image);
+
         try{
-            await api.post('', state, {withCredentials: true}).then((res) => {
-                res;
-                // navigate('');
+            await api.post('tables/megaMenu/menuImage/add.php', state, {withCredentials: true}).then((res) => {
+                res.data;
+                navigate('/panelAdmin/megaMenu/image');
             })
         }
         catch(err){
-            
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title not is empty!', list : 'list not is empty!', image: "image not is empty", body: "body not is empty"}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
             console.error('message: ', err);
         }
+      
     }
-
     return (
         <div className="">
             <HeaderPanelAdmin id = {6} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ITEM</h1>
-                    {state.image}
-                    <form>
-
-                        <div className="flex flex-col justify-center items-center my-10 ">
-                            {/* <img src={state.image} alt="" /> */}
-                            view image
-                        </div>
+                   
+                    <form >
                         {/* image */}
                         <div className="flex gap-5 items-center justify-center">
                             
                             <label htmlFor="image" className="text-blue-500">image</label>
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                placeholder="select image ...."
-                                onChange={(event) => {dispatch({type: 'image', payload: event.target.value})}}
-                            
+                                placeholder="select image ...." 
+                                onChange={(event) => {dispatch({type: 'image', payload: event.target.files[0]})}}
+                                accept="image/*"
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -109,11 +119,11 @@ const CreateMegaMenuImage = () => {
                          {/* caption -> body*/} 
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="caption" className="text-blue-500">caption</label>
-                            <input 
+                            <textarea 
                                 value = {state.body}
-                                type="text" id = "caption" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                type="text" id = "caption" className="border-2 w-[300px] rounded-md h-30 p-2"
                                 onChange={(e) => {dispatch({type: 'caption', payload: e.target.value})}}
-                            ></input>
+                            ></textarea>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
