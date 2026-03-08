@@ -30,6 +30,9 @@ const CreateMegaMenuImage = () => {
         switch(action.type){
             case "image":
                 return {...state, image: action.payload}
+
+            case "SET_IMG_URL": 
+                return {...state, urlImage: action.payload}
                 
             case "caption":
                 return {...state, body: action.payload}   
@@ -48,6 +51,7 @@ const CreateMegaMenuImage = () => {
         }
     }
     const [state, dispatch] =  useReducer(reducer, {
+        urlImage: '', // پیش نمایش url عکس برای ذخیره
         image: '',
         imageWarning: '',
         body: '',
@@ -56,6 +60,7 @@ const CreateMegaMenuImage = () => {
         titleWarning: '',
         list: '',
         listWarning: '',
+
     })
 
     const addImage = async (event) => {
@@ -64,13 +69,6 @@ const CreateMegaMenuImage = () => {
         dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
 
 
-        const reader = new FileReader();
-        reader.onload = async () => {
-            const base64String = reader.result;
-            dispatch({type : 'image', payload: base64String} )
-
-        }
-        reader.readAsDataURL(state.image);
 
         try{
             await api.post('tables/megaMenu/menuImage/add.php', state, {withCredentials: true}).then((res) => {
@@ -89,6 +87,21 @@ const CreateMegaMenuImage = () => {
         }
       
     }
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file){
+            dispatch({type : 'image', payload: file});
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                dispatch({type: 'SET_IMG_URL', payload: reader.result})
+            };
+            reader.readAsDataURL(file);
+
+        }
+    }
+
     return (
         <div className="">
             <HeaderPanelAdmin id = {6} />
@@ -98,13 +111,17 @@ const CreateMegaMenuImage = () => {
                    
                     <form >
                         {/* image */}
+                        {state.urlImage && (
+                            <img src={state.urlImage} style={{width: 100}}></img>
+                        )}
                         <div className="flex gap-5 items-center justify-center">
                             
+
                             <label htmlFor="image" className="text-blue-500">image</label>
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...." 
-                                onChange={(event) => {dispatch({type: 'image', payload: event.target.files[0]})}}
+                                onChange={(event) => {handleImageChange(event)}}
                                 accept="image/*"
                             ></input>
                         </div>
