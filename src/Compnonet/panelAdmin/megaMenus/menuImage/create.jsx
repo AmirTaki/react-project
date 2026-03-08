@@ -62,16 +62,25 @@ const CreateMegaMenuImage = () => {
         listWarning: '',
 
     })
-
     const addImage = async (event) => {
         event.preventDefault();
-        
         dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
 
+        const formData = new FormData();
+        if(state.image){
+            formData.append('image', state.image);
+        }
+        formData.append('title', state.title);
+        formData.append('body', state.body);
+        formData.append('list', state.list);
 
 
         try{
-            await api.post('tables/megaMenu/menuImage/add.php', state, {withCredentials: true}).then((res) => {
+            await api.post('tables/megaMenu/menuImage/add.php', formData, {withCredentials: true}, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            }).then((res) => {
                 res.data;
                 navigate('/panelAdmin/megaMenu/image');
             })
@@ -82,6 +91,10 @@ const CreateMegaMenuImage = () => {
             }
             else if(err.message == 'Request failed with status code 405'){
                 navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
+
             }
             console.error('message: ', err);
         }
@@ -98,7 +111,6 @@ const CreateMegaMenuImage = () => {
                 dispatch({type: 'SET_IMG_URL', payload: reader.result})
             };
             reader.readAsDataURL(file);
-
         }
     }
 
@@ -110,10 +122,14 @@ const CreateMegaMenuImage = () => {
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ITEM</h1>
                    
                     <form >
+                        {/* image view */}
+                        <div className="flex gap-5 items-center justify-center m-4">
+                            {state.urlImage && (
+                                <img src={state.urlImage} style={{width: 100}}></img>
+                            )}
+                        </div>
+
                         {/* image */}
-                        {state.urlImage && (
-                            <img src={state.urlImage} style={{width: 100}}></img>
-                        )}
                         <div className="flex gap-5 items-center justify-center">
                             
 
