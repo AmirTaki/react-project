@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
 import api from "../../../../axiosConfig";
 import { useEffect, useState } from "react";
+import baseURL from "../../../../baseUrl";
 
 const MegaMenuImagePanelAdmin = () => {
+
     const [imgMenu, setImgMenu] =  useState([])
     
     const getImageMegaMenu = async() => {
@@ -65,8 +67,8 @@ const MegaMenuImagePanelAdmin = () => {
                                 return(
                                     <tr key = {ind}>
                                         <th >{i.id}</th>
-                                        <th>
-                                            <img src={i} alt="" />
+                                        <th className="flex justify-center items-center">
+                                            <img src = {baseURL +  i.image} className="w-[100px]"/>
                                         </th>
                                         <th>{i.list}</th>
                                         <th>{i.title}</th>
