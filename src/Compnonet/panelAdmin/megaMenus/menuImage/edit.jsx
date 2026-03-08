@@ -1,16 +1,29 @@
 import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import api from "../../../../axiosConfig";
 import baseURL from "../../../../baseUrl";
 
 const EditMegaMenuImage = () => {
     const {id} = useParams()
+    const [titles, setTitles] =  useState([])
+    const [lists, setLists] = useState([])
+    
     const getImageMegaMenus = async (id) => {
         try{
             await api.get(`tables/megaMenu/menuImage/image.php/${id}`, {withCredentials: true}).then((res) => {
                 dispatch({type: 'GetRequest', payload: res.data});
             })
+
+            await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setTitles(data);
+            })
+           
+            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })        
         }
         catch(err){
             console.error('message: ', err)
@@ -97,6 +110,28 @@ const EditMegaMenuImage = () => {
                             </span>
                         </div>
                         <hr className="my-8"/>
+
+                        {/* title */}
+                        <div className="flex gap-5 items-center justify-center">
+                            
+                            <label htmlFor="title" className="text-blue-500">title</label>
+                            <select
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
+                            >
+                                {titles?.map((t) => {
+                                    return(
+                                        <option  
+                                            key = {t.id} 
+                                            value={t.title}
+                                            selected = {t.title === state.title}
+                                        >
+                                            {t.title}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                        </div> 
 
                     </form>
                 </div>
