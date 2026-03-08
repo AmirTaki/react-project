@@ -18,6 +18,20 @@ const MegaMenuImagePanelAdmin = () => {
         }
     }
     useEffect(() => {getImageMegaMenu()}, [])
+
+
+    const deleteItem = async (id) => {
+        try {
+            await api.delete(`tables/megaMenu/menuImage/delete.php/${id}/delete`).then((res) => {
+                res.data;
+                getImageMegaMenu();
+            })
+        }   
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+    
     return(
         <div className="">
             <HeaderPanelAdmin id = {6} />
@@ -75,7 +89,7 @@ const MegaMenuImagePanelAdmin = () => {
                                             </Link>
                                             
                                             <div 
-                                                // onClick={() => {deleteItem(i.id)}}
+                                                onClick={() => {deleteItem(i.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete
