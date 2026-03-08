@@ -132,6 +132,52 @@ const EditMegaMenuImage = () => {
                                 })}
                             </select>
                         </div> 
+                        <div className="text-gray-500 py-5">message:
+                            <span className="text-red-600 px-2">
+                                {state.warningTitle}
+                            </span>
+                        </div>
+
+                             
+                       <hr className="my-8"/>
+                        {/* list */}
+                        <div className="flex gap-5 items-center justify-center">
+                            <label htmlFor="list" className="text-blue-500">list</label>
+                            <select
+                                onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
+                                id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
+                            >
+                                {lists?.map((li) => {
+                                    return(
+                                        <option  
+                                            key = {li.id} 
+                                            value={li.list}
+                                            selected = {li.list === state.list}
+                                        >
+                                            {li.list}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                        </div> 
+
+                        <div className="text-gray-500 py-5">message:
+                            <span className="text-red-600 px-2">
+                                {state.warningList}
+                            </span>
+                        </div>
+                        
+                        <hr className="my-8"/>
+
+                        {/* edit button -> submit */}
+                        <div className="flex justify-center items-center">
+                            <input 
+                                // onClick={(event) => {editCategory(event)}}
+                                type="submit" value = "EDIT" 
+                                className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
+                            />
+                        </div>
+
 
                     </form>
                 </div>
