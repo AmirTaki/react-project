@@ -33,6 +33,18 @@ const MegaMenuImagePanelAdmin = () => {
             console.error('message: ', err)
         }
     }
+
+    const changeStatus = async (id) => {
+        try{
+            await api.get(`tables/megaMenu/menuImage/status.php/${id}/checkStatus`, {withCredentials: true}).then((res) => {
+                res;
+                getImageMegaMenu();
+            })
+        }   
+        catch(err){
+            console.error('message', err)
+        }
+    }
     
     return(
         <div className="">
@@ -65,10 +77,10 @@ const MegaMenuImagePanelAdmin = () => {
                         <tbody>
                             {imgMenu.map((i, ind) => { 
                                 return(
-                                    <tr key = {ind}>
+                                    <tr key = {ind} className=" ">
                                         <th >{i.id}</th>
-                                        <th className="flex justify-center items-center">
-                                            <img src = {baseURL +  i.image} className="w-[100px]"/>
+                                        <th className=" flex justify-center ">
+                                            <img src = {baseURL +  i.image} className="w-[100px] max-md:h-[100px]"/>
                                         </th>
                                         <th>{i.list}</th>
                                         <th>{i.title}</th>
@@ -77,10 +89,10 @@ const MegaMenuImagePanelAdmin = () => {
                                             {i.status == 10 ? 'enable' : 'disable'}
                                         </th>
 
-                                        <th className="flex justify-center items-center gap-7! max-md:flex-col max-md:gap-1!" >
+                                        <th className="gap-7! max-md:flex-col! max-md:gap-1! h-full" >
                                             
                                             <div 
-                                                // onClick={() => {changeStatus(i.id)}}
+                                                onClick={() => {changeStatus(i.id)}}
                                                 className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                             >
                                                 change status
