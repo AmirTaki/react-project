@@ -98,7 +98,7 @@ const MegaMenuImagePanelAdmin = () => {
                                                 change status
                                             </div>
 
-                                            <Link to = {`/panelAdmin/megaMenu/EditCategory/${i.id}/edit`}>
+                                            <Link to = {`/panelAdmin/megaMenu/EditImage/${i.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
