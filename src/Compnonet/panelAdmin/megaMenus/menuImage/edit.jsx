@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
 import { useEffect, useReducer, useState } from "react";
 import api from "../../../../axiosConfig";
@@ -6,6 +6,7 @@ import baseURL from "../../../../baseUrl";
 
 const EditMegaMenuImage = () => {
     const {id} = useParams()
+    const navigate =  useNavigate()
     const [titles, setTitles] =  useState([])
     const [lists, setLists] = useState([])
     
@@ -93,6 +94,25 @@ const EditMegaMenuImage = () => {
         event.preventDefault();
         dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
 
+        const formData = new FormData();
+
+        if(state.image){
+            formData.append('image', state.image);
+        }
+        formData.append('title', state.title);
+        formData.append('body', state.body);
+        formData.append('list', state.list);
+
+
+        try{
+            await api.post('tables/megaMenu/menuImage/edit.php', formData).then((res) => {
+                res.data;
+                // navigate('/panelAdmin/megaMenu/image');
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
 
     }
 
