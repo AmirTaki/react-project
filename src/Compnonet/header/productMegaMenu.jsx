@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { ContextHeaderBottom } from "./headerBottom"
 import labtop from "../../assets/fwebp.webp"
 import api from "../../axiosConfig"
+import baseURL from "../../baseUrl"
 
 
 const ProductMegaMenu = ({loc, pr , ind, menu}) => {
@@ -9,6 +10,7 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
     
     const [category, setCategory] = useState([])
     const [series, setSeries] = useState([])
+    const [proImage , setImages] = useState([])
     const getProducts = async () => {
         try{
             await api.get('tables/megaMenu/menuCategory/reading.php', {withCredentials: true}).then((res) => {
@@ -18,6 +20,10 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
             await api.get('tables/megaMenu/menuSeries/reading.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setSeries(data)
+            })
+            await api.get('tables/megaMenu/menuImage/reading.php', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setImages(data)
             })
         }
         catch(err){
@@ -80,16 +86,18 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
             <div className={`${navbar ? "flex flex-col justify-center h-[95%] bg-transparent w-[50%]  mt-[9%]   items-center gap-10 " : "flex flex-col w-[35vw]    overflow-hidden   justify-center! items-center! gap-5 "}`}>
             
                 {/* item image */}
-                <div className={` bg-gray-100 flex items-center justify-center flex-col ${navbar ? "w-[225px] h-[225px] mx-30" : "w-[190px] h-[200px] mx-30 "}`}>
-                <img src={labtop} className={`${navbar ? "w-[150px] h-[150px]" : "bg-transparent w-[150px] h-[150px]"}`}  alt="" />
-                <div className={`text-center text-gray-400  hover:text-blue-600 duration-300 cursor-pointer ${navbar ? "w-[150px] text-[14px]" : "bg-transparent w-[130px] text-[12px] "}`}>ASUS Zenbook Duo (2024) UX8406</div> 
-                </div>
+                {proImage?.map((item) => {
+                    if(item.list === pr.list && item.title === menu.title){
+                        return(
+                        <div key = {item.id} className={` bg-gray-100 flex items-center justify-center flex-col ${navbar ? "w-[225px] h-[225px] mx-30" : "w-[190px] h-[200px] mx-30 "}`}>
+                            <img src={baseURL + item.image} className={`${navbar ? "w-[150px] h-[150px]" : "bg-transparent w-[150px] h-[150px]"}`}  alt="" />
+                            <div className={`text-center text-gray-400  hover:text-blue-600 duration-300 cursor-pointer ${navbar ? "w-[150px] text-[14px]" : "bg-transparent w-[130px] text-[12px] "}`}>{item.body}</div> 
+                        </div>
+                        )
+                    }
+                })}
 
-                {/* item image */}
-                <div className={` bg-gray-100 flex items-center justify-center flex-col ${navbar ? "w-[225px] h-[225px] mx-30" : "w-[190px] h-[200px] mx-30 "}`}>
-                <img src={labtop} className={`${navbar ? "w-[150px] h-[150px]" : "bg-transparent w-[150px] h-[150px]"}`}  alt="" />
-                <div className={`text-center text-gray-400  hover:text-blue-600 duration-300 cursor-pointer ${navbar ? "w-[150px] text-[14px]" : "bg-transparent w-[130px] text-[12px] "}`}>ASUS Zenbook Duo (2024) UX8406</div> 
-                </div>
+              
                                                                     
             </div>
             </div>
