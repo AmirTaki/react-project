@@ -58,7 +58,7 @@ const CreateSessionBackGroundSlider = () => {
         try{
             await api.post('tables/session/backGroundSlider/add.php', formData, {withCredentials: true}, {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
+                    'Content-Type': 'multipart/form-data',   
                 }
             }).then((res) => {
                 res;
