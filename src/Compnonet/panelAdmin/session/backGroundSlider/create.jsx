@@ -5,8 +5,17 @@ import { reducer } from "../../../auth/reducer";
 const CreateSessionBackGroundSlider = () => {
     const reducer = (state, action) => {
         switch(action.type){
-            case "":
-                return {...state}
+            case "title":
+                return {...state, title: action.payload}
+            
+            case "warning": 
+                return {...state, warningImage: action.payload.image, warningTitle: action.payload.title}    
+
+            case "SET_IMAGE":
+                return {...state, image: action.payload}
+
+            case "SET_IMAGE_URL":
+                return {...state, urlImage: action.payload}
 
             default :
                 return state;
@@ -19,6 +28,19 @@ const CreateSessionBackGroundSlider = () => {
         warningImage: '',
         warningTitle: '',
     })  
+
+    const handleImageChange = (event) => {
+        const file =  event.target.files[0]
+        if(file){
+            dispatch({type: 'SET_IMAGE', payload: file})
+        }
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            dispatch({type: "SET_IMAGE_URL", payload: reader.result})
+        }
+        reader.readAsDataURL(file);
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {7} />
@@ -40,13 +62,13 @@ const CreateSessionBackGroundSlider = () => {
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...." 
-                                // onChange={(event) => {handleImageChange(event)}}
+                                onChange={(event) => {handleImageChange(event)}}
                                 accept="image/*"
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.imageWarning} */}
+                                {state.warningImage}
                             </span>
                         </div>
                         
@@ -56,14 +78,14 @@ const CreateSessionBackGroundSlider = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <input 
-                                // value = {state.title}
+                                value = {state.title}
                                 type="text" id = "title" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'category', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningCategory} */}
+                                {state.warningTitle}
                             </span>
                         </div>
 
