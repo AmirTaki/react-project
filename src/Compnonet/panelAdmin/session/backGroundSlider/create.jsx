@@ -60,6 +60,9 @@ const CreateSessionBackGroundSlider = () => {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }
+            }).then((res) => {
+                res;
+                navigate('/panelAdmin/session/backgroundslider');
             })
             
         }
@@ -69,6 +72,9 @@ const CreateSessionBackGroundSlider = () => {
             }
             else if(err.message == 'Request failed with status code 405'){
                 navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
             }
             console.error('message: ', err)
         }

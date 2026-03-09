@@ -71,8 +71,8 @@ const BackGroundSliderPanelAdmin = () => {
                                 return(
                                     <tr key = {ind} className=" ">
                                         <th >{img.id}</th>
-                                        <th className=" flex justify-center ">
-                                            <img src = {baseURL +  img.image} className="w-[100px] max-md:h-[100px]"/>
+                                        <th className=" flex justify-center items-center ">
+                                            <img src = {baseURL +  img.image} className="w-[140px] "/>
                                         </th>
                                         <th>{img.title}</th>
                                         <th className = {`${img.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
