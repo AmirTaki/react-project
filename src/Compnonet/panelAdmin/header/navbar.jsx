@@ -67,6 +67,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/megaMenu/image"
             },
+            {
+                id: 7, 
+                name: 'background slider',
+                flag: false, 
+                link: "/panelAdmin/session/backgroundslider"
+            },
         ]
     })
     return(

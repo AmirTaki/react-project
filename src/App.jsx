@@ -22,6 +22,7 @@ import EditMegaMenuSeries from './Compnonet/panelAdmin/megaMenus/menuSeries/edit
 import MegaMenuImagePanelAdmin from './Compnonet/panelAdmin/megaMenus/menuImage'
 import CreateMegaMenuImage from './Compnonet/panelAdmin/megaMenus/menuImage/create'
 import EditMegaMenuImage from './Compnonet/panelAdmin/megaMenus/menuImage/edit'
+import BackGroundSliderPanelAdmin from './Compnonet/panelAdmin/session/backGroundSlider'
 
 function App() {
   return (
@@ -64,6 +65,9 @@ function App() {
         <Route path = "/panelAdmin/megaMenu/image" element = {<MegaMenuImagePanelAdmin />}></Route>
         <Route path = "/panelAdmin/megaMenu/AddImage" element = {<CreateMegaMenuImage />}></Route>
         <Route path = "/panelAdmin/megaMenu/EditImage/:id/edit" element = {<EditMegaMenuImage />}></Route>
+
+        {/* panelAdmin -> session => backGroundSlider */}
+        <Route path = "/panelAdmin/session/backgroundslider" element = {<BackGroundSliderPanelAdmin />}></Route>
 
       </Routes>
     </BrowserRouter>
