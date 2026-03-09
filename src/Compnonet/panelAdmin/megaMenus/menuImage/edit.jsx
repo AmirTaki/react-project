@@ -58,7 +58,7 @@ const EditMegaMenuImage = () => {
                 return {...state, list: action.payload}
 
             case "warning":
-                return {...state, imageWarning: action}
+                return {...state, imageWarning: action.payload.image,  bodyWarning: action.payload.body, titleWarning: action.payload.title, listWarning: action.payload.list }
 
             default :
                 return state;
@@ -75,6 +75,7 @@ const EditMegaMenuImage = () => {
         list: '',
         listWarning: '',
     })
+    console.log(state)
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -92,26 +93,33 @@ const EditMegaMenuImage = () => {
 
     const editImage = async (event) => {
         event.preventDefault();
-        dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
+        dispatch({type: 'warning', payload: {image: '', body: '', title: '', list : ''}})
 
         const formData = new FormData();
-
+       
         if(state.image){
             formData.append('image', state.image);
         }
         formData.append('title', state.title);
         formData.append('body', state.body);
         formData.append('list', state.list);
-
+   
 
         try{
-            await api.post('tables/megaMenu/menuImage/edit.php', formData).then((res) => {
+            await api.post('tables/megaMenu/menuImage/edit.php', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            }).then((res) => {
                 res.data;
                 // navigate('/panelAdmin/megaMenu/image');
             })
         }
         catch(err){
-            console.error('message: ', err)
+      
+            if(err.message == "Request failed with status code 422"){
+                dispatch({type : "warning", payload: {title: 'empty title !!!', list: 'empty list !!!', body: 'empty body !!'}});
+            }
         }
 
     }
@@ -124,7 +132,7 @@ const EditMegaMenuImage = () => {
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">EDIT ITEM</h1>
 
-                    <form>
+                    <form  enctype="multipart/form-data">
                         {/* image view */}
                         <div className="flex gap-5 items-center justify-center m-4">
                             <img src={state.urlImage === "" ? baseURL + state.image : state.urlImage} style={{width: 150}}></img>
@@ -188,7 +196,7 @@ const EditMegaMenuImage = () => {
                         </div> 
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {state.warningTitle}
+                                {state.titleWarning}
                             </span>
                         </div>
 
@@ -217,7 +225,7 @@ const EditMegaMenuImage = () => {
 
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {state.warningList}
+                                {state.listWarning}
                             </span>
                         </div>
                         

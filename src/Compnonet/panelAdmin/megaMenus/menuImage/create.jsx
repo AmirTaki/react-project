@@ -121,7 +121,7 @@ const CreateMegaMenuImage = () => {
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ITEM</h1>
                    
-                    <form >
+                    <form  enctype="multipart/form-data">
                         {/* image view */}
                         <div className="flex gap-5 items-center justify-center m-4">
                             {state.urlImage && (
