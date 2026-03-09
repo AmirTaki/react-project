@@ -1,10 +1,28 @@
 import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
-import { useEffect } from "react";
+import { useEffect, useReducer } from "react";
 import api from "../../../../axiosConfig";
 
 const EditSessionBackGroundSlider = () => {
     const {id} = useParams();
+
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "":
+                return {...state}
+            
+            default:
+                return state;
+        }
+    }
+
+    const [state, dispatch] = useReducer(reducer, {
+        image: '',
+        urlImage:'',
+        imageWarning: '',
+        title: '',
+        titleWarning: ''
+    })
     
     const GetBackGroundSlider = async (id) => {
         try{
