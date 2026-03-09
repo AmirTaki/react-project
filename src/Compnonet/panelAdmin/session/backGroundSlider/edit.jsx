@@ -1,6 +1,23 @@
+import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
+import { useEffect } from "react";
+import api from "../../../../axiosConfig";
 
 const EditSessionBackGroundSlider = () => {
+    const {id} = useParams();
+    
+    const GetBackGroundSlider = async (id) => {
+        try{
+            await api.get(`tables/session/backGroundSlider/slider.php/${id}`, {withCredentials: true}).then((res) => {
+
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+    useEffect(() => {GetBackGroundSlider(id)}, [])
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {7}/>
