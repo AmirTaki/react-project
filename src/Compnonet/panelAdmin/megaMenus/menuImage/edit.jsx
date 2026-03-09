@@ -39,6 +39,7 @@ const EditMegaMenuImage = () => {
                     list: action.payload.list,
                     id: action.payload.id,
                     image: action.payload.image,
+                    backimage: action.payload.image,
                     body: action.payload.body
                 }
 
@@ -74,6 +75,7 @@ const EditMegaMenuImage = () => {
         titleWarning: '',
         list: '',
         listWarning: '',
+        backimage: '',
     })
     console.log(state)
 
@@ -103,6 +105,8 @@ const EditMegaMenuImage = () => {
         formData.append('title', state.title);
         formData.append('body', state.body);
         formData.append('list', state.list);
+        formData.append('id', state.id);
+        formData.append('backImage', state.backimage);
    
 
         try{
@@ -112,13 +116,21 @@ const EditMegaMenuImage = () => {
                 }
             }).then((res) => {
                 res.data;
-                // navigate('/panelAdmin/megaMenu/image');
+                navigate('/panelAdmin/megaMenu/image');
             })
         }
         catch(err){
       
             if(err.message == "Request failed with status code 422"){
                 dispatch({type : "warning", payload: {title: 'empty title !!!', list: 'empty list !!!', body: 'empty body !!'}});
+            }
+
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
             }
         }
 
