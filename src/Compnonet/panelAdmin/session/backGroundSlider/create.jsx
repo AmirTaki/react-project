@@ -1,6 +1,6 @@
-import { useReducer } from "react";
+import { cache, useReducer } from "react";
 import HeaderPanelAdmin from "../../header/header";
-import { reducer } from "../../../auth/reducer";
+import api from "../../../../axiosConfig";
 
 const CreateSessionBackGroundSlider = () => {
     const reducer = (state, action) => {
@@ -41,6 +41,29 @@ const CreateSessionBackGroundSlider = () => {
         }
         reader.readAsDataURL(file);
     }
+
+    const addSlider = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload: {image: '', title: ''}})
+
+        const formData = new FormData();
+        if(state.image){
+            formData.append('image', state.image);
+        }
+        formData.append('title', state.title)
+
+        try{
+            await api.post('tables/session/backGroundSlider/add.php', formData, {withCredentials: true}, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {7} />
@@ -51,9 +74,9 @@ const CreateSessionBackGroundSlider = () => {
                     <form>
                         {/*image view  */}
                         <div className="flex gap-5 items-center justify-center m-4">
-                            {/* {state.urlImage && (
+                            {state.urlImage && (
                                 <img src={state.urlImage} style={{width: 100}}></img>
-                            )} */}
+                            )}
                         </div>
 
                         {/* image */}
@@ -92,7 +115,7 @@ const CreateSessionBackGroundSlider = () => {
                         <hr className="my-8"/>                        
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addImage(event)}}
+                                onClick={(event) => {addSlider(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
