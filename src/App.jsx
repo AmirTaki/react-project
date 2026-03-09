@@ -21,7 +21,6 @@ import CreateMegaMenuSeries from './Compnonet/panelAdmin/megaMenus/menuSeries/cr
 import EditMegaMenuSeries from './Compnonet/panelAdmin/megaMenus/menuSeries/edit'
 import MegaMenuImagePanelAdmin from './Compnonet/panelAdmin/megaMenus/menuImage'
 import CreateMegaMenuImage from './Compnonet/panelAdmin/megaMenus/menuImage/create'
-import TESTIMG from './Compnonet/panelAdmin/megaMenus/menuImage/test'
 import EditMegaMenuImage from './Compnonet/panelAdmin/megaMenus/menuImage/edit'
 
 function App() {
@@ -66,9 +65,6 @@ function App() {
         <Route path = "/panelAdmin/megaMenu/AddImage" element = {<CreateMegaMenuImage />}></Route>
         <Route path = "/panelAdmin/megaMenu/EditImage/:id/edit" element = {<EditMegaMenuImage />}></Route>
 
-      {/* testing */}
-
-        <Route path='/testing' element = {<TESTIMG />}></Route>
       </Routes>
     </BrowserRouter>
   
