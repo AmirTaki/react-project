@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header"
 import { useEffect, useState } from "react";
 import api from "../../../../axiosConfig";
+import baseURL from "../../../../baseUrl";
 
 const BackGroundSliderPanelAdmin = () => {
     const [backGroundSlider, setBackGroundSlider] =  useState([])
 
     const GetBackGroundSlider = async () => {
         try{
-            await api.get('', {withCredentials: true}).then((res) => {
+            await api.get('tables/session/backGroundSlider/slider.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data)?  res.data : [];
                 setBackGroundSlider(data);
             })
@@ -18,6 +19,18 @@ const BackGroundSliderPanelAdmin = () => {
         }
     }
     useEffect(() => {GetBackGroundSlider()}, [])
+
+    const changeStatus = async (id) => {
+        try{
+            await api.get(`tables/session/backGroundSlider/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+                res;
+                GetBackGroundSlider();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
 
     return(
         <div>
@@ -57,7 +70,7 @@ const BackGroundSliderPanelAdmin = () => {
                                         <th className="gap-7! max-md:flex-col! max-md:gap-1! h-full" >
                                             
                                             <div 
-                                                // onClick={() => {changeStatus(img.id)}}
+                                                onClick={() => {changeStatus(img.id)}}
                                                 className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
                                             >
                                                 change status
