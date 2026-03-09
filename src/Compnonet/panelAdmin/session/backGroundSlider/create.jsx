@@ -1,8 +1,10 @@
-import { cache, useReducer } from "react";
+import { useReducer } from "react";
 import HeaderPanelAdmin from "../../header/header";
 import api from "../../../../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 const CreateSessionBackGroundSlider = () => {
+    const navigate =  useNavigate()
     const reducer = (state, action) => {
         switch(action.type){
             case "title":
@@ -49,18 +51,25 @@ const CreateSessionBackGroundSlider = () => {
         const formData = new FormData();
         if(state.image){
             formData.append('image', state.image);
+            // formData.append('imageURL', state.urlImage);
         }
         formData.append('title', state.title)
 
         try{
             await api.post('tables/session/backGroundSlider/add.php', formData, {withCredentials: true}, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'multipart/form-data',
                 }
             })
             
         }
         catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title not is empty!', image: "image not is empty"}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
             console.error('message: ', err)
         }
     }
