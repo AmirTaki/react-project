@@ -32,6 +32,18 @@ const BackGroundSliderPanelAdmin = () => {
         }
     }
 
+    const deleteItem = async (id) => {
+        try{
+            await api.delete(`tables/session/backGroundSlider/delete.php/${id}/delete`).then((res) => {
+                res.data;
+                GetBackGroundSlider();
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+    }
+
     return(
         <div>
             <HeaderPanelAdmin id = {7} />
@@ -81,7 +93,7 @@ const BackGroundSliderPanelAdmin = () => {
                                             </Link>
                                             
                                             <div 
-                                                // onClick={() => {deleteItem(img.id)}}
+                                                onClick={() => {deleteItem(img.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete
