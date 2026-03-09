@@ -1,6 +1,24 @@
+import { useReducer } from "react";
 import HeaderPanelAdmin from "../../header/header";
+import { reducer } from "../../../auth/reducer";
 
 const CreateSessionBackGroundSlider = () => {
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "":
+                return {...state}
+
+            default :
+                return state;
+        }
+    }
+    const [state, dispatch] =  useReducer(reducer, {
+        urlImage: '',
+        image: '',
+        title: '',
+        warningImage: '',
+        warningTitle: '',
+    })  
     return(
         <div className="">
             <HeaderPanelAdmin id = {7} />
