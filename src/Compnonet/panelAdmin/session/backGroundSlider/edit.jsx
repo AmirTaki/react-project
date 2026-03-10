@@ -16,6 +16,18 @@ const EditSessionBackGroundSlider = () => {
                     id: action.payload.id
                 }
             
+            case "image":
+                return {...state, image: action.payload}
+
+            case "SET_IMG_URL":
+                return {...state, urlImage: action.payload}
+
+            case "title":
+                return {...state, title: action.payload}
+
+            case "warning":
+                return {...state, imageWarning: action.payload.image, titleWarning: action.payload.title}
+
             default:
                 return state;
         }
@@ -43,19 +55,44 @@ const EditSessionBackGroundSlider = () => {
     useEffect(() => {GetBackGroundSlider(id)}, [])
 
     const handleImageChange = (event) => {
-        const file = event.target.file[0];
+        const file = event.target.files[0];
 
         if(file){
             dispatch({type: 'image', payload: file});
 
             const reader = new FileReader();
-            reader.onload = () => {
-                dispatch ({type: 'set_img_url', payload: reader.result})
+            reader.onloadend = () => {
+                dispatch ({type: 'SET_IMG_URL', payload: reader.result})
             }
             reader.readAsDataURL(file);
         }
     }
 
+    const editSlider = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload: {image: '', title: ''}})
+
+        const formData = new FormData();
+
+        if(state.image) {
+            formData.append('image', state.image);
+        }
+        formData.append('title', state.title);
+        formData.append('id', state.id);
+
+        try{
+            await api.post('',formData ,{
+                headers : {
+                    'Content-Type': 'multipart/form-data',
+               }
+            }).then((res) => {
+                res.data;
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {7}/>
@@ -95,12 +132,12 @@ const EditSessionBackGroundSlider = () => {
                             <input 
                                 value = {state.title}
                                 type="text" id = "title" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {state.warningTitle}
+                                {state.titleWarning}
                             </span>
                         </div>
                         <hr className="my-8"/>     
@@ -108,7 +145,7 @@ const EditSessionBackGroundSlider = () => {
                         {/* edit button -> submit */}
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {editImage(event)}}
+                                onClick={(event) => {editSlider(event)}}
                                 type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
