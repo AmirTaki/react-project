@@ -68,10 +68,10 @@ const EditMegaMenuCategory = () => {
                 setTitles(data);
             })
            
-            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
-                const data = Array.isArray(res.data) ? res.data : [];
-                setLists(data);
-            })        
+            // await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
+            //     const data = Array.isArray(res.data) ? res.data : [];
+            //     setLists(data);
+            // })        
         }   
         catch(err){
             console.error('message: ', err);
@@ -79,6 +79,21 @@ const EditMegaMenuCategory = () => {
     }
 
     useEffect(() => {getCategoryListTitle(id)}, [])
+        const getListRequest = async (title) => {
+        try{
+            await api.post(`tables/megaMenu/menuList/list.php`,{'title' : title}, {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })
+        }
+        catch(err){
+            console.error('message: ',err);
+        }
+    }
+
+    useEffect(() => {
+        getListRequest(state.title)
+    }, [state.title])
 
     const editCategory = async (event) => {
         event.preventDefault();
