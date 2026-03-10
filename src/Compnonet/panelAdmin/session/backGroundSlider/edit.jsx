@@ -42,6 +42,20 @@ const EditSessionBackGroundSlider = () => {
     }
     useEffect(() => {GetBackGroundSlider(id)}, [])
 
+    const handleImageChange = (event) => {
+        const file = event.target.file[0];
+
+        if(file){
+            dispatch({type: 'image', payload: file});
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                dispatch ({type: 'set_img_url', payload: reader.result})
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {7}/>
@@ -63,7 +77,7 @@ const EditSessionBackGroundSlider = () => {
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...." 
-                                // onChange={(event) => {handleImageChange(event)}}
+                                onChange={(event) => {handleImageChange(event)}}
                                 accept="image/*"
                             ></input>
                         </div>

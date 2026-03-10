@@ -77,7 +77,6 @@ const EditMegaMenuImage = () => {
         listWarning: '',
         backimage: '',
     })
-    console.log(state)
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
