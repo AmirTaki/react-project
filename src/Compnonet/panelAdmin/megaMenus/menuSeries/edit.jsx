@@ -19,10 +19,10 @@ const EditMegaMenuSeries = () => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setTitles(data);
             })
-            await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
-                const data = Array.isArray(res.data) ? res.data : [];
-                setLists(data);
-            })        
+            // await api.get('tables/megaMenu/menuList/list.php', {withCredentials: true}).then((res) => {
+            //     const data = Array.isArray(res.data) ? res.data : [];
+            //     setLists(data);
+            // })        
         }
         catch(err){
             console.error('message: ', err)
@@ -100,6 +100,22 @@ const EditMegaMenuSeries = () => {
         }
     }
     
+    const getListRequest = async (title) => {
+        try{
+            await api.post(`tables/megaMenu/menuList/list.php`,{'title' : title}, {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })
+        }
+        catch(err){
+            console.error('message: ',err);
+        }
+    }
+
+    useEffect(() => {
+        getListRequest(state.title);
+        dispatch({type: 'list', payload: ''})
+    }, [state.title])
 
     return(
         <div className="">
@@ -163,6 +179,7 @@ const EditMegaMenuSeries = () => {
                                 onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
+                                <option value= "" className="hidden" selected>select one option ?</option>
                                 {lists?.map((li) => {
                                     return(
                                         <option  
