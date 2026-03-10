@@ -2,14 +2,19 @@ import { useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
 import { useEffect, useReducer } from "react";
 import api from "../../../../axiosConfig";
+import baseURL from "../../../../baseUrl";
 
 const EditSessionBackGroundSlider = () => {
     const {id} = useParams();
 
     const reducer = (state, action) => {
         switch(action.type){
-            case "":
-                return {...state}
+            case "GetRequest":
+                return {...state,
+                    image: action.payload.image,
+                    title: action.payload.title,
+                    id: action.payload.id
+                }
             
             default:
                 return state;
@@ -21,13 +26,14 @@ const EditSessionBackGroundSlider = () => {
         urlImage:'',
         imageWarning: '',
         title: '',
-        titleWarning: ''
+        titleWarning: '',
+        id: 0
     })
     
     const GetBackGroundSlider = async (id) => {
         try{
             await api.get(`tables/session/backGroundSlider/slider.php/${id}`, {withCredentials: true}).then((res) => {
-
+                dispatch({type :'GetRequest', payload: res.data})
             })
         }
         catch(err){
@@ -47,7 +53,7 @@ const EditSessionBackGroundSlider = () => {
                     <form  enctype="multipart/form-data">
                         {/* image view */}
                         <div className="flex gap-5 items-center justify-center m-4">
-                            {/* <img src={state.urlImage === "" ? baseURL + state.image : state.urlImage} style={{width: 150}}></img> */}
+                            <img src={state.urlImage === "" ? baseURL + state.image : state.urlImage} style={{width: 150}}></img>
                         </div>
 
                         {/* image */}
@@ -64,7 +70,7 @@ const EditSessionBackGroundSlider = () => {
 
                                 <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.imageWarning} */}
+                                {state.imageWarning}
                             </span>
                         </div>
                         <hr className="my-8"/>
@@ -73,14 +79,14 @@ const EditSessionBackGroundSlider = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <input 
-                                // value = {state.title}
+                                value = {state.title}
                                 type="text" id = "title" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.warningTitle}
                             </span>
                         </div>
                         <hr className="my-8"/>     
