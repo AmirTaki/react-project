@@ -62,6 +62,23 @@ const CreateMegaMenuImage = () => {
         listWarning: '',
 
     })
+
+    const getListRequest = async (title) => {
+        try{
+            await api.post(`tables/megaMenu/menuList/list.php`,{'title' : title}, {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })
+        }
+        catch(err){
+            console.error('message: ',err);
+        }
+    }
+
+    useEffect(() => {
+        getListRequest(state.title)
+    }, [state.title])
+    
     const addImage = async (event) => {
         event.preventDefault();
         dispatch({type: 'warning', payload: {image: '', body: '', title: ''}})
