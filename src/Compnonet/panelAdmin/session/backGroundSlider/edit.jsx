@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
 import { useEffect, useReducer } from "react";
 import api from "../../../../axiosConfig";
@@ -6,12 +6,13 @@ import baseURL from "../../../../baseUrl";
 
 const EditSessionBackGroundSlider = () => {
     const {id} = useParams();
-
+    const navigate = useNavigate()
     const reducer = (state, action) => {
         switch(action.type){
             case "GetRequest":
                 return {...state,
                     image: action.payload.image,
+                    backImage: action.payload.image,
                     title: action.payload.title,
                     id: action.payload.id
                 }
@@ -39,7 +40,8 @@ const EditSessionBackGroundSlider = () => {
         imageWarning: '',
         title: '',
         titleWarning: '',
-        id: 0
+        id: 0,
+        backImage: ''
     })
     
     const GetBackGroundSlider = async (id) => {
@@ -76,20 +78,32 @@ const EditSessionBackGroundSlider = () => {
 
         if(state.image) {
             formData.append('image', state.image);
+            formData.append('backImg', state.backImage);
         }
         formData.append('title', state.title);
         formData.append('id', state.id);
 
         try{
-            await api.post('',formData ,{
+            await api.post('tables/session/backGroundSlider/edit.php',formData ,{
                 headers : {
                     'Content-Type': 'multipart/form-data',
                }
             }).then((res) => {
                 res.data;
+                navigate('/panelAdmin/session/backgroundslider');
             })
         }
         catch(err){
+            if(err.message == "Request failed with status code 422"){
+                dispatch({type : "warning", payload: {title: 'title  is requierd !!', image: ''}});
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
+            }
             console.error('message: ', err)
         }
     }
