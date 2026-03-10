@@ -37,7 +37,7 @@ const EditMegaMenuCategory = () => {
 
             case "warning":
                 return {...state, warningCategory: action.payload.category, warningTitle: action.payload.title, warningList: action.payload.list}
-
+  
             default:
                 return state;
         }
@@ -53,7 +53,7 @@ const EditMegaMenuCategory = () => {
         id: 0,
         warningCategory: '',
         warningTitle: '',
-        warningList: ''
+        warningList: '',
     })
 
 
@@ -79,7 +79,8 @@ const EditMegaMenuCategory = () => {
     }
 
     useEffect(() => {getCategoryListTitle(id)}, [])
-        const getListRequest = async (title) => {
+    
+    const getListRequest = async (title) => {
         try{
             await api.post(`tables/megaMenu/menuList/list.php`,{'title' : title}, {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
@@ -92,7 +93,8 @@ const EditMegaMenuCategory = () => {
     }
 
     useEffect(() => {
-        getListRequest(state.title)
+        getListRequest(state.title);
+        dispatch({type: 'list', payload: ''})
     }, [state.title])
 
     const editCategory = async (event) => {
@@ -182,12 +184,13 @@ const EditMegaMenuCategory = () => {
                                 onChange={(e) => {dispatch({type: 'list', payload: e.target.value})}}
                                 id = "list" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
+                                <option value= "" className="hidden" selected>select one option ?</option>
                                 {lists?.map((li) => {
                                     return(
                                         <option  
                                             key = {li.id} 
                                             value={li.list}
-                                            selected = {li.list === state.list}
+                                            selected = { li.list === state.list }
                                         >
                                             {li.list}
                                         </option>
