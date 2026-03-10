@@ -39,6 +39,22 @@ const CreateMegaMenuCategory = () => {
         warningTitle: ''
     })
 
+    const getListRequest = async (title) => {
+        try{
+            await api.post(`tables/megaMenu/menuList/list.php`,{'title' : title}, {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setLists(data);
+            })
+        }
+        catch(err){
+            console.error('message: ',err);
+        }
+    }
+
+    useEffect(() => {
+        getListRequest(state.title)
+    }, [state.title])
+
     const getTitleList = async () => {
         try{
             await api.get('tables/megaMenu/menus/menu.php', {withCredentials: true}).then((res) => {
