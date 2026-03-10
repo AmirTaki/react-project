@@ -176,7 +176,7 @@ const BackGroundSlider = () => {
         dispatch({type : "nextSlide"  })
 
     }, 4000)
-  console.log(state)
+
     return(
         <div className={` mt-[101px]  h-[600px] `}>           
             <div className=" relative! "    >
@@ -194,7 +194,7 @@ const BackGroundSlider = () => {
                 >
                     {state.items?.map((item) => {
                         return(
-                            <div   className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
+                            <div  key = {item.id} className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
                                 <img src={baseURL +  item.image} className="w-[100%]! h-[100%]! object-cover" alt="" 
                                     draggable = {false}
                                 />
