@@ -4,6 +4,8 @@ import img2 from "../../assets/img2.jpg"
 import img3 from "../../assets/img3.jpg"
 import img4 from "../../assets/img4.jpg"
 import img5 from "../../assets/img5.jpg"
+import api from "../../axiosConfig"
+import baseURL from "../../baseUrl"
 
 
 function useInterval (callback, delay) {
@@ -29,6 +31,18 @@ const BackGroundSlider = () => {
 
     const sliderRef  =  useRef(null)
   
+    const getRequestSlider = async() => {
+        try{
+            await api.get('tables/session/backGroundSlider/reading.php').then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                dispatch({type: 'GETREQUESTSLIDER', payload: data})
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
     const reducer = (state, action) => {
         switch(action.type){
             case "conter" : 
@@ -98,6 +112,9 @@ const BackGroundSlider = () => {
                 return {...state}
             }
         
+            case "GETREQUESTSLIDER":
+                return {  ...state, items: action.payload }
+
             default :{
                 return {...state}
             }
@@ -134,6 +151,7 @@ const BackGroundSlider = () => {
 
   
     useEffect(() => {
+        getRequestSlider()
         const setHandlerImg = () => {
             handleClickItem(0)
         }
@@ -158,7 +176,7 @@ const BackGroundSlider = () => {
         dispatch({type : "nextSlide"  })
 
     }, 4000)
-  
+  console.log(state)
     return(
         <div className={` mt-[101px]  h-[600px] `}>           
             <div className=" relative! "    >
@@ -177,7 +195,7 @@ const BackGroundSlider = () => {
                     {state.items?.map((item) => {
                         return(
                             <div   className="bg-green-200 w-[100%]! h-[600px]!  itemImg">
-                                <img src={item} className="w-[100%]! h-[100%]! object-cover" alt="" 
+                                <img src={baseURL +  item.image} className="w-[100%]! h-[100%]! object-cover" alt="" 
                                     draggable = {false}
                                 />
                             </div>
