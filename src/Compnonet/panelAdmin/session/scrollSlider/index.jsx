@@ -33,6 +33,18 @@ const ScrollSliderPanelAdmin  = () => {
         }
     }
 
+    const deleteItem = async (id) => {
+        try{
+            await api.delete(`tables/session/scrollSlider/delete.php/${id}/delete`).then((res) => {
+                res.data;
+                GetScrollSlider();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {8} />
@@ -87,7 +99,7 @@ const ScrollSliderPanelAdmin  = () => {
                                             </Link>
                                             
                                             <div 
-                                                // onClick={() => {deleteItem(item.id)}}
+                                                onClick={() => {deleteItem(item.id)}}
                                                 className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
                                             >
                                                 delete
