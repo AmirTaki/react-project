@@ -11,7 +11,7 @@ const ImageSlider = () => {
     const {heartConter, setHeartConter} =  useContext(GlobalHearts)  
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    
+
     const getRequsetScrollSlider = async () => {
         try{
             await api.get('tables/session/scrollSlider/reading.php').then((res) => {
@@ -155,11 +155,11 @@ const ImageSlider = () => {
                             </div>
                             <img  draggable = {false}  src={baseURL + item.image} alt="" className="w-[100%] h-[100%] object-cover select-none" />
                         </div>
-                        <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
-                            <div className="bg-white w-[100%] p-2 font-medium text-gray-600">
+                        <div className="  flex flex-col  items-center  max-md:hidden max-sm:hidden h-full">
+                            <div className=" w-[100%] p-2 font-medium text-gray-600">
                                 {item.price}$
                             </div>
-                            <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
+                            <div className=" w-[100%]  p-2 text-gray-400 text-[15px]  h-18 overflow-  hover:text-gray-800 duration-300">
                                 {item.body}
                             </div>
                             <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
