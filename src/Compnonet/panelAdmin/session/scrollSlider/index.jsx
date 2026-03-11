@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
+import { useEffect, useState } from "react";
+import api from "../../../../axiosConfig";
 
 const ScrollSliderPanelAdmin  = () => {
+    const [scrollSlider, setScrollSlider] = useState([])
+
+    const GetScrollSlider = async () => {
+        try{
+            await api.get('', {withCredentials: true}).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setScrollSlider(data);
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+    useEffect(() => {GetScrollSlider()}, [])
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {8} />
@@ -13,6 +30,60 @@ const ScrollSliderPanelAdmin  = () => {
                     
                     <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">session: scroll slider table</h1> 
                 </div>
+
+                <div className="w-[90%]  mx-auto flex flex-col">
+                    <table className="w-full">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Title</th>                         
+                                <th>Caption</th>                         
+                                <th>Price</th>                         
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* {backGroundSlider.map((img, ind) => { 
+                                return(
+                                    <tr key = {ind} className=" ">
+                                        <th >{img.id}</th>
+                                        <th className=" flex justify-center items-center ">
+                                            <img src = {baseURL +  img.image} className="w-[140px] "/>
+                                        </th>
+                                        <th>{img.title}</th>
+                                        <th className = {`${img.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
+                                            {img.status == 10 ? 'enable' : 'disable'}
+                                        </th>
+
+                                        <th className="gap-7! max-md:flex-col! max-md:gap-1! h-full" >
+                                            
+                                            <div 
+                                                onClick={() => {changeStatus(img.id)}}
+                                                className="text-yellow-500 cursor-pointer duration-200 hover:text-yellow-300 "
+                                            >
+                                                change status
+                                            </div>
+
+                                            <Link to = {`/panelAdmin/session/EditBackGroundSlider/${img.id}/edit`}>
+                                                <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
+                                            </Link>
+                                            
+                                            <div 
+                                                onClick={() => {deleteItem(img.id)}}
+                                                className="text-rose-500 cursor-pointer duration-200 hover:text-red-700!"
+                                            >
+                                                delete
+                                            </div>
+                                        </th>
+                                    </tr>
+                                )
+                            })}             */}
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     )
