@@ -24,6 +24,15 @@ const EditSessionScrollSlider = () => {
             case "SET_IMG_URL":
                 return {...state, urlImage: action.payload}
 
+            case "title":
+                return {...state, title: action.payload}
+
+            case "body":
+                return {...state, body: action.payload}
+
+            case "price":
+                return {...state, price: action.payload}
+
             default: 
                 return state;
         }
@@ -101,7 +110,7 @@ const EditSessionScrollSlider = () => {
                             <input 
                                 value = {state.title}
                                 type="text" id = "title" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -119,7 +128,7 @@ const EditSessionScrollSlider = () => {
                                 id = 'body'
                                 value={state.body}
                                 className="border-2 w-[300px] rounded-md h-23  p-1"
-                                // onChange={(e) => {dispatch({type: 'body', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'body', payload: e.target.value})}}
                             ></textarea>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -136,7 +145,7 @@ const EditSessionScrollSlider = () => {
                             <input 
                                 value = {state.price}
                                 type="number" id = "price" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'price', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'price', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
