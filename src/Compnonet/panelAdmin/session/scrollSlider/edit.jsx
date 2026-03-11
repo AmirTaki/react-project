@@ -15,8 +15,15 @@ const EditSessionScrollSlider = () => {
                 const {image} = action.payload
                 const {price} = action.payload
                 const {body} = action.payload
-                return {...state, title: title, image: image, price: price, body: body}
+                const {id} = action.payload
+                return {...state, title: title, image: image, price: price, body: body, id: id}
             
+            case "image":
+                return {...state, image: action.payload}
+
+            case "SET_IMG_URL":
+                return {...state, urlImage: action.payload}
+
             default: 
                 return state;
         }
@@ -44,6 +51,19 @@ const EditSessionScrollSlider = () => {
         }
     }
     useEffect(() => {GetScrollSlider(id)}, [])
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if(file){
+            dispatch({type: 'image', payload: file})
+        }
+        const reader =  new FileReader();
+        reader.onloadend = () => {
+            dispatch({type: 'SET_IMG_URL', payload: reader.result});
+        }
+        reader.readAsDataURL(file);
+    }
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {8}/>
@@ -63,7 +83,7 @@ const EditSessionScrollSlider = () => {
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...." 
-                                // onChange={(event) => {handleImageChange(event)}}
+                                onChange={(event) => {handleImageChange(event)}}
                                 accept="image/*"
                             ></input>
                         </div>
