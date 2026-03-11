@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useReducer } from "react";
 import baseURL from "../../../../baseUrl";
 import HeaderPanelAdmin from "../../header/header";
 import { useParams } from "react-router-dom";
@@ -7,10 +7,36 @@ import api from "../../../../axiosConfig";
 const EditSessionScrollSlider = () => {
     const {id} = useParams()
 
+    const reducer = (state, action) => {
+        switch(action.type){
+            case "GET_REQUST_SLIDERS":
+                
+                const {title} = action.payload
+                const {image} = action.payload
+                const {price} = action.payload
+                const {body} = action.payload
+                return {...state, title: title, image: image, price: price, body: body}
+            
+            default: 
+                return state;
+        }
+    }
+    const [state, dispatch] = useReducer(reducer, {
+        title: '',
+        titleWarning: '',
+        body: '',
+        bodyWarning: '',
+        price: 0,
+        priceWarning: '',
+        image: '',
+        urlImage: '',
+        imageWarning: ''
+    })
+
    const GetScrollSlider = async (id) => {
         try{
-            await api.get(``, {withCredentials: true}).then((res) => {
-                
+            await api.get(`tables/session/scrollSlider/slider.php/${id}`, {withCredentials: true}).then((res) => {
+                dispatch({type: 'GET_REQUST_SLIDERS', payload: res.data})
             })
         }
         catch(err){
@@ -28,7 +54,7 @@ const EditSessionScrollSlider = () => {
                     <form>
                         {/*image view  */}
                         <div className="flex gap-5 items-center justify-center m-4">
-                            {/* <img src={state.urlImage === "" ? baseURL + state.image : state.urlImage} style={{width: 150}}></img> */}
+                            <img src={state.urlImage === "" ? baseURL + state.image : state.urlImage} style={{width: 150}}></img>
                         </div>
 
                         {/* image */}
@@ -43,7 +69,7 @@ const EditSessionScrollSlider = () => {
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.imageWarning} */}
+                                {state.imageWarning}
                             </span>
                         </div>
                         
@@ -53,14 +79,14 @@ const EditSessionScrollSlider = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <input 
-                                // value = {state.title}
+                                value = {state.title}
                                 type="text" id = "title" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.titleWarning} */}
+                                {state.titleWarning}
                             </span>
                         </div>
 
@@ -71,13 +97,14 @@ const EditSessionScrollSlider = () => {
                        
                             <textarea
                                 id = 'body'
+                                value={state.body}
                                 className="border-2 w-[300px] rounded-md h-23  p-1"
                                 // onChange={(e) => {dispatch({type: 'body', payload: e.target.value})}}
                             ></textarea>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.bodyWarning} */}
+                                {state.bodyWarning}
                             </span>
                         </div>
 
@@ -87,14 +114,14 @@ const EditSessionScrollSlider = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="price" className="text-blue-500">price</label>
                             <input 
-                                // value = {state.price}
+                                value = {state.price}
                                 type="number" id = "price" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 // onChange={(e) => {dispatch({type: 'price', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.priceWarning} */}
+                                {state.priceWarning}
                             </span>
                         </div>      
                         
@@ -102,7 +129,7 @@ const EditSessionScrollSlider = () => {
                         <div className="flex justify-center items-center">
                             <input 
                                 // onClick={(event) => {addBoxSlider(event)}}
-                                type="submit" value = "ADD" 
+                                type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
                         </div>
