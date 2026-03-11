@@ -68,7 +68,7 @@ const CreateSessionScrollSlider = () => {
         formData.append('body', state.body)
         formData.append('title', state.title)
         formData.append('price', state.price)
-        console.log(formData)
+
         try{
             await api.post('/tables/session/scrollSlider/add.php', formData, {withCredentials: true}, {
                 headers: {

@@ -1,11 +1,12 @@
 import { useEffect, useReducer } from "react";
 import baseURL from "../../../../baseUrl";
 import HeaderPanelAdmin from "../../header/header";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../../../../axiosConfig";
 
 const EditSessionScrollSlider = () => {
     const {id} = useParams()
+    const navigate =  useNavigate()
 
     const reducer = (state, action) => {
         switch(action.type){
@@ -33,6 +34,15 @@ const EditSessionScrollSlider = () => {
             case "price":
                 return {...state, price: action.payload}
 
+            case "warning":
+                if(action.payload){
+                    const {title} = action.payload 
+                    const {body} = action.payload 
+                    const {image} = action.payload 
+                    const {price} = action.payload 
+                    return {...state, titleWarning: title, bodyWarning: body, priceWarning: price, imageWarning: image}
+                }
+
             default: 
                 return state;
         }
@@ -59,8 +69,9 @@ const EditSessionScrollSlider = () => {
             console.error('message: ', err)
         }
     }
-    useEffect(() => {GetScrollSlider(id)}, [])
 
+    useEffect(() => {GetScrollSlider(id)}, [])
+    
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if(file){
@@ -71,6 +82,34 @@ const EditSessionScrollSlider = () => {
             dispatch({type: 'SET_IMG_URL', payload: reader.result});
         }
         reader.readAsDataURL(file);
+    }
+
+    const editBoxSlider = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload: {image: '', title: '', body: '', image: ''}})
+
+        const formData = new FormData();
+        if(state.image){
+            formData.append('image', state.image)
+        }
+        formData.append('body', state.body)
+        formData.append('title', state.title)
+        formData.append('price', state.price)
+
+        try{
+            await api.post('back-end/tables/session/scrollSlider/edit.php', formData,{
+                headers : {
+                    'Content-Type': 'multipart/form-data',
+               }
+            }).then((res) => {
+                res.data;
+                // navigate('/panelAdmin/session/scrollSlider')  
+            })
+        }
+        catch(err){
+            console.error('message: ', err);
+        }
+
     }
 
     return(
@@ -157,7 +196,7 @@ const EditSessionScrollSlider = () => {
                         <hr className="my-8"/>               
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addBoxSlider(event)}}
+                                onClick={(event) => {editBoxSlider(event)}}
                                 type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
