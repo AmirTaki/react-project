@@ -12,19 +12,40 @@ const CreateSessionScrollSlider = () => {
             
             case "price":
                 return {...state, price: action.payload < 0 ? 0 : action.payload}
+
+            case "SET_IMAGE":
+                return {...state, image: action.payload}
+
+            case "SET_IMAGE_URL":
+                return {...state, urlImage: action.payload}
+
             default: 
                 return state;
         }
     }
     const [state, dispatch] = useReducer(reducer, {
         title: '',
-        titleWarning: 'warning',
+        titleWarning: '',
         body: '',
-        bodyWarning: 'warning',
+        bodyWarning: '',
         price: 0,
-        priceWarning: 'warning'
+        priceWarning: '',
+        image: '',
+        urlImage: '',
+        imageWarning: ''
     })
 
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if(file){
+            dispatch({type: 'SET_IMAGE', payload: file})
+        }
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            dispatch({type: 'SET_IMAGE_URL', payload: reader.result});
+        }
+        reader.readAsDataURL(file);
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {8} />
@@ -34,9 +55,9 @@ const CreateSessionScrollSlider = () => {
                     <form>
                         {/*image view  */}
                         <div className="flex gap-5 items-center justify-center m-4">
-                            {/* {state.urlImage && (
+                            {state.urlImage && (
                                 <img src={state.urlImage} style={{width: 100}}></img>
-                            )} */}
+                            )}
                         </div>
 
                         {/* image */}
@@ -45,13 +66,13 @@ const CreateSessionScrollSlider = () => {
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...." 
-                                // onChange={(event) => {handleImageChange(event)}}
+                                onChange={(event) => {handleImageChange(event)}}
                                 accept="image/*"
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningImage} */}
+                                {state.imageWarning}
                             </span>
                         </div>
                         
