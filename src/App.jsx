@@ -25,6 +25,7 @@ import EditMegaMenuImage from './Compnonet/panelAdmin/megaMenus/menuImage/edit'
 import BackGroundSliderPanelAdmin from './Compnonet/panelAdmin/session/backGroundSlider'
 import CreateSessionBackGroundSlider from './Compnonet/panelAdmin/session/backGroundSlider/create'
 import EditSessionBackGroundSlider from './Compnonet/panelAdmin/session/backGroundSlider/edit'
+import ScrollSliderPanelAdmin from './Compnonet/panelAdmin/session/scrollSlider'
 
 function App() {
   return (
@@ -73,6 +74,9 @@ function App() {
         <Route path = "/panelAdmin/session/AddBackGroundSlider" element = {<CreateSessionBackGroundSlider />}></Route>
         <Route path = "/panelAdmin/session/EditBackGroundSlider/:id/edit" element = {<EditSessionBackGroundSlider />}></Route>
 
+        {/* panelAdmin -> session -> scrollSlider */}
+        <Route path = "/panelAdmin/session/scrollSlider" element = {<ScrollSliderPanelAdmin />}></Route>
+        
       </Routes>
     </BrowserRouter>
   

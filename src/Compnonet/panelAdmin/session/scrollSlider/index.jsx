@@ -11,7 +11,7 @@ const ScrollSliderPanelAdmin  = () => {
                         <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create Image</button>
                     </Link>
                     
-                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">session: background slider table</h1> 
+                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">session: scroll slider table</h1> 
                 </div>
             </div>
         </div>

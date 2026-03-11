@@ -69,9 +69,15 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             },
             {
                 id: 7, 
-                name: 'background slider',
+                name: 'background Slider',
                 flag: false, 
                 link: "/panelAdmin/session/backgroundslider"
+            },
+            {
+                id: 8, 
+                name: 'scroll Slider',
+                flag: false, 
+                link: "/panelAdmin/session/scrollSlider"
             },
         ]
     })
