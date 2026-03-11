@@ -68,19 +68,28 @@ const CreateSessionScrollSlider = () => {
         formData.append('body', state.body)
         formData.append('title', state.title)
         formData.append('price', state.price)
-
+        console.log(formData)
         try{
-            await api.post('', formData, {withCredentials: true}, {
+            await api.post('/tables/session/scrollSlider/add.php', formData, {withCredentials: true}, {
                 headers: {
                     'Content-Type': 'multipart/form-data',   
                 }
             }).then((res) => {
                 res;
-                // navigate('/panelAdmin/session/scrollSlider');
+                navigate('/panelAdmin/session/scrollSlider');
             })
               
         }
         catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title is requierd!', image: "image is requierd", body: 'body is requierd', price: 'price is requierd'}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
+            }
             console.error('message: ', err)
         }
     }
