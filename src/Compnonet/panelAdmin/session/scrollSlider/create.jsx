@@ -4,14 +4,27 @@ import HeaderPanelAdmin from "../../header/header";
 const CreateSessionScrollSlider = () => {
     const reducer = (state, action) => {
         switch(action.type){
-            case "":
-                return {...state}
+            case "title":
+                return {...state, title: action.payload}
             
+            case "body":
+                return {...state, body: action.payload}
+            
+            case "price":
+                return {...state, price: action.payload < 0 ? 0 : action.payload}
             default: 
                 return state;
         }
     }
-    const [state, dispatch] = useReducer(reducer, {})
+    const [state, dispatch] = useReducer(reducer, {
+        title: '',
+        titleWarning: 'warning',
+        body: '',
+        bodyWarning: 'warning',
+        price: 0,
+        priceWarning: 'warning'
+    })
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {8} />
@@ -48,14 +61,14 @@ const CreateSessionScrollSlider = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="title" className="text-blue-500">title</label>
                             <input 
-                                // value = {state.title}
+                                value = {state.title}
                                 type="text" id = "title" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.titleWarning}
                             </span>
                         </div>
 
@@ -67,11 +80,12 @@ const CreateSessionScrollSlider = () => {
                             <textarea
                                 id = 'body'
                                 className="border-2 w-[300px] rounded-md h-23  p-1"
+                                onChange={(e) => {dispatch({type: 'body', payload: e.target.value})}}
                             ></textarea>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.bodyWarning}
                             </span>
                         </div>
 
@@ -81,14 +95,14 @@ const CreateSessionScrollSlider = () => {
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="price" className="text-blue-500">price</label>
                             <input 
-                                // value = {state.title}
+                                value = {state.price}
                                 type="number" id = "price" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                // onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'price', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.warningTitle} */}
+                                {state.priceWarning}
                             </span>
                         </div>      
                         
