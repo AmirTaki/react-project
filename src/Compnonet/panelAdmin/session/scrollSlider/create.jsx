@@ -1,7 +1,10 @@
 import { useReducer } from "react";
 import HeaderPanelAdmin from "../../header/header";
+import api from "../../../../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 const CreateSessionScrollSlider = () => {
+    const navigate =  useNavigate()
     const reducer = (state, action) => {
         switch(action.type){
             case "title":
@@ -19,6 +22,13 @@ const CreateSessionScrollSlider = () => {
             case "SET_IMAGE_URL":
                 return {...state, urlImage: action.payload}
 
+            case "warning":
+                const {title} = action.payload 
+                const {body} = action.payload 
+                const {image} = action.payload 
+                const {price} = action.payload 
+                return {...state, titleWarning: title, bodyWarning: body, priceWarning: price, imageWarning: image}
+            
             default: 
                 return state;
         }
@@ -45,6 +55,34 @@ const CreateSessionScrollSlider = () => {
             dispatch({type: 'SET_IMAGE_URL', payload: reader.result});
         }
         reader.readAsDataURL(file);
+    }
+
+    const addBoxSlider = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload : {image: '', title: '', price: '', body: ''}})
+
+        const formData = new FormData();
+        if(state.image){
+            formData.append('image', state.image)
+        }
+        formData.append('body', state.body)
+        formData.append('title', state.title)
+        formData.append('price', state.price)
+
+        try{
+            await api.post('', formData, {withCredentials: true}, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',   
+                }
+            }).then((res) => {
+                res;
+                // navigate('/panelAdmin/session/scrollSlider');
+            })
+              
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
     }
     return(
         <div className="">
@@ -130,7 +168,7 @@ const CreateSessionScrollSlider = () => {
                         <hr className="my-8"/>               
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addSlider(event)}}
+                                onClick={(event) => {addBoxSlider(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
