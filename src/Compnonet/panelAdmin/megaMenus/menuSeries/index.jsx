@@ -43,7 +43,6 @@ const MegaMenuSeriesPanelAdmin = () => {
             console.error('message: ', err)
         }   
     }
-
     return(
         <div className="">
             <HeaderPanelAdmin id = {5} />
@@ -104,7 +103,7 @@ const MegaMenuSeriesPanelAdmin = () => {
                                         </th>
                                     </tr>
                                 )
-                            })}            
+                            })}   
                         </tbody>
                     </table>
                 </div>
