@@ -1,14 +1,30 @@
 import { useContext, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import IMG from "../../assets/t-shirt.avif";
 import { GlobalHearts } from "../../Home";
+import api from "../../axiosConfig";
+import baseURL from "../../baseUrl";
 
 
 
 
 const ImageSlider = () => {
-   const {heartConter, setHeartConter} =  useContext(GlobalHearts)  
+    const {heartConter, setHeartConter} =  useContext(GlobalHearts)  
     const imgSlider =  useRef(null)
     const LISTIMG = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    
+    const getRequsetScrollSlider = async () => {
+        try{
+            await api.get('tables/session/scrollSlider/reading.php').then((res) => {
+                dispatch({type: 'GET_REQUST_SCROLL_SLIDERS', payload: res.data})
+                res.data;
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+    useEffect(() => {getRequsetScrollSlider()}, [])
+
     const reducer = (state, action) => {
         switch(action.type){
             case "heart":
@@ -60,7 +76,9 @@ const ImageSlider = () => {
                 }
                 return {...state}
 
-
+            case "GET_REQUST_SCROLL_SLIDERS":
+                return {...state, sliders: action.payload}
+            
             default : {
                 return {...state}
             }
@@ -71,18 +89,17 @@ const ImageSlider = () => {
         isDrag: false,
         startX: 0,
         startScroll: 0,
-        diff: 0
+        diff: 0,
+        sliders: []
 
     })
   
     useEffect(() => {
         setHeartConter(0)
-        for (let i = 0  ; i < LISTIMG.length ; i++) {
+        for (let i = 0  ; i < state.sliders.length ; i++) {
             state.heart[i] === true ? setHeartConter((heart) => heart + 1) : ''
         }
     },[state.heart])
-    
-  
   
     const leftHandler = () => {
         dispatch({type : 'left', payload : 300});
@@ -126,8 +143,8 @@ const ImageSlider = () => {
                 "           
             >
    
-                {LISTIMG.map((item,index) => (
-                    <div key = {item} className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
+                {state.sliders.map((item,index) => (
+                    <div key = {index} className="w-[260px] h-[430px]  max-md:h-[250px] border-[1px]! max-md:border-0! border-gray-200 bg-white mx-3 my-1 overflow-hidden rounded-2xl">
                         <div className="relative ">
                             <div onClick = {() => {handlerHeart(index)}}
                             
@@ -136,17 +153,17 @@ const ImageSlider = () => {
                             `}>
                                 <i className={`${state.heart[index] ? "bi bi-heart-fill" : "bi bi-heart"}`}></i>
                             </div>
-                            <img  draggable = {false}  src={IMG} alt="" className="w-[100%] h-[100%] object-cover select-none" />
+                            <img  draggable = {false}  src={baseURL + item.image} alt="" className="w-[100%] h-[100%] object-cover select-none" />
                         </div>
                         <div className="bg-white flex flex-col  items-center  max-md:hidden max-sm:hidden">
                             <div className="bg-white w-[100%] p-2 font-medium text-gray-600">
-                                30$
+                                {item.price}$
                             </div>
                             <div className=" w-[95%]  p-1 text-gray-400 text-[16px]  hover:text-gray-800 duration-300">
-                                Texas Tech Red Raiders Women's  College World Series Participant
+                                {item.body}
                             </div>
                             <div className="bg-b w-[100%] px-2 my-1 text-gray-500  text-[14px]">
-                                Performance
+                                {item.title}
                             </div>
                         </div>
                     </div>
