@@ -17,7 +17,7 @@ const EditSessionScrollSlider = () => {
                 const {price} = action.payload
                 const {body} = action.payload
                 const {id} = action.payload
-                return {...state, title: title, image: image, price: price, body: body, id: id}
+                return {...state, title: title, image: image, price: price, body: body, id: id, backImage: image}
             
             case "image":
                 return {...state, image: action.payload}
@@ -56,7 +56,8 @@ const EditSessionScrollSlider = () => {
         priceWarning: '',
         image: '',
         urlImage: '',
-        imageWarning: ''
+        imageWarning: '',
+        backImage: ''
     })
 
    const GetScrollSlider = async (id) => {
@@ -91,22 +92,33 @@ const EditSessionScrollSlider = () => {
         const formData = new FormData();
         if(state.image){
             formData.append('image', state.image)
+            formData.append('backImg', state.backImage)
         }
         formData.append('body', state.body)
         formData.append('title', state.title)
         formData.append('price', state.price)
+        formData.append('id', state.id)
 
         try{
-            await api.post('back-end/tables/session/scrollSlider/edit.php', formData,{
+            await api.post('tables/session/scrollSlider/edit.php', formData,{
                 headers : {
                     'Content-Type': 'multipart/form-data',
                }
             }).then((res) => {
                 res.data;
-                // navigate('/panelAdmin/session/scrollSlider')  
+                navigate('/panelAdmin/session/scrollSlider')  
             })
         }
         catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title is requierd!', image: "", body: 'body is requierd', price: 'price is requierd'}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
+            }
             console.error('message: ', err);
         }
 
