@@ -1,8 +1,10 @@
 import { useReducer } from "react"
 import HeaderPanelAdmin from "../../header/header"
+import { useNavigate } from "react-router-dom"
+import api from "../../../../axiosConfig"
 
 const CreateSessionGridImage = () => {
-    
+    const navigate =  useNavigate();
     const reducer = (state, action) => {
         switch(action.type){
             case "title":
@@ -69,13 +71,13 @@ const CreateSessionGridImage = () => {
         formData.append('link', state.link)
 
         try{
-            await api.post('', formData, {withCredentials: true}, {
+            await api.post('tables/session/gridImage/add.php', formData, {withCredentials: true}, {
                 headers: {
                     'Content-Type': 'multipart/form-data',   
                 }
             }).then((res) => {
                 res;
-                navigate('/panelAdmin/session/scrollSlider');
+                navigate('/panelAdmin/session/gridImage');
             })
               
         }
