@@ -55,6 +55,44 @@ const CreateSessionGridImage = () => {
         reader.readAsDataURL(file);
     }
 
+
+    const addBoxGrid = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload : {image: '', title: '', link: '', body: ''}})
+
+        const formData = new FormData();
+        if(state.image){
+            formData.append('image', state.image)
+        }
+        formData.append('body', state.body)
+        formData.append('title', state.title)
+        formData.append('link', state.link)
+
+        try{
+            await api.post('', formData, {withCredentials: true}, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',   
+                }
+            }).then((res) => {
+                res;
+                navigate('/panelAdmin/session/scrollSlider');
+            })
+              
+        }
+        catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title is requierd!', image: "image is requierd", body: 'body is requierd', link: 'link is requierd'}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
+            }
+            console.error('message: ', err)
+        }
+    }
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {8} />
@@ -139,7 +177,7 @@ const CreateSessionGridImage = () => {
                         <hr className="my-8"/>               
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addBoxSlider(event)}}
+                                onClick={(event) => {addBoxGrid(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
