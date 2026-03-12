@@ -87,7 +87,7 @@ const EditSessionScrollSlider = () => {
 
     const editBoxSlider = async (event) => {
         event.preventDefault();
-        dispatch({type: 'warning', payload: {image: '', title: '', body: '', image: ''}})
+        dispatch({type: 'warning', payload: {image: '', title: '', body: '', price: ''}})
 
         const formData = new FormData();
         if(state.image){

@@ -84,6 +84,45 @@ const EditSessionGridBox = () => {
         }
         reader.readAsDataURL(file);
     }
+
+    const editBoxGrid = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload: {image: '', title: '', body: '', link: ''}})
+
+        const formData = new FormData();
+        if(state.image){
+            formData.append('image', state.image)
+            formData.append('backImg', state.backImage)
+        }
+        formData.append('body', state.body)
+        formData.append('title', state.title)
+        formData.append('link', state.link)
+        formData.append('id', state.id)
+
+        try{
+            await api.post('tables/session/gridImage/edit.php', formData,{
+                headers : {
+                    'Content-Type': 'multipart/form-data',
+               }
+            }).then((res) => {
+                res.data;
+                navigate('/panelAdmin/session/gridImage')  
+            })
+        }
+        catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {title: 'title is requierd!', image: "", body: 'body is requierd', link: 'link is requierd'}})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
+            }
+            console.error('message: ', err);
+        }
+
+    }
     
     return (
         <div className="">
@@ -153,11 +192,11 @@ const EditSessionGridBox = () => {
                         
                         {/* link */}
                         <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="link" className="text-blue-500">price</label>
+                            <label htmlFor="link" className="text-blue-500">link</label>
                             <input 
                                 value = {state.link}
                                 type="text" id = "link" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                onChange={(e) => {dispatch({type: 'plinkrice', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'link', payload: e.target.value})}}
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -169,7 +208,7 @@ const EditSessionGridBox = () => {
                         <hr className="my-8"/>               
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {editBoxSlider(event)}}
+                                onClick={(event) => {editBoxGrid(event)}}
                                 type="submit" value = "EDIT" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
