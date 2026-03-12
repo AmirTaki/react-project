@@ -30,6 +30,18 @@ const GridImagePanelAdmin = () => {
             console.error('message: ', err)
         }
     }
+
+    const deleteItem = async (id) => {
+        try {
+            await api.delete(`tables/session/gridImage/delete.php/${id}/delete`).then((res) => {
+                res;
+                GetGridImage();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {9} />
