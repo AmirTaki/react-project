@@ -28,6 +28,7 @@ import EditSessionBackGroundSlider from './Compnonet/panelAdmin/session/backGrou
 import ScrollSliderPanelAdmin from './Compnonet/panelAdmin/session/scrollSlider'
 import CreateSessionScrollSlider from './Compnonet/panelAdmin/session/scrollSlider/create'
 import EditSessionScrollSlider from './Compnonet/panelAdmin/session/scrollSlider/edit'
+import GridImagePanelAdmin from './Compnonet/panelAdmin/session/gridImage'
 
 function App() {
   return (
@@ -81,7 +82,8 @@ function App() {
         <Route path = "/panelAdmin/session/AddBoxSlider" element = {<CreateSessionScrollSlider />}/>
         <Route path = "/panelAdmin/session/EditBoxSlider/:id/edit" element = {<EditSessionScrollSlider />}/>
 
-        {/*  */}
+        {/* panelAdmin -> session -> GridImage */}
+        <Route path='/panelAdmin/session/gridImage' element = {<GridImagePanelAdmin />} ></Route>
       </Routes>
     </BrowserRouter>
   
