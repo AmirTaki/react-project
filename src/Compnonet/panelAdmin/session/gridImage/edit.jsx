@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom"
 import HeaderPanelAdmin from "../../header/header"
-import { useReducer } from "react"
+import { useEffect, useReducer } from "react"
 import baseURL from "../../../../baseUrl"
+import api from "../../../../axiosConfig"
 
 const EditSessionGridBox = () => {
     const {id} = useParams()
@@ -9,7 +10,7 @@ const EditSessionGridBox = () => {
 
     const reducer = (state, action) => {
         switch(action.type){
-            case "GET_REQUST_SLIDERS":
+            case "GET_REQUST_GRID":
                 
                 const {title} = action.payload
                 const {image} = action.payload
@@ -58,6 +59,32 @@ const EditSessionGridBox = () => {
         imageWarning: '',
         backImage: ''
     })
+
+    const GetGridImage = async (id) => {
+        try{
+            await api.get(`tables/session/gridImage/grid.php/${id}`, {withCredentials: true}).then((res) => {
+                dispatch({type: 'GET_REQUST_GRID', payload: res.data})
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
+    useEffect(() => {GetGridImage(id)}, [])
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if(file){
+            dispatch({type: 'image', payload: file})
+        }
+        const reader =  new FileReader();
+        reader.onloadend = () => {
+            dispatch({type: 'SET_IMG_URL', payload: reader.result});
+        }
+        reader.readAsDataURL(file);
+    }
+    
     return (
         <div className="">
             <HeaderPanelAdmin id = {9}/>
