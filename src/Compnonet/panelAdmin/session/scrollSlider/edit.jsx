@@ -32,7 +32,7 @@ const EditSessionScrollSlider = () => {
                 return {...state, body: action.payload}
 
             case "price":
-                return {...state, price: action.payload}
+                return {...state, price: action.payload >= 0 ? action.payload : 0 }
 
             case "warning":
                 if(action.payload){
