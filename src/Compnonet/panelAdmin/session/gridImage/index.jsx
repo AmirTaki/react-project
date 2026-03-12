@@ -2,12 +2,13 @@ import { Link } from "react-router-dom"
 import HeaderPanelAdmin from "../../header/header"
 import { useEffect, useState } from "react"
 import api from "../../../../axiosConfig"
+import baseURL from "../../../../baseUrl"
 
 const GridImagePanelAdmin = () => {
     const [gridImages, setGridImages] = useState([])
     const GetGridImage = async () => {
         try{
-            await api.get(``, {withCredentials: true}).then((res) => {
+            await api.get(`tables/session/gridImage/grid.php`, {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data: [];
                 setGridImages(data)
             })
@@ -17,6 +18,18 @@ const GridImagePanelAdmin = () => {
         }
     }
     useEffect(() => {GetGridImage()}, [])
+
+    const changeStatus = async (id) => {
+        try{
+            await api.get(`tables/session/gridImage/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+                res;
+                GetGridImage();
+            })
+        }   
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {9} />
@@ -43,7 +56,7 @@ const GridImagePanelAdmin = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {scrollSlider.map((item, ind) => { 
+                            {gridImages.map((item, ind) => { 
                                 return(
                                     <tr key = {ind} className=" ">
                                         <th >{ind + 1}</th>
@@ -52,7 +65,7 @@ const GridImagePanelAdmin = () => {
                                         </th>
                                         <th>{item.title}</th>
                                         <th>{item.body}</th>
-                                        <th>{item.price}</th>
+                                        <th>{item.link}</th>
                                         <th className = {`${item.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
                                             {item.status == 10 ? 'enable' : 'disable'}
                                         </th>
@@ -79,7 +92,7 @@ const GridImagePanelAdmin = () => {
                                         </th>
                                     </tr>
                                 )
-                            })}             */}
+                            })}            
                         </tbody>
                     </table>
                 </div>
