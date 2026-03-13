@@ -94,7 +94,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
         ]
     })
     return(
-        <div className=" flex flex-col items-left gap-4 ">
+        <div className=" flex flex-col items-left  ">
             <div 
                 className=" border-b flex justify-end px-3 items-center h-10 text-2xl w-full"
             >
@@ -103,26 +103,27 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                     onClick={() => {setNavbar(false)}}
                 /> 
             </div>
-
-            {state.list?.map((item) => {
-                return(           
-                    <div key = {item.id} className=" text-[20px] px-4 my-2"
-                        
-                    >
-                        <Link to = {item.link}
-     
+            <div className="overflow-y-auto  max-h-screen gap-3 flex flex-col navbarPanelAdmin  ">
+                {state.list?.map((item) => {
+                    return(           
+                        <div key = {item.id} className=" text-[20px] px-4 my-2 "
+                            
                         >
-                            <div 
-                                // onClick={() => {dispatch({type: 'clickLink', payload: {id: item.id}})}}
-                              className={`cursor-pointer  hover:scale-90 hover:text-[silver] duration-400 ${item.flag ? "text-red-500 scale-90 " : ""}`}
-                            >
-                                {item.name} 
-                            </div>
+                            <Link to = {item.link}
         
-                        </Link>
-                    </div>
-                )
-            })}    
+                            >
+                                <div 
+                                    // onClick={() => {dispatch({type: 'clickLink', payload: {id: item.id}})}}
+                                className={`cursor-pointer  hover:scale-90 hover:text-[silver] duration-400 ${item.flag ? "text-red-500 scale-90 " : ""}`}
+                                >
+                                    {item.name} 
+                                </div>
+            
+                            </Link>
+                        </div>
+                    )
+                })}    
+            </div>
         </div>
     )
 }
