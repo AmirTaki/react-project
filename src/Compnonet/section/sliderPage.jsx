@@ -58,60 +58,66 @@ const SliderPage = () => {
             
                 return {...state, changeColor : {[state.conter] : true} }
 
-            case "mouseDown" : 
+            case "MouseDown":
                 const {client} = action.payload
                 const {slider} = action.payload
-                // slider.style.scrollBehavior = 'auto'
-                return {...state, isDrag: true,  startX: client, startScroll: slider.scrollLeft}
+                if(slider){
+                    slider.style.scrollBehavior = 'auto';
+                    return {...state, isDrag: true, startX: client, startScrollLeft: slider.scrollLeft}   
+                }
+                return {...state}
 
-            case "mosueMove": 
+            case "MouseMove":
                 if(state.isDrag){
                     const {client} = action.payload
                     const {slider} = action.payload
-                   
-                    const walk = client - state.startX                    
-                    slider.scrollLeft = state.startScroll - walk
-                    return{...state, diff: walk}
+
+                    const diff = client - state.startX
+                    slider.scrollLeft = state.startScrollLeft - diff
+                    return {...state, cureentX: diff }
                 }
                 return {...state}
 
-            case "mouseUp":
-                
+            case "MouseUp":
                 if(state.isDrag){
-                    state.isDrag = false
-                    if(state.diff < 0){
-                        if (state.conter >= checkInnerWidth()){return};
-                        state.conter += 1
+                    const {slider} = action.payload
+                    if(slider){
+                        const diff =  slider.scrollLeft - state.startScrollLeft;
+                        if(diff > 10){
+                            if(state.conter < checkInnerWidth() ){
+                                state.conter += .5
+                            }
+                        }
+                        else if (diff < -10){
+                            if(state.conter > 0){
+                                state.conter -= .5
+                            }
+                        }
+                        else {
+                            
+                        }
+                        return {...state, isDrag: false, startX: 0, startScrollLeft: 0, cureentX: 0 }
                     }
-                    else if (state.diff > 0){
-                        if(state.conter <= 0) return;
-                        state.conter -= 1
-                    }
-                    else {
-                        
-                    }
-                    return {...state, isDrag: false, diff: 0, startX: 0, startScroll: 0}
                 }
                 return {...state}
 
-
-            default :
-                return {...state}
+            default: 
+                return state
         }    
     }
         const [state, dispatch] = useReducer (reduce, {
             conter : 0,
             listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9 , slide10, slide11, slide12, slide13, slide14],
             changeColor : {},
-            isDrag: false,
-            startX: 0, 
-            startScroll: 0,
-            diff: 0
-
+            startX: 0,
+            startScrollLeft: 0,
+            cureentX: 0,
+            isDrag: false
         })
 
         const listItemsTwo = Array.from({length : Math.round (state.listImg.length / 2) }, (_) => `${_}`)
 
+        console.log(state.conter)
    
    
     const right = () => {
@@ -153,15 +159,15 @@ const SliderPage = () => {
             <div 
                 ref = {refSlide} 
                 className="w-[80%] h-[500px]  flex flex-col flex-wrap  overflow-hidden! select-none touch-pan-y  "
-                onMouseDown = {(e) => {dispatch({type: 'mouseDown', payload: {client: e.clientX, slider: refSlide.current}})}}
-                onMouseMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.clientX, slider: refSlide.current}})}}
-                onMouseUp={() => {dispatch({type: 'mouseUp', })}}
-                onMouseLeave={() => {if(state.isDrag) {dispatch({type: 'mouseUp'})}}}
-        
-                onTouchStart = {(e) => {dispatch({type: 'mouseDown', payload: {client: e.touches[0].clientX, slider: refSlide.current}})}}
-                onTouchMove={(e) => {dispatch({type: 'mosueMove', payload: {client: e.touches[0].clientX, slider: refSlide.current}})}}
-                onTouchEnd={() => {dispatch({type: 'mouseUp', })}}
-            >
+                onMouseDown = {(event) => {dispatch({type: 'MouseDown', payload: {client: event.clientX, slider: refSlide.current}})}} 
+                onMouseMove = {(event) => {dispatch({type: 'MouseMove', payload: {client: event.clientX, slider: refSlide.current}})}} 
+                onMouseUp={() => {if (state.isDrag) {dispatch({type:'MouseUp', payload: {slider: refSlide.current}})}} }
+                onMouseLeave={() => {if (state.isDrag) {dispatch({type:'MouseUp', payload: {slider: refSlide.current}})}} }
+            
+                onTouchStart={(event) => {dispatch({type: 'MouseDown', payload: {client: event.touches[0].clientX, slider: refSlide.current}})}}
+                onTouchMove = {(event) => {dispatch({type: 'MouseMove', payload: {client: event.touches[0].clientX, slider: refSlide.current}})}}
+                onTouchEnd={() => {if (state.isDrag) {dispatch({type:'MouseUp', payload: {slider: refSlide.current}})}} }
+           >
                 {/* max-sm: 640px -> max-lg: 1024px -> */}
                 {state.listImg.map((item, index) => (
                     <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  ">
@@ -174,20 +180,20 @@ const SliderPage = () => {
 
 
             <div onClick={right} className={`${state.conter >= (state.listImg.length / 3) - 1 ? "hidden!": "flex" } max-lg:hidden! absolute top-[50%] right-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
-                <i className="text-2xl bi bi-arrow-right-square"></i>
+                <i className="text-2xl bi bi-arrow-right-square">▶️</i>
             </div>
             <div onClick={left} className={`${state.conter <= 0 ? "hidden!" : "flex"} max-lg:hidden! absolute top-[50%] left-[4%] hover:scale-125 duration-300 cursor-pointer text-gray-400 hover:text-black hover:duration-300!`}>
-                <i className="text-2xl  bi bi-arrow-left-square"></i>
+                <i className="text-2xl  bi bi-arrow-left-square">◀️</i>
             </div>
 
-            <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-20">
+            <div className=" gap-3 w-[80%]  justify-center hidden max-lg:flex! max-sm:hidden! absolute bottom-7">
                 {listItemsTwo.map((_, index) => (                    
                     <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-red-500!": "scale-100 bg-gray-300" } w-[25px] h-[10px] bg-gray-300 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
-            <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-17">
+            <div className=" gap-3 w-[80%]  justify-center hidden max-sm:flex! absolute   bottom-7">
                 {state.listImg.map((_, index) => (                    
-                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-blue-500  !": "scale-100 bg-gray-300" } w-[25px] h-[10px] bg-gray-300 rounded-2xl cursor-pointer`}></div>
+                    <div  onClick={()=>{changeIndex(index)}} key = {index} className={`${state.changeColor[index] ? "scale-155 bg-blue-500!  !": "scale-100 bg-gray-300!" } w-[25px] h-[10px] bg-gray-300 rounded-2xl cursor-pointer`}></div>
                 ))}
             </div>
         </div>
