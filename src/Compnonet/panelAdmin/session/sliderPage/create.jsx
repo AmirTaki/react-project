@@ -34,6 +34,17 @@ const CreateSessionSliderPage = () => {
         imageWarning: ''
     })
 
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if(file){
+            dispatch({type: 'SET_IMAGE', payload: file})
+        }
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            dispatch({type: 'SET_IMAGE_URL', payload: reader.result});
+        }
+        reader.readAsDataURL(file);
+    }
 
     return(
         <div className="">
@@ -86,7 +97,7 @@ const CreateSessionSliderPage = () => {
                              
                         <div className="flex justify-center items-center">
                             <input 
-                                onClick={(event) => {addBoxSlider(event)}}
+                                onClick={(event) => {addBoxSliderPage(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
