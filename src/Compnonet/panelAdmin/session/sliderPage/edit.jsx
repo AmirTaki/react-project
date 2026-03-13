@@ -12,12 +12,10 @@ const EditSessionSliderPage = () => {
         switch(action.type){
             case "GET_REQUST_SLIDERS":
                 
-                const {title} = action.payload
                 const {image} = action.payload
-                const {price} = action.payload
                 const {body} = action.payload
                 const {id} = action.payload
-                return {...state, title: title, image: image, price: price, body: body, id: id, backImage: image}
+                return {...state, image: image, body: body, id: id, backImage: image}
             
             case "image":
                 return {...state, image: action.payload}
@@ -25,22 +23,14 @@ const EditSessionSliderPage = () => {
             case "SET_IMG_URL":
                 return {...state, urlImage: action.payload}
 
-            case "title":
-                return {...state, title: action.payload}
-
             case "body":
                 return {...state, body: action.payload}
 
-            case "price":
-                return {...state, price: action.payload >= 0 ? action.payload : 0 }
-
             case "warning":
                 if(action.payload){
-                    const {title} = action.payload 
                     const {body} = action.payload 
                     const {image} = action.payload 
-                    const {price} = action.payload 
-                    return {...state, titleWarning: title, bodyWarning: body, priceWarning: price, imageWarning: image}
+                    return {...state, bodyWarning: body, imageWarning: image}
                 }
 
             default: 
@@ -48,12 +38,8 @@ const EditSessionSliderPage = () => {
         }
     }
     const [state, dispatch] = useReducer(reducer, {
-        title: '',
-        titleWarning: '',
         body: '',
         bodyWarning: '',
-        price: 0,
-        priceWarning: '',
         image: '',
         urlImage: '',
         imageWarning: '',
@@ -62,7 +48,7 @@ const EditSessionSliderPage = () => {
 
    const GetScrollSlider = async (id) => {
         try{
-            await api.get(`tables/session/scrollSlider/slider.php/${id}`, {withCredentials: true}).then((res) => {
+            await api.get(`tables/session/sliderPage/slider.php/${id}`, {withCredentials: true}).then((res) => {
                 dispatch({type: 'GET_REQUST_SLIDERS', payload: res.data})
             })
         }
@@ -95,23 +81,21 @@ const EditSessionSliderPage = () => {
             formData.append('backImg', state.backImage)
         }
         formData.append('body', state.body)
-        formData.append('title', state.title)
-        formData.append('price', state.price)
         formData.append('id', state.id)
 
         try{
-            await api.post('tables/session/scrollSlider/edit.php', formData,{
+            await api.post('tables/session/sliderPage/edit.php', formData,{
                 headers : {
                     'Content-Type': 'multipart/form-data',
                }
             }).then((res) => {
                 res.data;
-                navigate('/panelAdmin/session/scrollSlider')  
+                navigate('/panelAdmin/session/SliderPage')  
             })
         }
         catch(err){
             if(err.message == 'Request failed with status code 422'){
-                dispatch({type: 'warning', payload : {title: 'title is requierd!', image: "", body: 'body is requierd', price: 'price is requierd'}})
+                dispatch({type: 'warning', payload : {image: "", body: 'body is requierd',}})
             }
             else if(err.message == 'Request failed with status code 405'){
                 navigate('/');
@@ -153,24 +137,7 @@ const EditSessionSliderPage = () => {
                             </span>
                         </div>
                         
-                        <hr className="my-8"/>
-
-                        {/* title */}
-                        <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="title" className="text-blue-500">title</label>
-                            <input 
-                                value = {state.title}
-                                type="text" id = "title" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
-                            ></input>
-                        </div>
-                        <div className="text-gray-500 py-5">message:
-                            <span className="text-red-600 px-2">
-                                {state.titleWarning}
-                            </span>
-                        </div>
-
-                        <hr className="my-8"/>                        
+                        <hr className="my-8"/>                    
                         {/* body */}
                         <div className="flex gap-5 items-center justify-center">
                             <label htmlFor="body" className="text-blue-500">caption</label>
@@ -187,23 +154,6 @@ const EditSessionSliderPage = () => {
                                 {state.bodyWarning}
                             </span>
                         </div>
-
-                        <hr className="my-8"/>    
-                        
-                        {/* price */}
-                        <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="price" className="text-blue-500">price</label>
-                            <input 
-                                value = {state.price}
-                                type="number" id = "price" className="border-2 w-[300px] rounded-md h-10 p-2"
-                                onChange={(e) => {dispatch({type: 'price', payload: e.target.value})}}
-                            ></input>
-                        </div>
-                        <div className="text-gray-500 py-5">message:
-                            <span className="text-red-600 px-2">
-                                {state.priceWarning}
-                            </span>
-                        </div>      
                         
                         <hr className="my-8"/>               
                         <div className="flex justify-center items-center">
