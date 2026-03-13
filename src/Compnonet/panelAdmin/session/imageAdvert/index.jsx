@@ -21,6 +21,17 @@ const ImageAdvertPanelAdmin = () => {
 
     useEffect(() => {getImageAdvertRequest()}, [])
 
+    const changeStatus = async (id) => {
+        try{
+            await api.get(`tables/session/imageAdvert/status.php/${id}/chageStatus`, {withCredentials: true}).then((res) => {
+                res;
+                getImageAdvertRequest();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {11} />
