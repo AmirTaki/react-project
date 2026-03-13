@@ -1,6 +1,40 @@
+import { useNavigate } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header"
+import { useReducer } from "react";
 
 const CreateSessionSliderPage = () => {
+    const navigete =  useNavigate()
+    
+    const reducer = (state, action) => {
+        switch(action.type){
+
+            case "body":
+                return {...state, body: action.payload}
+            
+            case "SET_IMAGE":
+                return {...state, image: action.payload}
+
+            case "SET_IMAGE_URL":
+                return {...state, urlImage: action.payload}
+
+            case "warning":
+                const {body} = action.payload 
+                const {image} = action.payload  
+                return {...state, bodyWarning: body, imageWarning: image}
+            
+            default: 
+                return state;
+        }
+    }
+    const [state, dispatch] = useReducer(reducer, {
+        body: '',
+        bodyWarning: '',
+        image: '',
+        urlImage: '',
+        imageWarning: ''
+    })
+
+
     return(
         <div className="">
             <HeaderPanelAdmin id = {10} />
@@ -10,9 +44,9 @@ const CreateSessionSliderPage = () => {
                     <form>
                         {/*image view  */}
                         <div className="flex gap-5 items-center justify-center m-4">
-                            {/* {state.urlImage && (
+                            {state.urlImage && (
                                 <img src={state.urlImage} style={{width: 100}}></img>
-                            )} */}
+                            )}
                         </div>
 
                         {/* image */}
@@ -21,13 +55,13 @@ const CreateSessionSliderPage = () => {
                             <input 
                                 type="file" id = "image" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 placeholder="select image ...." 
-                                // onChange={(event) => {handleImageChange(event)}}
+                                onChange={(event) => {handleImageChange(event)}}
                                 accept="image/*"
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.imageWarning} */}
+                                {state.imageWarning}
                             </span>
                         </div>
                     
@@ -39,12 +73,12 @@ const CreateSessionSliderPage = () => {
                             <textarea
                                 id = 'body'
                                 className="border-2 w-[300px] rounded-md h-23  p-1"
-                                // onChange={(e) => {dispatch({type: 'body', payload: e.target.value})}}
+                                onChange={(e) => {dispatch({type: 'body', payload: e.target.value})}}
                             ></textarea>
                         </div>
                         <div className="text-gray-500 py-5">message:
                             <span className="text-red-600 px-2">
-                                {/* {state.bodyWarning} */}
+                                {state.bodyWarning}
                             </span>
                         </div>
 
@@ -52,7 +86,7 @@ const CreateSessionSliderPage = () => {
                              
                         <div className="flex justify-center items-center">
                             <input 
-                                // onClick={(event) => {addBoxSlider(event)}}
+                                onClick={(event) => {addBoxSlider(event)}}
                                 type="submit" value = "ADD" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
