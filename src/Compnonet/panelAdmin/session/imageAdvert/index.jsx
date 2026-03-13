@@ -32,6 +32,19 @@ const ImageAdvertPanelAdmin = () => {
             console.error('message: ', err)
         }
     }
+
+
+    const deleteItem = async (id) => {
+        try{
+            await api.delete(`tables/session/imageAdvert/delete.php/${id}/delete`).then((res) => {
+                res;
+                getImageAdvertRequest();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <div className="">
             <HeaderPanelAdmin id = {11} />
