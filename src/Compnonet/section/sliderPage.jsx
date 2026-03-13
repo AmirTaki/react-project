@@ -83,12 +83,12 @@ const SliderPage = () => {
                     const {slider} = action.payload
                     if(slider){
                         const diff =  slider.scrollLeft - state.startScrollLeft;
-                        if(diff > 10){
+                        if(diff > 100){
                             if(state.conter < checkInnerWidth() ){
                                 state.conter += .5
                             }
                         }
-                        else if (diff < -10){
+                        else if (diff < -100){
                             if(state.conter > 0){
                                 state.conter -= .5
                             }
@@ -105,20 +105,18 @@ const SliderPage = () => {
                 return state
         }    
     }
-        const [state, dispatch] = useReducer (reduce, {
-            conter : 0,
-            listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9 , slide10, slide11, slide12, slide13, slide14],
-            changeColor : {},
-            startX: 0,
-            startScrollLeft: 0,
-            cureentX: 0,
-            isDrag: false
-        })
+    
+    const [state, dispatch] = useReducer (reduce, {
+        conter : 0,
+        listImg : [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9 , slide10, slide11, slide12, slide13, slide14],
+        changeColor : {},
+        startX: 0,
+        startScrollLeft: 0,
+        cureentX: 0,
+        isDrag: false
+    })
 
-        const listItemsTwo = Array.from({length : Math.round (state.listImg.length / 2) }, (_) => `${_}`)
-
-        console.log(state.conter)
-   
+    const listItemsTwo = Array.from({length : Math.round (state.listImg.length / 2) }, (_) => `${_}`)
    
     const right = () => {
         dispatch({type:'increment' , payload : 1})

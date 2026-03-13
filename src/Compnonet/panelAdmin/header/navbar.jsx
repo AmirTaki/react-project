@@ -85,6 +85,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/session/gridImage"
             },
+            {
+                id: 10, 
+                name: 'slider Page',
+                flag: false, 
+                link: "/panelAdmin/session/SliderPage"
+            },
         ]
     })
     return(
