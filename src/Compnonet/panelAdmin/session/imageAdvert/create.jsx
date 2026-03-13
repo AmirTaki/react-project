@@ -64,13 +64,13 @@ const CreateSessionImageAdvert = () => {
         formData.append('title', state.title)
 
         try{
-            await api.post('', formData, {withCredentials: true}, {
+            await api.post('tables/session/imageAdvert/add.php', formData, {withCredentials: true}, {
                 headers: {
                     'Content-Type': 'multipart/form-data',   
                 }
             }).then((res) => {
                 res;
-                navigate('');
+                navigate('/panelAdmin/session/ImageAdvert');
             })
               
         }
@@ -89,7 +89,7 @@ const CreateSessionImageAdvert = () => {
     }
     return(
         <div className="">
-            <HeaderPanelAdmin id = {8} />
+            <HeaderPanelAdmin id = {11} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ADVERT</h1>
