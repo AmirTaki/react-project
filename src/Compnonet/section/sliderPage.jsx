@@ -13,6 +13,8 @@ import slide11 from "../../assets/slide11.webp"
 import slide12 from "../../assets/slide12.webp"
 import slide13 from "../../assets/slide13.webp"
 import slide14 from "../../assets/slide14.webp"
+import api from "../../axiosConfig"
+import baseURL from "../../baseUrl"
 
 const SliderPage = () => {
     const refSlide =    useRef()
@@ -101,6 +103,9 @@ const SliderPage = () => {
                 }
                 return {...state}
 
+            case "REQUEST_API_SLIDER_PAEG":
+                return {...state, listImg: action.payload}
+
             default: 
                 return state
         }    
@@ -137,9 +142,22 @@ const SliderPage = () => {
     },[state.conter])
 
 
+    const getSliderPageRequest = async () => {
+        try{
+            await api.get(`tables/session/sliderPage/reading.php`).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                
+                dispatch({type: 'REQUEST_API_SLIDER_PAEG', payload: data})
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    } 
 
-    useEffect(() => {
-       
+    useEffect(() => { getSliderPageRequest()}, [])
+  
+    useEffect(() => {    
         const  handleImage = () => {
             dispatch({type : 'conter'})
         }
@@ -150,6 +168,7 @@ const SliderPage = () => {
             window.addEventListener('resize', handleImage )
         }
     }, [])
+
 
 
     return(
@@ -169,8 +188,8 @@ const SliderPage = () => {
                 {/* max-sm: 640px -> max-lg: 1024px -> */}
                 {state.listImg.map((item, index) => (
                     <div key = {index} className="w-[33.35%] p-3 max-lg:w-[50%] flex-col flex justify-center max-sm:w-[100%] h-[500px]  ">
-                        <img draggable = {false} src={item} className="w-[100%] h-[100%]" alt="" />
-                        <div className="bg-gray-300 h-[60px]  flex justify-center items-center text-center text-sm">AI-powered Everyday with AI PCs from ASUS</div>
+                        <img draggable = {false} src={baseURL + item.image} className="w-[100%] h-[100%]" alt="" />
+                        <div className="bg-gray-300 h-[60px]  flex justify-center items-center text-center text-sm">{item.body}</div>
                     </div>
                 ))}
         
