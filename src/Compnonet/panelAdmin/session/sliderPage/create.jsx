@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header"
 import { useReducer } from "react";
+import api from "../../../../axiosConfig";
 
 const CreateSessionSliderPage = () => {
-    const navigete =  useNavigate()
+    const navigate =  useNavigate()
     
     const reducer = (state, action) => {
         switch(action.type){
@@ -44,6 +45,40 @@ const CreateSessionSliderPage = () => {
             dispatch({type: 'SET_IMAGE_URL', payload: reader.result});
         }
         reader.readAsDataURL(file);
+    }
+
+    const addBoxSliderPage = async (event) => {
+        event.preventDefault();
+        dispatch({type: 'warning', payload : {image: '', body: ''}})
+
+        const formData = new FormData();
+        if(state.image){
+            formData.append('image', state.image)
+        }
+        formData.append('body', state.body)
+        try{
+            await api.post('/tables/session/sliderPage/add.php', formData, {withCredentials: true}, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',   
+                }
+            }).then((res) => {
+                res;
+                navigate('/panelAdmin/session/SliderPage');
+            })
+              
+        }
+        catch(err){
+            if(err.message == 'Request failed with status code 422'){
+                dispatch({type: 'warning', payload : {image: "image is requierd", body: 'body is requierd', }})
+            }
+            else if(err.message == 'Request failed with status code 405'){
+                navigate('/');
+            }
+            else if(err.message == 'Request failed with status code 404'){
+                dispatch({type: 'warning', payload : {image: "not upload image please repeat !!"}})
+            }
+            console.error('message: ', err)
+        }
     }
 
     return(
