@@ -2,12 +2,13 @@ import { Link } from "react-router-dom"
 import HeaderPanelAdmin from "../../header/header"
 import { useEffect, useState } from "react"
 import api from "../../../../axiosConfig"
+import baseURL from "../../../../baseUrl"
 
 const SliderPagePaneAdmin = () => {
     const [sliderPages, setSliderPages] = useState([])
     const getSliderPage = async () => {
         try{
-            await api.get('', {withCredentials: true}).then((res) => {
+            await api.get('tables/session/sliderPage/slider.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setSliderPages(data)
             })
@@ -18,6 +19,19 @@ const SliderPagePaneAdmin = () => {
     }
 
     useEffect(() => {getSliderPage()}, [])
+
+
+    const changeStatus = async(id) => {
+        try{
+            await api.get(`tables/session/sliderPage/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+                res;
+                getSliderPage();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return (
         <div className="">
             <HeaderPanelAdmin id = {10} />
@@ -41,17 +55,15 @@ const SliderPagePaneAdmin = () => {
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        {/* <tbody>
-                            {scrollSlider.map((item, ind) => { 
+                        <tbody>
+                            {sliderPages.map((item, ind) => { 
                                 return(
                                     <tr key = {ind} className=" ">
                                         <th >{ind + 1}</th>
                                         <th className=" flex justify-center items-center ">
                                             <img src = {baseURL +  item.image} className="w-[140px] "/>
                                         </th>
-                                        <th>{item.title}</th>
                                         <th>{item.body}</th>
-                                        <th>{item.price}</th>
                                         <th className = {`${item.status == 10 ? "text-green-400" : 'text-rose-400' }`}>
                                             {item.status == 10 ? 'enable' : 'disable'}
                                         </th>
@@ -79,7 +91,7 @@ const SliderPagePaneAdmin = () => {
                                     </tr>
                                 )
                             })}            
-                        </tbody> */}
+                        </tbody>
                     </table>
                 </div>
 
