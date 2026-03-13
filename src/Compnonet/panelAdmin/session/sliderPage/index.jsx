@@ -32,6 +32,18 @@ const SliderPagePaneAdmin = () => {
             console.error('message: ', err)
         }
     }
+
+    const deleteItem = async (id) => {
+        try{
+            await api.delete(`tables/session/sliderPage/delete.php/${id}/delete`).then((res) => {
+                res.data;
+                getSliderPage()
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return (
         <div className="">
             <HeaderPanelAdmin id = {10} />
