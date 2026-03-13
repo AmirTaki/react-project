@@ -8,7 +8,7 @@ const HeaderTop = () => {
     const {scrollTop}  = useContext(GlobalHeaderScroll)
     return(
         
-        <div className={`bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-amber-300  fixed! w-full! top-0 left-0 
+        <div className={`bg-gray-100 flex items-center justify-end h-[40px] border-b-[2px] border-[white]  fixed! w-full! top-0 left-0 
             z-50!
         `}  >
        

@@ -44,7 +44,7 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
 
 
             {/* container product ============================================================> Hidden  =>   */}
-            <div className={`${navbar ? "bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "   z-10!  fixed!  w-[90vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1!  hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
+            <div className={`${navbar ? " bg-white shadow-2xl top-0 w-full h-full flex-wrap! flex-col flex!   overflow-hidden containerProduct fixed! -left-300 " : "   z-10!  fixed!  w-[90vw] top-0 -left-[0px]! bg-white shadow-2xl rounded-2xl border-l-1!  hidden  h-[500px] ml-0 p-5  border-gray-300!  flex-row!  "}  
             ${state.productMenuNavbar[`${loc}${ind}`] ? "left-0! duration-500!" : "-left-300! duration-700!"} ${state.productMenu[`${loc}${ind}`] ? "flex! animate-productMenu!":"" } ${state.animationProductMenu[`${loc}${ind}`] & navbar === false? "animate-productMenuReverse!" : ""}` }>
             <i onClick = {()=>{handlerProductMenu(`${loc}${ind}`)}} className={`${navbar ? "hidden": "text-red-200 hover:text-red-500 duration-300 cursor-pointer font-bold right-3 text-2xl absolute bi bi-x-circle"}`}>❌</i>
             
@@ -53,14 +53,14 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
                 <div onClick={()=>{exitNavbar(`${loc}${ind}`)}}  className="text-gray-200 hover:scale-125 cursor-pointer duration-200 hover:text-red-400"><i className="bi bi-x-circle"></i></div>
             </div>
             {/* category */}
-            <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-l-gray-100 border-r-1!" :" flex flex-col  w-[35vw]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
+            <div className={`${navbar ? " flex flex-col w-[50%] h-[45%] mt-[9%] bg-transparent overflow-hidden border-r-gray-100 border-r-1!" :" flex flex-col  w-[35vw]  overflow-hidden border-l-gray-100 border-r-1!"}`} >
                 <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY CATEGORY</div>
                 
                 {/* category item */}
                 {category?.map((cate) => {
                     if (cate.list === pr.list && cate.title === menu.title){
                         return(
-                            <div key = {cate.id} className=" flex bg-white h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
+                            <div key = {cate.id} className=" flex bg-white w-[99%] mx-auto  h-[50px]  items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500   group/category">
                                 <div className="pr-1 group-hover/category:text-gray-500!  hover:text-blue-500! "><i className={cate.sign}></i></div>
                                 <div className="">{cate.category}</div>
                             </div>
@@ -69,13 +69,13 @@ const ProductMegaMenu = ({loc, pr , ind, menu}) => {
                 })}
             </div>
             {/* serics */}
-            <div className={`${navbar ? "flex flex-col w-[50%] h-[45%] bg-transparent overflow-hidden border-l-gray-100 border-r-1! border-t-gray-100 border-t-1!" :"flex flex-col  w-[35vw] overflow-hidden border-l-gray-100 border-r-1!"}`}>
+            <div className={`${navbar ? "flex flex-col w-[50%] h-[45%] bg-transparent overflow-hidden border-r-gray-100 border-r-1! border-t-gray-100 border-t-1!" :"flex flex-col  w-[35vw] overflow-hidden border-l-gray-100 border-r-1!"}`}>
                 <div className = "h-[50px] flex items-center text-gray-900/20 pl-[20px]  font-bold ">BY SERYS</div>
                 {/* serics item */}
                 {series?.map((ser) => {
                     if(ser.list === pr.list && ser.title === menu.title){
                         return (
-                            <div key = {ser.id} className=" flex bg-white h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
+                            <div key = {ser.id} className=" flex bg-white w-[99%] mx-auto h-[50px] items-center!  pl-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 duration-300 hover:text-blue-500  group/category">
                                 <div className="">{ser.series}</div>
                             </div>
                         )

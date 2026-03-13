@@ -29,9 +29,9 @@ const MenuMegaMenu = ({menu, loc}) => {
                     `}  
                 >
                 {/* container list */}
-                <div className={` ${navbar ? "list": "list flex  items-center bg-transparent  h-[500px] flex-col w-[90vw]   "}`}>
+                <div className={` ${navbar ? "list ": "list flex  items-center bg-transparent  h-[500px] flex-col w-[90vw]   "}`}>
                 {/* category */}
-                    <div className = {`${navbar ? "hidden" : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
+                    <div className = {`${navbar ? "hidden " : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                     {/* container List  */}
                     
                     {lists.map((pr, ind) => {
