@@ -89,7 +89,7 @@ const SliderPagePaneAdmin = () => {
                                                 change status
                                             </div>
 
-                                            <Link to = {`/panelAdmin/session/EditBoxSlider/${item.id}/edit`}>
+                                            <Link to = {`/panelAdmin/session/EditBoxSliderPage/${item.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
