@@ -32,6 +32,7 @@ import GridImagePanelAdmin from './Compnonet/panelAdmin/session/gridImage'
 import CreateSessionGridImage from './Compnonet/panelAdmin/session/gridImage/create'
 import EditSessionGridBox from './Compnonet/panelAdmin/session/gridImage/edit'
 import SliderPagePaneAdmin from './Compnonet/panelAdmin/session/sliderPage'
+import CreateSessionSliderPage from './Compnonet/panelAdmin/session/sliderPage/create'
 
 function App() {
   return (
@@ -92,6 +93,7 @@ function App() {
      
         {/* panelAdmin -> session -> SliderPage */}
         <Route path='/panelAdmin/session/SliderPage' element = {<SliderPagePaneAdmin />} ></Route>
+        <Route path='/panelAdmin/session/AddBoxSliderPage' element = {<CreateSessionSliderPage />} ></Route>
       </Routes>
     </BrowserRouter>
   
