@@ -36,6 +36,7 @@ import CreateSessionSliderPage from './Compnonet/panelAdmin/session/sliderPage/c
 import EditSessionSliderPage from './Compnonet/panelAdmin/session/sliderPage/edit'
 import ImageAdvertPanelAdmin from './Compnonet/panelAdmin/session/imageAdvert'
 import CreateSessionImageAdvert from './Compnonet/panelAdmin/session/imageAdvert/create'
+import EditSessionImageAdvert from './Compnonet/panelAdmin/session/imageAdvert/edit'
 
 function App() {
   return (
@@ -102,6 +103,7 @@ function App() {
         {/* panelAdmin -> session -> ImageAdvert */}
         <Route path='/panelAdmin/session/ImageAdvert' element = {<ImageAdvertPanelAdmin />} ></Route>
         <Route path='/panelAdmin/session/AddImageAdvert' element = {<CreateSessionImageAdvert />} ></Route>
+        <Route path='/panelAdmin/session/EditImageAdvert/:id/edit' element = {<EditSessionImageAdvert />} ></Route>
 
 
       </Routes>
