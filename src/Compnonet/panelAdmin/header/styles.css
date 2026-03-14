@@ -1,0 +1,25 @@
+@keyframes moveSideBar {
+    0%{
+        right: -50%;
+    }   
+    100%{
+        right: 0% 
+       
+    }
+}
+@keyframes moveSideBarReverse {
+    0%{
+        right: 0%
+    }   
+    100%{
+        right: -50% ;
+    }
+}
+
+.animationOpen {
+    animation: moveSideBar .5s linear forwards;
+}
+
+.animationClose {
+    animation: moveSideBarReverse .5s linear forwards;
+}

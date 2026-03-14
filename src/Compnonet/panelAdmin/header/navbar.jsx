@@ -112,7 +112,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
         ]
     })
     return(
-        <div className=" flex flex-col items-left bg-[#252525]! border-l border-white min-h-screen  ">
+        <div className=" flex flex-col items-left  bg-[#252525]! border-l border-white min-h-screen  ">
             <div 
                 className=" border-b flex justify-end px-3 items-center h-10 text-2xl w-full"
             >

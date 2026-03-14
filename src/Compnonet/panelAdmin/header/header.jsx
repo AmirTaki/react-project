@@ -8,12 +8,25 @@ import { ImExit } from "react-icons/im";
 import { Link,  } from "react-router-dom";
 import { RiMenuFoldFill } from "react-icons/ri";
 import NavbarPanelAdmin from "./navbar";
-import { useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import CheckSession from "../checkSession";
+import "./styles.css"
 
 const HeaderPanelAdmin = ({id}) => {
     const [navbar, setNavbar] = useState(false)
+    const ref =  useRef(null)
 
+    useEffect(() => {
+        if(navbar == false){
+            const timer = setInterval(() => {
+                ref.current.style.display = 'none'
+            }, 500)
+            return() => {clearInterval(timer)}
+        }
+        else {
+            ref.current.style.display = 'flex'
+        }
+    }, [navbar])
     return (
         <>
             <CheckSession />
@@ -55,8 +68,7 @@ const HeaderPanelAdmin = ({id}) => {
                     </div>
 
                 </div>
-
-                <div className={`${navbar ? " bg-[#252525]! w-full  border-l-2 right-0 top-20 bottom-0": " -right-300 top-20"}  w-[17%]!  max-lg:w-[35%]!  duration-400 z-50! absolute`}>
+                <div ref = {ref} className={`${navbar ? "     border-l-2  top-20 bottom-0 animationOpen  ": "   bottom-0 top-20 animationClose"}     bottom-0 top-20  absolute  duration-400 z-50! `}>
                     <NavbarPanelAdmin setNavbar = {setNavbar} id = {id} />
                 </div>
             </div>
