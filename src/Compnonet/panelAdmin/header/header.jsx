@@ -17,7 +17,7 @@ const HeaderPanelAdmin = ({id}) => {
     return (
         <>
             <CheckSession />
-            <div className="bg-[#252525]! fixed w-full h-20 flex items-center border-b border-b-[#7c7c7c]! text-4xl justify-between px-8 z-50 text-white">
+            <div className="bg-[#252525]! fixed w-full h-20 flex items-center border-b border-b-[#7c7c7c]! text-4xl justify-between px-8 z-50 text-white relative">
                 <div className="flex gap-4 group  ">
                     <FaReact className="group-hover:text-rose-400  duration-1000" />
                     <FaPhp className="group-hover:text-sky-400 duration-1000"/>
@@ -56,7 +56,7 @@ const HeaderPanelAdmin = ({id}) => {
 
                 </div>
 
-                <div className={`${navbar ? "fixed bg-[#252525]! w-full  border-l-2 right-0 top-20 bottom-0": "absolute -right-300 top-20"}  w-[17%]!  max-lg:w-[35%]! duration-400 z-50!`}>
+                <div className={`${navbar ? " bg-[#252525]! w-full  border-l-2 right-0 top-20 bottom-0": " -right-300 top-20"}  w-[17%]!  max-lg:w-[35%]!  duration-400 z-50! absolute`}>
                     <NavbarPanelAdmin setNavbar = {setNavbar} id = {id} />
                 </div>
             </div>

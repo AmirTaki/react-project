@@ -103,10 +103,16 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/session/Popular"
             },
+            {
+                id: 13, 
+                name: 'resource Image',
+                flag: false, 
+                link: "/panelAdmin/session/resourceImage"
+            },
         ]
     })
     return(
-        <div className=" flex flex-col items-left  ">
+        <div className=" flex flex-col items-left bg-[#252525]! border-l border-white min-h-screen  ">
             <div 
                 className=" border-b flex justify-end px-3 items-center h-10 text-2xl w-full"
             >
@@ -115,7 +121,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                     onClick={() => {setNavbar(false)}}
                 /> 
             </div>
-            <div className="overflow-y-auto  max-h-screen gap-3 flex flex-col navbarPanelAdmin  ">
+            <div className="overflow-y-auto   gap-3 flex flex-col navbarPanelAdmin   ">
                 {state.list?.map((item) => {
                     return(           
                         <div key = {item.id} className=" text-[20px] px-4 my-2 "
