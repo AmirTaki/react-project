@@ -34,9 +34,9 @@ const PopularPanelAdmin = () => {
 
     const deleteItem = async (id) => {
         try {
-            await api.delete(``).then((res) => {
+            await api.delete(`tables/session/papular/delete.php/${id}/delete`).then((res) => {
                 res.data;
-                getMenus();
+                getPopularRequest();
             })
         }  
         catch(err){
