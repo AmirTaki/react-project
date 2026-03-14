@@ -22,7 +22,7 @@ const MenuSessionPanelAdmin = () => {
 
     const changeStatus = async (id) => {
         try {
-            await api.get(`tables/session/papular/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+            await api.get(`tables/session/sessionMenu/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
                 res;
                 getMenuSessionRequest();
             })

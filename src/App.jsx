@@ -57,6 +57,7 @@ function App() {
         {/* panelAdmin */}
         <Route path = "/PanelAdmin" element = {<PanelAdmin />} ></Route>
         <Route path = "/LogOut" element = {<Logout />} ></Route>
+        
         {/* panelAdmin -> user */}
         <Route path = "/PanelAdmin/UsersPanelAdmin" element = {<UsersPanelAdmin />} ></Route>
         <Route path = "/PanelAdmin/createuser" element = {<CreateUsers />} ></Route>
