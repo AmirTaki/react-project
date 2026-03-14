@@ -6,12 +6,12 @@ import baseURL from "../../../../baseUrl"
 
 const ResourcesImagePanelAdmin = () => {
 
-    const [imagesAdvert, setImagesAdvert] = useState([])
-    const getImageAdvertRequest = async () => {
+    const [resourceImages, setresourceImages] = useState([])
+    const getResourceImageRequest = async () => {
         try{
-            await api.get('tables/session/imageAdvert/advert.php', {withCredentials: true}).then((res) => {
+            await api.get('tables/session/resourceImage/resource.php', {withCredentials: true}).then((res) => {
                 const data =  Array.isArray(res.data) ? res.data : []
-            setImagesAdvert(data)
+                setresourceImages(data)
             })
         }
         catch(err){
@@ -19,7 +19,7 @@ const ResourcesImagePanelAdmin = () => {
         }
     }
 
-    useEffect(() => {getImageAdvertRequest()}, [])
+    useEffect(() => {getResourceImageRequest()}, [])
 
     const changeStatus = async (id) => {
         try{
@@ -69,8 +69,8 @@ const ResourcesImagePanelAdmin = () => {
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        {/* <tbody>
-                            {imagesAdvert.map((item, ind) => { 
+                        <tbody>
+                            {resourceImages.map((item, ind) => { 
                                 return(
                                     <tr key = {ind} className=" ">
                                         <th >{ind + 1}</th>
@@ -106,7 +106,7 @@ const ResourcesImagePanelAdmin = () => {
                                     </tr>
                                 )
                             })}            
-                        </tbody> */}
+                        </tbody>
                     </table>
                 </div>
 

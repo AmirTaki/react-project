@@ -65,12 +65,13 @@
 }
 body::-webkit-scrollbar{
     width: 7px;
-    /* height: 5px; */
+    height: 8px;
     border-radius: 10px;
     background-color: hsl(0, 0%, 40%);
 }
 
 body::-webkit-scrollbar-thumb{
+    height: 5px;
     border-radius: 10px;
     background-color: rgb(168, 0, 0);
     transition: all 2s;
@@ -81,7 +82,6 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 .sliderImage::-webkit-scrollbar{
-    height: 7px;
     border-radius: 10px;
     background-color: hsl(0, 0%, 89%);
      transition:    background-color .5s;

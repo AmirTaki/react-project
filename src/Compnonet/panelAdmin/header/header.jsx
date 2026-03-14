@@ -68,7 +68,7 @@ const HeaderPanelAdmin = ({id}) => {
                     </div>
 
                 </div>
-                <div ref = {ref} className={`${navbar ? "     border-l-2  top-20 bottom-0 animationOpen  ": "   bottom-0 top-20 animationClose"}     bottom-0 top-20  absolute  duration-400 z-50! `}>
+                <div ref = {ref} className={`${navbar ? "     border-l-2  top-20 bottom-0 animationOpen  ": "   bottom-0 top-20 animationClose"}    hidden bottom-0 top-20  absolute  duration-400 z-50! `}>
                     <NavbarPanelAdmin setNavbar = {setNavbar} id = {id} />
                 </div>
             </div>

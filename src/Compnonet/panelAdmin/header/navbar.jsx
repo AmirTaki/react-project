@@ -124,19 +124,14 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             <div className="overflow-y-auto   gap-3 flex flex-col navbarPanelAdmin   ">
                 {state.list?.map((item) => {
                     return(           
-                        <div key = {item.id} className=" text-[20px] px-4 my-2 "
-                            
-                        >
-                            <Link to = {item.link}
-        
-                            >
+                        <div key = {item.id} className=" text-[20px] px-4 my-2 ">
+                            <Link to = {item.link}>
                                 <div 
                                     // onClick={() => {dispatch({type: 'clickLink', payload: {id: item.id}})}}
                                 className={`cursor-pointer  hover:scale-90 hover:text-[silver] duration-400 ${item.flag ? "text-red-500 scale-90 " : ""}`}
                                 >
                                     {item.name} 
                                 </div>
-            
                             </Link>
                         </div>
                     )
