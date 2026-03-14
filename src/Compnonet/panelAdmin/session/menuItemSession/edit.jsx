@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderPanelAdmin from "../../header/header";
+import { useEffect, useState } from "react";
 import api from "../../../../axiosConfig";
 import { useReducer } from "react";
-import { useNavigate } from "react-router-dom";
 
-const CreateSessionMenuItems = () => {
-    const [title, setTitle] = useState([])
-    const navigate =  useNavigate('')
-    const getTitle = async() => {
+const EditSessionMenuItems = () => {
+    const {id} = useParams()
+    const [title, setTitle] =  useState([])
+    const navigate =  useNavigate()
+    
+    const requestMenuSessions = async (id) => {
         try{
+            await api.get(`tables/session/menuItemSession/items.php/${id}`, {withCredentials: true}).then((res) => {
+                dispatch({type: 'GetResquest', payload: res.data});
+            });
+
             await api.get('tables/session/sessionMenu/menu.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 setTitle(data);
@@ -16,74 +22,87 @@ const CreateSessionMenuItems = () => {
         }
         catch(err){
             console.error('message: ', err);
+
         }
     }
-    
-    useEffect(() => {getTitle()}, [])
+    useEffect(() => {requestMenuSessions(id)}, [])
 
     const reducer = (state, action) => {
         switch(action.type){
-            case "item":
+            case "GetResquest": 
+                return {
+                    ...state, 
+                    title: action.payload.title, 
+                    titleOld: action.payload.title,
+                    item: action.payload.item, 
+                    itemOld: action.payload.item,
+                    id: action.payload.id
+
+                }
+
+            case "item":  
                 return {...state, item: action.payload}
-            
-            case "title":
-             
+
+            case "title": 
                 return {...state, title: action.payload}
 
-            case "warning":
-                return {...state, warningTitle : action.payload.title, warningItem: action.payload.item}
+            case "warning": 
+                return {...state, warningTitle: action.payload.title, warningItem: action.payload.item}
             
             default: 
                 return state;
         }
     }
-
     const [state, dispatch] = useReducer(reducer, {
-        title: '',
+        title: '', 
         item: '',
-        warningTitle: '',
-        warningItem: ''
+        warningTitle: '', 
+        warningItem: '',
+        titleOld: '',
+        itemOld: '',
+        id: 0
     })
-
-    const addItem = async (event) => {
+    
+    const editItems = async (event, id) => {
         event.preventDefault();
-        dispatch({type: 'warning', payload : {title: '', item : ''}})
+        dispatch({type : "warning", payload: {title: '', item: ''}})
 
         try{
-            await api.post('tables/session/menuItemSession/add.php', state, {withCredentials: true}).then((res) => {
-                res;
+            await api.put(`tables/session/menuItemSession/edit.php/${id}`, state).then((res) => {
+                res.data;
                 navigate("/panelAdmin/session/menuItemSession");
-
             })
         }
         catch(err){
-            if(err.message == 'Request failed with status code 422'){
-                dispatch({type: 'warning', payload : {title: 'title not is empty!', item : 'item not is empty!'}})
+            if(err.message == "Request failed with status code 400"){
+                dispatch({type : "warning", payload: {title: 'empty title !!!', item: 'item item !!!'}})
             }
-            if(err.message == 'Request failed with status code 405'){
+            else if(err.message == 'Request failed with status code 405'){
                 navigate('/');
             }
             else if(err.message == 'Request failed with status code 415'){
-                dispatch({type: 'warning', payload : {title: '', item : 'name item repeat ??? change name list !!!'}})
+                dispatch({type : "warning", payload: { item: 'repeat item  !!!  change name item ???'}})
             }
             console.error('message: ', err)
         }
     }
-    return (
+
+    return(
         <div className="">
             <HeaderPanelAdmin  id = {15}/>
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
-                <div className="flex flex-col justify-center items-center">
-                    <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ITEM</h1>
-
+                 <div className="flex justify-center items-center flex-col ">
+                    <h1 className="my-4 text-4xl hover:tracking-[.3rem] duration-200 hover:text-sky-400">edit items</h1>
+                
                     <form>
-                        {/* item */}
-                        <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="name" className="text-blue-500">item</label>
+                        {/* item edit */}
+                        <div className="flex gap-5 items-center justify-center mt-8">
+                            <label htmlFor="name" className="text-blue-500">list</label>
                             <input 
-                                value = {state.item}
                                 type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                value={state.item}
                                 onChange={(e) => {dispatch({type: 'item', payload: e.target.value})}}
+
                             ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
@@ -93,6 +112,7 @@ const CreateSessionMenuItems = () => {
                         </div>
 
                         <hr className="my-8"/>
+
                         {/* title */}
                         <div className="flex gap-5 items-center justify-center">
                             
@@ -101,11 +121,13 @@ const CreateSessionMenuItems = () => {
                                 onChange={(e) => {dispatch({type: 'title', payload: e.target.value})}}
                                 id = "title" className="bg-[#252525]!  text-white border-2 w-[300px] rounded-md h-13 p-2 "
                             >
-                                <option value= "" className="hidden">select one option ?</option>
-                
                                 {title?.map((t) => {
                                     return(
-                                        <option  key = {t.id} value={t.title}>
+                                        <option  
+                                            key = {t.id} 
+                                            value={t.title}
+                                            selected = {t.title === state.title}
+                                        >
                                             {t.title}
                                         </option>
                                     )
@@ -121,14 +143,15 @@ const CreateSessionMenuItems = () => {
                      
                             
                         <hr className="my-8"/>
+
                         <div className="flex justify-center items-center">
                             <input 
-                                onClick={(event) => {addItem(event)}}
-                                type="submit" value = "ADD" 
+                                onClick={(event) => {editItems(event, id)}}
+                                type="submit"
+                                value = "update" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />
                         </div>
-
                     </form>
                 </div>
             </div>
@@ -136,4 +159,4 @@ const CreateSessionMenuItems = () => {
     )
 }
 
-export default CreateSessionMenuItems;
+export default EditSessionMenuItems;

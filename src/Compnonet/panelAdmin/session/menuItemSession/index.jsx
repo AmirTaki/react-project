@@ -88,7 +88,7 @@ const MenuItemSessionPanelAdmin = () => {
                                                 change status
                                             </div>
 
-                                            <Link to = {`/panelAdmin/megaMenu/EditList/${item.id}/edit`}>
+                                            <Link to = {`/panelAdmin/session/EditMenuItemSession/${item.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             
