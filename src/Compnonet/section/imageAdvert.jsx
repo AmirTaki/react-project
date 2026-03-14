@@ -197,8 +197,8 @@ const ImageAdvert = () => {
                     <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] relative p-[2px] max-sm:p-0   ">
                         <img draggable = {false} onClick={()=>{clickImage(index)}}  src={baseURL + item.image} className="h-[100%]! w-[100%] lg:hover:grayscale-75 lg:hover:scale-110   duration-500 " alt="" />
                         <div className=" absolute  bg-[rgba(0,0,0,0.2)]  bottom-0 left-0 p-3 flex flex-col m-[3px] max-sm:m-0 ">
-                            <h6 className="text-sm text-gray-400">{index + 1}-ROG Travel books another killer vacation</h6>
-                            <p className="text-sm text-gray-200">Troy Baker and Ned Luke team up to offer a killer vacation plan in a post-apocalyptic paradise.</p>
+                            <h6 className="text-sm text-gray-400">{index + 1}-{item.title}</h6>
+                            <p className="text-sm text-gray-200">{item.body}</p>
                         </div>
                     </div>
                 )))}
@@ -215,7 +215,7 @@ const ImageAdvert = () => {
             <div className="absolute flex items-center justify-center  w-[100%] bottom-30 sm:hidden">
                 <div className="bg-gray-500 flex items-center justify-center  w-[40%] rounded-4xl">
                     {listImg.map((_, index)=> (
-                        <div onClick={() => {changeItem(index)}} key = {index} className={`${state.colorButton[index] ?  "bg-red-500 ":"bg-gray-500"} w-6 h-3 cursor-pointer hover:grayscale-50 rounded-4xl `}></div>
+                        <div onClick={() => {changeItem(index)}} key = {index} className={`${state.colorButton[index] ?  "bg-red-500 ":"bg-gray-500"} w-full h-3 cursor-pointer hover:grayscale-50 rounded-4xl `}></div>
                     ))}
                 </div>
              
