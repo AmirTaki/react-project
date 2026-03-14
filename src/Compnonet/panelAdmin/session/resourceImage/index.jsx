@@ -36,9 +36,9 @@ const ResourcesImagePanelAdmin = () => {
 
     const deleteItem = async (id) => {
         try{
-            await api.delete(`tables/session/imageAdvert/delete.php/${id}/delete`).then((res) => {
+            await api.delete(`tables/session/resourceImage/delete.php/${id}/delete`).then((res) => {
                 res;
-                getImageAdvertRequest();
+                getResourceImageRequest();
             })
         }
         catch(err){
