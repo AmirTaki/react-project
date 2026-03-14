@@ -23,9 +23,9 @@ const ResourcesImagePanelAdmin = () => {
 
     const changeStatus = async (id) => {
         try{
-            await api.get(`tables/session/imageAdvert/status.php/${id}/chageStatus`, {withCredentials: true}).then((res) => {
+            await api.get(`tables/session/resourceImage/status.php/${id}/chageStatus`, {withCredentials: true}).then((res) => {
                 res;
-                getImageAdvertRequest();
+                getResourceImageRequest();
             })
         }
         catch(err){
