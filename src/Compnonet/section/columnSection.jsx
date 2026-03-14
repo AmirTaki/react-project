@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useRef } from "react"
+import api from "../../axiosConfig"
 
 const ColumnSection = () => {
   const menus = ["menu1", "menu2", 'menu3', 'menu4']
@@ -22,13 +23,17 @@ const ColumnSection = () => {
         const flag = window.innerWidth <= 768 ? true : false
         return {...state, innerWidth : flag}
       
+      case "REQUST_API": 
+        return {...state, menus: action.payload}
+      
       default : 
         return {...state}
     }
   }
   const [state, dispatch] = useReducer(reducer, {
     height : {},
-    innerWidth : true
+    innerWidth : true,
+    menus: []
 
   })
   const MenuHandler = (index) => {
@@ -49,16 +54,30 @@ const ColumnSection = () => {
       window.addEventListener('resize',handlerResize )
     }
   }, [])
+
+  const RequstApiMenuSession = async () => {
+    try{
+      await api.get('tables/session/sessionMenu/reading.php').then((res) => {
+        const data = Array.isArray(res.data) ? res.data : [];
+        dispatch({type: 'REQUST_API', payload: data})
+      })
+    }
+    catch(err){
+      console.error('message: ', err)
+    }
+  }
+  useEffect(() => {RequstApiMenuSession()}, [])
+  console.log(state.menus)
   return (
     <>
     <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[415px]  duration-300
       md:justify-center md:gap-16 md:border-b-1! border-b-gray-300! mb-10 
     ">
-      {menus.map((menu, index) => (
+      {state.menus.map((menu, index) => (
         <div  
           className="max-md:w-[100%] w-[150px] bg-transparent menusControler flex flex-col  md:items-center  ">
           <div  onClick={ () => {MenuHandler (index)}} className="flex items-center justify-between p-3 bg-transparent max-md:cursor-pointer">
-            <div className="text-gray-600">{menu}</div>
+            <div className="text-gray-600">{menu.title}</div>
             <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 md:hidden `}></i>
           </div>
           <div 
