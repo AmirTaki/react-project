@@ -49,7 +49,7 @@ const PopularPanelAdmin = () => {
             <HeaderPanelAdmin id = {2} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             <div className="flex flex-col items-center justify-around ">
-                <Link to = "">
+                <Link to = "/panelAdmin/session/AddPopular">
                     <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create popular</button>
                 </Link>
                 
