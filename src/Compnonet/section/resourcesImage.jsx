@@ -6,11 +6,12 @@ import img4 from "../../assets/resurse4.avif"
 import img5 from "../../assets/resurse5.avif"
 import img6 from "../../assets/resurse6.avif"
 import img7 from "../../assets/resurse7.avif"
+import api from "../../axiosConfig"
+import baseURL from "../../baseUrl"
 
 const ResourcesImage = () => {
     const listImg = [img1, img2, img3, img4, img5, img6, img7]
     const refResource =  useRef()
-
     const reducer = (state, action) => {
         switch(action.type){
             case"rightHandler" :
@@ -55,7 +56,10 @@ const ResourcesImage = () => {
                     return {...state, isDrag: false, diff: 0, startScroll: 0, startX: 0}
                 }
                 return {...state}
-            
+
+            case "GET_RESORURS_API":
+                return {...state, listImg: action.payload}
+                
             default: 
                 return state
         }
@@ -65,8 +69,23 @@ const ResourcesImage = () => {
         isDrag: false, 
         startX: 0,
         startScroll: 0,
-        diff: 0
+        diff: 0,
+        listImg: []
     })
+    const readingRequsetResoursApi = async () => {
+        try{
+            await api.get('tables/session/resourceImage/reading.php').then((res) => {
+                const data = Array.isArray(res.data) ? res.data : []
+                dispatch( {type: 'GET_RESORURS_API', payload: data} )
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+
+    useEffect(() => {readingRequsetResoursApi()}, [])
+
     return(
         <>
            <div className="w-[90%] h-[400px]   mx-auto relative cursor-grab active:cursor-grabbing select-none">
@@ -83,12 +102,13 @@ const ResourcesImage = () => {
 
                     ref = {refResource} className=" [&::-webkit-scrollbar]:opacity-0  w-[100%] h-[350px]  flex items-center   flex-col flex-wrap    overflow-x-scroll   justify-center"
                     >
-                    {listImg.map((img, key) => (
-                        <div key = {key} className="w-[365px] h-[100%]  flex justify-center relative">
-                            <img draggable = {false} src={img} alt=""  className="w-[350px] h-[300px]!" />
-                            <div className="select-none bg-white w-[310px] h-[110px] flex flex-col px-3 justify-center  absolute right-1 bottom-8">
-                                <h4 className="text-lg mb-2">How To Clean Shoes</h4>
-                                <p className="text-[12px]">Get down and dirty with adidas and learn how to clean your sneakers the right way.</p>
+                    {state.listImg.map((item, key) => (
+                        <div key = {key} className="w-[400px] h-[100%]  flex justify-center relative">
+                            <img draggable = {false} src={baseURL + item.image} alt=""  className="w-[380px] h-[330px]!" />
+                            
+                            <div className="select-none bg-white w-[340px] h-[130px] flex flex-col px-3   absolute right-2 bottom-0">
+                                <h4 className="text-[16px] mb-2 flex font-bold  items-center  h-[50px]">{item.title}</h4>
+                                <p className="text-[13px] h-[70px] ">{item.body}</p>
                             </div>
                         </div>
                     ))} 
