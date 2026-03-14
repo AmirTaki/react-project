@@ -50,11 +50,11 @@ const ResourcesImagePanelAdmin = () => {
             <HeaderPanelAdmin id = {13} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex flex-col items-center justify-around ">
-                    <Link to = "/panelAdmin/session/AddImageAdvert">
-                        <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create image advart</button>
+                    <Link to = "/panelAdmin/session/AddResourceImage">
+                        <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create resource</button>
                     </Link>
                     
-                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">session: image advert table</h1> 
+                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">session: resource image table</h1> 
                 </div>
 
                 <div className="w-[90%]  mx-auto flex flex-col mt-2">
