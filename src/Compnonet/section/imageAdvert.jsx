@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef } from "react"
+import { useEffect, useReducer, useRef, useState } from "react"
 import img1 from "../../assets/advert1.jpg"
 import img2 from "../../assets/advert2.jpg"
 import img3 from "../../assets/advert3.jpg"
@@ -9,11 +9,28 @@ import img7 from  "../../assets/img3.jpg"
 import img8 from  "../../assets/img4.jpg"
 import img9 from  "../../assets/img5.jpg"
 import img10 from  "../../assets/img7.jpg"
+import api from "../../axiosConfig"
+import baseURL from "../../baseUrl"
 
 const ImageAdvert = () => {
-    const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10, img1, img2]
+    // const listImg = [img1 ,img2, img3, img4, img5, img6, img7, img8, img9 , img10, img1, img2]
+    const [listImg, setListImg] =  useState([])
     const refSlider = useRef()
   
+    const requsetAdvertImage = async () => {
+        try{
+            await api.get('tables/session/imageAdvert/reading.php').then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setListImg(data)
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+    useEffect(() => {requsetAdvertImage()}, [])
+
+
 
     const reducer = (state, action) => {
 
@@ -153,13 +170,12 @@ const ImageAdvert = () => {
         }
     },[])
 
-
     return(
         <>
 
         <div className="flex h-[500px] w-[100%] bg-white relative! items-center justify-center ">
             <div className="h-[500px] w-[50%]  max-lg:hidden p-[2px] ">
-                <img src={listImg[state.imgSelect]} className="h-[100%]! duration-200 w-[100%]" alt="" />
+                <img src={baseURL + listImg[state.imgSelect]?.image} className="h-[100%]! duration-200 w-[100%]" alt="" />
             </div>
     
 
@@ -179,7 +195,7 @@ const ImageAdvert = () => {
             >
                 {listImg.map(((item, index) => (
                     <div key = {index} className="h-[50%] w-[50%] max-lg:h-[100%] max-sm:w-[100%] relative p-[2px] max-sm:p-0   ">
-                        <img draggable = {false} onClick={()=>{clickImage(index)}}  src={item} className="h-[100%]! w-[100%] lg:hover:grayscale-75 lg:hover:scale-110   duration-500 " alt="" />
+                        <img draggable = {false} onClick={()=>{clickImage(index)}}  src={baseURL + item.image} className="h-[100%]! w-[100%] lg:hover:grayscale-75 lg:hover:scale-110   duration-500 " alt="" />
                         <div className=" absolute  bg-[rgba(0,0,0,0.2)]  bottom-0 left-0 p-3 flex flex-col m-[3px] max-sm:m-0 ">
                             <h6 className="text-sm text-gray-400">{index + 1}-ROG Travel books another killer vacation</h6>
                             <p className="text-sm text-gray-200">Troy Baker and Ned Luke team up to offer a killer vacation plan in a post-apocalyptic paradise.</p>
