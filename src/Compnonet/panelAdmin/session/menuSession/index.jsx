@@ -34,7 +34,7 @@ const MenuSessionPanelAdmin = () => {
 
     const deleteItem = async (id) => {
         try {
-            await api.delete(`tables/session/papular/delete.php/${id}/delete`).then((res) => {
+            await api.delete(`tables/session/sessionMenu/delete.php/${id}/delete`).then((res) => {
                 res.data;
                 getMenuSessionRequest();
             })
