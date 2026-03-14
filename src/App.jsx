@@ -46,6 +46,7 @@ import EditSessionResourceImage from './Compnonet/panelAdmin/session/resourceIma
 import MenuSessionPanelAdmin from './Compnonet/panelAdmin/session/menuSession'
 import CreateSessionMenu from './Compnonet/panelAdmin/session/menuSession/create'
 import EditSessionMenu from './Compnonet/panelAdmin/session/menuSession/edit'
+import MenuItemSessionPanelAdmin from './Compnonet/panelAdmin/session/menuItemSession'
 
 function App() {
   return (
@@ -129,6 +130,9 @@ function App() {
         <Route path='/panelAdmin/session/menuSession' element = {<MenuSessionPanelAdmin />} ></Route>
         <Route path='/panelAdmin/session/AddMenuSession' element = {<CreateSessionMenu />} ></Route>
         <Route path='/panelAdmin/session/EditMenuSession/:id/edit' element = {<EditSessionMenu />} ></Route>
+
+        {/* panelAdmin -> session -> menu item session */}
+        <Route path = "/panelAdmin/session/menuItemSession" element = {< MenuItemSessionPanelAdmin />} ></Route>
 
       </Routes>
     </BrowserRouter>

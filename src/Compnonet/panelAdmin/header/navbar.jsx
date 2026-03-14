@@ -115,6 +115,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/session/menuSession"
             },
+            {
+                id: 15, 
+                name: 'Session Menu Item',
+                flag: false, 
+                link: "/panelAdmin/session/menuItemSession"
+            },
     
         ]
     })
