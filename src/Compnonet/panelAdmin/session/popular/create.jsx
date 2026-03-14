@@ -4,6 +4,7 @@ import api from "../../../../axiosConfig"
 import { useNavigate } from "react-router-dom"
 
 const CreateSessionPopular = () => {
+    
     const navigate = useNavigate()
     const reducer = (state, action) => {
         switch(action.type){
@@ -25,29 +26,32 @@ const CreateSessionPopular = () => {
         warning: ''
     })
 
-    const saveTitle = async (event) => {
+    const addPapular = async (event) => {
         event.preventDefault();
 
         dispatch({type: 'warning', payload: ''})
 
         try{
-            await api.post("tables/megaMenu/menus/add.php", state, {withCredentials: true}).then((res) => {
+            await api.post("tables/session/papular/add.php", state, {withCredentials: true}).then((res) => {
                 res;
-                navigate('/PanelAdmin/header/menus')
+                navigate('/panelAdmin/session/Popular')
             })
         }
 
         catch(err){
 
             if(err.message == "Request failed with status code 409"){
-                   dispatch({type: 'warning', payload: 'title repeat change name title ?'})
+                dispatch({type: 'warning', payload: 'title repeat change name title ?'})
+            }
+            else if(err.message == "Request failed with status code 422"){
+                dispatch({type: 'warning', payload: 'title is requierd ?'})
             }
             console.error(err.message);
         }
     }
     return(
         <div className="">
-            <HeaderPanelAdmin  id = {2}/>
+            <HeaderPanelAdmin  id = {12}/>
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-4xl my-5 hover:tracking-[.4rem] duration-200 ">ADD ITEM</h1>
@@ -69,7 +73,7 @@ const CreateSessionPopular = () => {
                         <hr className="my-8"/>
                         <div className="flex justify-center items-center">
                             <input 
-                                onClick={(event) => {saveTitle(event)}}
+                                onClick={(event) => {addPapular(event)}}
                                 type="submit" value = "save" 
                                 className="border-2 px-4 py-2 rounded-xl cursor-pointer hover:text-green-600 duration-300 hover:border-green-600" 
                             />

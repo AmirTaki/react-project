@@ -98,7 +98,7 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 link: "/panelAdmin/session/ImageAdvert"
             },
             {
-                id: 11, 
+                id: 12, 
                 name: 'popular',
                 flag: false, 
                 link: "/panelAdmin/session/Popular"

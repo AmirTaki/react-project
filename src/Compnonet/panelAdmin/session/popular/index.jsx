@@ -46,7 +46,7 @@ const PopularPanelAdmin = () => {
 
     return(
         <>
-            <HeaderPanelAdmin id = {2} />
+            <HeaderPanelAdmin id = {12} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             <div className="flex flex-col items-center justify-around ">
                 <Link to = "/panelAdmin/session/AddPopular">
