@@ -22,7 +22,7 @@ const MenuItemSessionPanelAdmin = () => {
 
     const changeStatus = async (id) => {
         try{
-            await api.get(`tables/megaMenu/menuList/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+            await api.get(`tables/session/menuItemSession/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
                 res;
                 requestMenuItems();
             })
