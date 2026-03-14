@@ -43,6 +43,7 @@ import EditSessionPapular from './Compnonet/panelAdmin/session/popular/edit'
 import ResourcesImagePanelAdmin from './Compnonet/panelAdmin/session/resourceImage'
 import CreateSessionResourceImage from './Compnonet/panelAdmin/session/resourceImage/create'
 import EditSessionResourceImage from './Compnonet/panelAdmin/session/resourceImage/edit'
+import MenuSessionPanelAdmin from './Compnonet/panelAdmin/session/menuSession'
 
 function App() {
   return (
@@ -120,6 +121,9 @@ function App() {
         <Route path='/panelAdmin/session/resourceImage' element = {<ResourcesImagePanelAdmin />}></Route>
         <Route path='/panelAdmin/session/AddResourceImage' element = {<CreateSessionResourceImage />}></Route>
         <Route path='/panelAdmin/session/EditResource/:id/edit' element = {<EditSessionResourceImage />}></Route>
+
+        {/* panelAdmin -> session -> menu Session */}
+        <Route path='/panelAdmin/session/menuSession' element = {<MenuSessionPanelAdmin />} ></Route>
 
       </Routes>
     </BrowserRouter>

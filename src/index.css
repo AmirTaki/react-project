@@ -82,6 +82,7 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 .sliderImage::-webkit-scrollbar{
+    height: 7px;
     border-radius: 10px;
     background-color: hsl(0, 0%, 89%);
      transition:    background-color .5s;

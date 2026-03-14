@@ -105,14 +105,15 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             },
             {
                 id: 13, 
-                name: 'resource Image',
+                name: 'Session Menu',
                 flag: false, 
-                link: "/panelAdmin/session/resourceImage"
+                link: "/panelAdmin/session/menuSession"
             },
+    
         ]
     })
     return(
-        <div className=" flex flex-col items-left  bg-[#252525]! border-l border-white min-h-screen  ">
+        <div className=" flex flex-col items-left  bg-[#252525]! border-l border-white h-screen border-b border-b-[1px_solid_white]">
             <div 
                 className=" border-b flex justify-end px-3 items-center h-10 text-2xl w-full"
             >
