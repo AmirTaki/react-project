@@ -97,6 +97,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/session/ImageAdvert"
             },
+            {
+                id: 11, 
+                name: 'popular',
+                flag: false, 
+                link: "/panelAdmin/session/Popular"
+            },
         ]
     })
     return(
