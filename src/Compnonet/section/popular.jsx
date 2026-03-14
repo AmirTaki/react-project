@@ -1,5 +1,21 @@
+import { useEffect, useState } from "react"
+import api from "../../axiosConfig"
+
 const Popular = () => {
     const Items = ['ultraboost', 'samba', 'campus', 'gazelle', 'soccer', 'spezial']
+    const [populars, setPopulars]  =  useState([])
+    const RequsetApiPopulars = async () => {
+        try {
+            await api.get(`tables/session/papular/reading.php`).then((res) => {
+                const data =  Array.isArray(res.data) ? res.data : []
+                setPopulars(data)
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+    useEffect(() => {RequsetApiPopulars()}, [])
     return(
         <div className="flex justify-center max-lg:justify-start! flex-col  items-center my-20!  h-[250px] max-lg:h-[500px] w-[80%] mx-auto  overflow-hidden ">
             <div className="flex flex-col gap-3 bg-transparent w-[100%]  h-[30px]">
@@ -8,10 +24,10 @@ const Popular = () => {
                 </div>
             </div>
             <div className="grid grid-cols-3 h-[100px]  bg-transparent mt-5 gap-10 max-lg:grid-cols-1! w-[100%] ">
-                {Items.map((item, index) => (
+                {populars.map((item, index) => (
 
                     <div key = {index} className=" bg-transparent w-[100%] max-lg:w-[90vw]!  h-[33px]  duration-300 cursor-pointer group ">
-                        <h1 className="font-bold">{item}</h1>
+                        <h1 className="font-bold">{item.title}</h1>
                         <div className="bg-gray-300 mt-3 w-[100%] max-lg:w-[90vw] h-[2px] group-hover:h-[7px] duration-100"></div>
                     </div>
                 ))}
