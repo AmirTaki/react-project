@@ -49,12 +49,12 @@ const MenuItemSessionPanelAdmin = () => {
             <HeaderPanelAdmin id = {15} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
                 <div className="flex flex-col items-center justify-around ">
-                    <Link to = "/panelAdmin/megaMenu/AddList">
-                        <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create list</button>
+                    <Link to = "/panelAdmin/session/AddMenuItemSession">
+                        <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create items</button>
                     </Link>
                     
 
-                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">MegaMenu: List table</h1> 
+                    <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200">session: list items table</h1> 
                 </div>
               
                 <div className="w-[90%]  mx-auto flex flex-col">
