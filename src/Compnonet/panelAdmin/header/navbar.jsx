@@ -105,6 +105,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             },
             {
                 id: 13, 
+                name: 'resources Image ',
+                flag: false, 
+                link: "/panelAdmin/session/resourceImage"
+            },
+            {
+                id: 14, 
                 name: 'Session Menu',
                 flag: false, 
                 link: "/panelAdmin/session/menuSession"
