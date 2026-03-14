@@ -4,27 +4,27 @@ import HeaderPanelAdmin from "../../header/header";
 import { Link } from "react-router-dom";
 
 const MenuSessionPanelAdmin = () => {
-    const [popular, setPopular] =  useState([]);
+    const [menus, setMenus] =  useState([]);
    
-    const getPopularRequest = async () => {
+    const getMenuSessionRequest = async () => {
         try{
-            await api.get('tables/session/papular/papular.php', {withCredentials: true}).then((res) => {
+            await api.get('tables/session/sessionMenu/menu.php', {withCredentials: true}).then((res) => {
                 const data = Array.isArray(res.data) ? res.data : [];
-                setPopular(data);
+                setMenus(data);
             })
         }
         catch(err){
             console.error('message: ', err);
         }
     }
-    useEffect(() => {getPopularRequest()}, [])
+    useEffect(() => {getMenuSessionRequest()}, [])
 
 
     const changeStatus = async (id) => {
         try {
             await api.get(`tables/session/papular/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
                 res;
-                getPopularRequest();
+                getMenuSessionRequest();
             })
         }
         catch(err){
@@ -36,7 +36,7 @@ const MenuSessionPanelAdmin = () => {
         try {
             await api.delete(`tables/session/papular/delete.php/${id}/delete`).then((res) => {
                 res.data;
-                getPopularRequest();
+                getMenuSessionRequest();
             })
         }  
         catch(err){
@@ -50,11 +50,11 @@ const MenuSessionPanelAdmin = () => {
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             <div className="flex flex-col items-center justify-around ">
                 <Link to = "/panelAdmin/session/AddPopular">
-                    <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create popular</button>
+                    <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create menu session</button>
                 </Link>
                 
 
-                <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200"> papular table</h1> 
+                <h1 className="text-center my-5 text-3xl hover:tracking-[.3rem] duration-200"> menu session table</h1> 
             </div>
     
         <div className="w-[90%]  mx-auto flex flex-col">
@@ -68,7 +68,7 @@ const MenuSessionPanelAdmin = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {popular.map((item, ind) => { 
+                    {menus.map((item, ind) => { 
                         return(
                             <tr key = {ind}>
                                 <th>{ind + 1}</th>
