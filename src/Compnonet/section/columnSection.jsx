@@ -25,6 +25,9 @@ const ColumnSection = () => {
       
       case "REQUST_API": 
         return {...state, menus: action.payload}
+
+      case 'REQUST_API_ITMES':
+        return {...state, items: action.payload}
       
       default : 
         return {...state}
@@ -33,7 +36,8 @@ const ColumnSection = () => {
   const [state, dispatch] = useReducer(reducer, {
     height : {},
     innerWidth : true,
-    menus: []
+    menus: [],
+    items: []
 
   })
   const MenuHandler = (index) => {
@@ -61,31 +65,41 @@ const ColumnSection = () => {
         const data = Array.isArray(res.data) ? res.data : [];
         dispatch({type: 'REQUST_API', payload: data})
       })
+
+      await api.get('tables/session/menuItemSession/reading.php').then((res) => {
+        const data = Array.isArray(res.data) ? res.data : [];
+        dispatch({type: 'REQUST_API_ITMES', payload: data})
+      })
     }
     catch(err){
       console.error('message: ', err)
     }
   }
   useEffect(() => {RequstApiMenuSession()}, [])
-  console.log(state.menus)
+  
   return (
     <>
-    <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[415px]  duration-300
+    <div className="w-[90%] bg-white mx-auto  flex max-md:flex-col md:h-[100px] overflow-hidden md:hover:h-[700px]  duration-300
       md:justify-center md:gap-16 md:border-b-1! border-b-gray-300! mb-10 
     ">
       {state.menus.map((menu, index) => (
         <div  
           className="max-md:w-[100%] w-[150px] bg-transparent menusControler flex flex-col  md:items-center  ">
           <div  onClick={ () => {MenuHandler (index)}} className="flex items-center justify-between p-3 bg-transparent max-md:cursor-pointer">
-            <div className="text-gray-600">{menu.title}</div>
+            <div className="text-gray-600 w-[150px]">{menu.title}</div>
             <i className={`${state.height[index] > "0px" ? "rotate-180" : ""} text-gray-500 bi bi-chevron-down duration-300 md:hidden `}></i>
           </div>
           <div 
             style={{height : state.height[index]}}
-            className="bg-transparent max-md:h-0  overflow-hidden  duration-300 flex flex-col  md:p-3  max-md:pl-9 gap-6 pt-2 max-md:gap-6!">
-              {items.map((item, key) => (
-                <div key = {key} className="itemConterole w-fit text-[14px] text-gray-400 hover:underline hover:text-gray-800 duration-200 cursor-pointer">{item}</div>
-              ))}
+            className=" max-md:h-0  overflow-hidden  duration-300 flex flex-col  md:p-3  max-md:pl-9 gap-6 pt-2 max-md:gap-6! "
+          >
+            {state.items.map((each) => {
+              if(each.title === menu.title){
+                return(
+                  <div key = {each.id} className="itemConterole  text-[14px] text-gray-400 hover:underline hover:text-gray-800 duration-200 cursor-pointer w-[150px]">{each.item}</div>
+                )
+              }
+            })}
           </div>
 
         </div>
