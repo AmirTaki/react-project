@@ -17,6 +17,18 @@ const AdvertBoardPanelAdmin = () => {
         }
     }
     useEffect(() => {requestAdvertBoard()}, [])
+    
+    const changeStatus = async (id) => {
+        try{
+            await api.get(`tables/session/advertBoard/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+                res;
+                requestAdvertBoard();
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <>
             <HeaderPanelAdmin  id = {13}/>
