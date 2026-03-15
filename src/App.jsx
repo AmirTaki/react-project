@@ -53,6 +53,7 @@ import AdvertBoardPanelAdmin from './Compnonet/panelAdmin/session/advertBoard'
 import CreateSessionAdvertBoard from './Compnonet/panelAdmin/session/advertBoard/create'
 import EditSessionAdvertBoard from './Compnonet/panelAdmin/session/advertBoard/edit'
 import AdvertYellowPanelAdmin from './Compnonet/panelAdmin/footer/advertYellow'
+import CreateFooterAdvertYellow from './Compnonet/panelAdmin/footer/advertYellow/create'
 
 function App() {
   return (
@@ -149,6 +150,7 @@ function App() {
 
         {/* panelAdmin -> footer -> advert yellow */}
         <Route path = "/panelAdmin/footer/advertYellow" element = {<AdvertYellowPanelAdmin />}></Route>
+        <Route path = "/panelAdmin/footer/AddAdvertYellow" element = {<CreateFooterAdvertYellow />}></Route>
       </Routes>
     </BrowserRouter>
   
