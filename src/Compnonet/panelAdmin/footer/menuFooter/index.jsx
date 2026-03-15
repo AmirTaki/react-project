@@ -86,7 +86,7 @@ const MenuFooterPanelAdmin = () => {
                                         change status
                                     </div>
 
-                                    <Link to = {`/${item.id}/edit`}>
+                                    <Link to = {`/panelAdmin/footer/EditMenuWhiteBoard/${item.id}/edit`}>
                                         <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                     </Link>
                                     
