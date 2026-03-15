@@ -39,31 +39,31 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             },
             {
                 id: 2, 
-                name: 'Header menus',
+                name: 'header menus',
                 flag: false, 
                 link: "/PanelAdmin/header/menus"
             },
             {
                 id: 3, 
-                name: 'MegaMenu List',
+                name: 'megaMenu List',
                 flag: false, 
                 link: "/panelAdmin/megaMenu/list"
             },
             {
                 id: 4, 
-                name: 'MegaMenu Category',
+                name: 'megaMenu Category',
                 flag: false, 
                 link: "/panelAdmin/megaMenu/category"
             },
             {
                 id: 5, 
-                name: 'MegaMenu Series',
+                name: 'megaMenu Series',
                 flag: false, 
                 link: "/panelAdmin/megaMenu/series"
             },
             {
                 id: 6, 
-                name: 'MegaMenu Image',
+                name: 'megaMenu Image',
                 flag: false, 
                 link: "/panelAdmin/megaMenu/image"
             },
@@ -111,17 +111,23 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
             },
             {
                 id: 14, 
-                name: 'Session Menu',
+                name: 'session Menu',
                 flag: false, 
                 link: "/panelAdmin/session/menuSession"
             },
             {
                 id: 15, 
-                name: 'Session Menu Item',
+                name: 'session Menu Item',
                 flag: false, 
                 link: "/panelAdmin/session/menuItemSession"
             },
-    
+            {
+                id: 16, 
+                name: 'advert Board',
+                flag: false, 
+                link: "/panelAdmin/session/advertBoard"
+            },
+            
         ]
     })
     return(

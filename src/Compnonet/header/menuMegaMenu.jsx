@@ -29,7 +29,7 @@ const MenuMegaMenu = ({menu, loc}) => {
                     `}  
                 >
                 {/* container list */}
-                <div className={` ${navbar ? "list ": "list flex  items-center bg-transparent  h-[500px] flex-col w-[90vw]   "}`}>
+                <div className={` ${navbar ? "list ": "list flex  items-center   h-[500px] flex-col w-[90vw] megaMenuScrollBar  bg-white overflow-y-auto"}`}>
                 {/* category */}
                     <div className = {`${navbar ? "hidden " : "h-[30px] flex items-center text-gray-900/30   "}`}>Category Tilte </div> 
                     {/* container List  */}
