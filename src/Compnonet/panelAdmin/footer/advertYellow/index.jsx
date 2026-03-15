@@ -83,7 +83,7 @@ const AdvertYellowPanelAdmin = () => {
                                                 change status
                                             </div>
 
-                                            <Link to = {``}>
+                                            <Link to = {`/panelAdmin/footer/EditAdvertYellow/${item.id}/edit`}>
                                                 <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                             </Link>
                                             

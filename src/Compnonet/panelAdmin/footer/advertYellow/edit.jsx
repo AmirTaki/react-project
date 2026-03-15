@@ -3,7 +3,7 @@ import HeaderPanelAdmin from "../../header/header";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../../../axiosConfig";
 
-const EditSessionAdvertBoard = () => {
+const EditFooterAdvertYellow = () => {
     const {id} =  useParams()
     const navigate =  useNavigate()
 
@@ -13,25 +13,19 @@ const EditSessionAdvertBoard = () => {
             case "GetRequest":
                 return {...state, 
                     title : action.payload.title, 
-                    body: action.payload.body,
-                    description: action.payload.description
+                    button: action.payload.button,    
                 }
 
             case "title":
                 return {...state, title : action.payload}
             
-            case "body":
-                return {...state, body: action.payload}
-
+            case "button":
+                return {...state, button: action.payload}
             
-            case "description": 
-                return {...state, description: action.payload}
-            
-                case "warning": 
+            case "warning": 
                 return {...state, 
                     titleWarning: action.payload.title,
-                    bodyWarning: action.payload.body,
-                    descriptionWarning: action.payload.description
+                    buttonWarning: action.payload.button,
                 }   
             
             default: 
@@ -41,48 +35,45 @@ const EditSessionAdvertBoard = () => {
     const [state, dispatch] =  useReducer(reducer, {
         title: '',
         titleWarning: '',
-        body: '',
-        bodyWarning: '',
-        description: '',
-        descriptionWarning: '',
+        button: '',
+        buttonWarning: ''
     })
   
-    const getRequestPapular =  async (id) => {
+    const getRequestAdvert =  async (id) => {
         try{
-            await api.get(`tables/session/advertBoard/advert.php/${id}` ,{withCredentials: true}).then((res) => {
+            await api.get(`tables/footer/advertYelllow/advert.php/${id}` ,{withCredentials: true}).then((res) => {
                 dispatch({type: 'GetRequest', payload : res.data})
             })
         }
         catch(err){
             console.error('message: ', err);
-            navigate('/panelAdmin/session/advertBoard')
+            navigate('/panelAdmin/footer/advertYellow')
             
         }
     }
     useEffect(() => {
-        getRequestPapular(id);
+        getRequestAdvert(id);
     }, [])
 
     const editItems = async (event, id) => {
         event.preventDefault();
-        dispatch ({type: 'warning', payload : {body: '', description: '', title: '', }})
+        dispatch ({type: 'warning', payload : {body: '', button: ''}})
 
         try{
-            await api.put(`tables/session/advertBoard/edit.php/${id}`, state).then((res) => {
+            await api.put(`tables/footer/advertYelllow/edit.php/${id}`, state).then((res) => {
                 res.data;
-                navigate('/panelAdmin/session/advertBoard');
+                navigate('/panelAdmin/footer/advertYellow');
             })
         }
         catch(err) {
             if(err.message == "Request failed with status code 400"){
                 dispatch ({type: 'warning', payload : {
-                    body: 'body is requierd !!', 
-                    description: 'description is requierd !!', 
                     title: 'title is requierd !!', 
+                    button: 'button is requierd !!', 
                 }})
             }
             else if (err.message == "Request failed with status code 405"){
-                navigate('/panelAdmin/session/advertBoard');
+                navigate('/panelAdmin/footer/advertYellow');
             }
             console.error(err.message);
         }
@@ -111,35 +102,21 @@ const EditSessionAdvertBoard = () => {
 
                         <hr className="my-8"/>
                         
-                        {/* body */}
+                        {/* button */}
                         <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="body" className="text-blue-500">caption</label>
-                            <textarea
-                                value = {state.body}
-                                 id = "body" className="border-2 w-[300px] rounded-md h-40 p-2"
-                                onChange={(e) => {dispatch({type: 'body', payload: e.target.value})}}
-                            ></textarea>
+                            <label htmlFor="button" className="text-blue-500">button</label>
+                            <input 
+                                value = {state.button}
+                                type="text" id = "button" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                onChange={(e) => {dispatch({type: 'button', payload: e.target.value})}}
+                            ></input>
                         </div>
                         <div className="text-gray-500 py-5">message:
-                            <span className="text-red-600 px-2">{state.bodyWarning}</span>
+                            <span className="text-red-600 px-2">{state.buttonWarning}</span>
                         </div>
 
                         <hr className="my-8"/>
-                       
-                        {/* description */}
-                        <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="description" className="text-blue-500">description</label>
-                            <textarea
-                                value = {state.description}
-                                id = "description" className="border-2 w-[300px] rounded-md h-40 p-2"
-                                onChange={(e) => {dispatch({type: 'description', payload: e.target.value})}}
-                            ></textarea>
-                        </div>
-                        <div className="text-gray-500 py-5">message:
-                            <span className="text-red-600 px-2">{state.descriptionWarning}</span>
-                        </div>
-
-                        <hr className="my-8"/>
+     
 
                         <div className="flex justify-center items-center">
                             <input 
@@ -157,4 +134,4 @@ const EditSessionAdvertBoard = () => {
     )
 }
 
-export default EditSessionAdvertBoard;
+export default EditFooterAdvertYellow;

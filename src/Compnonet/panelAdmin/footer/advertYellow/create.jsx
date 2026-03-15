@@ -111,10 +111,10 @@ const CreateFooterAdvertYellow = () => {
                         
                         {/* button */}
                         <div className="flex gap-5 items-center justify-center">
-                            <label htmlFor="body" className="text-blue-500">caption</label>
+                            <label htmlFor="button" className="text-blue-500">button</label>
                             <input 
                                 value = {state.button}
-                                type="text" id = "name" className="border-2 w-[300px] rounded-md h-10 p-2"
+                                type="text" id = "button" className="border-2 w-[300px] rounded-md h-10 p-2"
                                 onChange={(e) => {dispatch({type: 'button', payload: e.target.value})}}
                             ></input>
                         </div>
