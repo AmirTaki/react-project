@@ -22,7 +22,7 @@ const BoardBlackPanelAdmin = () => {
 
     const changeStatus = async (id) => {
         try {
-            await api.get(`/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+            await api.get(`tables/footer/boardBlack/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
                 res;
                 getBoardRequest();
             })
