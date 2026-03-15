@@ -134,6 +134,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/footer/advertYellow"
             },
+            {
+                id: 18, 
+                name: 'board Black',
+                flag: false, 
+                link: "/panelAdmin/footer/boardBlack"
+            },
             
         ]
     })
