@@ -52,7 +52,7 @@ const CreateFooterBoardBlack = () => {
     const addBoard = async (event) => {
         event.preventDefault();
 
-        if(state.conter >= 24){
+        if(state.conter >= 27){
             dispatch ({type: 'warning', payload :  'please delete each item or disablse status each item'})
         }
         else {

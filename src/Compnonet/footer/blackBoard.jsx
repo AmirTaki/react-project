@@ -1,22 +1,34 @@
+import { useEffect, useState } from "react";
+import api from "../../axiosConfig";
+
 const BlackBoard = () => {
+    const [board, setBoard] = useState([])
+    const RequstApi = async () => {
+        try{
+            await api.get(`tables/footer/boardBlack/reading.php`).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                setBoard(data)
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
+    useEffect(() => {RequstApi()}, [])
     return (
         <>
-            <div className="md:hidden! w-[100%] h-[330px] bg-black grid grid-cols-2 items-center justify-items-center overflow-hidden">
-                <div className="w-[170px] h-[250px] bg-tra text-white  items-center flex flex-col  gap-5 ">
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Help</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Returns & Exchanges</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Order Tracker</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Shipping</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Promotions</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Sitemap</div>
+            <div className="md:hidden! w-[100%] h-[330px] bg-black  overflow-hidden">
+                <div className="  text-white w-full grid grid-cols-2  grid-rows-6 py-6 gap-5 place-items-center  ">
+                    {board.map((item) => {
+                        return(
+                            <>
+                            <div key = {item.id} className="hover:text-gray-400 cursor-pointer duration-300">{item.title}</div>
+                            
+                            </>
+                        )
+                    })}
                 </div>
-                <div className="w-[170px] h-[250px] bg-tra text-white items-center flex flex-col  gap-5 ">
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">adiClub</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Store Finder</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Gift Cards</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">adidas Apps</div>
-                    <div className="hover:text-gray-400 cursor-pointer duration-300">Size Charts</div>
-                </div>
+
             </div>
         </>
     )
