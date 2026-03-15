@@ -49,7 +49,7 @@ const MenuFooterPanelAdmin = () => {
             <HeaderPanelAdmin id = {19} />
             <div className=" top-20 absolute w-full  min-h-screen bg-[#252525]!  text-white z-10">
             <div className="flex flex-col items-center justify-around ">
-                <Link to = "/panelAdmin/session/AddMenuSession">
+                <Link to = "/panelAdmin/footer/AddMenuWhiteBoard">
                     <button className="mt-10 border-0 flex items-center justify-center text-green-500  text-lg hover:tracking-[.2rem] duration-200">create menu footer</button>
                 </Link>
                 
@@ -86,7 +86,7 @@ const MenuFooterPanelAdmin = () => {
                                         change status
                                     </div>
 
-                                    <Link to = {`/panelAdmin/session/EditMenuSession/${item.id}/edit`}>
+                                    <Link to = {`/${item.id}/edit`}>
                                         <div className="text-sky-500 cursor-pointer duration-200 hover:text-blue-700 ">edit</div>
                                     </Link>
                                     

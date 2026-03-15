@@ -59,6 +59,7 @@ import BoardBlackPanelAdmin from './Compnonet/panelAdmin/footer/boardBlack'
 import CreateFooterBoardBlack from './Compnonet/panelAdmin/footer/boardBlack/create'
 import EditFooterBoardBlack from './Compnonet/panelAdmin/footer/boardBlack/edit'
 import MenuFooterPanelAdmin from './Compnonet/panelAdmin/footer/menuFooter'
+import CreateFooterMenu from './Compnonet/panelAdmin/footer/menuFooter/create'
 
 function App() {
   return (
@@ -165,6 +166,7 @@ function App() {
 
         {/* panelAdmin -> footer -> menu Footer : footer(WhiteBoard) */}
         <Route path='/panelAdmin/footer/menuWhiteBoard' element = {<MenuFooterPanelAdmin />}></Route>
+        <Route path='/panelAdmin/footer/AddMenuWhiteBoard' element = {<CreateFooterMenu/>}></Route>
 
       </Routes>
     </BrowserRouter>
