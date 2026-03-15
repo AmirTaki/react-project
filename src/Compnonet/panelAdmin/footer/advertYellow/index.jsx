@@ -32,7 +32,7 @@ const AdvertYellowPanelAdmin = () => {
 
     const deleteItem = async (id) => {
         try{
-            await api.delete(`/${id}/delete`).then((res) => {
+            await api.delete(`tables/footer/advertYelllow/delete.php/${id}/delete`).then((res) => {
                 res;
                 requstAdvertsApi()
             })
