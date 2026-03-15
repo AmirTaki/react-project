@@ -140,6 +140,12 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 flag: false, 
                 link: "/panelAdmin/footer/boardBlack"
             },
+            {
+                id: 19, 
+                name: 'footer Menu',
+                flag: false, 
+                link: "/panelAdmin/footer/menuWhiteBoard"
+            },
             
         ]
     })
