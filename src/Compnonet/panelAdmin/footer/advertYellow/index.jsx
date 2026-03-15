@@ -20,7 +20,7 @@ const AdvertYellowPanelAdmin = () => {
     
     const changeStatus = async (id) => {
         try{
-            await api.get(`/${id}/changeStatus`, {withCredentials: true}).then((res) => {
+            await api.get(`tables/footer/advertYelllow/status.php/${id}/changeStatus`, {withCredentials: true}).then((res) => {
                 res;
                 requstAdvertsApi();
             })
