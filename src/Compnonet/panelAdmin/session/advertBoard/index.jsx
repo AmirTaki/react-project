@@ -29,6 +29,18 @@ const AdvertBoardPanelAdmin = () => {
             console.error('message: ', err)
         }
     }
+
+    const deleteItem = async (id) => {
+        try{
+            await api.delete(`tables/session/advertBoard/delete.php/${id}/delete`).then((res) => {
+                res;
+                requestAdvertBoard()
+            })
+        }
+        catch(err){
+            console.error('message: ', err)
+        }
+    }
     return(
         <>
             <HeaderPanelAdmin  id = {13}/>
