@@ -128,6 +128,13 @@ const NavbarPanelAdmin = ({setNavbar, id}) => {
                 link: "/panelAdmin/session/advertBoard"
             },
             
+            {
+                id: 17, 
+                name: 'advert Yellow',
+                flag: false, 
+                link: "/panelAdmin/footer/advertYellow"
+            },
+            
         ]
     })
     return(
