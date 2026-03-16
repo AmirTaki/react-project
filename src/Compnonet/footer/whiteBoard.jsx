@@ -29,13 +29,16 @@ const WhiteBoard = () => {
                 const data = Array.isArray(res.data) ? res.data : [];
                 dispatch({type: 'menus', payload: data})
             })
+            await api.get(`tables/footer/menuItemFooter/reading.php`).then((res) => {
+                const data = Array.isArray(res.data) ? res.data : [];
+                dispatch({type: 'items', payload: data})
+            })
         }
         catch(err){
             console.error('message: ', err)
         }
     }
     useEffect(() => {RequstApi()}, [])
-    console.log(state)
     return(
         <>
             <div className="w-[100%] h-[100%] bg-r max-md:hidden! flex items-start justify-center gap-10 ">
@@ -43,9 +46,13 @@ const WhiteBoard = () => {
                     <div key = {index} className="w-[15%]     bg-white  mt-20 mb-10  flex flex-col   gap-6">
                         <div className="text-xl font-bold  ">{menu.title}</div>
                         <div className="flex flex-col gap-5 text-gray-400 text-md ">                      
-                            {Items.map((item, key) => (
-                                <div key = {key} className="hover:text-gray-600 duration-500 cursor-pointer hover:underline">{item}</div>
-                            ))}
+                            {state.items.map((each) => {
+                                if(each.title === menu.title){
+                                    return(
+                                        <div key = {each.id} className="hover:text-gray-600 duration-500 cursor-pointer hover:underline">{each.item}</div>
+                                    )
+                                }
+                            })}
                         </div>
                     </div>
                 ))}
