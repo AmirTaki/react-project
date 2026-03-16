@@ -63,6 +63,7 @@ import CreateFooterMenu from './Compnonet/panelAdmin/footer/menuFooter/create'
 import EditFooterMenu from './Compnonet/panelAdmin/footer/menuFooter/edit'
 import MenuItemFooterPanelAdmin from './Compnonet/panelAdmin/footer/menuItemFooter'
 import CreateFooterMenuItems from './Compnonet/panelAdmin/footer/menuItemFooter/create'
+import EditFooterMenuItems from './Compnonet/panelAdmin/footer/menuItemFooter/edit'
 
 function App() {
   return (
@@ -175,6 +176,7 @@ function App() {
         {/* panelAdmin -> footer -> menu Item Footer : footer(WhiteBoard) */}
         <Route path = "/panelAdmin/footer/menuItemWhiteBoard"  element = {<MenuItemFooterPanelAdmin />}></Route>
         <Route path = "/panelAdmin/footer/AddMenuItemiteBoard"  element = {<CreateFooterMenuItems />}></Route>
+        <Route path = "/panelAdmin/footer/EditMenuItemWhiteBoard/:id/edit"  element = {<EditFooterMenuItems />}></Route>
       </Routes>
     </BrowserRouter>
   
